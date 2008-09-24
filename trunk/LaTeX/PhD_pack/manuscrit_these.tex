@@ -1,0 +1,84 @@
+% Toujours indiquer l'option hyper pour avoir des liens dans le pdf et le dvi.
+
+% Pour creer un pdf directement, ajouter l'option pdf (mais on ne peut alors pas mettre de
+% figures ps ou eps, il faut utiliser a posteriori dvipdf) pour les figures, utiliser
+% des jpg, pdf et png.
+
+% l'option upmc creer une page de garde style Universite Paris VI
+%   dans ce cas les parametres a inserer avant begin{document} sont: \title, \author,
+%   \university, \speciality, \submitteddate, \jury, \labs
+% Voir l'entete de thesis.cls pour le détail.
+
+\documentclass[hyper,upmc,cot]{thesis}
+
+% % PDF de qualité (si option pdf dans la class du document):
+\usepackage[pdftex,
+    bookmarks=true,
+    bookmarksnumbered=true,
+    pdfpagemode=None,
+    pdfstartview=FitH,
+    pdfpagelayout=doublepage,
+    colorlinks=true,
+    urlcolor=blue,
+%    pdfborder={0 0 0},
+   ]{hyperref}
+
+% Si on veut se la peter avec un index:
+%\usepackage{makeidx}
+%\makeindex
+
+% Informations document PDF:
+\hypersetup{ % Infos
+   pdfauthor={Ton nom},
+   pdftitle={Un titre},
+   pdfsubject={Manuscrit de thèse},
+   pdfkeywords={},
+   pdfcreator={pdftex}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INFOS PAGE DE GARDE:
+\university{TASMAL}
+\universityb{DE JAIBOBO}
+\speciality{Glandologie}
+\author{ben c'est toi}
+\title{Ca en dit long sur tout ce que \\
+       tu as pu faire \\[2mm]
+       en 3 ans}
+\submitteddate{de la saint glin-glin}
+\jury{{\large LA STAR      } & {\large Directeur de thèse}   \\
+      {\large LA SOUS-STAR } & {\large Co-directeur de thèse}\\
+      {\large LE TUEUR 1   } & {\large Rapporteur }\\
+      {\large LE TUEUR 2   } & {\large Rapporteur} \\
+      {\large LE TUEUR 3   } & {\large Examinateur }\\
+      {\large LE TUEUR 4   } & {\large Examinateur }\\
+      {\large ET POURQUOI PAS UN PIC ASSIETTE} & {\large Invit\'e } }
+\labs{ {\large Ton laboratoire }}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN DOCUMENT
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\input{resume_fr}
+\input{resume_en}
+\input{ch1_introduction}
+\input{ch2_coucouA}
+\input{ch3_coucouB}
+\input{ch4_conclusion}
+\input{annexes}
+
+\bibliographystyle{thesis} 
+\bibliography{./codeREVUES,./biblio}
+
+\input{lastpage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
