@@ -13,6 +13,10 @@
 %	ht: returns a handle to the text legend of points
 %  axl: returns a structure of handles of axis labels
 %
+% EXAMPLE:
+%	Check scripts: taylordiag_test.m
+%   (See at: http://code.google.com/p/guillaumemaze)
+%
 % LIST OF OPTIONS:
 %
 % 'Npan'
