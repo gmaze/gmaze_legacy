@@ -1,27 +1,14 @@
-% h = footnote([TEXT])
+% h = pfootnote([TEXT])
 %
 % Add a footnote to a plot.
 % By default, add the date with the path
 % if TEXT='del', just remove the existing footnote
 %
 % Created by Guillaume Maze on 2008-09-16.
-% Copyright (c) 2008 Guillaume Maze. 
+% Copyright (c) 2008 Guillaume Maze. All rights reserved.
 % INSPIRED BY THE SUPTITLE FUNCTION OF: Drea Thomas 6/15/95 drea@mathworks.com
 %
 
-% Copyright (c) 2008 Guillaume Maze. 
-% This file is part of "The-Matlab-Show"
-% The-Matlab-Show is free software: you can redistribute it and/or modify
-% it under the terms of the GNU General Public License as published by
-% the Free Software Foundation, either version 3 of the License, or
-% any later version.
-% Foobar is distributed in the hope that it will be useful,
-% but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-% GNU General Public License for more details.
-% You should have received a copy of the GNU General Public License
-% along with The-Matlab-Show.  If not, see <http://www.gnu.org/licenses/>.
-%
 function varargout = footnote(varargin)
 	
 if nargin == 1	
@@ -30,7 +17,7 @@ else
 	we = wherearewe;
 	str = datestr(now,'dd-mmm-yyyy HH:MM');
 %	str = sprintf('%s\n%s',str,pwd);
-	str = sprintf(' guillaume.maze@gmail.com (%s)\n %s:/%s',str,wherearewe,pwd);
+	str = sprintf(' code@guillaumemaze.org (%s)\n %s:/%s',str,wherearewe,pwd);
 end	
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
