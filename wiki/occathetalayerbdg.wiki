@@ -10,7 +10,7 @@ This package was developed by Guillaume Maze and Gael Forget at MIT (Cambridge, 
 You can browse it here:
 http://code.google.com/p/guillaumemaze/source/browse/trunk/OCCA/Tlayer_budget
 
-== Requirement ==
+== Requirements ==
 
 To perform this analysis you'll need:
   * From the OCCA state estimate release 0 or 1 the fields: 
