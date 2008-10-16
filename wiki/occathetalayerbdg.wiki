@@ -1,0 +1,41 @@
+= Introduction =
+
+This is a set of matlab and fortran routines to compute a thermal layer volume budget over a subdomain of the global ocean from the OCCA state estimate.
+
+This package was developed by Guillaume Maze and Gael Forget at MIT (Cambridge, USA) for the ECCO group and the CLIMODE project.
+
+= Requirement =
+
+To perform this analysis you'll need:
+  * From the OCCA state estimate release 0 or 1 the fields: 
+{{{
+% THETA   | 50 |SM|degC            |Potential Temperature
+% TENDT   | 50 |SM|degC/d          |Tendency of Potential Temperature
+% ZADVT   | 51 |WM|degC.m^3/s      |Vertical   Advective Flux of Pot.Temp
+% XADVT   | 50 |UU|degC.m^3/s      |Zonal      Advective Flux of Pot.Temp
+% YADVT   | 50 |VV|degC.m^3/s      |Meridional Advective Flux of Pot.Temp
+% XDIFT   | 51 |WM|degC.m^3/s      |Vertical   Diffusive Flux of Pot.Temp (Explicit part)
+% ZDIFTI  | 51 |WM|degC.m^3/s      |Vertical   Diffusive Flux of Pot.Temp (Implicit part)
+% XDIFT   | 50 |UU|degC.m^3/s      |Zonal      Diffusive Flux of Pot.Temp
+% YDIFT   | 50 |VV|degC.m^3/s      |Meridional Diffusive Flux of Pot.Temp
+% GTABT   | 50 |SM|degC/s          |Tendency of Potential Temp. added by the Adams Bashforth Scheme
+% GTFT    | 50 |SM|degC/s          |Tendency of Potential Temp. due to air-sea heat fluxes
+% GHATT   | 51 |WM|degC.m^3/s      |Non-local transport term of KPP as a temperature flux
+% DSSHT   | 51 |WM|degC.m^3/s      |Vertical flux of Pot.temp due to Sea Level Change
+}}}
+  These are normally defined on a 360*160*50 grid points, daily from 2003/11/1 to 2006/11/3 (1099 days). You can download the datas here: 
+
+  * This package. To download it, go to your working directory and type:
+
+`svn checkout http://guillaumemaze.googlecode.com/svn/trunk/OCCA/Tlayer_budget Tlayer_budget`
+
+
+= Help =
+
+There are 2 steps in the computation
+
+== Step 1 ==
+Into *Tlayer_budget/step1* you have to tune the header of the function *extract_subdomain.m* to match your environment. 
+
+Variables that need to be tuned are:
+  *  *pathi*: this is where we find input fields
