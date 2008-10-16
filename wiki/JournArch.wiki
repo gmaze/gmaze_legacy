@@ -17,7 +17,7 @@ http://scripts.mit.edu/~gmaze/www/index.php?page_id=673
 
 = Scanned journals =
 
-This is the list of journal you can browse with the widget:
+This is the list of journals you can browse with the online version:
 
 ||Journal of the Atmospheric Sciences||
 ||Journal of Climate||						
