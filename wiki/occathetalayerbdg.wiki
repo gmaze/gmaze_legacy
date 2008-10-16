@@ -7,6 +7,9 @@ This is a set of matlab and fortran routines to compute a thermally defined laye
 
 This package was developed by Guillaume Maze and Gael Forget at MIT (Cambridge, USA) for the ECCO group and the CLIMODE project.
 
+You can browse it here:
+http://code.google.com/p/guillaumemaze/source/browse/trunk/OCCA/Tlayer_budget
+
 == Requirement ==
 
 To perform this analysis you'll need:
