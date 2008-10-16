@@ -1,3 +1,4 @@
+#labels Phase-Deploy
 = Introduction =
 
 This is a set of matlab and fortran routines to compute a thermal layer volume budget over a subdomain of the global ocean from the OCCA state estimate.
@@ -23,7 +24,7 @@ To perform this analysis you'll need:
 % GHATT   | 51 |WM|degC.m^3/s      |Non-local transport term of KPP as a temperature flux
 % DSSHT   | 51 |WM|degC.m^3/s      |Vertical flux of Pot.temp due to Sea Level Change
 }}}
-  These are normally defined on a 360*160*50 grid points, daily from 2003/11/1 to 2006/11/3 (1099 days). You can download the datas here: 
+  These are normally defined on a 360*160*50 grid points, daily from 2003/11/1 to 2006/11/3 (1099 days). You can download OCCA here: http://www.ecco-group.org/products.htm or email Gael Forget.
 
   * This package. To download it, go to your working directory and type:
 
@@ -32,10 +33,15 @@ To perform this analysis you'll need:
 
 = Help =
 
-There are 2 steps in the computation
+There are 2 steps in the computation. Step 1 extracts a subdomain of the Atlas, Step 2 compute the budget with a 3D interpolation of all fields.
 
 == Step 1 ==
 Into *Tlayer_budget/step1* you have to tune the header of the function *extract_subdomain.m* to match your environment. 
 
 Variables that need to be tuned are:
-  *  *pathi*: this is where we find input fields
+  *  *pathi*: this is where we find input fields (original theta and flux of temp. fields)
+  *  *patho*: this is where we print out fields restricted to the subdomain.
+  *  *subdomain*: this table defines the subdomain. It has the format:`[ixWest ixEast iySouth iyNorth izTop izBottom]`. For example: `subdomain = [122 200 90 130 1 25];` extract the Kuroshio region.
+
+You may want to tune the subfunction *wherearewe* to match your machine.
+You may also want to use a special mask for your domain of analysis. You can do so by looking at the subfunction *extract*.
