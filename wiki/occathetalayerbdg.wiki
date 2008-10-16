@@ -1,9 +1,9 @@
 #labels Phase-Deploy
-= OCCA Isothermal layers: a volume budget =
+= Isothermal layers volume budget with OCCA =
 
 == Introduction ==
 
-This is a set of matlab and fortran routines to compute a thermal layer volume budget over a subdomain of the global ocean from the OCCA state estimate.
+This is a set of matlab and fortran routines to compute a thermally defined layer volume budget over a subdomain of the global ocean from the OCCA state estimate.
 
 This package was developed by Guillaume Maze and Gael Forget at MIT (Cambridge, USA) for the ECCO group and the CLIMODE project.
 
@@ -26,7 +26,7 @@ To perform this analysis you'll need:
 % GHATT   | 51 |WM|degC.m^3/s      |Non-local transport term of KPP as a temperature flux
 % DSSHT   | 51 |WM|degC.m^3/s      |Vertical flux of Pot.temp due to Sea Level Change
 }}}
-  These are normally defined on a 360*160*50 grid points, daily from 2003/11/1 to 2006/11/3 (1099 days). You can download OCCA here: http://www.ecco-group.org/products.htm or email Gael Forget.
+  These are normally defined on a 360x160x50 grid points, daily from 2003/11/1 to 2006/11/3 (1099 days). You can download OCCA here: http://www.ecco-group.org/products.htm or email Gael Forget.
 
   * This package. To download it, go to your working directory and type:
 
@@ -38,7 +38,7 @@ To perform this analysis you'll need:
 There are 2 steps in the computation. Step 1 extracts a subdomain of the Atlas, Step 2 compute the budget with a 3D interpolation of all fields.
 
 === Step 1 ===
-Into *Tlayer_budget/step1* you have to tune the header of the function *extract_subdomain.m* to match your environment. 
+  1. Into *Tlayer_budget/step1* you have to tune the header of the function *extract_subdomain.m* to match your environment. 
 
 Variables that need to be tuned are:
   *  *pathi*: this is where we find input fields (original theta and flux of temp. fields)
@@ -46,4 +46,26 @@ Variables that need to be tuned are:
   *  *subdomain*: this table defines the subdomain. It has the format:`[ixWest ixEast iySouth iyNorth izTop izBottom]`. For example: `subdomain = [122 200 90 130 1 25];` extract the Kuroshio region.
 
 You may want to tune the subfunction *wherearewe* to match your machine.
-You may also want to use a special mask for your domain of analysis. You can do so by looking at the subfunction *extract*.
+You may also want to use a special mask for your domain of analysis. You can do so by looking at the subfunction *extract*. Finally, if you have a fancy OCCA dataset, you may have to tune how the routine name the input files. Check at variables *prefi*, *suffi* and the subfunction *open_files*.
+
+Last, the function *extract_subdomain.m* takes as an argument a number which correspond to particular set of fields to extract:
+{{{
+% 1: theta and volume elements
+% 2: Tendency Native
+% 3: Tendency Artificial
+% 4: Air-sea heat flux
+% 5: All other terms (ssh, gtabt, ghatt)
+% 6: total advection terms
+% 7: total diffusion terms
+}}}
+
+  2. The routine *create_queue_scripts.m* create a set of script files to submit the function to a SGE queuing system. It also create a shell script to submit all in one command. What you have to tune in *create_queue_scripts.m* are the variables:
+*workdir* (this is where the *extract_subdomain.m* routine is located) and
+*matlabpath* (this is where the job has to look for to find Matlab).
+
+
+=== Step 2 ===
+
+  1. You first have to create a set of time line files to indicate the fortran routine when you want the budget to be computed. This is done with the *create_timeline.m* routine where you only have to tune the variable *patho* to indicate where the time line files will be created.
+
+  2. 
