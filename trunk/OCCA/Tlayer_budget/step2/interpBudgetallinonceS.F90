@@ -1,6 +1,6 @@
 ! COMPUTE THE VOLUME BUDGET FOR EACH TERM, DAILY INTERPOLATING AT 1/12 AND STORING AT 1/4
 
-! Created by Guillaume Maze on 2008-09-30.
+! Created by Gael Forget and Guillaume Maze on 2008-09-30.
 ! Copyright (c) 2008 Guillaume Maze. 
 ! http://www.guillaumemaze.org/codes
 
