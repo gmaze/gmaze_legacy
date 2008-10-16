@@ -1,4 +1,4 @@
-= JournArch =
+= Author + Year + Journal = A Ref in 2 sec ! =
 
 Tired of looking for this Journal of Climate paper by John Doe in 1996 ? 
 
