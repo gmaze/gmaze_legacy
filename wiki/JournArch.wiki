@@ -1,0 +1,7 @@
+= JournArch =
+
+Tired of looking for this Journal of Climate paper by John Doe in 1996 ? Check this widget to access online archive of the most common geophysical research journals.
+
+= Download =
+
+The version 2 is available here: http://guillaumemaze.googlecode.com/files/JournArch.v2.zip
