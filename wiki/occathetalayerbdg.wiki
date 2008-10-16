@@ -1,11 +1,13 @@
 #labels Phase-Deploy
-= Introduction =
+= OCCA Isothermal layers: a volume budget =
+
+== Introduction ==
 
 This is a set of matlab and fortran routines to compute a thermal layer volume budget over a subdomain of the global ocean from the OCCA state estimate.
 
 This package was developed by Guillaume Maze and Gael Forget at MIT (Cambridge, USA) for the ECCO group and the CLIMODE project.
 
-= Requirement =
+== Requirement ==
 
 To perform this analysis you'll need:
   * From the OCCA state estimate release 0 or 1 the fields: 
@@ -31,11 +33,11 @@ To perform this analysis you'll need:
 `svn checkout http://guillaumemaze.googlecode.com/svn/trunk/OCCA/Tlayer_budget Tlayer_budget`
 
 
-= Help =
+== Help ==
 
 There are 2 steps in the computation. Step 1 extracts a subdomain of the Atlas, Step 2 compute the budget with a 3D interpolation of all fields.
 
-== Step 1 ==
+=== Step 1 ===
 Into *Tlayer_budget/step1* you have to tune the header of the function *extract_subdomain.m* to match your environment. 
 
 Variables that need to be tuned are:
