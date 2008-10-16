@@ -1,4 +1,10 @@
 = Stationnary/Propagative components decomposition of a Longitude/Time signal with Fourier harmonics =
 
-Check here:
+Check here for the documentation:
 http://www.guillaumemaze.org/codes/wse-decomp
+
+The fortran code is here:
+http://code.google.com/p/guillaumemaze/source/browse/trunk/fortran/WSEdecomp
+
+And the Matlab version here:
+http://code.google.com/p/guillaumemaze/source/browse/trunk/matlab/WSEdecomp
