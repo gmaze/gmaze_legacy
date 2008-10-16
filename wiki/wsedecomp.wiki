@@ -1,0 +1,4 @@
+= Stationnary/Propagative components decomposition of a Longitude/Time signal with Fourier harmonics =
+
+Check here:
+http://www.guillaumemaze.org/codes/wse-decomp
