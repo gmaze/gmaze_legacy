@@ -4,7 +4,9 @@
 == Download ==
 
 Check the svn here:
+
 http://code.google.com/p/guillaumemaze/source/browse/trunk/matlab/PCAtool/ 
 
 Or checkout here:
+
 `svn checkout http://code.google.com/p/guillaumemaze/source/browse/trunk/matlab/PCAtool/ gmaze_PCAtool`
