@@ -11,61 +11,100 @@ This package was developed by Guillaume Maze and Gael Forget at MIT (Cambridge, 
 
 To perform this analysis you'll need:
   * From the OCCA state estimate release 0 or 1 the fields: 
-{{{
-% THETA   | 50 |SM|degC            |Potential Temperature
-% TENDT   | 50 |SM|degC/d          |Tendency of Potential Temperature
-% ZADVT   | 51 |WM|degC.m^3/s      |Vertical   Advective Flux of Pot.Temp
-% XADVT   | 50 |UU|degC.m^3/s      |Zonal      Advective Flux of Pot.Temp
-% YADVT   | 50 |VV|degC.m^3/s      |Meridional Advective Flux of Pot.Temp
-% XDIFT   | 51 |WM|degC.m^3/s      |Vertical   Diffusive Flux of Pot.Temp (Explicit part)
-% ZDIFTI  | 51 |WM|degC.m^3/s      |Vertical   Diffusive Flux of Pot.Temp (Implicit part)
-% XDIFT   | 50 |UU|degC.m^3/s      |Zonal      Diffusive Flux of Pot.Temp
-% YDIFT   | 50 |VV|degC.m^3/s      |Meridional Diffusive Flux of Pot.Temp
-% GTABT   | 50 |SM|degC/s          |Tendency of Potential Temp. added by the Adams Bashforth Scheme
-% GTFT    | 50 |SM|degC/s          |Tendency of Potential Temp. due to air-sea heat fluxes
-% GHATT   | 51 |WM|degC.m^3/s      |Non-local transport term of KPP as a temperature flux
-% DSSHT   | 51 |WM|degC.m^3/s      |Vertical flux of Pot.temp due to Sea Level Change
-}}}
+|| *File name* || *Z levels* || *Grid* || *Unit* || *Definition* ||
+|| THETA   || 50 ||SM||degC            ||Potential Temperature||
+|| TENDT   || 50 ||SM||degC/d          ||Tendency of Potential Temperature||
+|| ZADVT   || 51 ||WM||degC.m^3/s      ||Vertical   Advective Flux of Pot.Temp||
+|| XADVT   || 50 ||UU||degC.m^3/s      ||Zonal      Advective Flux of Pot.Temp||
+|| YADVT   || 50 ||VV||degC.m^3/s      ||Meridional Advective Flux of Pot.Temp||
+|| XDIFT   || 51 ||WM||degC.m^3/s      ||Vertical   Diffusive Flux of Pot.Temp (Explicit part)||
+|| ZDIFTI  || 51 ||WM||degC.m^3/s      ||Vertical   Diffusive Flux of Pot.Temp (Implicit part)||
+|| XDIFT   || 50 ||UU||degC.m^3/s      ||Zonal      Diffusive Flux of Pot.Temp||
+|| YDIFT   || 50 ||VV||degC.m^3/s      ||Meridional Diffusive Flux of Pot.Temp||
+|| GTABT   || 50 ||SM||degC/s          || Tendency of Potential Temp. added by the Adams Bashforth Scheme||
+|| GTFT    || 50 ||SM||degC/s          || Tendency of Potential Temp. due to air-sea heat fluxes||
+|| GHATT   || 51 ||WM||degC.m^3/s      || Non-local transport term of KPP as a temperature flux||
+|| DSSHT   || 51 ||WM||degC.m^3/s      || Vertical flux of Pot.temp due to Sea Level Change||
+
   These are normally defined on a 360x160x50 grid points, daily from 2003/11/1 to 2006/11/3 (1099 days). You can download OCCA here: http://www.ecco-group.org/products.htm or email Gael Forget.
 
   * This package. To download it, go to your working directory and type:
 
-`svn checkout http://guillaumemaze.googlecode.com/svn/trunk/OCCA/Tlayer_budget Tlayer_budget`
+    `svn checkout http://guillaumemaze.googlecode.com/svn/trunk/OCCA/Tlayer_budget Tlayer_budget`
 
 
 == Help ==
 
-There are 2 steps in the computation. Step 1 extracts a subdomain of the Atlas, Step 2 compute the budget with a 3D interpolation of all fields.
+There are 2 steps in the computation. Step 1 extracts a subdomain of the Atlas, Step 2 computes the budget with a 3D interpolation of all fields.
 
 === Step 1 ===
-  1. Into *Tlayer_budget/step1* you have to tune the header of the function *extract_subdomain.m* to match your environment. 
+  * Into *Tlayer_budget/step1* you have to tune the header of the function *extract_subdomain.m* to match your environment. 
+  Variables that need to be tuned are:
+      *  *pathi*: this is where we find input fields (original theta and flux of temp. fields)
+      *  *patho*: this is where we print out fields restricted to the subdomain.
+      *  *subdomain*: this table defines the subdomain. It has the format:`[ixWest ixEast iySouth iyNorth izTop izBottom]`. For example: `subdomain = [122 200 90 130 1 25];` extract the Kuroshio region.
+  You may want to tune the subfunction *wherearewe* to match your machine. You may also want to use a special mask for your domain of analysis. You can do so by looking at the subfunction *extract*. Finally, if you have a fancy OCCA dataset, you may have to tune how the routine name the input files. Check at variables *prefi*, *suffi* and the subfunction *open_files*.
+  Last, the function *extract_subdomain.m* takes as an argument a number which correspond to a particular set of fields to extract:
+|| *Argument* || *Fields processed* ||
+|| 1|| Theta and volume elements||
+|| 2|| Tendency Native||
+|| 3|| Tendency Artificial||
+|| 4|| Air-sea heat flux||
+|| 5|| All other terms (ssh, gtabt, ghatt)||
+|| 6|| Total and individual advection terms||
+|| 7|| Total and individual diffusion terms||
 
-Variables that need to be tuned are:
-  *  *pathi*: this is where we find input fields (original theta and flux of temp. fields)
-  *  *patho*: this is where we print out fields restricted to the subdomain.
-  *  *subdomain*: this table defines the subdomain. It has the format:`[ixWest ixEast iySouth iyNorth izTop izBottom]`. For example: `subdomain = [122 200 90 130 1 25];` extract the Kuroshio region.
-
-You may want to tune the subfunction *wherearewe* to match your machine.
-You may also want to use a special mask for your domain of analysis. You can do so by looking at the subfunction *extract*. Finally, if you have a fancy OCCA dataset, you may have to tune how the routine name the input files. Check at variables *prefi*, *suffi* and the subfunction *open_files*.
-
-Last, the function *extract_subdomain.m* takes as an argument a number which correspond to particular set of fields to extract:
-{{{
-% 1: theta and volume elements
-% 2: Tendency Native
-% 3: Tendency Artificial
-% 4: Air-sea heat flux
-% 5: All other terms (ssh, gtabt, ghatt)
-% 6: total advection terms
-% 7: total diffusion terms
-}}}
-
-  2. The routine *create_queue_scripts.m* create a set of script files to submit the function to a SGE queuing system. It also create a shell script to submit all in one command. What you have to tune in *create_queue_scripts.m* are the variables:
+  * The routine *create_queue_scripts.m* create a set of script files to submit the function to a SGE queuing system. It also create a shell script to submit all in one command. What you have to tune in *create_queue_scripts.m* are the variables:
 *workdir* (this is where the *extract_subdomain.m* routine is located) and
 *matlabpath* (this is where the job has to look for to find Matlab).
 
 
 === Step 2 ===
 
-  1. You first have to create a set of time line files to indicate the fortran routine when you want the budget to be computed. This is done with the *create_timeline.m* routine where you only have to tune the variable *patho* to indicate where the time line files will be created.
+  * You first have to create a set of time line files to indicate the fortran routine when you want the budget to be computed (the full time serie, only januaries, etc ...). This is done with the *create_timeline.m* routine where you only have to tune the variable *patho* to indicate where the time line files will be created.
 
-  2. 
+
+  * Next, you have to create the parameters files for the fortran code with: *create_param_files.m*. There are several variables to be tuned here:
+    * *patho*: This is where we print the param files
+    * *homedir*: This is what we replace with the ~ into paths in order to deal with absolute paths.
+    * *tmp_path*: This is where the fortan code will print out the results
+    * *lrf_path*: This is where the fortran code looks for input fields (coming from step 1)
+    * *time_path*: This is where the fortran code looks for the time line.
+  Then you have to select parameters for *klist* and *tlist* variables. They select what are the field(s) you want to compute the budget of and the time lines to use.
+    *klist* can contain one of the following:
+|| *klist* || *Subdomain file analysed* (default name) ||
+|| 1 || LRvol.3yV2adv.bin  ||
+|| 2 || LRtheta.3yV2adv.bin (NOT OK !) ||
+|| 3 || LRadvTOT.3yV2adv.bin  ||
+|| 4 || LRdiffTOT.3yV2adv.bin  ||
+|| 5 || LRairsea3D.3yV2adv.bin  ||
+|| 6 || LRtendNATIVE.3yV2adv.bin  ||
+|| 7 || LRtendARTIF.3yV2adv.bin  ||
+|| 8 || LRallotherTOT.3yV2adv.bin  ||
+|| 9 || LRadvX.3yV2adv.bin  ||
+||10 || LRadvY.3yV2adv.bin  ||
+||11 || LRadvZ.3yV2adv.bin  ||
+||12 || LRdifX.3yV2adv.bin  ||
+||13 || LRdifY.3yV2adv.bin  ||
+||14 || LRdifZ.3yV2adv.bin  ||
+||15 || LRdifIZ.3yV2adv.bin  ||
+||16 || LRghat.3yV2adv.bin  || 
+
+    and *tlist* can contain:
+|| *tlist* || *Time line* (default name) ||
+|| 1 || Annual||
+|| 2 || JFM||
+|| 3 || JJA||
+|| 4 || Jan||
+|| 5 || Feb||
+||...||...||
+
+  * Next, you may need to create scripts to launch the fortran routine with a SGE queuing system. Use the *create_launch_scripts.m* routine to do it. You need to tune the variables:
+    * *patho*: This is where we print the queue files
+    * *prog_to_compile*: This is the fortran code to compute the budget terms. If you didn't changed it from this package it is: interpBudgetallinonceS.F90
+    * *prog_to_run*: This is compiled name of the code (by default: intBdgS_ifort)
+    * *workdir*: This is the root dir, ie where the fortran code is and where are directories of parameters and queue scripts.
+    * *klist* and *tlist*: Set up them as in *create_param_files.m*.
+
+  * Last but not least, you need to tune the domain size and interpolation parameters in the fortran code: *interpBudgetallinonceS.F90*. The domain size (number of grid points in each directions) is fixed in the module _mysizes_.
+
