@@ -160,6 +160,7 @@ For each field, you have two output files: the one with 'timeseries' in the name
   % Mq contains the map of formation rate due to air-sea heat fluxes.
 
   % Note that the total integral of Mq must match the last value of Vq.
+  % For all fields, the unit is Sv.y = 10^6*86400*365 ~ 3.15x10^13 m^3  
 }}}
 
 
