@@ -114,6 +114,8 @@ There are 2 steps in the computation. Step 1 extracts a subdomain of the Atlas, 
 }}}
   Interpolation parameters are *nb_in* and *nbIn2Out*. *nb_in* is the factor by which the program will multiply the number of grid points. Starting from the 1x1 degree Atlas, *nb_in=12* will interpolate the field to a 1/12 degree grid. The other parameter *nbIn2Out* sets the factor by which the interpolated fields are scaled for the output fields. *nbIn2Out=3* will produce records on a 12/3=4, ie 1/4 degree grid. *_IMPORTANT_*: both *nb_in* and the result of *nb_in/nbIn2Out* must be even numbers (multiple of 2).
 
+  * I almost forgot, you have to define the temperatures embedding the layer you're budgeting. Tune the parameters *THETAlow* and *THETAhig* in the fortran code.
+
   * You finally need to be sure your machine has the intel fortran compiler. Otherwise you'll need to tune the compilation line in the queue script files.
 
 === Extra ===
