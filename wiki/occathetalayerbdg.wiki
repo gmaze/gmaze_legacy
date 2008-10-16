@@ -106,5 +106,12 @@ There are 2 steps in the computation. Step 1 extracts a subdomain of the Atlas, 
     * *workdir*: This is the root dir, ie where the fortran code is and where are directories of parameters and queue scripts.
     * *klist* and *tlist*: Set up them as in *create_param_files.m*.
 
-  * Last but not least, you need to tune the domain size and interpolation parameters in the fortran code: *interpBudgetallinonceS.F90*. The domain size (number of grid points in each directions) is fixed in the module _mysizes_.
+  * Last but not least, you need to tune the domain size and interpolation parameters in the fortran code: *interpBudgetallinonceS.F90*. The domain size (number of grid points in each directions) is fixed in the module _mysizes_. You must have:
+{{{
+    jpi = diff(subdomain(1:2))+1;
+    jpj = diff(subdomain(3:4))+1;
+    jpk = diff(subdomain(5:6))+1;
+}}}
+  Interpolation parameters are *nb_in* and *nbIn2Out*. *nb_in* is the factor by which the program will multiply the number of grid points. Starting from the 1x1 degree Atlas, *nb_in=12* will interpolate the field to a 1/12 degree grid. The other parameter *nbIn2Out* sets the factor by which the interpolated fields are scaled for the output fields. *nbIn2Out=3* will produce records on a 12/3=4, ie 1/4 degree grid. *_IMPORTANT_*: both *nb_in* and the result of *nb_in/nbIn2Out* must be even numbers (multiple of 2).
 
+  * You finally need to be sure your machine has the intel fortran compiler. Otherwise you'll need to tune the compilation line in the queue script files.
