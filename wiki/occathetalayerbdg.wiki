@@ -59,8 +59,7 @@ There are 2 steps in the computation. Step 1 extracts a subdomain of the Atlas, 
 || 6|| Total and individual advection terms||
 || 7|| Total and individual diffusion terms||
 
-  * The routine *create_queue_scripts.m* create a set of script files to submit the function to a SGE queuing system. It also create a shell script to submit all in one command. What you have to tune in *create_queue_scripts.m* are the variables: *workdir* (this is where the *extract_subdomain.m* routine is located) and
-*matlabpath* (this is where the job has to look for to find Matlab).
+  * The routine *create_queue_scripts.m* create a set of script files to submit the function to a SGE queuing system. It also create a shell script to submit all in one command. What you have to tune in *create_queue_scripts.m* are the variables: *workdir* (this is where the *extract_subdomain.m* routine is located) and *matlabpath* (this is where the job has to look for to find Matlab).
 
 
 === Step 2 ===
@@ -75,8 +74,7 @@ There are 2 steps in the computation. Step 1 extracts a subdomain of the Atlas, 
     * *lrf_path*: This is where the fortran code looks for input fields (coming from step 1)
     * *time_path*: This is where the fortran code looks for the time line.
   Then you have to select parameters for *klist* and *tlist* variables. They select what are the field(s) you want to compute the budget of and the time lines to use.
-
-    *klist* can contain one of the following:
+    The variable *klist* can contain one of the following:
 || *klist* || *Subdomain file analysed* (default name) ||
 || 1 || LRvol.3yV2adv.bin  ||
 || 2 || LRtheta.3yV2adv.bin (NOT OK !) ||
