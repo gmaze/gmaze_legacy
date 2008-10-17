@@ -31,6 +31,8 @@ To perform this analysis you'll need:
 
   These are normally defined on a 360x160x50 grid points, daily from 2003/11/1 to 2006/11/3 (1099 days). You can download OCCA here: http://www.ecco-group.org/products.htm or email Gael Forget.
 
+  * All the grid files of OCCA.
+
   * This package. To download it, go to your working directory and type:
 
     `svn checkout http://guillaumemaze.googlecode.com/svn/trunk/OCCA/Tlayer_budget Tlayer_budget`
