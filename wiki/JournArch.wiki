@@ -2,18 +2,41 @@
 
 Tired of looking for this Journal of Climate paper by John Doe in 1996 ? 
 
-Check this widget to access online archive of the most common geophysical research journals.
+Check this web application to access online archive of the most common geophysical research journals.
 
+
+= Downloads =
+
+== Version 3.0 ==
+
+This version is only available online at: 
+http://scripts.mit.edu/~gmaze/www/index.php?page_id=673
+
+=== Snapshot ===
+
+
+== Version 2.0 ==
+
+=== Release informations ===
+This version gives access to online archives sorted by year of publications. 
+The new feature is a search engine to DOI, Google Scholar, AMS, EGU and EGS archives.
+
+This version is available only as a Mac Widget.
+Download it at: 
+http://guillaumemaze.googlecode.com/files/JournArch.v2.zip
+
+=== Snapshot ===
 http://scripts.mit.edu/%7Egmaze/blog/wp-content/uploads/2007/12/snapshot.jpg
 
-= Download =
 
-The version 2 is available here: http://guillaumemaze.googlecode.com/files/JournArch.v2.zip
+== Version 1.0 ==
 
-= Online version =
+=== Release informations ===
+This first version gives access to online archives sorted by year of publications.
 
-There is an online version, and more powerful, of the widget here:
-http://scripts.mit.edu/~gmaze/www/index.php?page_id=673
+=== Snapshot ===
+http://scripts.mit.edu/%7Egmaze/blog/wp-content/uploads/2007/12/img_sample.jpg
+
 
 = Scanned journals =
 
