@@ -13,7 +13,7 @@ This version is only available online at:
 http://scripts.mit.edu/~gmaze/www/index.php?page_id=673
 
 === Snapshot ===
-
+http://code.google.com/p/guillaumemaze/source/browse/trunk/JournArch/img/v3_online.jpg
 
 == Version 2.0 ==
 
