@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Skype Me" description="Add a Skype call button" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" width="680" height="860" scrolling="true">
+  <ModulePrefs title="Read my PhD" description="Read my PhD manuscript online with Scribd" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" width="680" height="860" scrolling="true">
 	<Require feature="flash" />
 </ModulePrefs>
 <Content type="html">
 	<![CDATA[
+
 	
-	<object codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" id="doc_875464593694673" name="doc_875464593694673" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" align="middle" height="800" width="600"> 
-		
-		<param name="movie" value="http://documents.scribd.com/ScribdViewer.swf?document_id=2077402&access_key=key-av7lrk3vkm8wwnmq8nt&page=1&version=1&viewMode=slideshow"> 
-		<param name="quality" value="high"> 
-		<param name="play" value="true"> 
-		<param name="loop" value="true"> 
-		<param name="scale" value="showall"> 
-		<param name="wmode" value="opaque"> 
-		<param name="devicefont" value="false"> 
-		<param name="bgcolor" value="#ffffff"> 
-		<param name="menu" value="false"> 
-		<param name="allowFullScreen" value="true"> 
-		<param name="allowScriptAccess" value="always"> 
-		<param name="salign" value=""> 
-		<param name="mode" value="book"> 
-						
-		<embed src="http://documents.scribd.com/ScribdViewer.swf?document_id=2077402&access_key=key-av7lrk3vkm8wwnmq8nt&page=1&version=1&viewMode=slideshow" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" play="true" loop="true" scale="showall" wmode="opaque" devicefont="false" bgcolor="#ffffff" name="doc_875464593694673_object" menu="true" allowfullscreen="true" allowscriptaccess="always" salign="" type="application/x-shockwave-flash" align="middle" mode="book" height="800" width="600"></embed> 
-	</object>
-	
+	<script type="text/javascript" src='http://www.scribd.com/javascripts/view.js'></script> 
+	<!-- The contents of this div will get replaced with the iPaper -->
+	<div id='embedded_flash' > 
+		My PhD Manuscript should appear here ...
+	</div>
+
+	<script type="text/javascript">
+		var scribd_doc = scribd.Document.getDoc(2077402, 'key-av7lrk3vkm8wwnmq8nt'); 
+		scribd_doc.addParam('height', 800);
+	  scribd_doc.addParam('width', 600);
+	  scribd_doc.addParam('page', 1);
+	  scribd_doc.addParam('mode', 'slideshow');
+	  scribd_doc.addParam('public', true);
+	  
+		scribd_doc.write('embedded_flash');  
+	</script>
+
+
+
+
 	]]>
 </Content>
 </Module>
