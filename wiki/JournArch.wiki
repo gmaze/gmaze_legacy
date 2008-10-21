@@ -6,7 +6,7 @@ Check this web application to access online archive of the most common geophysic
 
 
 = Downloads =
----
+----
 == Version 3.0 ==
 
 === Release informations ===
@@ -26,7 +26,7 @@ http://www.guillaumemaze.org/codes/journarch
 === Snapshot ===
 http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_screenshot.png
 
----
+----
 == Version 2.0 ==
 
 === Release informations ===
@@ -40,7 +40,7 @@ http://guillaumemaze.googlecode.com/files/JournArch.v2.zip
 === Snapshot ===
 http://scripts.mit.edu/%7Egmaze/blog/wp-content/uploads/2007/12/snapshot.jpg
 
----
+----
 == Version 1.0 ==
 
 === Release informations ===
@@ -49,7 +49,7 @@ This first version gives access to online archives sorted by year of publication
 === Snapshot ===
 http://scripts.mit.edu/%7Egmaze/blog/wp-content/uploads/2007/12/img_sample.jpg
 
----
+----
 = Scanned journals =
 
 This is the list of journals you can browse with the online version:
