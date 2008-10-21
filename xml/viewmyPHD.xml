@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Skype Me" description="Add a Skype call button" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" width="700" height="600" scrolling="true">
+  <ModulePrefs title="Skype Me" description="Add a Skype call button" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" width="680" height="620" scrolling="true">
 	<Require feature="flash" />
 </ModulePrefs>
-  <Content type="html"><![CDATA[
+<Content type="html">
+	<![CDATA[
 	
-	<object codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" id="doc_875464593694673" name="doc_875464593694673" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" align="middle" height="600" width="700"> 
+	<object codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" id="doc_875464593694673" name="doc_875464593694673" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" align="middle" height="600" width="600"> 
 		
 		<param name="movie" value="http://documents.scribd.com/ScribdViewer.swf?document_id=2077402&access_key=key-av7lrk3vkm8wwnmq8nt&page=1&version=1&viewMode=book"> 
 		<param name="quality" value="high"> 
@@ -21,8 +22,9 @@
 		<param name="salign" value=""> 
 		<param name="mode" value="book"> 
 						
-		<embed src="http://documents.scribd.com/ScribdViewer.swf?document_id=2077402&access_key=key-av7lrk3vkm8wwnmq8nt&page=1&version=1&viewMode=book" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" play="true" loop="true" scale="showall" wmode="opaque" devicefont="false" bgcolor="#ffffff" name="doc_875464593694673_object" menu="true" allowfullscreen="true" allowscriptaccess="always" salign="" type="application/x-shockwave-flash" align="middle" mode="book" height="600" width="700"></embed> 
+		<embed src="http://documents.scribd.com/ScribdViewer.swf?document_id=2077402&access_key=key-av7lrk3vkm8wwnmq8nt&page=1&version=1&viewMode=book" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" play="true" loop="true" scale="showall" wmode="opaque" devicefont="false" bgcolor="#ffffff" name="doc_875464593694673_object" menu="true" allowfullscreen="true" allowscriptaccess="always" salign="" type="application/x-shockwave-flash" align="middle" mode="book" height="600" width="600"></embed> 
 	</object>
 	
-	]]></Content>
+	]]>
+</Content>
 </Module>
