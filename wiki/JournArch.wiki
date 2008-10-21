@@ -19,14 +19,12 @@ Click on the following button to install it:
 
 [http://fusion.google.com/add?source=atgs&moduleurl=http%3A//guillaumemaze.googlecode.com/svn/trunk/JournArch/JournArch_v3.xml http://buttons.googlesyndication.com/fusion/add.gif]
 
-<a href="http://fusion.google.com/add?source=atgs&moduleurl=http%3A//guillaumemaze.googlecode.com/svn/trunk/JournArch/JournArch_v3.xml"><img src="http://buttons.googlesyndication.com/fusion/add.gif" border="0" alt="Add to Google"></a>
-
 You can also use it online without any installation at:
 
 http://www.guillaumemaze.org/codes/journarch
 
 === Snapshot ===
-http://guillaumemaze.googlecode.com/svn/trunk/JournArch/gJournArch_screenshot.png
+http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_screenshot.png
 
 == Version 2.0 ==
 
