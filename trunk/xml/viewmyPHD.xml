@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Read my PhD" description="Read my PhD manuscript online with Scribd" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" width="680" height="860" scrolling="true">
+  <ModulePrefs title="Read my PhD" description="Read my PhD manuscript online with Scribd" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" width="600" height="860" scrolling="true">
 	<Require feature="flash" />
 </ModulePrefs>
 <Content type="html">
@@ -16,9 +16,9 @@
 	<script type="text/javascript">
 		var scribd_doc = scribd.Document.getDoc(2077402, 'key-av7lrk3vkm8wwnmq8nt'); 
 		scribd_doc.addParam('height', 800);
-	  scribd_doc.addParam('width', 600);
+	  scribd_doc.addParam('width', 570);
 	  scribd_doc.addParam('page', 1);
-	  scribd_doc.addParam('mode', 'slideshow');
+	  scribd_doc.addParam('mode', 'list');
 	  scribd_doc.addParam('public', true);
 	  
 		scribd_doc.write('embedded_flash');  
