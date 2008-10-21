@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Read my PhD" description="Read my PhD manuscript online with Scribd" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" width="580" height="860" scrolling="true">
+  <ModulePrefs title="Maze et al, JGR 2006" description="Low-frequency variability in the Southern Ocean region in a simplified coupled model" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" width="580" height="860" scrolling="true">
 	<Require feature="flash" />
 </ModulePrefs>
 <Content type="html">
@@ -13,7 +13,7 @@
 		My PhD Manuscript should appear here ...
 	</div>
 	<script type="text/javascript">
-		var scribd_doc = scribd.Document.getDoc(2077402, 'key-av7lrk3vkm8wwnmq8nt'); 
+		var scribd_doc = scribd.Document.getDoc(2063838, 'key-ju7u1pok5ec245cpm2w'); 
 		scribd_doc.addParam('height', 800);
 	  scribd_doc.addParam('width', 570);
 	  scribd_doc.addParam('page', 1);
@@ -22,9 +22,6 @@
 	  
 		scribd_doc.write('embedded_flash');  
 	</script>
-
-
-
 
 	]]>
 </Content>
