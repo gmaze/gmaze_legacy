@@ -9,11 +9,22 @@ Check this web application to access online archive of the most common geophysic
 
 == Version 3.0 ==
 
-This version is only available online at: 
-http://scripts.mit.edu/~gmaze/www/index.php?page_id=673
+=== Release informations ===
+
+This new version is a simpler but more powerful search engine compared to previous versions. With this engine, you enter a name, a year (or a range of years) and select a journal, then the search engine gives you the archive entries matching your criteria.
+
+The 3rd version is a xml file you can use as a Google Gadget.
+
+Click on the following button to install it:
+
+[http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//guillaumemaze.googlecode.com/files/JournArch_v3.xml http://buttons.googlesyndication.com/fusion/add.gif ]
+
+You can also use it online without any installation at:
+
+http://www.guillaumemaze.org/codes/journarch
 
 === Snapshot ===
-http://guillaumemaze.googlecode.com/files/v3_online.jpg
+http://guillaumemaze.googlecode.com/files/gJournArch_screenshot.png
 
 == Version 2.0 ==
 
