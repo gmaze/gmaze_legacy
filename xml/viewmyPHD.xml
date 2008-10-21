@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Read my PhD" description="Read my PhD manuscript online with Scribd" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" width="580" height="860" scrolling="true">
+  <ModulePrefs title="Read my PhD" description="Read my PhD manuscript online with Scribd" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" width="580" height="860" scrolling="false">
 	<Require feature="flash" />
 </ModulePrefs>
 <Content type="html">
