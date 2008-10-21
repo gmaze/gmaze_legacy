@@ -15,12 +15,9 @@
 <Content type="html">
 	<![CDATA[
 	
-	<!--
-	Skype 'Skype Me™!' button
-	http://www.skype.com/go/skypebuttons
-	-->
-	<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
-	<a href="skype:gmazeoffice?call"><img src="http://download.skype.com/share/skypebuttons/buttons/call_blue_transparent_70x23.png" style="border: none;" width="70" height="23" alt="Skype Me™!" /></a>
+	<a href="skype:gmazeoffice?call">
+		<img src="http://download.skype.com/share/skypebuttons/buttons/call_blue_transparent_70x23.png" style="border: none;" width="70" height="23" alt="Skype Me™!" />
+	</a>
 	
 	
 	]]>
