@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Maze et al, JGR 2006" description="Low-frequency variability in the Southern Ocean region in a simplified coupled model" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" width="100%" height="700" scrolling="true">
+  <ModulePrefs title="Maze et al, JGR 2006" description="Low-frequency variability in the Southern Ocean region in a simplified coupled model" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" height="700" scrolling="true">
 	<Require feature="flash" />
 </ModulePrefs>
 <Content type="html">
