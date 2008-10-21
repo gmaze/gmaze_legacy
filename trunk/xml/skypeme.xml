@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+	<ModulePrefs title="JournArch v3.0"
+	description="Add a Skype call button"
+	author="Guillaume Maze" 
+	author_email="code@guillaumemaze.org"
+	author_link="http://www.guillaumemaze.org"
+	width="370"
+	height="135"
+	scrolling="false"
+	>
+</ModulePrefs>
+		
+
+<Content type="html">
+	<![CDATA[
+	
+	<!--
+	Skype 'Skype Me™!' button
+	http://www.skype.com/go/skypebuttons
+	-->
+	<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
+	<a href="skype:gmazeoffice?call"><img src="http://download.skype.com/share/skypebuttons/buttons/call_blue_transparent_70x23.png" style="border: none;" width="70" height="23" alt="Skype Me™!" /></a>
+	
+	
+	]]>
+
+</Content>
+
+</Module>
