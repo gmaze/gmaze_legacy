@@ -17,7 +17,9 @@ The 3rd version is a xml file you can use as a Google Gadget.
 
 Click on the following button to install it:
 
-[http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//guillaumemaze.googlecode.com/svn/trunk/JournArch/JournArch_v3.xml http://buttons.googlesyndication.com/fusion/add.gif ]
+[http://fusion.google.com/add?source=atgs&moduleurl=http%3A//guillaumemaze.googlecode.com/svn/trunk/JournArch/JournArch_v3.xml http://buttons.googlesyndication.com/fusion/add.gif]
+
+<a href="http://fusion.google.com/add?source=atgs&moduleurl=http%3A//guillaumemaze.googlecode.com/svn/trunk/JournArch/JournArch_v3.xml"><img src="http://buttons.googlesyndication.com/fusion/add.gif" border="0" alt="Add to Google"></a>
 
 You can also use it online without any installation at:
 
