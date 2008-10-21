@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-	<ModulePrefs title="JournArch v3.0"
+	<ModulePrefs title="Skype Me"
 	description="Add a Skype call button"
 	author="Guillaume Maze" 
 	author_email="code@guillaumemaze.org"
 	author_link="http://www.guillaumemaze.org"
-	width="370"
-	height="135"
+	width="70"
+	height="23"
 	scrolling="false"
 	>
 </ModulePrefs>
