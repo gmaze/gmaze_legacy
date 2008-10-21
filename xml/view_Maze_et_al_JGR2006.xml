@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Maze et al, JGR 2006" description="Low-frequency variability in the Southern Ocean region in a simplified coupled model" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" height="700" scrolling="true">
+  <ModulePrefs title="Maze et al, JGR 2006" description="Low-frequency variability in the Southern Ocean region in a simplified coupled model" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" height="860" width="580" scrolling="true">
 	<Require feature="flash" />
 </ModulePrefs>
 <Content type="html">
@@ -15,7 +15,8 @@
 		var scribd_doc = scribd.Document.getDoc(2063838, 'key-ju7u1pok5ec245cpm2w'); 
 	  scribd_doc.addParam('page', 1);
 	  scribd_doc.addParam('mode', 'list');
-	  scribd_doc.addParam('public', true);
+	  scribd_doc.addParam('public', true);	
+	  scribd_doc.addParam('width', 570);
 	  
 		scribd_doc.write('embedded_flash');  
 	</script>
