@@ -6,6 +6,7 @@
 	author_email="code@guillaumemaze.org"
 	author_link="http://www.guillaumemaze.org"
 	width="600"
+	height="2000"
 	scrolling="true"
 	>
 </ModulePrefs>
@@ -14,8 +15,6 @@
 <Content type="html">
 	<![CDATA[
 	
-		
-	<center><h1>Bibliography</h1></center>
 	<dl>	
 		<dd class="Pub">
 <table class="oneref" cellspacing="0" cellpadding="10" width="100%">
