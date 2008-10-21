@@ -10,27 +10,21 @@
 	width="370"
 	height="135"
 	scrolling="false"
-	 <Require feature="com.google.gadgets.analytics" /> 
-     <Require feature="setprefs" /> 
 	>
 </ModulePrefs>
 		
-  <UserPref 
-      name="counter"
-      datatype="hidden"
-      default_value="0" />
 
 <Content type="html">
 	<![CDATA[
 	
-    <script>
-    // Track this gadget using Google Analytics.
-    
-    // Creates a tracking object and uses reportPageview method to call gadget view
-    var ga = new _IG_GA("UA-5613459-9");
-    ga.reportPageview('/view/counterGadget');
-   
-    </script> 
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	var pageTracker = _gat._getTracker("UA-5613459-9");
+	pageTracker._trackPageview();
+	</script>
 
 
 	<div id="bodyB">
