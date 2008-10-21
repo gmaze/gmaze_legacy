@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="Skype Me" description="Add a Skype call button" author="Guillaume Maze" author_email="code@guillaumemaze.org" author_link="http://www.guillaumemaze.org" width="700" height="600" scrolling="true">
+	<Require feature="flash" />
+</ModulePrefs>
+  <Content type="html"><![CDATA[
+	
+	<object codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" id="doc_875464593694673" name="doc_875464593694673" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" align="middle" height="600" width="700"> 
+		
+		<param name="movie" value="http://documents.scribd.com/ScribdViewer.swf?document_id=2077402&access_key=key-av7lrk3vkm8wwnmq8nt&page=1&version=1&viewMode=book"> <param name="quality" value="high"> <param name="play" value="true"> <param name="loop" value="true"> <param name="scale" value="showall"> <param name="wmode" value="opaque"> <param name="devicefont" value="false"> <param name="bgcolor" value="#ffffff"> <param name="menu" value="true"> <param name="allowFullScreen" value="true"> <param name="allowScriptAccess" value="always"> <param name="salign" value=""> <param name="mode" value="book"> <embed src="http://documents.scribd.com/ScribdViewer.swf?document_id=2077402&access_key=key-av7lrk3vkm8wwnmq8nt&page=1&version=1&viewMode=book" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" play="true" loop="true" scale="showall" wmode="opaque" devicefont="false" bgcolor="#ffffff" name="doc_875464593694673_object" menu="true" allowfullscreen="true" allowscriptaccess="always" salign="" type="application/x-shockwave-flash" align="middle" mode="book" height="600" width="700"></embed> </object><div style="font-size:10px;text-align:center;width:700"><a href="http://www.scribd.com/doc/2077402/These-de-Guillaume-Maze">These de Guillaume Maze</a> - <a href="http://www.scribd.com/upload">Upload a Document to Scribd</a></div> 
+	
+	
+	]]></Content>
+</Module>
