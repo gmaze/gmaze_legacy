@@ -5,8 +5,8 @@
 	author="Guillaume Maze" 
 	author_email="code@guillaumemaze.org"
 	author_link="http://www.guillaumemaze.org"
-	screenshot="http://guillaumemaze.googlecode.com/files/gJournArch_screenshot.png"
-	thumbnail="http://guillaumemaze.googlecode.com/files/gJournArch_thumbnail.png"
+	screenshot="http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_screenshot.png"
+	thumbnail="http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_thumbnail.png"
 	width="370"
 	height="135"
 	scrolling="false"
@@ -170,7 +170,7 @@
 
 				<div id="ja_info">
 						<a class="sign" href="javascript:showPrefs()">
-						<img src="http://guillaumemaze.googlecode.com/files/gJournArch_info.png" class="sign">
+						<img src="http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_info.png" class="sign">
 						</a>
 				</div>
 
@@ -198,7 +198,7 @@
 	}	
 
 	#ja_background{
-		background:url(http://guillaumemaze.googlecode.com/files/gJournArch_background.gif); 
+		background:url(http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_background.gif); 
 		height:140px;
 		width:375px;
 		position:absolute;
@@ -315,22 +315,22 @@
 		cursor:pointer;
 	}
 	.leftnorm{
-		background:url("http://guillaumemaze.googlecode.com/files/gJournArch_glassbuttonleft.png");
+		background:url("http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_glassbuttonleft.png");
 	}
 	.middlenorm{
-		background:url("http://guillaumemaze.googlecode.com/files/gJournArch_glassbuttonmiddle.png");
+		background:url("http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_glassbuttonmiddle.png");
 	}	
 	.rightnorm{
-		background:url("http://guillaumemaze.googlecode.com/files/gJournArch_glassbuttonright.png");
+		background:url("http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_glassbuttonright.png");
 	}
 	.leftover{
-		background:url("http://guillaumemaze.googlecode.com/files/gJournArch_glassbuttonleftclicked.png");
+		background:url("http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_glassbuttonleftclicked.png");
 	}
 	.middleover{
-		background:url("http://guillaumemaze.googlecode.com/files/gJournArch_glassbuttonmiddleclicked.png");
+		background:url("http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_glassbuttonmiddleclicked.png");
 	}	
 	.rightover{
-		background:url("http://guillaumemaze.googlecode.com/files/gJournArch_glassbuttonrightclicked.png");
+		background:url("http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_glassbuttonrightclicked.png");
 	}
 
 	#buttontext{	
@@ -369,7 +369,7 @@
 		}	
 
 		#ja_backgroundB{
-			background:url(http://guillaumemaze.googlecode.com/files/gJournArch_backgroundB.gif);
+			background:url(http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_backgroundB.gif);
 			background-repeat: no-repeat;
 			background-position: center;
 			height:140px;
