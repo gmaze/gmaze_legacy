@@ -209,7 +209,7 @@
 
 	#ja_background{
 	/*	background:url(http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_background.gif);*/
-		background:url(http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_background_smooth.gif);
+		background:url(http://guillaumemaze.googlecode.com/svn/trunk/JournArch/images/gJournArch_background_smooth.png);
 		height:140px;
 		width:375px;
 		position:absolute;
