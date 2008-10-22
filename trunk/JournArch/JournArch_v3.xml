@@ -468,7 +468,7 @@ function clickthis(id){
  if(document.getElementsByTagName){  
 	switch (id){
 		case 'thisbutton1':mygo();break
-		case 'thisbutton2':incrementCounter();hidePrefs();break
+		case 'thisbutton2':hidePrefs();break
 	}
  }
 }
