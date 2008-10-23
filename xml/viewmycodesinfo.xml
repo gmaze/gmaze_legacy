@@ -1,24 +1,17 @@
 <?xml version="1.0" ?><Module>
-  <ModulePrefs author="Project Hosting Team" author_email="gadgets.feedback@gmail.com" author_location="San Francisco, CA" description="View Google Code Project Hosting project information." directory_title="Project information by Google Code" screenshot="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/info/info_screenshot.bb575.png" thumbnail="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/info/info_thumbnail.e5a87.png" title="__UP_projectName__ project information" title_url="http://code.google.com/p/__UP_projectName__">
+  <ModulePrefs author="Project Hosting Team" author_email="gadgets.feedback@gmail.com" author_location="San Francisco, CA" description="Browse and search Google Code Project Hosting wiki pages." directory_title="Wiki by Google Code" screenshot="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/wiki/wiki_screenshot.ea82c.png" thumbnail="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/wiki/wiki_thumbnail.a3b9a.png" title="__UP_guillaumemaze__ wiki" title_url="http://code.google.com/p/__UP_guillaumemaze__/wiki">
     <Require feature="setprefs"/>
     <Require feature="dynamic-height"/>
     <Require feature="settitle"/>
   </ModulePrefs>
-  <UserPref datatype="hidden" name="projectName"/>
+  <UserPref datatype="hidden" name="guillaumemaze"/>
+  <UserPref datatype="enum" default_value="-changed" display_name="Sort By" name="sortBy">
+    <EnumValue display_value="Last Changed" value="-changed"/>
+    <EnumValue display_value="Changed By" value="changedby"/>
+  </UserPref>
   
 
-<Content type="html"><![CDATA[<style type="text/css">
-  #content_div th {
-    padding: 0;
-    margin: 0;
-    padding-top: 5px;
-  }
-
-  #content_div td {
-    padding: 0;
-    margin: 0;
-  }
-</style><link href="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/info/gcInfo.min.4d9fe.css" rel="stylesheet" type="text/css"/><script src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.pack.js" type="text/javascript"></script><script src="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/info/gcInfo.min.fceea.js"></script><div id="content_div">
+<Content type="html"><![CDATA[<link href="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/wiki/gcWiki.min.4d9fe.css" rel="stylesheet" type="text/css"/><script src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.pack.js" type="text/javascript"></script><script src="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/wiki/gcWiki.min.5530b.js"></script><div id="content_div">
 </div>
 
         
