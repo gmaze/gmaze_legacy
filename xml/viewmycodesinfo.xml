@@ -1,5 +1,5 @@
 <?xml version="1.0" ?><Module>
-  <ModulePrefs author="Project Hosting Team" author_email="gadgets.feedback@gmail.com" author_location="San Francisco, CA" description="Browse and search Google Code Project Hosting wiki pages." directory_title="Wiki by Google Code" screenshot="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/wiki/wiki_screenshot.ea82c.png" thumbnail="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/wiki/wiki_thumbnail.a3b9a.png" title="__UP_guillaumemaze__ wiki" title_url="http://code.google.com/p/__UP_guillaumemaze__/wiki">
+  <ModulePrefs author="Project Hosting Team" author_email="gadgets.feedback@gmail.com" author_location="San Francisco, CA" description="Browse and search Google Code Project Hosting wiki pages." directory_title="Wiki by Google Code" screenshot="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/wiki/wiki_screenshot.ea82c.png" thumbnail="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/wiki/wiki_thumbnail.a3b9a.png" title="G. Maze codes wiki" title_url="http://code.google.com/p/guillaumemaze/wiki">
     <Require feature="setprefs"/>
     <Require feature="dynamic-height"/>
     <Require feature="settitle"/>
