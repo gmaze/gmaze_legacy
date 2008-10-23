@@ -1,10 +1,10 @@
 <?xml version="1.0" ?><Module>
-  <ModulePrefs author="Project Hosting Team" author_email="gadgets.feedback@gmail.com" author_location="San Francisco, CA" description="View Google Code Project Hosting project information." directory_title="Project information by Google Code" screenshot="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/info/info_screenshot.bb575.png" thumbnail="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/info/info_thumbnail.e5a87.png" title="G. Maze Codes information" title_url="http://code.google.com/p/guillaumemaze">
+  <ModulePrefs author="Project Hosting Team" author_email="gadgets.feedback@gmail.com" author_location="San Francisco, CA" description="View Google Code Project Hosting project information." directory_title="Project information by Google Code" screenshot="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/info/info_screenshot.bb575.png" thumbnail="http://google-code-project-hosting-gadgets.googlecode.com/svn/build/prod/info/info_thumbnail.e5a87.png" title="__UP_projectName__ project information" title_url="http://code.google.com/p/__UP_projectName__">
     <Require feature="setprefs"/>
     <Require feature="dynamic-height"/>
     <Require feature="settitle"/>
   </ModulePrefs>
-  <UserPref datatype="hidden" name="guillaumemaze"/>
+  <UserPref datatype="hidden" name="projectName"/>
   
 
 <Content type="html"><![CDATA[<style type="text/css">
