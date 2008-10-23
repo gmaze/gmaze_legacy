@@ -4,7 +4,7 @@
     <Require feature="dynamic-height"/>
     <Require feature="settitle"/>
   </ModulePrefs>
-  <UserPref datatype="hidden" name="projectName"/>
+  <UserPref datatype="hidden" name="guillaumemaze"/>
   
 
 <Content type="html"><![CDATA[<style type="text/css">
