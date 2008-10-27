@@ -24,7 +24,8 @@ sg = 1/3; % Because fields are cumulated over 3 years
 fid = fopen(strcat(pref,'LRvol.3yV2adv.bin'),'r','ieee-be');
 if fid > 0
 	M = fread(fid,[jpi*jpj*nb_out*nb_out jpk*nb_out],'float32');fclose(fid);
-	M = reshape(M,[jpi*nb_out jpj*nb_out jpk*nb_out]); Mvol = permute(M*sg,[3 2 1]); Mvol(Mvol==0) = NaN;
+	M = reshape(M,[jpi*nb_out jpj*nb_out jpk*nb_out]); 
+	Mvol = permute(M*sg,[3 2 1]); Mvol(Mvol==0) = NaN;
 else
 	Mvol = zeros(jpk*nb_out,jpj*nb_out,jpi*nb_out).*NaN;
 end

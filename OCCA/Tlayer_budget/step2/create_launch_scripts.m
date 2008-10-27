@@ -25,7 +25,9 @@ workdir         = '/home/gmaze/work/Postdoc/work/coare/Tlayer_budget/step2/'; % 
 
 %klist = [1 3:16];
 klist = [1 3:8];
-%klist = 6;
+%klist = [1 7 6 8];
+%klist = [3 4 5];
+
 % ' 1- LRvol.3yV2adv.bin '
 % ' 2- LRtheta.3yV2adv.bin (NOT OK)'
 % ' 3- LRadvTOT.3yV2adv.bin '
@@ -207,7 +209,7 @@ if isempty(s) | lower(s)=='y'
 		disp('Something''s wrong here !');
 	else
 		recl = jpi*jpj*jpk*4*1099; % Classic set up
-		if recl ~= di(3).bytes
+		if recl ~= di(end).bytes
 			disp('!!!! It seems that the domain size in the fortran code doesn''t match the input file size !!!!')
 			disp(sprintf('You should look at the line %i:',glineN));
 			disp(gline)
@@ -222,7 +224,12 @@ if isempty(s) | lower(s)=='y'
 end % Perfom the check
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Check if output dir exists;
+if ~exist(strcat(workdir,'/output'),'dir')
+	mkdir(strcat(workdir,'/output'));
+	disp('We also created the ''output'' folder to ensure the fortran won''t crash');
+end
 
 
 
