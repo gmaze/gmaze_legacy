@@ -27,8 +27,8 @@ homedir = '/home/gmaze'; % This is what we replace as ~ into paths
 %subdomain = [122 200 90 130 1 25]; % Western Pacific extended west and east
 %subdomain = [110 260 90 147 1 25]; % Whole North Pacific
 %subdomain = [150 180 100 120 1 25]; % A box in the middle of the ocean
-%subdomain = [111   110+75 90 147 1 25]; % Eastern Pacific
-subdomain = [110+75 110+2*75 90 147 1 25]; % Western Pacific
+%subdomain = [111   110+75 90 147 1 25]; % Western Pacific
+subdomain = [110+75 110+2*75 90 147 1 25]; % Eastern Pacific
 
 % Path definition:
 tmp_path  = sprintf('~/data/OCCA/Tlayer_budget/KESS/r1/dom_ix%3.3d.%3.3d_iy%3.3d.%3.3d_iz%2.2d.%2.2d',subdomain);
