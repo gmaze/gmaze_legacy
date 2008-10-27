@@ -62,8 +62,8 @@ pathi = abspath('~/data/OCCA/daily_all_r1/');  % New advection scheme (less diff
 %subdomain = [122 200 90 130 1 25]; % Western Pacific extended eastward
 %subdomain = [110 260 90 147 1 25]; % Whole North Pacific
 %subdomain = [150 180 100 120 1 25]; % A box in the middle of the NP ocean
-subdomain = [111   110+75 90 147 1 25]; % Eastern Pacific
-%subdomain = [110+75 110+2*75 90 147 1 25]; % Western Pacific
+subdomain = [111   110+75 90 147 1 25]; % Western Pacific
+%subdomain = [110+75 110+2*75 90 147 1 25]; % Eastern Pacific
 
 % Where do we put output fields:
 patho = abspath(sprintf('~/data/OCCA/Tlayer_budget/KESS/r1/dom_ix%3.3d.%3.3d_iy%3.3d.%3.3d_iz%2.2d.%2.2d/LRfiles/',subdomain));
