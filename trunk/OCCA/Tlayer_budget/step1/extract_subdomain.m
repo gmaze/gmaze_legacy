@@ -16,7 +16,7 @@
 %
 % Created by Guillaume Maze on 2008-10-10.
 % Copyright (c) 2008 Guillaume Maze. 
-% http://www.guillaumemaze.org/codes
+% http://codes.guillaumemaze.org
 
 %
 %    This program is free software: you can redistribute it and/or modify
@@ -73,7 +73,7 @@ end
 prefi = 'LR';
 suffi = '3yV2adv';
 
-% We sweep the complete time serie of OCCA r0/r1
+% We have to sweep the complete time serie of OCCA r0/r1
 it1 = 1;    % itdep = datenum(2003,11,1,12,0,0); 
 it2 = 1099; % itend = datenum(2006,11,3,12,0,0); 
 %it2 = 120;
@@ -82,7 +82,7 @@ it2 = 1099; % itend = datenum(2006,11,3,12,0,0);
 filesetlist = create_filesets(LIST);
 nsets = size(filesetlist,2);
 
-% Where to find the grid:
+% Where to find the OCCA grid files:
 switch wherearewe
 	case {'csail_mit'} % Hugo/Tolkien/Eddy/Chassiron
 		path_grid = '~/data/OCCA/grid_csail/';
@@ -588,7 +588,7 @@ case 'TENDTA'
 	end %switch
 end %for
 
-%%%%% CHECK IF ALL FID OK :
+%%%%% CHECK IF ALL FIDS OK :
 % Flag to say if it passes the test:
 passed_check = 1;
 % Check the fields:

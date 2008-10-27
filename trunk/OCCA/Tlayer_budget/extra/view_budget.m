@@ -34,8 +34,8 @@ switch irun
 %		dirtofil = 'TMP_YEAR/';  mydomain = [122 180 90 130 1 25]; % Western Pacific
 %		dirtofil = 'TMP_YEAR/';  mydomain = [122 200 90 130 1 25]; % Western Pacific		
 %		dirtofil = 'wholeNP/TMP_YEAR/';  mydomain = [110 260 90 147 1 25]; % Whole North Pacific
-		dirtofil = 'TMP_YEAR/';  mydomain = [150 180 100 120 1 25]; % A box in the middle of the ocean	
-		dirtofil = 'TMP_YEAR/';  mydomain = [111   110+75 90 147 1 25];	% Western Pacific
+%		dirtofil = 'TMP_YEAR/';  mydomain = [150 180 100 120 1 25]; % A box in the middle of the ocean	
+%		dirtofil = 'TMP_YEAR/';  mydomain = [111   110+75 90 147 1 25];	% Western Pacific
 		dirtofil = 'TMP_YEAR/';  mydomain = [110+75 110+2*75 90 147 1 25]; % Eastern Pacific
 		timeline = fread(fopen('~/data/OCCA/Tlayer_budget/timeline/TIMESERIE_YEAR.bin','r','b'),[1 1099],'integer*4');fclose('all');
 	case 1
