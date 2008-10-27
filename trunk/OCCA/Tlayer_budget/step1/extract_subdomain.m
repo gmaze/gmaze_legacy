@@ -49,20 +49,21 @@ function varargout = extract_subdomain(varargin)
 
 LIST = varargin{1};
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% GENERAL PARAMETERS:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% GENERAL PARAMETERS:  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  TUNING PART
 
-% Where to we find input fields:
+% Where do we find input fields:
 %pathi = abspath('~/data/OCCA/daily_all_r0/'); % release 0
 pathi = abspath('~/data/OCCA/daily_all_r1/');  % New advection scheme (less diffusive)
 %pathi = '/net/altix3700/raid4/gforget/occa_r1_adv2/daily_v2_all/';
 
-
 % Sub-domain boundaries:
 %subdomain = [130 180 90 135 1 25]; % Western Pacific, original version (too short west, cut the gyre)
 %subdomain = [122 180 90 130 1 25]; % Western Pacific
-subdomain = [122 200 90 130 1 25]; % Western Pacific
+%subdomain = [122 200 90 130 1 25]; % Western Pacific extended eastward
 %subdomain = [110 260 90 147 1 25]; % Whole North Pacific
-
+%subdomain = [150 180 100 120 1 25]; % A box in the middle of the NP ocean
+subdomain = [111   110+75 90 147 1 25]; % Eastern Pacific
+%subdomain = [110+75 110+2*75 90 147 1 25]; % Western Pacific
 
 % Where do we put output fields:
 patho = abspath(sprintf('~/data/OCCA/Tlayer_budget/KESS/r1/dom_ix%3.3d.%3.3d_iy%3.3d.%3.3d_iz%2.2d.%2.2d/LRfiles/',subdomain));
@@ -894,6 +895,9 @@ if isempty(domMASK)
 %	load(abspath('~/MITgcm_mycontrib/gmaze_pv/visu/LSmask_KESS_OCCA.mat'));
 %	domMASK = mask_KESS(mydomain(5):mydomain(6),mydomain(3):mydomain(4),mydomain(1):mydomain(2));clear mask_KESS
 %	domMASK(domMASK==0) = NaN;
+
+	%%%% THIS IS WHERE YOU CAN TUNE THE MASK OF THE SUBDOMAIN
+
 	global domMASK
 end
 

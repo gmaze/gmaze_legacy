@@ -24,8 +24,11 @@ homedir = '/home/gmaze'; % This is what we replace as ~ into paths
 % Sub-domain boundaries:
 %subdomain = [130 180 90 135 1 25]; % Western Pacific, original version (too short west, cut the gyre)
 %subdomain = [122 180 90 130 1 25]; % Western Pacific extended west
-subdomain = [122 200 90 130 1 25]; % Western Pacific extended west and east
+%subdomain = [122 200 90 130 1 25]; % Western Pacific extended west and east
 %subdomain = [110 260 90 147 1 25]; % Whole North Pacific
+%subdomain = [150 180 100 120 1 25]; % A box in the middle of the ocean
+%subdomain = [111   110+75 90 147 1 25]; % Eastern Pacific
+subdomain = [110+75 110+2*75 90 147 1 25]; % Western Pacific
 
 % Path definition:
 tmp_path  = sprintf('~/data/OCCA/Tlayer_budget/KESS/r1/dom_ix%3.3d.%3.3d_iy%3.3d.%3.3d_iz%2.2d.%2.2d',subdomain);
@@ -49,7 +52,8 @@ time_path = strrep(time_path,'~',strtrim(homedir));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %klist = [1 3:16];
 klist = [1 3:8];
-%klist = 6;
+%klist = [1 7 6 8];
+%klist = [3 4 5];
 % ' 1- LRvol.3yV2adv.bin '
 % ' 2- LRtheta.3yV2adv.bin (NOT OK)'
 % ' 3- LRadvTOT.3yV2adv.bin '
@@ -66,7 +70,7 @@ klist = [1 3:8];
 % '14- LRdifZ.3yV2adv.bin '
 % '15- LRdifIZ.3yV2adv.bin '
 % '16- LRghat.3yV2adv.bin '
-
+disp(klist);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %tlist = [1:15];
 tlist = 1;

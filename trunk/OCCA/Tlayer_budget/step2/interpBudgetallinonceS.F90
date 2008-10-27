@@ -2,7 +2,7 @@
 
 ! Created by Gael Forget and Guillaume Maze on 2008-09-30.
 ! Copyright (c) 2008 Guillaume Maze. 
-! http://www.guillaumemaze.org/codes
+! http://codes.guillaumemaze.org
 
 !
 !    This program is free software: you can redistribute it and/or modify
@@ -29,11 +29,17 @@
 !	integer,parameter :: jpi=51,jpj=46,jpk=25,nb_in=12,nbIn2Out=3,nb_out=nb_in/nbIn2Out
 
 ! KESS REGION EXT: 	subdomain = [122 180 90 130 1 25]; 
-	integer,parameter :: jpi=59,jpj=41,jpk=25,nb_in=12,nbIn2Out=3,nb_out=nb_in/nbIn2Out
+!	integer,parameter :: jpi=59,jpj=41,jpk=25,nb_in=12,nbIn2Out=3,nb_out=nb_in/nbIn2Out
+
+! KESS REGION EXT: 	subdomain = [150 180 100 120 1 25]; 
+!	integer,parameter :: jpi=31,jpj=21,jpk=25,nb_in=12,nbIn2Out=3,nb_out=nb_in/nbIn2Out
 
 ! KESS REGION EXT: 	subdomain = [110 260 90 147 1 25]; % Whole North Pacific
 !	integer,parameter :: jpi=151,jpj=58,jpk=25,nb_in=12,nbIn2Out=3,nb_out=nb_in/nbIn2Out
 !	integer,parameter :: jpi=151,jpj=58,jpk=25,nb_in=4,nbIn2Out=2,nb_out=nb_in/nbIn2Out
+
+! WESTERN PACIFIC: 	subdomain = [185   260    90   147     1    25]; 
+	integer,parameter :: jpi=76,jpj=58,jpk=25,nb_in=12,nbIn2Out=3,nb_out=nb_in/nbIn2Out
 
 ! TEMPERATURE BIN TO DEFINE A CLASS AS: THETA-BIN_CUR/2 < THETA < THETA+BIN_CUR/2	
 	real,parameter :: bin_cur=0.25

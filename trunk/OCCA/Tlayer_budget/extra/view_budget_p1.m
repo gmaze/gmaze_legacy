@@ -22,7 +22,7 @@ sg = -1;
 yl = [-18 18];
 
 pp=plot(t,abs(sg)*(Vvol-Vvol(1)),t,sg*(VtendN),t,sg*Vq,t,sg*(Vadv+Vdiff+Vall+VtendA),...
-		t,sg*Vdiff,t,sg*Vadv,t,sg*Vall,t,sg*VtendA);
+		t,sg*Vdiff,t,sg*Vadv,t,sg*Vall,t,sg*VtendA,t,sg*(Vadv+Vdiff+Vall+VtendA+Vq)  );
 set(pp(1:4),'linewidth',2);
 set(pp(1),'color','c'); % census
 set(pp(2),'color',[0 0 1]); % budget
@@ -31,6 +31,7 @@ set(pp(4:8),'color','k'); % all oceanic fluxes
 set(pp(6),'linestyle','--'); %
 set(pp(7),'linestyle','-.');
 set(pp(8),'linestyle',':'); % Artif
+set(pp(9),'color',[0 0 1],'linestyle','--'); % budget
 
 grid on, box on
 
