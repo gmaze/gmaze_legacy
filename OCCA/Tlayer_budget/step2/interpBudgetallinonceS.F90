@@ -39,7 +39,10 @@
 !	integer,parameter :: jpi=151,jpj=58,jpk=25,nb_in=4,nbIn2Out=2,nb_out=nb_in/nbIn2Out
 
 ! WESTERN PACIFIC: 	subdomain = [185   260    90   147     1    25]; 
-	integer,parameter :: jpi=76,jpj=58,jpk=25,nb_in=12,nbIn2Out=3,nb_out=nb_in/nbIn2Out
+!	integer,parameter :: jpi=76,jpj=58,jpk=25,nb_in=12,nbIn2Out=3,nb_out=nb_in/nbIn2Out
+	
+! EASTERN PACIFIC: 	subdomain = [111   185    90   147     1    25]; 
+	integer,parameter :: jpi=75,jpj=58,jpk=25,nb_in=12,nbIn2Out=3,nb_out=nb_in/nbIn2Out
 
 ! TEMPERATURE BIN TO DEFINE A CLASS AS: THETA-BIN_CUR/2 < THETA < THETA+BIN_CUR/2	
 	real,parameter :: bin_cur=0.25

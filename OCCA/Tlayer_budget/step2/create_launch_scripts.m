@@ -26,7 +26,7 @@ workdir         = '/home/gmaze/work/Postdoc/work/coare/Tlayer_budget/step2/'; % 
 %klist = [1 3:16];
 klist = [1 3:8];
 %klist = [1 7 6 8];
-klist = [1 8];
+%klist = [1 8];
 
 % ' 1- LRvol.3yV2adv.bin '
 % ' 2- LRtheta.3yV2adv.bin (NOT OK)'
