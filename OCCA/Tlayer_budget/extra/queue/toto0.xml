@@ -32,27 +32,3 @@
   </food>
 </menu>
 
-<job_info  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <queue_info>
-    <job_list state="running">
-      <JB_job_number>46507</JB_job_number>
-      <JAT_prio>0.50500</JAT_prio>
-      <JB_name>Bdg_01_YEAR.sh</JB_name>
-      <JB_owner>gmaze</JB_owner>
-      <state>r</state>
-      <JAT_start_time>2008-10-28T15:40:35</JAT_start_time>
-      <queue_name>darwin@compute-3-20.local</queue_name>
-      <slots>1</slots>
-    </job_list>
-    <job_list state="running">
-      <JB_job_number>46510</JB_job_number>
-      <JAT_prio>0.50500</JAT_prio>
-      <JB_name>Bdg_05_YEAR.sh</JB_name>
-      <JB_owner>gmaze</JB_owner>
-      <state>r</state>
-      <JAT_start_time>2008-10-28T15:40:35</JAT_start_time>
-      <queue_name>darwin@compute-3-21.local</queue_name>
-      <slots>1</slots>
-    </job_list>
-</job_info>
-
