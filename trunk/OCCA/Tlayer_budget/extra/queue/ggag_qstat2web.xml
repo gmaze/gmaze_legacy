@@ -51,6 +51,7 @@
 <div id="content_div"></div>
 
 <script type="text/javascript">
+	
 function displayMenu() 
 {
 	// Get userprefs
@@ -58,9 +59,10 @@ function displayMenu()
 
 	// XML qstat -xml -u USER datas
 	var url = prefs.getString("url");
-
+	
 	_IG_FetchXmlContent(url, function (response) 
 	{
+		refreshInterval: (10);
 		if (response == null || typeof(response) != "object" || response.firstChild == null) 
 		{
 			_gel("content_div").innerHTML = "<i>Invalid data.</i>";
