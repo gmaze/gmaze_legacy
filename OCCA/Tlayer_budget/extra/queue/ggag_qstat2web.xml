@@ -1,104 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Display qstat -xml" scrolling="true"/>
-  <UserPref name="mychoice" display_name="Show Descriptions" datatype="bool" default_value="false"/>
-  <Content type="html"><![CDATA[
+<ModulePrefs title="Display qstat -xml" scrolling="true" width="570" height="300" >
+    <Require feature="dynamic-height"/>
+</ModulePrefs>
+
+<UserPref name="url" display_name="qstat -xml file URL" 
+		datatype="string" required="true"
+		default_value="http://www.mit.edu/~gmaze/xml/toto.xml"
+/>
+<Content type="html"><![CDATA[
+ <style type="text/css">
+	#content_div { 
+	padding-left: 5px;
+	background: #fff;
+	color: #555;
+	font-family: Arial;
+	font-size: 12px;
+	}
+	#content_div h1 { 
+	color: #000;
+	font-size: 14px;
+	font-family: Arial;
+	font-weight: bold;
+	}
+	.title { 
+	color: #000; 
+	font-size: 12px;
+	font-family: Arial;
+	font-weight: bold;
+	}
+	.value { 
+	color: #000; 
+	font-size: 12px;
+	font-family: Arial;
+	}
+	.running { 
+	color: #0b0; 
+	font-size: 12px;
+	font-family: Arial;
+	font-weight: bold;
+	}
+	.pending { 
+	color: #b00; 
+	font-size: 12px;
+	font-family: Arial;
+	font-weight: bold;
+	}
+ </style>
 
 <div id="content_div"></div>
 
 <script type="text/javascript">
-function displayMenu() {
-
-// XML qstat -xml -u USER datas
-var url = "http://guillaumemaze.googlecode.com/svn/trunk/OCCA/Tlayer_budget/extra/queue/toto.xml";
-
-var prefs = new _IG_Prefs(__MODULE_ID__);
-// Shows script set by user
-var description = prefs.getBool("mychoice");
-
-_IG_FetchXmlContent(url, function (response) {
-	if (response == null || typeof(response) != "object" || response.firstChild == null) {
-	_gel("content_div").innerHTML = "<i>Invalid data.</i>";
-	return;
-	}
-
-	// Start building HTML string that will be displayed in <div>.
-	// Set the style for the <div>.
-	var html = "<div style='padding: 5px;background-color: #fff;font-family:Arial, Helvetica; text-align:left;font-size:90%'>";
-
-	// Set style for title.
-	html +="<div style='text-align:center; font-size: 120%; color: yellow; font-weight: 700;'>";
-
-	// Display menu title. Use getElementsByTagName() to retrieve the <menu> element.
-	// Since there is only one menu element in the file,
-	// you can get to it by accessing the item at index "0".
-	// You can then use getAttribute to get the text associated with the
-	// menu "title" attribute.
-	// var title = response.getElementsByTagName("queue_info").item(0).getAttribute("title");
-
-	// Alternatively, you could retrieve the title by getting the menu element node
-	// and calling the "attributes" function on it. This returns an array
-	// of the element node's attributes. In this case, there is only one
-	// attribute (title), so you can display the value for the attribute at
-	// index 0. For example:
-	// var title = response.getElementsByTagName("menu").item(0).attributes.item(0).nodeValue;
-	var title = "Beagle";
-
-	// Append the title to the HTML string.
-	html += title + "</div><br>";
-
-// Get a list of the <queue_info> element nodes in the file
-var itemList = response.getElementsByTagName("queue_info");
-// Loop through all <queue_info> nodes
-for (var i = 0; i < itemList.length ; i++) {
-// For each <queue_info> node, get child nodes.
-var nodeList = itemList.item(i).childNodes;
-// Loop through child nodes. Extract data from the text nodes that are
-// the children of the associated name, price, and calories element nodes.
-for (var j = 0; j < nodeList.length ; j++) {
-var node = nodeList.item(j);
-if (node.nodeName == "queue_name") {
-var name = node.firstChild.nodeValue;
-}
-if (node.nodeName == "JB_job_number") {
-var jobid = node.firstChild.nodeValue;
-}
-if (node.nodeName == "JB_name") {
-var jobscript = node.firstChild.nodeValue;
-}
-// If the user chose to display descriptions and
-// the nodeName is "#cdata-section", grab the
-// contents of the description CDATA for display.
-if (node.nodeName == "JAT_start_time" && description==true)
+function displayMenu() 
 {
-if (node.firstChild.nodeName == "#cdata-section")
-var data = node.firstChild.nodeValue;
-}
-}
+	// Get userprefs
+	var prefs = new _IG_Prefs();
 
-// Append extracted data to the HTML string.
-html += "<i><b>";
-html += name;
-html += "</b></i><br>";
-html += "&emsp;";
-html += jobid;
-html += " - ";
-html += jobscript + " toto";
-html += "<br>";
-// If user has chosen to display descriptions
-if (description==true)
-{
-html += "<i>" + data + "</i><br>";
-}
-html += "</div>";
+	// XML qstat -xml -u USER datas
+	var url = prefs.getString("url");
 
-// Display HTML string in <div>
-_gel('content_div').innerHTML = html;
-});
+	_IG_FetchXmlContent(url, function (response) 
+	{
+		if (response == null || typeof(response) != "object" || response.firstChild == null) 
+		{
+			_gel("content_div").innerHTML = "<i>Invalid data.</i>";
+			return;
+		}
+		
+		// Start building HTML string that will be displayed in <div>.
+		// Set the style for the <div>.
+		var html = "";     
+      	
+		// Set style for title.
+		html += "";     
+		var title = "Beagle cluster";
+		
+		// Append the title to the HTML string.
+		//html += "<h1>" + title + "</h1>";
+		
+		var itemList = response.getElementsByTagName("job_list");
+		html += "<table border='1' cellpadding='4' cellspacing='0'>";
+		html += "<tr><td colspan='6'><center><h1>" + title + "</h1></center></td></tr>";
+		html += "<tr><th class='title'>Queue Name</th>";
+		html += "<th class='title'>Job ID</th>";
+		html += "<th class='title'>Job Name</th>";
+		html += "<th class='title'>State</th>";
+		html += "<th class='title'>Start Time</th></tr>";
+				
+		// Loop through all <job_list> nodes
+		for (var i = 0; i < itemList.length ; i++) 
+		{ 		
+			html += "<tr>";
+			// For each <job_list> node, get child nodes.
+			var nodeList = itemList.item(i).childNodes;
+			// Loop through child nodes. Extract data from the text nodes that are
+			// the children of the associated name, price, and calories element nodes.
+			for (var j = 0; j < nodeList.length ; j++) 
+			{
+				var node = nodeList.item(j);
+				// html += node.nodeName + ";";
+				// html += node.firstChild.nodeValue + ";";
+				if (node.nodeName == "JB_job_number") 
+				{
+					var name  = node.firstChild.nodeValue;					
+				}
+				if (node.nodeName == "JAT_start_time") 
+				{
+					var start_time  = node.firstChild.nodeValue;					
+				}				
+				if (node.nodeName == "queue_name") 
+				{
+					var queue  = node.firstChild.nodeValue;					
+				}
+				if (node.nodeName == "JB_name") 
+				{
+					var script  = node.firstChild.nodeValue;					
+				}				
+				if (node.nodeName == "state") 
+				{
+					var state  = node.firstChild.nodeValue;					
+				}
+			}
+			html += "<td class='value'>" + queue + "</td>";
+			html += "<td class='value'>" + name + "</td>";
+			html += "<td class='value'>" + script + "</td>";
+			html += "<td class='value'><span class='running'>" + state + "</span></td>";
+			html += "<td class='value'>" + start_time + "</td>";
+			html += "</tr>";
+		}
+		html += "</table>";
+		html += "";
+		// Display HTML string in <div>
+		_gel('content_div').innerHTML = html;   
+	});	   
+	_IG_AdjustIFrameHeight();		 
+    
 }
 
 _IG_RegisterOnloadHandler(displayMenu);
 </script>
 
-]]></Content>
+]]>
+</Content>
 </Module>
+
