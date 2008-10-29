@@ -9,7 +9,7 @@
 
 <body background="#fff">
 
-<table border="1" cellpadding="4" cellspacing="0">
+<table border="0" cellpadding="4" cellspacing="0">
 <tr><td colspan="6" bgcolor="#f00"><h1>Active</h1></td></tr>
 <tr>
 <th>Queue Name</th>
