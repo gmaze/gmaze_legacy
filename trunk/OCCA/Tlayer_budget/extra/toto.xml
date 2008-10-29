@@ -1,6 +1,5 @@
 <?xml version='1.0'?>
 <?xml-stylesheet type="text/xsl" href="http://guillaumemaze.googlecode.com/svn/trunk/OCCA/Tlayer_budget/extra/toto.xsl" ?>
-<job_info  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <queue_info>
     <job_list state="running">
       <JB_job_number>46457</JB_job_number>
@@ -153,6 +152,4 @@
       <slots>1</slots>
     </job_list>
   </queue_info>
-  <job_info>
-  </job_info>
-</job_info>
+
