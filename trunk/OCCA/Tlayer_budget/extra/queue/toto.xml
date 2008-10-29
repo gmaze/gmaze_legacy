@@ -1,18 +1,4 @@
 <?xml version='1.0'?>
-<?xml-stylesheet type="text/xsl" href="qstat2web2.xsl"?>
-<Module>
-        <ModulePrefs title="Beagle queue"
-        description="Search in Geophysical Research Journals"
-        author="Guillaume Maze" 
-        author_email="code@guillaumemaze.org"
-        author_link="http://www.guillaumemaze.org"
-        width="500"
-        scrolling="true"
-        >
-</ModulePrefs>     
-<Content type="html">
-
-
 <job_info  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <queue_info>
     <job_list state="running">
@@ -181,6 +167,3 @@
 </job_info>
 
 
-
-</Content>
-</Module>
