@@ -2,7 +2,7 @@
 <!-- Edited by XMLSpy® -->
 <html xsl:version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
   <body style="font-family:Arial;font-size:12pt;background-color:#EEEEEE">
-    <xsl:for-each select="job_info/queue_info/job_list">
+    <xsl:for-each select="queue_info/job_list">
       <div style="background-color:teal;color:white;padding:4px">
         <span style="font-weight:bold"><xsl:value-of select="JB_job_number"/></span>
         - <xsl:value-of select="JB_name"/>
