@@ -1,0 +1,29 @@
+body { 
+ background: #fff;
+ color: #555;
+ font-family: Arial;
+ font-size: 12px;
+}
+h1 { 
+ color: #fff;
+ font-size: 14px;
+ font-family: Arial;
+ font-weight: bold;
+}
+.value { 
+ color: #000; 
+ font-size: 12px;
+ font-family: Arial;
+}
+.running { 
+ color: #0b0; 
+ font-size: 12px;
+ font-family: Arial;
+ font-weight: bold;
+}
+.pending { 
+ color: #b00; 
+ font-size: 12px;
+ font-family: Arial;
+ font-weight: bold;
+}
