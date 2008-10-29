@@ -11,8 +11,6 @@
         >
 </ModulePrefs>     
 <Content type="html">
-</Content>
-</Module>
 
 
 <job_info  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -181,3 +179,8 @@
   <job_info>
   </job_info>
 </job_info>
+
+
+
+</Content>
+</Module>
