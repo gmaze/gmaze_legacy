@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="_IG_FetchXmlContent Example" scrolling="true"/>
+  <UserPref name="mycalories" display_name="Calorie limit" default_value="800"/>
+  <UserPref name="mychoice" display_name="Show Descriptions" datatype="bool" default_value="false"/>
+  <Content type="html"><![CDATA[
+
+<div id="content_div"></div>
+
+<script type="text/javascript">
+function displayMenu() {
+// XML breakfast menu data
+var url = "http://guillaumemaze.googlecode.com/svn/trunk/OCCA/Tlayer_budget/extra/queue/toto.xml";
+
+var prefs = new _IG_Prefs(__MODULE_ID__);
+// calorie limit set by user
+var calorieLimit = prefs.getString("mycalories");
+var description = prefs.getBool("mychoice");
+
+_IG_FetchXmlContent(url, function (response) {
+if (response == null || typeof(response) != "object" || response.firstChild == null) {
+_gel("content_div").innerHTML = "<i>Invalid data.</i>";
+return;
+}
+
+// Start building HTML string that will be displayed in <div>.
+// Set the style for the <div>.
+var html = "<div style='padding: 5px;background-color: #ccf;font-family:Arial, Helvetica;" +
+"text-align:left;font-size:90%'>";
+
+// Set style for title.
+html +="<div style='text-align:center; font-size: 120%; color: yellow; " +
+"font-weight: 700;'>";
+
+// Display menu title. Use getElementsByTagName() to retrieve the <menu> element.
+// Since there is only one menu element in the file,
+// you can get to it by accessing the item at index "0".
+// You can then use getAttribute to get the text associated with the
+// menu "title" attribute.
+// var title = response.getElementsByTagName("queue_info").item(0).getAttribute("title");
+
+// Alternatively, you could retrieve the title by getting the menu element node
+// and calling the "attributes" function on it. This returns an array
+// of the element node's attributes. In this case, there is only one
+// attribute (title), so you can display the value for the attribute at
+// index 0. For example:
+// var title = response.getElementsByTagName("menu").item(0).attributes.item(0).nodeValue;
+var title = "Beagle";
+
+// Append the title to the HTML string.
+html += title + "</div><br>";
+
+// Get a list of the <job_list> element nodes in the file
+var itemList = response.getElementsByTagName("job_list");
+// Loop through all <job_list> nodes
+for (var i = 0; i < itemList.length ; i++) {
+// For each <job_list> node, get child nodes.
+var nodeList = itemList.item(i).childNodes;
+// Loop through child nodes. Extract data from the text nodes that are
+// the children of the associated name, price, and calories element nodes.
+for (var j = 0; j < nodeList.length ; j++) {
+var node = nodeList.item(j);
+if (node.nodeName == "queue_name") {
+var name = node.firstChild.nodeValue;
+}
+if (node.nodeName == "JB_job_number") {
+var jobid = node.firstChild.nodeValue;
+}
+if (node.nodeName == "JB_name") {
+var jobscript = node.firstChild.nodeValue;
+}
+// If the user chose to display descriptions and
+// the nodeName is "#cdata-section", grab the
+// contents of the description CDATA for display.
+if (node.nodeName == "JAT_start_time" && description==true)
+{
+if (node.firstChild.nodeName == "#cdata-section")
+var data = node.firstChild.nodeValue;
+}
+}
+
+// Append extracted data to the HTML string.
+html += "<i><b>";
+html += name;
+html += "</b></i><br>";
+html += "&emsp;";
+html += jobid;
+html += " - ";
+html += jobscript + " toto";
+html += "<br>";
+// If user has chosen to display descriptions
+if (description==true)
+{
+html += "<i>" + data + "</i><br>";
+}
+html += "</div>";
+
+// Display HTML string in <div>
+_gel('content_div').innerHTML = html;
+});
+}
+
+_IG_RegisterOnloadHandler(displayMenu);
+</script>
+
+]]></Content>
+</Module>
