@@ -1,26 +1,24 @@
-% Clr = dlowerres(DS_Fact,Chr,[Mopt])
+% DLOWERRES Reduce the resolution of a field
+%
+% Clr = DLOWERRES(DS_Fact,Chr,[Mopt])
 %
 % Lower the resolution of a field by summing grid cells
+% DS_fact is the downscaling factor
 % Chr(z,y,x) or Chr(y,x)
 % Mopt = 0 (default) to average cell values
 % Mopt = 1 to sum cell values
-%
+% DS_fact is the downscaling factor
 %
 % Created by Guillaume Maze on 2008-10-09.
 % Copyright (c) 2008 Guillaume Maze. 
-% http://www.guillaumemaze.org/codes
+% http://codes.guillaumemaze.org
 
 %
-%    This program is free software: you can redistribute it and/or modify
-%    it under the terms of the GNU General Public License as published by
-%    the Free Software Foundation, either version 3 of the License, or
-%    any later version.
-%    This program is distributed in the hope that it will be useful,
-%    but WITHOUT ANY WARRANTY; without even the implied warranty of
-%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-%    GNU General Public License for more details.
-%    You should have received a copy of the GNU General Public License
-%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+% This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or any later version.
+% This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+% You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
 
 function varargout = dlowerres(varargin)

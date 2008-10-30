@@ -1,11 +1,16 @@
-% [] = m_drawbox(NW,SE)
+% M_DRAWBOX Draw a rectangular box using m_line
 %
-% DEFINITION
+% h = m_drawbox(NW,SE,[OPTIONS])
+%
+% Draw a box on a map with upper-left corner coordinates
+% given by NW(lon,lat) and lower-right corner coord. by SE(lon,lat)
+% OPTION is any thing from the LINE function options
+% H is handle of the plotted box
 %
 %
 % Created by Guillaume Maze on 2008-10-14.
 % Copyright (c) 2008 Guillaume Maze. 
-% http://www.guillaumemaze.org/codes
+% http://codes.guillaumemaze.org
 
 %
 % This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
