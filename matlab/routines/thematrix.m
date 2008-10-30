@@ -1,6 +1,8 @@
+% THEMATRIX Animate a 3D plot by rotating around
+%
 % [] = thematrix(dAZ,nrevol)
 %
-% This function creates a motion camera effect
+% This function make a motion camera effect
 % on the current 3D figure
 % This "a la" MATRIX(c) camera effect makes the object
 % to spin around it vertical axis.
@@ -9,21 +11,18 @@
 %       during the movement, try to zoom out of it
 %       with camzoom
 %
-% Created by Guillaume Maze on 2006/08/17
 % Copyright (c) 2006 Guillaume Maze. 
+% http://codes.guillaumemaze.org
 
-% This file is part of "The-Matlab-Show"
-% The-Matlab-Show is free software: you can redistribute it and/or modify
-% it under the terms of the GNU General Public License as published by
-% the Free Software Foundation, either version 3 of the License, or
-% any later version.
-% Foobar is distributed in the hope that it will be useful,
-% but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-% GNU General Public License for more details.
-% You should have received a copy of the GNU General Public License
-% along with The-Matlab-Show.  If not, see <http://www.gnu.org/licenses/>.
 %
+% This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or any later version.
+% This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+% You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+
+  
 
 function [] = thematrix(varargin)
 

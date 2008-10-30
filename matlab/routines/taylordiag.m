@@ -1,3 +1,5 @@
+% TAYLORDIAG Plot a Taylor Diagram
+%
 % [hp ht axl] = taylordiag(STDs,RMSs,CORs,['option',value])
 %
 % Plot a Taylor diagram from statistics values given
@@ -12,10 +14,6 @@
 % 	hp: returns a handle to the plotted points
 %	ht: returns a handle to the text legend of points
 %  axl: returns a structure of handles of axis labels
-%
-% EXAMPLE:
-%	Check scripts: taylordiag_test.m
-%   (See at: http://code.google.com/p/guillaumemaze)
 %
 % LIST OF OPTIONS:
 %
@@ -75,21 +73,17 @@
 %		Summarizing multiple aspects of model performance in a single diagram
 %		Journal of Geophysical Research-Atmospheres, 2001, V106, D7.
 %
-% Created: G. Maze (07/02/2008)
 % Copyright (c) 2008 Guillaume Maze. 
+% http://codes.guillaumemaze.org
 
-% This file is part of "The-Matlab-Show"
-% The-Matlab-Show is free software: you can redistribute it and/or modify
-% it under the terms of the GNU General Public License as published by
-% the Free Software Foundation, either version 3 of the License, or
-% any later version.
-% Foobar is distributed in the hope that it will be useful,
-% but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-% GNU General Public License for more details.
-% You should have received a copy of the GNU General Public License
-% along with The-Matlab-Show.  If not, see <http://www.gnu.org/licenses/>.
 %
+% This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or any later version.
+% This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+% You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+
 
 function varargout = taylordiag(STDs,RMSs,CORs,varargin)
 		

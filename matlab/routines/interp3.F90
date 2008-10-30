@@ -1,10 +1,10 @@
-!DEF
-!REQ
+!DEF Interpolation of 3D fields, used by Matlab function dinterp3bin.m
+!
 !
 ! Created by Gael Forget, 2007
 ! Modified by Guillaume Maze on 2008-10-06.
 ! Copyright (c) 2008 Guillaume Maze. 
-! http://www.guillaumemaze.org/codes
+! http://codes.guillaumemaze.org
 
 !
 !    This program is free software: you can redistribute it and/or modify
