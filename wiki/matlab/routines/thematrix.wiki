@@ -1,0 +1,26 @@
+== THEMATRIX.m ==
+Animate a 3D plot by rotating around
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/thematrix.m Download here]
+
+{{{
+% THEMATRIX Animate a 3D plot by rotating around
+%
+% [] = thematrix(dAZ,nrevol)
+%
+% This function make a motion camera effect
+% on the current 3D figure
+% This "a la" MATRIX(c) camera effect makes the object
+% to spin around it vertical axis.
+%
+% Help: If the 3D object shows different aspect ratio
+%       during the movement, try to zoom out of it
+%       with camzoom
+%
+}}}
+----
+Last update: 2008 October 31, 12:50
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

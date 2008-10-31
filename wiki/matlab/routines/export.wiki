@@ -1,0 +1,24 @@
+== EXPORT.m ==
+Export a figure to A4 color PNG format
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/exportj.m Download here]
+
+{{{
+% EXPORT Export a figure to A4 color PNG format
+%
+% EXPORT(GCF,[ORIENTATION,FILE])
+%
+%   Export a figure GCF to A4 color png format
+%   Default output file is: fig.png in current directory
+%   or specify it into FILE (extension .png is automatic).
+%   ORIENTATION is an optionnal parameter:
+%       ORIENTATION=0 : Portrait (default)
+%       ORIENTATION=1 : Landscape
+%
+}}}
+----
+Last update: 2008 October 31, 12:50
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

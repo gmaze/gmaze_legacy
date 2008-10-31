@@ -1,0 +1,20 @@
+== MAPCLEAN.m ==
+Uniform plots and colorbars
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/mapclean.m Download here]
+
+{{{
+% MAPCLEAN Uniform plots and colorbars
+%
+% MAPCLEAN(CPLOT,CBAR)
+% 
+% This function makes uniformed subplots (handles CPLOT)
+% and their vertical colorbars (handles CBAR)
+%
+}}}
+----
+Last update: 2008 October 31, 12:50
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

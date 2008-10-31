@@ -1,0 +1,19 @@
+== LOAD_MASKOCCA.m ==
+Load any mask from OCCA
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/load_maskOCCA.m Download here]
+
+{{{
+% LOAD_MASKOCCA Load any mask from OCCA
+%
+% [mask_C mask_U mask_V mask_W] = load_maskOCCA(path_to_the_hrid_files)
+%
+%
+% Created by Guillaume Maze on 2008-10-14.
+}}}
+----
+Last update: 2008 October 31, 12:50
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

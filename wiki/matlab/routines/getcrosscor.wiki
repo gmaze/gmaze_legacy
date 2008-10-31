@@ -1,0 +1,20 @@
+== GETCROSSCOR.m ==
+Compute a lagged cross-correlation 
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/getcrosscor.m Download here]
+
+{{{
+% GETCROSSCOR Compute a lagged cross-correlation 
+%
+% [CR LAGS CONFIDENCE95] = GETCROSSCOR(X1,X2,T)
+% 
+% Compute the cross-correlation between X1 and X2
+% with lags from -T to T
+%
+}}}
+----
+Last update: 2008 October 31, 12:50
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

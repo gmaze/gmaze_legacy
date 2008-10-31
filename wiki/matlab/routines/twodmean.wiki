@@ -1,0 +1,14 @@
+== TWODMEAN.m ==
+Plot a 2D field together with its means in both directions
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/twodmean.m Download here]
+
+{{{
+% TWODMEAN Plot a 2D field together with its means in both directions
+}}}
+----
+Last update: 2008 October 31, 12:50
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

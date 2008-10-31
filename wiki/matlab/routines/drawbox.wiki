@@ -1,0 +1,23 @@
+== DRAWBOX.m ==
+Draw a rectangular box
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/drawbox.m Download here]
+
+{{{
+% DRAWBOX Draw a rectangular box
+%
+% H = DRAWBOX(NW,SE,[OPTION])
+%
+% Draw a box with upper-left corner coordinates
+% given by NW(ix,iy) and lower-right corner coord. by SE(ix,iy)
+% OPTION is any thing from the LINE function options
+% H is handle of the plotted box
+%
+% Created by Guillaume Maze on 2008-10-14.
+}}}
+----
+Last update: 2008 October 31, 12:50
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

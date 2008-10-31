@@ -1,0 +1,18 @@
+== TBCONT.m ==
+Create a simple Contents.html file from a directory
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/tbcont.m Download here]
+
+{{{
+% TBCONT Create a simple Contents.html file from a directory
+%
+% [] = tbcont(PATH_TO_DIR)
+%
+% Created: 2008-10-30.
+}}}
+----
+Last update: 2008 October 31, 12:50
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]
