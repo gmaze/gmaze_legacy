@@ -1,0 +1,30 @@
+<html>
+<head>
+     <title>Help: hypsometry</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <h4>HYPSOMETRY</h4>Hypsometric Integral</td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/hypsometry.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  % HYPSOMETRY Hypsometric Integral<br>%<br>%  [i] = HYPSOMETRY(raster, classes, options, Sa, Sb);<br>%  PURPOSE: calculate the hypsometric integral of a raster w/ n classes and<br>%           plot the hypsometry curve.<br>%  Returns scalar [i] with hypsometric integral<br>% -------------------------------------------------------------------<br>% USAGE: [i] = hypsometry(raster, classes, plot);<br>% where: [raster] is the input (elevation) grid of size (cols,rows)<br>%        [classes] (optional) is the number of classes to use, default is<br>%                   total number of elements<br>%        [options] (optional) vector of form [1 1] specifying whether to<br>%                  normalize hypsometry (first element) and whether to plot<br>%                  curve (second element)(1=yes,0=no), default is [1 1]<br>%        [Sa] (optional) is a character string made from one element<br>%            from any or all the following 3 columns, eg 'r.':<br>%<br>%            b     blue          .     point              -     solid<br>%            g     green         o     circle             :     dotted<br>%            r     red           x     x-mark             -.    dashdot<br>%            c     cyan          +     plus               --    dashed<br>%            m     magenta       *     star             (none)  no line<br>%            y     yellow        s     square<br>%            k     black         d     diamond<br>%                                v     triangle (down)<br>%                                ^     triangle (up)<br>%                                <     triangle (left)<br>%                                >     triangle (right)<br>%                                p     pentagram<br>%                                h     hexagram<br>%<br>%        [Sb] (optional) is a vector specifying linewidth and markersize in<br>%        the form [lw,ms]. To set Sb, all other options have to be set as well.<br>% -------------------------------------------------------------------------<br>% OUTPUTS:<br>%        [i] scalar with the hypsometric integral, based on cellsize 1 and<br>%            number of classes. For true area, multiply with cellsize.<br>% -------------------------------------------------------------------<br>% EXAMPLE: hypsometry(abs(randn(100,100)),20,[1 1],'ro-',[2 2])<br>%<br>% NOTES: NaNs are ignored. If class numbers are provided, mean for equal<br>%        size classes are used for hypsometry calculation.<br>%<br>% SEE ALSO: plot, numel<br>%<br>% Felix Hebeler, Geography Dept., University Zurich, March 2007
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  Last update: 2008 October 31, 12:16<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>
