@@ -1,0 +1,15 @@
+== FIGURE_LAND.m ==
+White background landscape figure
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/figure_land.m Download here]
+
+{{{
+% FIGURE_LAND White background landscape figure
+% 
+}}}
+----
+Last update: 2008 October 31, 12:59
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

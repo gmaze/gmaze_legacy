@@ -1,0 +1,19 @@
+== CANOM.m ==
+Center the caxis on zero
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/canom.m Download here]
+
+{{{
+% CANOM Center the caxis on zero
+%
+% [] = CANOM()
+%
+% Center the coloraxis on zero
+%
+}}}
+----
+Last update: 2008 October 31, 12:59
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]
