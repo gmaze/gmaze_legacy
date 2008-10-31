@@ -1,0 +1,30 @@
+<html>
+<head>
+     <title>Help: winsinc</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <h4>WINSINC</h4>Applies a windowed sinc filter</td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/winsinc.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  % WINSINC Applies a windowed sinc filter<br>%<br>% USAGE:<br>%   [xf,Rh,Fh] = winsinc(x,dt,fc,ns,win,ftype,fo)<br>%<br>% DESCRIPTION:<br>%   Windowed Sinc Filter.<br>%   This is a digital symetric non-recursive filter<br>%   which can be Lowpass, Highpass, or Bandpass<br>%   by using a windowed sinc function.<br>%   Non-Recursive filters are based on convolving <br>%   the input series with a weight function.<br>%   Their advantage compared to recursive filters<br>%   is that they are always stable and matematically simpler.<br>%   Their disadvantage is that they may require a large<br>%   number of weights to achieve a desired response.<br>%<br>%INPUT VARIABLES:<br>%   x = vector<br>%   dt = Sampling Interval<br>%   fc = Cutoff frequency<br>%   ns = Width of filter <br>%       (>>ns produces a steeper cutoff<br>%       but is more computationally expensive)<br>%       2*ns + 1 = Order of Filter, (Number of Filter Coef.)<br>%   win = Window Type:<br>%       'welch','parzen','hanning','hamming'<br>%       'blackman','lanczos','kaiser'<br>%   <br>%   ftype = 'low', 'high' o 'pass'<br>%   fo = Central Frequency (for bandpass only) <br>%<br>%OUTPUT VARIABLES:<br>%   xf = filtered vector<br>%   Rh = Filter Response<br>%   Fh = Frequencies for Filter Response<br>%<br>%Copy-Left, Alejandro Sanchez, 2005
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  Last update: 2008 October 31, 12:16<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>
