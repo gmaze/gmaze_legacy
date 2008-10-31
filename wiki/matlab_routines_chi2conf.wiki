@@ -15,8 +15,8 @@ Confidence interval using inverse of chi-square cdf.
 %     p. 76, eqn 4.16.
 }}}
 ----
-Last update: 2008 October 31, 12:59
+Last update: 2008 October 31, 13:04
 
 Created by Guillaume Maze
 
-More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

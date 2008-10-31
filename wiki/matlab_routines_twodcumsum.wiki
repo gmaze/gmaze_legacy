@@ -13,8 +13,8 @@ Plot a 2D field together with its cumsum in both directions
 %
 }}}
 ----
-Last update: 2008 October 31, 12:59
+Last update: 2008 October 31, 13:04
 
 Created by Guillaume Maze
 
-More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]
