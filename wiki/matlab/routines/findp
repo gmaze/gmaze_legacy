@@ -1,0 +1,21 @@
+== FINDP.m ==
+Find the p power of 10 of a number
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/findp.m Download here]
+
+{{{
+% FINDP Find the p power of 10 of a number
+%
+% p = FINDP(X) 
+%     Find p power of 10 of X
+% so that if X = 4,345,134
+% findp returns p = 6
+%
+%
+}}}
+----
+Last update: 2008 October 31, 12:45
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

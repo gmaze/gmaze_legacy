@@ -1,0 +1,20 @@
+== UNIF.m ==
+Uniformize colorscale on different figures
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/unif.m Download here]
+
+{{{
+% UNIF Uniformize colorscale on different figures
+% 
+% UNIF(FLIST)
+%
+% Change caxis in all figures (given by their handles in FLIST)
+% so that they are of the same limits
+%
+}}}
+----
+Last update: 2008 October 31, 12:45
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

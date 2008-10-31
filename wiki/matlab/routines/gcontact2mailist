@@ -1,0 +1,16 @@
+== GCONTACT2MAILIST.m ==
+Removed < and > from a Google contacts list
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/gcontact2maillist.m Download here]
+
+{{{
+% GCONTACT2MAILIST Removed < and > from a Google contacts list
+%
+% Created by Guillaume Maze on 2008-10-23.
+}}}
+----
+Last update: 2008 October 31, 12:45
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

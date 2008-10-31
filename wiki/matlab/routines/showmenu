@@ -1,0 +1,18 @@
+== SHOWMENU.m ==
+Ensure the menu bar is shown on a figure
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/showmenu.m Download here]
+
+{{{
+% SHOWMENU Ensure the menu bar is shown on a figure
+%
+% showmenu(GCF)
+%
+% Created by Guillaume Maze on 2008-10-14.
+}}}
+----
+Last update: 2008 October 31, 12:45
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

@@ -1,0 +1,21 @@
+== VIDEOTIMELINE.m ==
+Add a video timeline to a plot
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/videotimeline.m Download here]
+
+{{{
+% VIDEOTIMELINE Add a video timeline to a plot
+%
+% [] = videotimeline(TIMERANGE,IT,POSITION)
+%
+% TIMERANGE contains all the time line serie
+% TIME contains the current time
+%
+%
+}}}
+----
+Last update: 2008 October 31, 12:45
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]

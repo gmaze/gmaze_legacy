@@ -1,0 +1,15 @@
+== CLEANCONT.m ==
+Update color for m_contourf plots
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/cleancont.m Download here]
+
+{{{
+% CLEANCONT Update color for m_contourf plots
+%
+}}}
+----
+Last update: 2008 October 31, 12:45
+
+Created by Guillaume Maze
+
+More informations at: [href="http://codes.guillaumemaze.org/matlab" codes.guillaumemaze.org/matlab]
