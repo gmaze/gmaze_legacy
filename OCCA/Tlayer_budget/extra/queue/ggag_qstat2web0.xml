@@ -10,6 +10,10 @@
 />
 <Content type="html"><![CDATA[
  <style type="text/css">
+	#upd {
+	font-size:10px;	
+	font-family: Arial;
+	}
 	#content_div { 
 	padding-left: 5px;
 	/*background: #fff;*/
@@ -50,9 +54,9 @@
  </style>
 
 <SCRIPT LANGUAGE="JavaScript"> 
-	var m = "Page updated " + document.lastModified; 
+	var m = "<div id='upd'>Last update: " + document.lastModified; 
 	var p = m.length-8; document.writeln("<center>"); 
-    document.write(m.substring(p, 0)); document.writeln("</center>"); 
+    document.write(m.substring(p, 0)); document.writeln("</center></div>"); 
 </SCRIPT>
 
 
