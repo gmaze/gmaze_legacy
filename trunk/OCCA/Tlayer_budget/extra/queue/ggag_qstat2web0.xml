@@ -6,16 +6,17 @@
 
 <UserPref name="url" display_name="qstat -xml file URL" 
 		datatype="string" required="true"
-		default_value="http://www.mit.edu/~gmaze/xml/toto.xml"
+		default_value="http://mitgcm.org/~gmaze/xml/beagle.xml"
 />
 <Content type="html"><![CDATA[
  <style type="text/css">
 	#content_div { 
 	padding-left: 5px;
-	background: #fff;
+	/*background: #fff;*/
 	color: #555;
 	font-family: Arial;
 	font-size: 12px;
+	witdh: 570px;
 	}
 	#content_div h1 { 
 	color: #000;
@@ -47,6 +48,16 @@
 	font-weight: bold;
 	}
  </style>
+
+<SCRIPT LANGUAGE="JavaScript"> 
+	var m = "Page updated " + document.lastModified; 
+	var p = m.length-8; document.writeln("<center>"); 
+    document.write(m.substring(p, 0)); document.writeln("</center>"); 
+</SCRIPT>
+
+
+
+
 
 <div id="content_div"></div>
 
@@ -135,7 +146,6 @@ function displayMenu()
 		// Display HTML string in <div>
 		_gel('content_div').innerHTML = html;   
 	});	   
-	_IG_AdjustIFrameHeight();		 
     
 }
 
