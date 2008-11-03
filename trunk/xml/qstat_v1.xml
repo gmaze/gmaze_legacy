@@ -5,7 +5,9 @@
 	description="Display qstat -xml file"
 	author="Guillaume Maze" 
 	author_email="code@guillaumemaze.org"
-	author_link="http://codes.guillaumemaze.org"
+	author_link="http://codes.guillaumemaze.org"	
+	screenshot="http://guillaumemaze.googlecode.com/svn/trunk/xml/qstat_v1_snap.png"
+	thumbnail="http://guillaumemaze.googlecode.com/svn/trunk/xml/qstat_v1_thumb.png"
 	scrolling="false" 	
 	width="580" height="300" >
 <Require feature="dynamic-height"/>
@@ -17,7 +19,7 @@
 />
 <UserPref name="title" display_name="Title"
 		datatype="string" required="true"
-		default_value="Beagle Cluster"
+		default_value="Your cluster !"
 />
 
 <Content type="html"><![CDATA[
