@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="Display qstat -xml" scrolling="true" width="580" height="300" >
+<Require feature="dynamic-height"/>
+</ModulePrefs>
+<UserPref name="url" display_name="URL of your qstat -xml file"
+		datatype="string" required="true"
+		default_value="http://mitgcm.org/~gmaze/xml/beagle.xml"
+/>
+<UserPref name="title" display_name="Title"
+		datatype="string" required="true"
+		default_value="Beagle Cluster"
+/>
+
+<Content type="html"><![CDATA[
+	
+	<div id="content_div"></div>
+
+<script language="JavaScript">
+var sURL = unescape(window.location.pathname);
+function refresh()
+{
+    window.location.href = sURL;
+}
+</script>
+<script language="JavaScript1.1">
+function refresh()
+{
+    window.location.replace( sURL );
+}
+</script>
+<script language="JavaScript1.2">
+function refresh()
+{
+    window.location.reload( false );
+}
+</script>
+
+<script type="text/javascript">
+function showInfo()
+{
+    var front = document.getElementById("content_div");
+    var back  = document.getElementById("content_div_back");
+    front.style.display="none";
+    back.style.display="block";
+}
+
+function hideInfo()
+{
+    var front = document.getElementById("content_div");
+    var back  = document.getElementById("content_div_back");
+    front.style.display="block";
+    back.style.display="none";
+}
+	
+function displayMenu() 
+{
+	// Hide back of the Gadget:
+	hideInfo();
+
+	// Get userprefs
+	var prefs = new _IG_Prefs();
+
+	// XML qstat -xml -u USER datas
+	var url = prefs.getString("url");
+	var title = prefs.getString("title");
+	
+	_IG_FetchXmlContent(url, callback);
+	
+	function callback(response) {
+		if (response == null || typeof(response) != "object" || response.firstChild == null) 
+		{
+			_gel("content_div").innerHTML = "<i>Invalid data.</i>";
+			return;
+		}
+		
+		// Start building HTML string that will be displayed in <div>.
+		// Set the style for the <div>.
+		var html = "";     
+      	
+		// Create the table header:
+		html += "<table class='results'>";
+		html += "<tr><td colspan='4' rowspan='2' class='line_title'><div class='title'>" + title + "</div></td>";
+		html += "<td colspan='2'>" + "<div class='info'>Last Updated: " + (new Date).toLocaleString() + "</div>" + "</td></tr>";
+		html += "<tr><td class='line_info'><div class='info'><a href='javascript:refresh()'  class='info'>Refresh</a></div></td>";
+		html += "<td class='line_info'><div class='info'><a href='javascript:showInfo()' class='info'>Info</a></td></tr>";
+		html += "<tr><th colspan='6' class='line'></th></tr>";
+		
+		// Then subtitle of each columns:
+		html += "<tr><th class='subtitleL'>Queue Name</th>";
+		html += "<th class='subtitle'>Job ID</th>";
+		html += "<th class='subtitle'>Job Name</th>";
+		html += "<th class='subtitle'>State</th>";
+		html += "<th class='subtitle'>Start Time</th>";
+		html += "<th class='subtitleR'>CPU</th></tr>";
+		html += "<tr><th colspan='6' class='line'></th></tr>";
+				
+		// Now we sparse the xml file and display variables in each columns:		
+		// Loop through all <job_list> nodes
+		var itemList = response.getElementsByTagName("job_list");		
+		for (var i = 0; i < itemList.length ; i++) 
+		{ 		
+			html += "<tr>";
+			// For each <job_list> node, get child nodes.
+			var nodeList = itemList.item(i).childNodes;
+			// Loop through child nodes. Extract data from the text nodes that are
+			// the children of the associated name, price, and calories element nodes.
+			for (var j = 0; j < nodeList.length ; j++) 
+			{
+				var node = nodeList.item(j);
+				// html += node.nodeName + ";";
+				// html += node.firstChild.nodeValue + ";";
+				if (node.nodeName == "JB_job_number") 
+				{
+					var name  = node.firstChild.nodeValue;					
+				}
+				if (node.nodeName == "JAT_start_time") 
+				{
+					var start_time  = node.firstChild.nodeValue;					
+				}				
+				if (node.nodeName == "queue_name") 
+				{
+					var queue  = node.firstChild.nodeValue;					
+				}
+				if (node.nodeName == "JB_name") 
+				{
+					var script  = node.firstChild.nodeValue;					
+				}				
+				if (node.nodeName == "state") 
+				{
+					var state  = node.firstChild.nodeValue;					
+				}							
+				if (node.nodeName == "cpu_usage") 
+				{
+					var cpu  = node.firstChild.nodeValue;					
+				}
+			}
+			html += "<td class='valueL'>" + queue + "</td>";
+			html += "<td class='value'>" + name + "</td>";
+			html += "<td class='value'>" + script + "</td>";
+			html += "<td class='value'><div class='running'>" + state + "</div></td>";
+			html += "<td class='value'>" + start_time + "</td>";
+			html += "<td class='valueR'>" + cpu + "</td>";
+			html += "</tr>";			
+			html += "<tr><td colspan='6' class='linev'></td></tr>";
+		}		
+		html += "</table>";
+		html += "";
+		// Display HTML string in <div>
+		//alert(html);
+		_gel('content_div').innerHTML = html;   
+	} 
+    
+}
+
+_IG_RegisterOnloadHandler(displayMenu);
+</script>
+
+<div id="content_div_back">
+
+	<table class='results'>
+		<tr>
+			<td rowspan='2' class='line_title'>
+				<div class='title_back'>
+					qstat -xml viewer
+				</div>
+			</td>
+
+			<td>
+				<div class='info_back'>
+					Version 1.0
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td class='line_info'>
+				<div class='info'>
+					<a href='javascript:hideInfo()' class='info'>Done</a>
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<th colspan='2' class='value_back'>Author: Guillaume Maze</th>
+		</tr>
+		<tr>			
+			<th colspan='2' class='value_back'>Copyright (c) 2008 To the author. All Rights Reserved
+		</tr>
+					
+		<tr>
+			<th colspan='2' class='myweb'><a class='myweb' href='http://codes.guillaumemaze.org'>codes.guillaumemaze.org</a></th>
+		</tr>
+
+		<tr>
+			<th colspan='2' class='help_back'>
+				Help:<br>
+				From your cluster, create a xml file with the command: qstat -xml > qstat.xml<br>
+				Export the file qstat.xml to  a web server and enter its url into the Gadget Preferences. That's it !
+			</th>
+		</tr>
+
+
+		</table>
+
+
+</div>
+<style type="text/css">
+
+	#content_div { 
+		padding-left: 0px;
+		color: #555;
+		font-family: Arial;
+		font-size: 12px;
+		width: 550px; 
+		border: 0px solid rgb(170, 170, 170);
+		background-color: rgb(250, 250, 250); 
+	}
+
+	.results{   
+		width:550px;
+		/*background-color: #000; */
+	}
+
+	.line_title{
+		/*border-bottom: 1px solid rgb(170, 170, 170);  */
+	}
+	.title{ 
+		color: #000;
+		font-size: 14px;
+		font-family: Arial;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.line_info{
+		/*border-bottom: 1px solid rgb(170, 170, 170);  */
+	}
+	.info{ 
+		color: #000;
+		font-size: 10px;
+		font-family: Arial;
+		text-align: center;
+		font-variant: small-caps;
+	}
+
+	.info a{ 
+		color: red;
+		font-size: 10px;
+		font-family: Arial;
+		text-align: center;
+		font-variant: small-caps;
+		text-decoration: none;
+	}
+
+	.line{
+		border-top: 2px solid rgb(170, 170, 170);
+		height:2px;
+		background-color:#000;
+	}
+
+	.linev{
+		background-color:rgb(170, 170, 170);
+	}
+
+
+	.subtitleL{ 
+		color: #000;
+		font-size: 12px;
+		font-family: Arial;
+		font-weight: bold;
+		text-align: left;
+		border-left: 0px dashed rgb(170, 170, 170);
+		border-right: 1px dashed rgb(170, 170, 170);
+		padding-right: 10px;
+	}
+	.subtitle{ 
+		color: #000;
+		font-size: 12px;
+		font-family: Arial;
+		font-weight: bold;
+		text-align: left;
+		border-right: 1px dashed rgb(170, 170, 170);
+		padding-right: 0px;
+	}
+
+	.subtitleR{ 
+		color: #000;
+		font-size: 12px;
+		font-family: Arial;
+		font-weight: bold;
+		text-align: left;
+		border-right: 0px dashed rgb(170, 170, 170);
+		padding-right: 10px;
+	}
+
+	.valueL{ 
+		font-size: 11px;
+		font-family: Arial;
+		text-align: left;
+		border-right: 1px dashed rgb(170, 170, 170);
+		padding-right: 10px;
+	}
+
+	.value{ 
+		font-size: 11px;
+		font-family: Arial;
+		text-align: left;
+		border-right: 1px dashed rgb(170, 170, 170);
+		padding-right: 10px;
+	}
+
+	.valueR{ 
+		font-size: 11px;
+		font-family: Arial;
+		text-align: left;
+		border-right: 0px dashed rgb(170, 170, 170);
+		padding-right: 10px;
+	}
+
+	.running{ 
+		color: #0b0; 
+		font-family: Arial;
+		font-weight: bold; 
+		text-align: center; 
+	}
+
+	.disclaimer{
+		font-size: 10px;
+		font-family: Arial;
+		text-align: left;   
+		border: 0px dashed rgb(170, 170, 170);  
+	}
+
+	#content_div_back { 
+		padding-left: 0px;
+		color: #fff;
+		font-family: Arial;
+		font-size: 12px;
+		width: 550px; 
+		border: 1px solid red;
+		background-color: rgb(0, 0, 0); 
+	}
+
+	.title_back{ 
+		color: #fff;
+		font-size: 14px;
+		font-family: Arial;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.info_back{ 
+		color: #fff;
+		font-size: 10px;
+		font-family: Arial;
+		text-align: center;
+		font-variant: small-caps;
+	}
+
+	.value_back{ 
+		color: #fff;
+		font-size: 11px;
+		font-family: Arial;
+		text-align: left;
+		border: 0px dashed rgb(170, 170, 170);
+		padding-right: 10px;
+	}
+
+	.myweb a{ 
+		color: red;
+		font-size: 12px;
+		font-family: Arial;
+		text-align: center;
+		font-variant: small-caps;
+		text-decoration: none;
+		padding-left: 5px;
+		padding-right: 5px;
+		border: 1px solid rgb(170, 170, 170);
+	}
+
+	.help_back{
+		color: #fff;
+		font-size: 11px;
+		font-family: Arial;
+		font-weight: normal;
+		text-align: left;
+		border-top: 1px dashed rgb(170, 170, 170);
+		padding-right: 10px;
+	}
+
+</style>
+
+]]>
+</Content>
+</Module>
+
