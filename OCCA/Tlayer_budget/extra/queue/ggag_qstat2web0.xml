@@ -54,16 +54,17 @@
  </style>
 
 <SCRIPT LANGUAGE="JavaScript"> 
-	var m = "<div id='upd'>Last update: " + document.lastModified; 
-	var p = m.length-8; document.writeln("<center>"); 
-    document.write(m.substring(p, 0)); document.writeln("</center></div>"); 
+	datUpdated = new Date(document.lastModified) ;
+	datMonth = datUpdated.getMonth() + 1 ;
+	datDate = datUpdated.getDate() ;
+	datYear = datUpdated.getYear() ;
+	datHour = datUpdated.getHours() ;
+	datMin = datUpdated.getMinutes() ;	
+	document.write("<div id='upd'>Last Updated: " + datMonth + "/" + datDate + " at " + datHour + "H" + datMin + "</div>") ;
 </SCRIPT>
 
-
-
-
-
-<div id="content_div"></div>
+<div id="content_div">
+</div>
 
 <script type="text/javascript">
 	
