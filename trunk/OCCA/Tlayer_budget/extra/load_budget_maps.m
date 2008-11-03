@@ -50,6 +50,7 @@ fid = fopen(strcat(pref,'LRtendARTIF.3yV2adv.bin'),'r','ieee-be');
 if fid > 0
 	M = fread(fid,[jpi*jpj*nb_out*nb_out jpk*nb_out],'float32');fclose(fid);
 	M = reshape(M,[jpi*nb_out jpj*nb_out jpk*nb_out]); MtendA = permute(M*sg,[3 2 1]);
+	MtendA = MtendA*86400;
 else
 	MtendA = zeros(jpk*nb_out,jpj*nb_out,jpi*nb_out).*NaN;
 end
