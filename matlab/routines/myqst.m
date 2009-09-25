@@ -33,10 +33,18 @@ if nargin >= 1
 		sorting = varargin{1};
 	end
 end
+if nargin >= 2
+	if ischar(varargin{2})
+		select = varargin{2};
+	end
+end
 
 % Default values:
 if ~exist('sorting','var')
-	sorting = 5; % Default sorting column (last touch)
+	sorting = 2; % Default sorting column (last touch)
+end
+if ~exist('select','var');
+	select = '*'; % Default display all jobs
 end
 
 colT{1} = 'ID';
@@ -99,35 +107,68 @@ if fid>0
 	diag_screen(line);
 	diag_screen(sprintf('| %5s | %30s | %9s | %15s | %15s | %25s |',colT{1},colT{2},colT{3},colT{4},colT{5},colT{6}));
 	diag_screen(line);
-	
-	switch sorting
-		case 3 % This one sorts jobs by state:
-			for ijob = 1 : size(job,2),if job(ijob).state == 'r',  print(job(ijob)); end,end
-			for ijob = 1 : size(job,2),if job(ijob).state == 'qw', print(job(ijob)); end,end
-			for ijob = 1 : size(job,2),if job(ijob).state == 'dr', print(job(ijob)); end,end
-			
-		case 4
-			clear it,for ij = 1 : size(job,2),it(ij)=job(ij).it0;end % Start time
-			[y,or] = sort(it); clear y % From the older to newer
-			or = fliplr(or); % From the newer to the older		
+	job = selectthesejobs(job,sorting,select);
+	if ~isempty(job)
+		
+	if strfind(colT{sorting},'ID') % This one sorts jobs by id
+			clear it,for ij = 1 : size(job,2),it(ij)=job(ij).id;end % ID	
+			[y,or] = sort(it); clear y
+			or = fliplr(or);
 			for ij = 1 : size(job,2)
 				ijob = or(ij);
 				print(job(ijob));
 			end
 			
-		otherwise % 5
+	elseif strfind(colT{sorting},'touch') % This one sorts jobs by Last touch time
 			clear it,for ij = 1 : size(job,2),it(ij)=job(ij).itR;end % Last touch
 			[y,or] = sort(it); clear y % From the older to newer
 			or = fliplr(or); % From the newer to the older		
 			for ij = 1 : size(job,2)
 				ijob = or(ij);
 				print(job(ijob));
-			end			
-	end % Switch
+			end
 
+
+	elseif strfind(colT{sorting},'State') % This one sorts jobs by state:
+			for ijob = 1 : size(job,2),if job(ijob).state == 'r',  print(job(ijob)); end,end
+			for ijob = 1 : size(job,2),if job(ijob).state == 'qw', print(job(ijob)); end,end
+			for ijob = 1 : size(job,2),if job(ijob).state == 'dr', print(job(ijob)); end,end
+
+
+	elseif strfind(colT{sorting},'Queue') % This one sorts jobs by queue name
+			clear it,for ij = 1 : size(job,2),it(ij)={job(ij).queue};end % Name
+			[y,or] = sort(it); clear y % From the older to newer
+			for ij = 1 : size(job,2)
+				ijob = or(ij);
+				print(job(ijob));
+			end	
+
+	elseif strfind(colT{sorting},'Started') % sort by starting time
+			clear it,for ij = 1 : size(job,2),it(ij)=job(ij).it0;end % Last touch
+			[y,or] = sort(it); clear y % From the older to newer
+			or = fliplr(or); % From the newer to the older		
+			for ij = 1 : size(job,2)
+				ijob = or(ij);
+				print(job(ijob));
+			end	
+			
+	else  % strfind(colT{sorting},'Name') % Default,  This one sorts jobs by name
+			clear it,for ij = 1 : size(job,2),it(ij)={job(ij).name};end % Name
+			[y,or] = sort(it); clear y % From the older to newer
+			for ij = 1 : size(job,2)
+				ijob = or(ij);
+				print(job(ijob));
+			end
+	end % if
 	
-	
+	else
+		diag_screen('No match');
+	end %if not empty
+
 	diag_screen(line);
+	if nargout == 1
+		varargout(1) = {job};
+	end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 else
@@ -135,7 +176,7 @@ else
 end
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 function [] = print(job);
 
 ijob = 1;
@@ -143,13 +184,107 @@ ijob = 1;
 diag_screen(sprintf('| %5d | %30s | %9s | %15s | %15s | %25s |',job(ijob).id,job(ijob).script,job(ijob).state,datestr(job(ijob).it0,'ddd at HH:MM:SS'),datestr(job(ijob).itR,'ddd at HH:MM:SS'),job(ijob).queue));
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+function varargout = selectthesejobs(jobs,sorting,select);
+	
+switch sorting
+	case 1,    	namfield = 'id';
+	case 2,   	namfield = 'script';
+	case 3, 	namfield = 'state';
+	case 4, 	namfield = 'it0'; 
+	case 5, 	namfield = 'itR'; 
+	case 6, 	namfield = 'queue';
+end	
+
+if ~strcmp(select,'*')
+	
+	% Clean multiple *: 
+	select = strrep(select,'*','^');
+	select = strrep(select,'^^','^');
+	select = strrep(select,'^^^','^');
+	select = strrep(select,'^^^','^');	
+	select = strrep(select,'^','*');
+	
+	imatch = strfind(select,'*');
+	nmatch = length(imatch);
+	jobL = zeros(1,size(jobs,2));
+
+	for ijob = 1 : size(jobs,2)
+		tokeep = 0;
+		str = getfield(jobs,{ijob},namfield);
+		if sorting == 1, str = num2str(str); end
+		if sorting == 4, str = datestr(str,'ddd at HH:MM:SS'); end
+		if sorting == 5, str = datestr(str,'ddd at HH:MM:SS'); end
+		
+		if nmatch == 0 % We look for a perfect match
+			if strcmp(str,select), tokeep = 1; end
+
+		elseif nmatch == 1 & (select(1) == '*' | select(end) == '*' )
+			tokeep = found(str,select);
+			
+		elseif nmatch == 1
+			t1 = found(str,select(1:imatch-1));
+			t2 = found(str,select(imatch:end));
+			if t1 + t2 == 2, tokeep = 1; end
+			
+		elseif nmatch == 2 & (select(1) == '*' & select(end) == '*' )
+			if strfind(str,select(2:end-1)), tokeep =1; end
+			
+			
+		elseif nmatch == 3
+			error('No more than 2 stars in regexp please');
+		
+		end % if number of *
+		if tokeep == 1
+			jobL(ijob) = 1;
+		end
+	end % for ijobs
+	if sum(jobL) == 0
+		newjobs = [];
+	else
+		newjobs = jobs(find(jobL==1));
+	end
+else
+	newjobs = jobs;
+end
+
+if nargout == 1
+	varargout(1) = {newjobs};
+end
 
 
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+function tokeep = found(str,select)
+	
+tokeep = 0;	
+if select(1) == '*'
+	pat = strrep(select,'*',''); np = length(pat)-1;
+	if strcmp(str(end-np:end),pat), tokeep=1; end
+elseif select(end) == '*'
+	pat = strrep(select,'*',''); np = length(pat);
+	if strcmp(str(1:np),pat), tokeep=1; end
+end 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 

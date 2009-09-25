@@ -17,6 +17,7 @@
 
 function varargout = canom(varargin)
 
-  cx=abs(caxis);
-  caxis([-1 1]*max(cx));
-
+	cx=abs(caxis);
+	caxis([-1 1]*max(cx));
+	load mapanom2
+	colormap(mapanom)

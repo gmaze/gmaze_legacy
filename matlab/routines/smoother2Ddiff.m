@@ -1,6 +1,6 @@
 % SMOOTHER2DDIFF Apply a diffusive smoother on a 2D field
 %
-% function [field_out,tmp3x,tmp3y] = smoother2Ddiff(field_in,dist_in1,dist_in2);
+% [field_out,tmp3x,tmp3y] = smoother2Ddiff(field_in,dist_in1,dist_in2);
 %
 % Apply a diffusive smoother based on Weaver and Courtier, 2001.
 %

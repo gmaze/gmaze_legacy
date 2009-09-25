@@ -6,6 +6,12 @@
 % By default, add the date with the path
 % if TEXT='del', just remove the existing footnote
 %
+% Example:
+%	footnote(footstamp(2,[mfilename('fullpath') '.m']));
+%
+% See also:
+%	footstamp
+%
 % Created by Guillaume Maze on 2008-09-16.
 % Copyright (c) 2008 Guillaume Maze. All rights reserved.
 % Inspired by the suptitle function of: Drea Thomas 6/15/95 drea@mathworks.com
@@ -24,10 +30,14 @@ function varargout = footnote(varargin)
 if nargin == 1	
 	str = varargin(1);	
 else
-	we = wherearewe;
-	str = datestr(now,'dd-mmm-yyyy HH:MM');
-%	str = sprintf('%s\n%s',str,pwd);
-	str = sprintf(' code@guillaumemaze.org (%s)\n %s:/%s',str,wherearewe,pwd);
+	a = dbstack('-completenames');
+	fil_caller = a(end).file;
+	routines = strrep(which('figure'),'figure.m','');
+	if strfind(fil_caller,routines)
+		str = footstamp(1); % If we called footnote from the prompt
+	else
+		str = footstamp(2,fil_caller); % If we called footnote from a script
+	end
 end	
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,7 +62,13 @@ switch method
 	case 1
 		
 	% Fontsize of the footnote text
-	fs = get(gcf,'defaultaxesfontsize')-2;	
+	fs = get(gcf,'defaultaxesfontsize')-2;
+	% Correct the font size if we're on a small screen:
+	si = get(0,'ScreenSize');
+	if size(si,1) & si(1,4) == 778
+		fs = 6;
+	end
+	%
 	haold = gca;
 	
 	figunits = get(gcf,'units');
@@ -83,14 +99,24 @@ switch method
 	end
 	ha = axes('pos',[0 0 1 0.01],'visible','off','Tag','footnote');
 %	ht = text(0,1,str);set(ht,'horizontalalignment','left','fontsize',fs);
-	ht = text(0,1,str);
+	ht = text(0,1,str);set(ht,'parent',ha)
 	set(ht,'horizontalalignment','left','fontsize',fs,'verticalalignment','bottom');
 	set(ht,'interpreter','none');
-	set(gcf,'nextplot',np);
+	set(gcf,'nextplot','add');
+	%set(haold,'visible','off');
+%	mytoolbar;
 	axes(haold);
+
 	if nargout >= 1
 		varargout(1) = {ht};
 	end
+	
+	
+	
+	
+	
+	
+	
 	
 %%%%%%%%%%%%%%%%%%%%%%	%%%%%%%%%%%%%%%%%%%%%%	%%%%%%%%%%%%%%%%%%%%%%	
 	case 2
