@@ -13,21 +13,29 @@
 %
 % In tbcont.html, we create a first table 'Quick Links' which 
 % lists all routines and link them to an url of the source file. 
-% The url prefix for these links is by default:
-%	link_pref = 'http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/';
-% but it can be specify in the options list.
+% The url prefix for these links is by default relative to:
+%	'http://guillaumemaze.googlecode.com/svn/trunk/matlab/';
+% and it can be specified in the options list with opts link_rel.
+% So url will be of the form: link_pref/link_rel
 %
 % Then a second table lists all routines with there h1line as:
 %	column 1: link to a wiki page for the routine
 %	column 2: the h1line
-%	column 3: link to the source file (similar to the one in the 'Quick Links' table
+%	column 3: link to the source file (similar to the one in the 'Quick Links' table)
 %
-% This function aims to be used in tight coordination with a Google Code project.
-%  
+% This function aims to be used in tight conjonction with a Google Code project.
+% 
+% How to update my google code setup for matlab/routines:
+%	% Run:
+%	tbcont('~/matlab/routines','link_rel','routines');
+%	% Then copy '~/matlab/routines/wiki/*' to '~/work/code.google.com/guillaumemaze_wiki/'
+%	% launch svnx, open working copies of Google code wiki pages
+%	% Then update, remove or add files and click on coomit !
 %
 % Created: 2008-10-30.
 % Rev. by Guillaume Maze on 2009-09-25: Added complete help
 % Rev. by Guillaume Maze on 2009-09-25: Handle options
+% Rev. by Guillaume Maze on 2009-09-25: Manage subfolders
 % Copyright (c) 2008 Guillaume Maze. 
 % http://codes.guillaumemaze.org
 
@@ -39,18 +47,19 @@
 % You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
 
-function varargout = tbcont(varargin)
+function varargout = tbcont2(varargin)
 
 if nargin >= 1
-	pathd = varargin{1};
+	pathd = abspath(varargin{1});
 else
 	pathd = abspath('~/matlab/routines/');
 end
 
 % Default parameters tuned for the '~/matlab/routines' folder:
-link_pref = 'http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/';
+link_pref = 'http://guillaumemaze.googlecode.com/svn/trunk/matlab/';
+link_rel  = 'routines/';
 link_wiki = 'http://code.google.com/p/guillaumemaze/wiki';
-pref_wiki = 'matlab_routines_';
+pref_wiki = 'matlab';
 
 % Load options:
 if nargin >= 2
@@ -62,27 +71,31 @@ if nargin >= 2
 		end
 	end
 end
+if link_rel(1) == '/', link_rel = link_rel(2:end); end     % Remove any trailing slash in link_rel
+pref_wiki = strrep(pref_wiki,'_','');
+pref_wiki = sprintf('%s_%s',pref_wiki,strrep(link_rel,'/','_'));
+if link_rel(end)  ~= '/',  link_rel = [link_rel '/']; end  % Add slash at the end of link_rel
+if link_pref(end) ~= '/', link_pref = [link_pref '/']; end % Add slash at the end of link_pref
+link_pref = sprintf('%s%s',link_pref,link_rel);
 
 
-global diag_screen_default
-diag_screen_default.PIDlist = [2];
-fid = fopen(sprintf('%s/tbcont.html',pathd),'w');
-diag_screen_default.fid = fid;
-diag_screen_default.forma = '%s\n';
+disp(sprintf('I will create:\n\t%s/tbcont.html',pathd))
+disp(sprintf('where links to source files point to:\n\t%sXXXX.m',link_pref));
+disp(sprintf('and links to wiki pages point to:\n\t%s/%s_XXXX',link_wiki,pref_wiki));
+disp(sprintf('I will also create individual HTML pages here:\n\t%s/help/XXXX.html',pathd));
+disp(sprintf('and wiki pages here:\n\t%s/wiki/XXXX.wiki',pathd));
 
-% For the html output:
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Create the structure with all required informations about files (TB):
 blk = ' ';
+flist = file_list(pathd,'WFILE',0,'NREC',2,'EXTE',{'.m'});
 
-di = dir(sprintf('%s/*.m',pathd));
 ifct = 0;
-for ifil = 1 : size(di,1)
-	name = di(ifil).name;
+for ifil = 1 : size(flist,1)
+	name = flist{ifil,2};
 	try 
 		if isempty(strfind(lower(name),'content'))
-			fid = fopen(sprintf('%s/%s',pathd,name),'r');
+			fid = fopen(flist{ifil,1},'r');
 			if fid > 0
-				ifct = ifct + 1;
 				point = ftell(fid);
 				done = 0;
 				while done ~= 1
@@ -96,10 +109,21 @@ for ifil = 1 : size(di,1)
 				is = strfind(tline,blk);
 				fctname = tline(is(1):is(2));
 				fctdefi = tline(is(2)+1:end);
-				TB(ifct).file = name;
-				TB(ifct).name = fctname;
-				TB(ifct).def  = fctdefi;
+				rpath   = strrep(flist{ifil,4},pathd,'');
+				isla    = strfind(rpath,'/');
+				ifct = ifct + 1;
+				TB(ifct).file  = name;
+				TB(ifct).name  = fctname;
+				TB(ifct).def   = fctdefi;
 				TB(ifct).head  = head;
+				TB(ifct).path  = flist{ifil,4};
+				TB(ifct).date  = flist{ifil,5};
+				TB(ifct).rpath = rpath;
+				if ~isempty(isla)
+					TB(ifct).ilevl = length(isla);
+				else
+					TB(ifct).ilevl = 0;
+				end
 				%disp(sprintf('%20s: %s',fctname,fctdefi));
 			end
 		end % we exclude this one
@@ -108,11 +132,20 @@ for ifil = 1 : size(di,1)
 	end %try		
 end %for ifil
 
-clear it,
-for ij = 1 : size(TB,2)
-	it(ij) = {TB(ij).name};
-end % Name
-[y,ord] = sort(it); clear y 
+%%% Eventualy reorder the list of files:
+% clear it,
+% for ij = 1 : size(TB,2)
+% 	it(ij) = {TB(ij).name};
+% end % Name
+% [y,ord] = sort(it); clear y 
+ord = 1 : size(TB,2);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Create tbcont.html
+global diag_screen_default
+diag_screen_default.PIDlist = [2];
+fid = fopen(sprintf('%s/tbcont.html',pathd),'w');
+diag_screen_default.fid = fid;
+diag_screen_default.forma = '%s\n';
 
 % Insert Google toc:
 %diag_screen(sprintf('%s','<img src="http://www.google.com/chart?chc=sites&amp;cht=d&amp;chdp=sites&amp;chl=%5B%5BTable+of+contents%27%3D16%27f%5Cbf%5Chv%27a%5C%3D123%270%27%3D122%270%27dim%27%5Cbox1%27b%5CDBD9BB%27fC%5CDBD9BB%27eC%5C15%27sk%27%5C%5B%27%5Dh%27a%5CV%5C%3D12%27f%5Cbf%5C%5DV%5Cta%5C%3D124%27%3D0%27%3D123%27%3D297%27dim%27%5C%3D124%27%3D0%27%3D123%27%3D297%27vdim%27%5Cbox1%27b%5Cva%5CFFFEF0%27fC%5CDBD9BB%27eC%5Csites_toc%27i%5Chv-0-0%27a%5C%5Do%5CLauto%27f%5C&amp;sig=b45VIEKOHxw6Obq1kgHGMiw8YnI" id="44064812027861444" style="margin: 5px auto 5px 0pt; display: block; text-align: left;" origsrc="http://www.google.com/chart?chc=sites&amp;cht=d&amp;chdp=sites&amp;chl=%5B%5BTable+of+contents%27%3D16%27f%5Cbf%5Chv%27a%5C%3D123%270%27%3D122%270%27dim%27%5Cbox1%27b%5CDBD9BB%27fC%5CDBD9BB%27eC%5C15%27sk%27%5C%5B%27%5Dh%27a%5CV%5C%3D12%27f%5Cbf%5C%5DV%5Cta%5C%3D124%27%3D0%27%3D123%27%3D297%27dim%27%5C%3D124%27%3D0%27%3D123%27%3D297%27vdim%27%5Cbox1%27b%5Cva%5CFFFEF0%27fC%5CDBD9BB%27eC%5Csites_toc%27i%5Chv-0-0%27a%5C%5Do%5CLauto%27f%5C&amp;sig=b45VIEKOHxw6Obq1kgHGMiw8YnI" type="toc" props="width:250" height="300">'));
@@ -120,7 +153,7 @@ end % Name
 % Insert last update time:
 diag_screen(sprintf('%5s<b>Last update: %s</b>',blk,datestr(now,'yyyy mmmm dd, HH:MM')));
 
-%%%%%%%%%%%%%%% First create the 1 line list:
+%%%%%%%%%%%%%%% First create the 'Quick links' list:
 diag_screen(sprintf('%5s<center><table><tbody>',blk));
 diag_screen(sprintf('%10s<tr>',blk))
 diag_screen(sprintf('%13s<td style="border: 1px solid rgb(170, 170, 170); padding: 5px;"><center><h3>%s</h3></center></td>',blk,'Quick links:'))
@@ -129,95 +162,111 @@ diag_screen(sprintf('%13s<td style="border: 1px solid rgb(170, 170, 170); paddin
 diag_screen(sprintf('%13s<td style="border: 1px solid rgb(170, 170, 170); padding: 5px;">',blk));
 for ij = 1 : size(TB,2)
 	ifct = ord(ij);
-	diag_screen(sprintf('%5s<a href="%s%s" title="%s">%s</a> ',blk,link_pref,TB(ifct).file,TB(ifct).def,lower(strtrim(TB(ifct).name))));
+%	diag_screen(sprintf('%5s<a href="%s%s" title="%s">%s</a> ',blk,link_pref,TB(ifct).file,TB(ifct).def,lower(strtrim(TB(ifct).name))));
+	[murl murlname] = get_murl(TB(ifct),link_pref);
+	diag_screen(sprintf('%5s<a href="%s" title="%s">%s</a> ',blk,murl,TB(ifct).def,murlname));
 end
 diag_screen(sprintf('%13s</td>',blk));
 diag_screen(sprintf('%10s</tr>',blk));
 diag_screen(sprintf('%5s</tbody></table></center>',blk));
 diag_screen(sprintf('%5s<br>',blk))
 
-
 %%%%%%%%%%%%%%% Second create the table with short descriptions only
 if 1
-diag_screen(sprintf('%5s<table><tbody>',blk));
-
-diag_screen(sprintf('%10s<tr>',blk))
-diag_screen(sprintf('%13s<td colspan="2" style="border: 1px solid rgb(170, 170, 170); padding: 25px; font-size:16px;font-weight:bold;">',blk));
-diag_screen(sprintf('%18s%s',blk,'Function Name'));
-diag_screen(sprintf('%13s</td>',blk))
-diag_screen(sprintf('%13s<td colspan="2" style="border: 1px solid rgb(170, 170, 170); padding: 25px; font-size:16px;font-weight:bold;">',blk));
-diag_screen(sprintf('%18s%s',blk,'Description'));
-diag_screen(sprintf('%13s</td>',blk));
-diag_screen(sprintf('%10s</tr>',blk));
-
+	
 ii = 0;
 col(1).val = '#fff';
 col(2).val = '#ddd';
+		
+% Start table:	
+diag_screen(sprintf('%5s<table><tbody>',blk));
 
+% First line with columns definitions:
+	diag_screen(sprintf('%10s<tr>',blk))
+		diag_screen(sprintf('%13s<td colspan="2" style="border: 1px solid rgb(170, 170, 170); padding: 25px; font-size:16px;font-weight:bold;">',blk));
+			diag_screen(sprintf('%18s%s',blk,'Function Name'));
+		diag_screen(sprintf('%13s</td>',blk))
+		diag_screen(sprintf('%13s<td colspan="2" style="border: 1px solid rgb(170, 170, 170); padding: 25px; font-size:16px;font-weight:bold;">',blk));
+			diag_screen(sprintf('%18s%s',blk,'Description'));
+		diag_screen(sprintf('%13s</td>',blk));
+	diag_screen(sprintf('%10s</tr>',blk));
+
+
+% Start loop over routines:
 for ij = 1 : size(TB,2)
 	ifct = ord(ij);
 	ii = flip(ii);	
-	disp(sprintf('%20s: %s',TB(ifct).name,TB(ifct).def));
+
+	rpath = TB(ifct).rpath; if ~isempty(rpath), if rpath(end) ~= '/', rpath = [rpath '/'];end,if rpath(1) == '/', rpath = rpath(2:end);end,end
+	pref  = sprintf('%s_%s',pref_wiki,strrep(rpath,'/','_'));
+	wikipage_link = sprintf('%s/%s%s',link_wiki,pref,lower(strtrim(TB(ifct).name)));
 	
+	% Create a line in the table:
 	diag_screen(sprintf('%10s<tr>',blk))
 	
-	diag_screen(sprintf('%13s<td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">',blk));
-	diag_screen(sprintf('%18s%d',blk,ij));
-	diag_screen(sprintf('%13s</td>',blk))
+	% Fill columns:
+		% Col 1 with routine number:
+		diag_screen(sprintf('%13s<td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">',blk));
+			diag_screen(sprintf('%18s%d',blk,ij));
+		diag_screen(sprintf('%13s</td>',blk))
 	
-	diag_screen(sprintf('%13s<td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: %s;">',blk,col(ii).val));
-%	diag_screen(sprintf('%18s<a href="%s%s" title="%s">%s</a>',...
-%				blk,link_pref,TB(ifct).file,TB(ifct).def,strtrim(TB(ifct).name)));
-	diag_screen(sprintf('%18s<a href="%s/%s%s" title="Click to get more details" target="_blank">%s</a>',blk,link_wiki,pref_wiki,lower(strtrim(TB(ifct).name)),strtrim(TB(ifct).name)));
-				
-	diag_screen(sprintf('%13s</td>',blk))
+		% Col 2 with link to the wiki page:
+		diag_screen(sprintf('%13s<td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: %s;">',blk,col(ii).val));
+			diag_screen(sprintf('%18s<a href="%s" title="Click to get more details" target="_blank">%s%s</a>',blk,wikipage_link,rpath,strtrim(TB(ifct).name)));				
+		diag_screen(sprintf('%13s</td>',blk))
 	
-	diag_screen(sprintf('%13s<td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: %s;">',blk,col(ii).val));
-	diag_screen(sprintf('%18s%s',blk,TB(ifct).def));
-	diag_screen(sprintf('%13s</td>',blk));	
-	
-	diag_screen(sprintf('%13s<td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: %s;">',blk,col(ii).val));
-%	diag_screen(sprintf('%18s<a href="%s/help/%s.html">Help</a>',blk,link_pref,strtrim(TB(ifct).name)));
-%	diag_screen(sprintf('%18s<a href="%s/%s%s">Help</a>',blk,link_wiki,pref_wiki,lower(strtrim(TB(ifct).name))));
-	diag_screen(sprintf('%18s<a href="%s%s" title="Download the .m file">.m</a>',blk,link_pref,TB(ifct).file));
-	
-	diag_screen(sprintf('%13s</td>',blk));
+		% Col 3 with the H1line:
+		diag_screen(sprintf('%13s<td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: %s;">',blk,col(ii).val));
+			diag_screen(sprintf('%18s%s',blk,TB(ifct).def));
+		diag_screen(sprintf('%13s</td>',blk));	
+
+		% Col 4 with the source link .m:
+		[murl murlname] = get_murl(TB(ifct),link_pref);
+		
+		diag_screen(sprintf('%13s<td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: %s;">',blk,col(ii).val));
+			diag_screen(sprintf('%18s<a href="%s" title="Download the .m file">.m</a>',blk,murl));
+		diag_screen(sprintf('%13s</td>',blk));
 	
 	diag_screen(sprintf('%10s</tr>',blk));
+	% Close line
 	
-end
+end % for loop
+
+% Close table:
 diag_screen(sprintf('%5s</tbody></table>',blk));
-end
+
+end %if 0/1
 
 
+% Close tbcont.html file
 fclose(diag_screen_default.fid);
 
 
 
 
-%%%%%%%%%%%%%%% Also create individual html help files
-if ~exist(sprintf('%s/help',pathd))
-	mkdir(sprintf('%s/help',pathd));
-else
-	delete(sprintf('%s/help/*',pathd));
-end
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Create individual html help files
 ii = 1;
 col(1).val = '#fff';
 col(2).val = '#ddd';
 
+pa = sprintf('%s/help',pathd);
+rmdir(pa,'s');
+mkdir(pa);
+
 for ifct = 1 : size(TB,2)
 
+	% Folder:
+	pa = sprintf('%s/help%s',pathd,TB(ifct).rpath);
+	if ~exist(pa,'dir'),mkdir(pa);end
 	global diag_screen_default
 	diag_screen_default.PIDlist = [2];
-	fid = fopen(sprintf('%s/help/%s.html',pathd,strtrim(TB(ifct).name)),'w');
+	fid = fopen(sprintf('%s/%s.html',pa,strtrim(TB(ifct).name)),'w');
 	diag_screen_default.fid = fid;
 	diag_screen_default.forma = '%s\n';
 
 	diag_screen('<html>');
 	diag_screen('<head>');
-	diag_screen(sprintf('%5s<title>Help: %s</title>',blk,lower(strtrim(TB(ifct).name))));
+		diag_screen(sprintf('%5s<title>Help: %s</title>',blk,lower(strtrim(TB(ifct).name))));
 	diag_screen('</head>');	
 	diag_screen('<body>');
 		
@@ -225,13 +274,16 @@ for ifct = 1 : size(TB,2)
 	diag_screen(sprintf('%5s<center><table><tbody>',blk));	
 	
 	diag_screen(sprintf('%10s<tr>',blk))
-	diag_screen(sprintf('%13s<td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: %s;">',blk,col(ii).val));
-	diag_screen(sprintf('%18s<h4>%s</h4>%s</td>',blk,strtrim(TB(ifct).name),TB(ifct).def));	
+		diag_screen(sprintf('%13s<td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: %s;">',blk,col(ii).val));
+			diag_screen(sprintf('%18s<h4>%s</h4>%s',blk,strtrim(TB(ifct).name),TB(ifct).def));	
+			diag_screen(sprintf('%18s<br><small>Last modified: %s</small>',blk,datestr(TB(ifct).date)));
+		diag_screen(sprintf('%13s</td>'));
 	diag_screen(sprintf('%10s</tr>',blk));
 	diag_screen(sprintf('%10s<tr>',blk));	
 	diag_screen(sprintf('%13s<td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: %s;">',blk,col(ii).val));
-	diag_screen(sprintf('%18s<a href="%s%s">Download here</a>',...
-				blk,link_pref,TB(ifct).file));
+	[murl murlname] = get_murl(TB(ifct),link_pref);	
+		diag_screen(sprintf('%18s<a href="%s">Download here</a>',...
+								blk,murl));
 	diag_screen(sprintf('%13s</td>',blk))
 	diag_screen(sprintf('%10s</tr>',blk));
 	
@@ -263,7 +315,7 @@ end %for ij
 
 
 
-%%%%%%%%%%%%%%% Also create individual wiki help files
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Also create individual wiki help files
 if ~exist(sprintf('%s/wiki',pathd))
 	mkdir(sprintf('%s/wiki',pathd));
 else
@@ -276,6 +328,7 @@ col(1).val = '#fff';
 col(2).val = '#ddd';
 
 for ifct = 1 : size(TB,2)
+%for ifct = 12:12
 
 	global diag_screen_default
 	diag_screen_default.PIDlist = [2];
@@ -290,7 +343,8 @@ for ifct = 1 : size(TB,2)
 	diag_screen(sprintf(''));
 	
 	diag_screen(sprintf('{{{'));
-	fid = fopen(sprintf('%s/%s',pathd,strtrim(TB(ifct).file)),'r');
+	file = sprintf('%s/%s',TB(ifct).path,strtrim(TB(ifct).file));
+	fid = fopen(file,'r');
 	done = 0;
 	fseek(fid,0,'bof');
 	il = 0;
@@ -333,7 +387,7 @@ end
 
 
 
-
+end%function
 
 
 
@@ -362,27 +416,35 @@ while done ~= 1
 	else
 		done = 1;
 	end
-end
+end%while
 
 
+end%function
 
-
-
-
-
-
+%%%%%%%%%%%%%%% %%%%%%%%%%%%%%% 
+function [murl murlname] = get_murl(TB,link_pref);
 	
+	rpath = TB.rpath; 
+	if ~isempty(rpath), 
+		if rpath(end) ~= '/', 
+			rpath = [rpath '/'];
+		end,
+		if rpath(1) == '/', 
+			rpath = rpath(2:end);
+		end,
+	end
+	murl = sprintf('%s%s%s',link_pref,rpath,TB.file);
+	murlname = sprintf('%s%s',rpath,strtrim(TB.file));
 	
-	
+end%function
 
-
-%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%% %%%%%%%%%%%%%%% 
 function ii = flip(ii);
 
-ii = ii + 1;
-if ii == 3, ii = 1; end
+	ii = ii + 1;
+	if ii == 3, ii = 1; end
 
-
+end%function
 
 
 
