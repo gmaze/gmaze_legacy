@@ -1,4 +1,4 @@
-% WSEDECOMP Split a into its downward/upward propagating and stationnary components
+% WSEDECOMP Split a signal into its downward/upward propagating and stationnary components
 %
 % [Sf A FX FT] = WSEdecomp(S,DT,DX,[PERIOD],[WAVELENGTH]) 
 % Split S(SPACE,TIME) into: DW/ST/UP-waves
