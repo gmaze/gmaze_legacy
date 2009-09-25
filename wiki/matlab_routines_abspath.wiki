@@ -13,9 +13,10 @@ Relative to Absolute path function
 % variable $HOME
 %
 % Created by Guillaume Maze on 2008-10-28.
+% Rev. by Guillaume Maze on 2009-09-25: test !
 }}}
 ----
-Last update: 2008 October 31, 13:04
+Last update: 2009 September 25, 16:52
 
 Created by Guillaume Maze
 
