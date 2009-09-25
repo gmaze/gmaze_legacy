@@ -1,0 +1,24 @@
+== grep.m ==
+Grep a string into definitions of functions
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/grep.m Download here]
+
+{{{
+% grep Grep a string into definitions of functions
+%
+% [TB] = grep(PATTERN,[PATH])
+% 
+% Scan the optional folder name [PATH] (by default look into ~/matlab/routines/)
+% for matlab functions and grep PATTERN into the definition
+% 
+% Example:
+% grep('mean')
+%
+% Created: 2009-08-25.
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

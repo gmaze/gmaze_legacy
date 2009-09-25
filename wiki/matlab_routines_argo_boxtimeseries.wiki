@@ -1,0 +1,76 @@
+== argo_boxtimeseries.m ==
+Average Argo profiles over a box
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/argo_boxtimeseries.m Download here]
+
+{{{
+% argo_boxtimeseries Average Argo profiles over a box
+%
+% [profiles,timeAX,presAX,ndata,raw_profiles] = argo_boxtimeseries(DOMAIN,PERIOD,[PRES_OUT,DT])
+% 
+% Average all available Argo profiles within the rectangular 
+% box delimited by DOMAIN and give back the time serie for the time
+% interval defined by PERIOD.
+% 
+% The rectangular box is given by DOMAIN, a 1x4 array:
+% 	DOMAIN = [Xmin Xmax Ymin Ymax];
+% where Xmin, Xmax are the Western and Eastern longitudes of the 
+% box (from 0 to 360) and where Ymin, Ymax are the Southern
+% and Northern latitudes of the box (from -90 to 90).
+%
+% The avalable time period goes from 2003/01/01 to the current date (as far as
+% the Argo data are downloaded). PERIOD is 1x2 array like:
+% 	PERIOD = [startnum endnum];
+% where startnum, endnum are the starting and ending serial date
+% numbers of the required time serie (as given by datenum, see
+% example bellow).
+%
+% To allow average of several profiles, they are linearly
+% inteprolated onto a regular vertical pressure axis.
+% By default, this pressure axis is:
+% 	PRES_OUT = 0:10:2500; % In db=hPa
+% But it can also be specified in the argument list.
+%
+% DT is an optional parameter which sets the time interval of the output.
+% It is a string which can be:
+% 'd' (default), 'w' or 'm' for daily, weekly and monthly outputs.
+% 
+%
+% EXAMPLE:
+% 	PERIOD   = [datenum(2008,1,1,0,0,0) now];
+% 	DOMAIN   = [360-55-10/2 360-55+10/2 35-5/2 35+5/2]; % For the North Atl. Eighteen Degree Water
+% 	DOMAIN   = [360-55 360-50 55 60]; % For the Labrador Sea Water
+% 	DOMAIN   = [360-31.5 360-27.5 55.5 59.5]; % For the Reykjanes Ridge Mode Sea Water
+% 	[profiles timeax presax nprofiles] = argo_boxtimeseries(DOMAIN,PERIOD,0:20:1500,'w');
+% 	figure;iw=2;jw=2;figure_land;
+% 	subplot(iw,jw,1); hold on
+%		m_proj('equid','lon',[360-80 359],'lat',[10 80]);
+% 		m_drawbox([DOMAIN(1) DOMAIN(3)],[DOMAIN(2) DOMAIN(4)],'color','r');
+%		m_coast('patch','k');m_grid;m_elev('contour',[-2 -1]*1e3,'edgecolor','k');
+%	subplot(iw,jw,2); hold on
+%	 	plot(PERIOD(1):PERIOD(2),nprofiles,'+');datetick('x','yyyy');set(gca,'xlim',PERIOD);
+%		grid on;box on; xlabel('time'); title('Number of validated profiles');
+%		set(gca,'xlim',PERIOD);
+% 	subplot(iw,jw,3); hold on
+% 		pcolor(timeax,-presax*1e4/1035/9.81,squeeze(profiles(1,:,:))');shading flat;colorbar;
+% 		datetick('x','yyyy');set(gca,'xlim',PERIOD);box on
+%		ylabel('Depth (m)'); xlabel('time'); title('Temperature');
+% 	subplot(iw,jw,4); hold on
+% 		pcolor(timeax,-presax*1e4/1035/9.81,squeeze(profiles(2,:,:))');shading flat;colorbar;
+% 		datetick('x','yyyy');set(gca,'xlim',PERIOD);box on
+%		ylabel('Depth (m)'); xlabel('time'); title('Salinity');
+%
+% NOTES: 
+% 	- As of now, this function only works with the North Atlantic geographic
+% 	domain as defined by Argo.
+% 	- Argo data are supposed to be at:
+% 	~/data/ARGO/ftp.ifremer.fr/ifremer/argo/geo/atlantic_ocean
+%
+% Created: 2009-06-03.
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

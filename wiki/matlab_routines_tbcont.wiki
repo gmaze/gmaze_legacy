@@ -1,17 +1,46 @@
 == TBCONT.m ==
-Create a simple Contents.html file from a directory
+Create matlab table of content from a directory
 
-[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/tbcont.m Download here]
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/tbcont2.m Download here]
 
 {{{
-% TBCONT Create a simple Contents.html file from a directory
+% TBCONT Create matlab table of content from a directory
 %
-% [] = tbcont(PATH_TO_DIR)
+% [] = tbcont(PATH_TO_DIR,[OPTION1,VALUE1,...])
+%
+% We explore the path PATH_TO_DIR for matlab .m files.
+% We then create under PATH_TO_DIR:
+% 	- a tbcont.html file with an index of all .m routines
+%		This is not a standlone html file because it has no header and body.
+%		It contains a html table to be inserted in any webpage. However, 
+%		most modern browsers will support this and display the content.
+%	- a 'help' folder with html help file for each routines
+%	- a 'wiki' folder with wiki help file for each routines
+%
+% In tbcont.html, we create a first table 'Quick Links' which 
+% lists all routines and link them to an url of the source file. 
+% The url prefix for these links is by default relative to:
+%	'http://guillaumemaze.googlecode.com/svn/trunk/matlab/';
+% and it can be specified in the options list with opts link_rel.
+% So url will be of the form: link_pref/link_rel
+%
+% Then a second table lists all routines with there h1line as:
+%	column 1: link to a wiki page for the routine
+%	column 2: the h1line
+%	column 3: link to the source file (similar to the one in the 'Quick Links' table)
+%
+% This function aims to be used in tight conjonction with a Google Code project.
+% 
+% Example:
+%	tbcont('~/matlab/routines','link_rel','matlab','pref_wiki','routines');
 %
 % Created: 2008-10-30.
+% Rev. by Guillaume Maze on 2009-09-25: Added complete help
+% Rev. by Guillaume Maze on 2009-09-25: Handle options
+% Rev. by Guillaume Maze on 2009-09-25: Manage subfolders
 }}}
 ----
-Last update: 2008 October 31, 13:04
+Last update: 2009 September 25, 16:52
 
 Created by Guillaume Maze
 

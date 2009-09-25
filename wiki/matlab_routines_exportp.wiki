@@ -1,0 +1,26 @@
+== exportp.m ==
+Export a figure to A4 color PDF format
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/exportp.m Download here]
+
+{{{
+% exportp Export a figure to A4 color PDF format
+%
+% exportp(GCF,[ORIENTATION,FILE])
+%
+%   Export a figure GCF to A4 color pdf format
+%   Default output file is: fig.pdf in current directory
+%   or specify it into FILE (extension .pdf is automatic).
+%   ORIENTATION is an optionnal parameter:
+%       ORIENTATION=0 : Portrait (default)
+%       ORIENTATION=1 : Landscape
+%
+%
+% Created: 2009-04-22.
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

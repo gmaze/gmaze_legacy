@@ -15,7 +15,7 @@ Confidence interval using inverse of chi-square cdf.
 %     p. 76, eqn 4.16.
 }}}
 ----
-Last update: 2008 October 31, 13:04
+Last update: 2009 September 25, 16:52
 
 Created by Guillaume Maze
 

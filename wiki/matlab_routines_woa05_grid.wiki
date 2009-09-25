@@ -1,0 +1,21 @@
+== WOA05_grid.m ==
+Read World Ocean Atlas 2005 grid
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/WOA05_grid.m Download here]
+
+{{{
+% WOA05_grid Read World Ocean Atlas 2005 grid
+%
+% [] = WOA05_grid(tp)
+% 
+% HELPTEXT
+%
+%
+% Created: 2009-06-17.
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

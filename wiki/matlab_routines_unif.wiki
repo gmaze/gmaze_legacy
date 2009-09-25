@@ -6,14 +6,14 @@ Uniformize colorscale on different figures
 {{{
 % UNIF Uniformize colorscale on different figures
 % 
-% UNIF(FLIST)
+% UNIF(FLIST,[CX])
 %
 % Change caxis in all figures (given by their handles in FLIST)
 % so that they are of the same limits
 %
 }}}
 ----
-Last update: 2008 October 31, 13:04
+Last update: 2009 September 25, 16:52
 
 Created by Guillaume Maze
 

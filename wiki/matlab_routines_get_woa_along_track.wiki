@@ -1,0 +1,26 @@
+== get_woa_along_track.m ==
+Interpolate World Ocean Atlas data along a ship track
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/get_woa_along_track.m Download here]
+
+{{{
+% get_woa_along_track Interpolate World Ocean Atlas data along a ship track
+%
+% [] = get_woa_along_track(x,y,'VAR')
+% 
+% Interpolate World Ocean Atlas data along a ship track given by (x,y)
+% VAR:
+%	'temp','t','temperature','theta'
+%	'psal','salt','s','salinity'
+%	'oxyl'
+%	'aou'
+%	'oxsl'
+% 
+% Created: 2009-06-17.
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

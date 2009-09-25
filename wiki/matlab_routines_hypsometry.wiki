@@ -52,7 +52,7 @@ Hypsometric Integral
 % Felix Hebeler, Geography Dept., University Zurich, March 2007
 }}}
 ----
-Last update: 2008 October 31, 13:04
+Last update: 2009 September 25, 16:52
 
 Created by Guillaume Maze
 

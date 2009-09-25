@@ -1,0 +1,22 @@
+== hidemenu.m ==
+Hide the menubar of a figure
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/hidemenu.m Download here]
+
+{{{
+% hidemenu Hide the menubar of a figure
+%
+% [] = hidemenu([gcf])
+% 
+% Hide the menubar of the figure with handle
+% given by gcf or the current one.
+%
+%
+% Created: 2009-04-27.
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

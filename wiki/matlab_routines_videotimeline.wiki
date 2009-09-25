@@ -6,15 +6,15 @@ Add a video timeline to a plot
 {{{
 % VIDEOTIMELINE Add a video timeline to a plot
 %
-% [] = videotimeline(TIMERANGE,IT,POSITION)
+% [] = videotimeline(TIME,IT,POSITION)
 %
-% TIMERANGE contains all the time line serie
-% TIME contains the current time
-%
+% TIME contains all the time line serie as: (1:nt,'YYYYMMDDHHMM')
+% IT contains the current time
+% POSITION = 't'
 %
 }}}
 ----
-Last update: 2008 October 31, 13:04
+Last update: 2009 September 25, 16:52
 
 Created by Guillaume Maze
 

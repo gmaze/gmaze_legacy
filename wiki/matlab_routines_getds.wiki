@@ -1,0 +1,21 @@
+== getdS.m ==
+Compute 3D volume elements matrix
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/getdS.m Download here]
+
+{{{
+% getdS Compute 3D volume elements matrix
+%
+% dS = getdS(LATITUDE,LONGITUDE)
+%
+% Compute 2D surface elements matrix from geographical
+% axis LATITUDE(northward) and LONGITUDE(eastward)
+%
+% Created: 2009-09-14.
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

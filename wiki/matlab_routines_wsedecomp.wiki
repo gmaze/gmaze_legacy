@@ -1,10 +1,10 @@
 == WSEDECOMP.m ==
-Split a into its downward/upward propagating and stationnary components
+Split a signal into its downward/upward propagating and stationnary components
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/WSEdecomp.m Download here]
 
 {{{
-% WSEDECOMP Split a into its downward/upward propagating and stationnary components
+% WSEDECOMP Split a signal into its downward/upward propagating and stationnary components
 %
 % [Sf A FX FT] = WSEdecomp(S,DT,DX,[PERIOD],[WAVELENGTH]) 
 % Split S(SPACE,TIME) into: DW/ST/UP-waves
@@ -53,7 +53,7 @@ Split a into its downward/upward propagating and stationnary components
 %
 }}}
 ----
-Last update: 2008 October 31, 13:04
+Last update: 2009 September 25, 16:52
 
 Created by Guillaume Maze
 

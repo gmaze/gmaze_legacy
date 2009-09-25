@@ -1,0 +1,21 @@
+== bibus.m ==
+Give me the next bus
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/bibus.m Download here]
+
+{{{
+% bibus Give me the next bus
+%
+% [] = bibus()
+% 
+% HELPTEXT
+%
+%
+% Created: 2009-05-05.
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

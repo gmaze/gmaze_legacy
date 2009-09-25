@@ -1,10 +1,10 @@
 == WHEREAREWE.m ==
-Give a back a string function of your location
+Give back a string to identify your location
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/wherearewe.m Download here]
 
 {{{
-% WHEREAREWE Give a back a string function of your location
+% WHEREAREWE Give back a string to identify your location
 %
 % LOCATION = wherearewe()
 %
@@ -14,15 +14,14 @@ Give a back a string function of your location
 % system or network.
 %
 % LOCATION could be:
-%	csail_mit
-%	ocean
-%	altix
-%	csail_ao
-%	beagle
+%	csail_mit,ocean,altix,csail_ao,beagle
+%	macbook
+%	ifremer
 %
+% Rev. by Guillaume Maze on 2009-02-24: Add LPO Ifremer identification
 }}}
 ----
-Last update: 2008 October 31, 13:04
+Last update: 2009 September 25, 16:52
 
 Created by Guillaume Maze
 

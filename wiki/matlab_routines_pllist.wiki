@@ -1,0 +1,24 @@
+== pllist.m ==
+Shortcut for function get_plotlistdef(MASTER,'.')
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/pllist.m Download here]
+
+{{{
+% pllist Shortcut for function get_plotlistdef(MASTER,'.')
+%
+% [LIST] = pllist(MASTER,[SUBDIR])
+% 
+% Simply execute:
+%	get_plotlistdef(MASTER,SUBDIR);
+%
+% See also:
+%	get_plotlistdef
+%
+% Created: 2009-08-25.
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

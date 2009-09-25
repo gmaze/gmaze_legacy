@@ -1,0 +1,22 @@
+== dim.m ==
+Give the number of dimensions of a field
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/dim.m Download here]
+
+{{{
+% dim Give the number of dimensions of a field
+%
+% n = dim(C)
+% 
+% Compute the dimension of C, ie the number of
+% dimensions of C
+%
+%
+% Created: 2009-02-24.
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

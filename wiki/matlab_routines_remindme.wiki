@@ -1,0 +1,32 @@
+== REMINDME.m ==
+ Will issue a remider at the specified time.
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/remindme.m Download here]
+
+{{{
+% REMINDME  Will issue a remider at the specified time.
+% REMINDME(time,message) issues the user a pop-up reminder (message) at the
+% specified time (time).  If the user hits snooze, the message will be
+% given again 10 minutes later.  The user may hit snooze three times, then
+% the reminders will stop. The second argument, is not necessary, and if 
+% omitted, a default message will be displayed: 'This is your reminder.'
+%
+% Example:   
+%
+%       remindme('1:20','There is more to life than Matlab.')
+%       %Will issue the message to the user at the next occurence of 1:20.
+%
+% The maximum usable time is 12 hours, but who works longer anyway?
+%
+% See also timer, questdlg
+%
+% Author:  Matt Fig
+% Contact: popkenai@yahoo.com
+% Updated: 7/25/2008
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

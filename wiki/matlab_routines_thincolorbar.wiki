@@ -27,7 +27,7 @@ Display thinner colorbar
 %   See also IMAGESC.
 }}}
 ----
-Last update: 2008 October 31, 13:04
+Last update: 2009 September 25, 16:52
 
 Created by Guillaume Maze
 

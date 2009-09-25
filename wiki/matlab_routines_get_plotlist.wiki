@@ -1,0 +1,21 @@
+== get_plotlist.m ==
+Return description of diagnostic/plot files
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/get_plotlist.m Download here]
+
+{{{
+% get_plotlist Return description of diagnostic/plot files
+%
+% LIST = get_plotlist(MASTER,SUBDIR)
+%
+% This function determines the list of pre-defined plots
+% available with the MASTER.m in the folder SUBDIR
+% LIST is a structure with name and description of each modules.
+%
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

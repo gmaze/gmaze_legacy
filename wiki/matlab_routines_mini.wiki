@@ -1,0 +1,20 @@
+== mini.m ==
+Reduce figure size to a mini standard
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/mini.m Download here]
+
+{{{
+% mini Reduce figure size to a mini standard
+%
+% [] = mini(gcf)
+% 
+% This function dramatically reduces a figure size
+% (Note that it removes the footnote if it exists)
+%
+}}}
+----
+Last update: 2009 September 25, 16:52
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]
