@@ -12,13 +12,17 @@
 %
 
 function figure_land(num);
+	
 if nargin == 0;
-  num = gcf;
+	num = gcf;
 else
-  builtin('figure',num); num = gcf;
+%  builtin('figure',num); num = gcf;
+	num = figure;
 end
 
 orient landscape
-set(gcf,'Position',[2+10*(num-1) 225-10*(num-1) 800 620])
+posi = get(num,'position');
+set(gcf,'Position',[posi(1:2) 800 620])
+%set(gcf,'Position',[2+10*(num-1) 225-10*(num-1) 800 620])
 
 set(gcf,'Color', [ 1 1 1 ] );

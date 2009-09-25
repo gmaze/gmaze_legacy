@@ -135,7 +135,7 @@ if foundrmax==0
 else
 	maxrho = rmax;
 end
-hhh=line([-maxrho -maxrho maxrho maxrho],[-maxrho maxrho maxrho -maxrho],'parent',cax);
+hhh = line([-maxrho -maxrho maxrho maxrho],[-maxrho maxrho maxrho -maxrho],'parent',cax);
 set(cax,'dataaspectratio',[1 1 1],'plotboxaspectratiomode','auto')
 v = [get(cax,'xlim') get(cax,'ylim')];
 ticks = sum(get(cax,'ytick')>=0);
@@ -157,8 +157,6 @@ if rticks > 5   % see if we can reduce the number
 end
 rinc  = (rmax-rmin)/rticks;
 tick  = (rmin+rinc):rinc:rmax;
-
-%% LOAD DEFAULT PARAMETERS:
 
 %% LOAD DEFAULT PARAMETERS:
 if find(CORs<0)

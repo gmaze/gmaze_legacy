@@ -1,9 +1,11 @@
 % GETCROSSCOR Compute a lagged cross-correlation 
 %
-% [CR LAGS CONFIDENCE95] = GETCROSSCOR(X1,X2,T)
+% [CR LAGS CONFIDENCE95 PROB] = GETCROSSCOR(X1,X2,T)
 % 
 % Compute the cross-correlation between X1 and X2
 % with lags from -T to T
+%
+%     CR(find(PROB>0.05)) = ones(1,length(find(PROB>0.05))).*NaN;
 %
 % Copyright (c) 2004 Guillaume Maze. 
 % http://codes.guillaumemaze.org

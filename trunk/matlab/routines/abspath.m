@@ -7,6 +7,7 @@
 % variable $HOME
 %
 % Created by Guillaume Maze on 2008-10-28.
+% Rev. by Guillaume Maze on 2009-09-25: test !
 % Copyright (c) 2008 Guillaume Maze. 
 % http://codes.guillaumemaze.org
 
@@ -21,14 +22,14 @@
 
 function newpath = abspath(varargin)
 
-	
-	
+
 pathname = varargin{1};
 
 [a hom] = dos('echo $HOME');
 clear a
 
 if ~isempty(hom)
+	hom = strrep(hom,'.cshrc: No such file or directory.','');
 	newpath = strrep(pathname,'~',strtrim(hom));
 else
 	newpath = pathname;

@@ -1,6 +1,6 @@
-% EXPORT Export a figure to A4 color PNG format
+% EXPORTJ Export a figure to A4 color PNG format
 %
-% EXPORT(GCF,[ORIENTATION,FILE])
+% EXPORTJ(GCF,[ORIENTATION,FILE])
 %
 %   Export a figure GCF to A4 color png format
 %   Default output file is: fig.png in current directory
@@ -23,13 +23,13 @@
 function []=exportj(f,varargin)
 
 if (nargin<1)|(nargin>3)
-     help export.m
-     error('export.m : Wrong number or bad parameter(s)')
+     help exportj.m
+     error('exportj.m : Wrong number or bad parameter(s)')
      return
 end %if
 
 % Default values
-fich = 'fig';
+fich   = 'fig';
 orient = 0 ;
 
 % --------------------------------------------
@@ -41,11 +41,11 @@ if (nargin==2)
 
  % ----------------------
  if ischar(arg) 
-     fich = arg;
+     fich   = arg;
      orient = 0;
  else
      fich = 'fig';
-     if (arg(1)<0)|(arg(1)>1)
+     if (arg(1)<0)|(arg(1)>2)
           help exportj.m
           error('exportj.m : Wrong number or bad parameter(s)')
           return
@@ -55,6 +55,8 @@ if (nargin==2)
           orient = 0;
          case 1
           orient = 1;
+         case 2
+          orient = 2;
       end %switch
  end %if
  % ----------------------
@@ -62,7 +64,7 @@ if (nargin==2)
  % ----------------------
  if isnumeric(arg)
       fich = 'fig';
-      if (arg(1)<0)|(arg(1)>1)
+      if (arg(1)<0)|(arg(1)>2)
           help exportj.m
           error('exportj.m : Wrong number or bad parameter(s)')
           return
@@ -72,6 +74,8 @@ if (nargin==2)
           orient = 0;
          case 1
           orient = 1;
+         case 2
+          orient = 2;
       end %switch
  end %if
  % ----------------------
@@ -96,7 +100,7 @@ if (nargin==3)
  end %if
 
  % ----------------------
- if (arg(1)<0)|(arg(1)>1)
+ if (arg(1)<0)|(arg(1)>2)
      help exportj.m
      error('exportj.m : Wrong number or bad parameter(s)')
      return
@@ -105,7 +109,9 @@ if (nargin==3)
     case 0
      orient=0;
     case 1
-     orient=1;
+     orient=1;	
+    case 2
+     orient = 2;
  end %switch
  % ----------------------
 
@@ -116,20 +122,20 @@ end %if
 % --------------------------------------------
 % Record
 % --------------------------------------------
-set(f,'PaperUnits','centimeters','PaperType','A4');
-set(f,'PaperPositionMode','manual');
 posi=get(f,'Position');
 
 switch orient
  case 0
-   set(f,'PaperPosition',[0.1 0.1 20.5 29]);
-%   set(f,'Position',[32   323   850   389]);
-   set(f,'PaperOrientation','portrait');
+	set(f,'PaperUnits','centimeters','PaperType','A4');
+	set(f,'PaperPositionMode','manual');
+	set(f,'PaperPosition',[0.1 0.1 20.5 29]);
+	set(f,'PaperOrientation','portrait');
  case 1
-%   set(f,'PaperPosition',[0.63452 0.63452 28.408 19.715]);
-%   set(f,'PaperPosition',[0.1 0.1 15.9 11.2]);
-%   set(f,'Position',[32   323   850   389]);
-   set(f,'PaperOrientation','landscape');
+	set(f,'PaperUnits','centimeters','PaperType','A4');
+	set(f,'PaperPositionMode','manual');
+	set(f,'PaperOrientation','landscape');
+ case 2
+	set(f,'PaperOrientation','portrait');
 end %case
 
 %fich=strcat(fich,'.jpg');

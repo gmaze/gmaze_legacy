@@ -1,5 +1,5 @@
 % TWODMEAN Plot a 2D field together with its means in both directions
-
+%
 % [sb,hl,gca] = twodmean(X,Y,FIELD(Y,X),[SHOW COLORBAR 0/1,CMAP,CAXIS])
 %
 % sb = [sb1 sb2 sb3]

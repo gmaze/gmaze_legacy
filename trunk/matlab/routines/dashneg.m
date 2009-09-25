@@ -29,7 +29,7 @@ end
 ch = get(h,'children');
 
 if ~isempty(ch)
-%	h = ch;
+	h = ch;
 end
 
 val = get(h,'userData');

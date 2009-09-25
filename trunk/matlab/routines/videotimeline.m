@@ -1,10 +1,10 @@
 % VIDEOTIMELINE Add a video timeline to a plot
 %
-% [] = videotimeline(TIMERANGE,IT,POSITION)
+% [] = videotimeline(TIME,IT,POSITION)
 %
-% TIMERANGE contains all the time line serie
-% TIME contains the current time
-%
+% TIME contains all the time line serie as: (1:nt,'YYYYMMDDHHMM')
+% IT contains the current time
+% POSITION = 't'
 %
 % Copyright (c) 2004 Guillaume Maze. 
 % http://codes.guillaumemaze.org
@@ -30,7 +30,7 @@ bdcolor=['k' 'r'];
 txtcolor=['k' 'w'];
 fts = 8;
 
-figure(gcf);hold on
+%builtin('figure',gcf);hold on
 
 for ii = 1 : nt
   %p=patch([ii-1 ii ii ii-1]*DX,[1 1 0 0]*DY,'w');
@@ -42,7 +42,7 @@ for ii = 1 : nt
   p=patch([0 1 1 0],[0 0 1 1],'w');
   set(s,'ytick',[],'xtick',[]);
   set(s,'box','on');
-  tt=text(.35,0.5,TIME(ii,:));
+  tt = text(.35,0.5,TIME(ii,:));
   
   if ii == it
     set(p,'facecolor',bgcolor(2));
@@ -55,4 +55,16 @@ for ii = 1 : nt
     %set(s,'color',bgcolor(1));
     set(tt,'fontsize',fts,'color',txtcolor(1));
   end
+  to(ii) = tt;
 end
+
+switch nargout
+	case 1
+		varargout(1) = {to};
+end
+
+
+
+
+
+

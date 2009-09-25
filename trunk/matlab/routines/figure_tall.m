@@ -12,13 +12,17 @@
 %
 
 function figure_tall(num);
+	
 if nargin == 0;
-  num = gcf;
+	num = gcf;
 else
-  builtin('figure',num); num = gcf;
+%  builtin('figure',num); num = gcf;
+	num = figure;
 end
 
 orient tall
-set(gcf,'Position',[2+10*(num-1) 225-10*(num-1) 560 722])
+posi = get(num,'position');
+set(gcf,'Position',[posi(1:2) 560 700])
+%set(gcf,'Position',[2+10*(num-1) 225-10*(num-1) 560 722])
 
 set(gcf,'Color', [ 1 1 1 ] );

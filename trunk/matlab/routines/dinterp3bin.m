@@ -33,34 +33,34 @@ Cin(isnan(Cin)) = -9999;
 
 % Create parameter file:
 here = pwd;
-fid = fopen(strcat(here,'/interp3bin.p'),'wt');
+fid = fopen(strcat(here,'/ddinterp3bin.p'),'wt');
 fprintf(fid,'%i\n',jpi);
 fprintf(fid,'%i\n',jpj);
 fprintf(fid,'%i\n',jpk);
 fprintf(fid,'%i\n',nb_in);
-fprintf(fid,'%s\n','interp3bin.inp');
-fprintf(fid,'%s\n','interp3bin.out');
+fprintf(fid,'%s\n','ddinterp3bin.inp');
+fprintf(fid,'%s\n','ddinterp3bin.out');
 %fprintf(fid,'%s/%s\n',here,'interp3bin.inp');
 %fprintf(fid,'%s/%s\n',here,'interp3bin.out');
 fclose(fid);
 
 % Create input field file:
-fid = fopen('interp3bin.inp','w','ieee-be');
+fid = fopen('ddinterp3bin.inp','w','ieee-be');
 Cin   = reshape(Cin,[jpi*jpj jpk]);
 fwrite(fid,Cin,'float32');
 fclose(fid);
 clear Cin
 
 % Interpolate field with fortran code:
-delete('interp3bin.out');
-comand = sprintf('%s < interp3bin.p',abspath('~/matlab/routines/interp3_ifort'));
+%delete('ddinterp3bin.out');
+comand = sprintf('%s < ddinterp3bin.p',abspath('~/matlab/routines/dinterp3_ifort'));
 %disp(comand)
 [sta,res] = system(comand);
 
 if sta == 0
 	
 	% Read the output:
-	fid = fopen('interp3bin.out','r','b');
+	fid = fopen('ddinterp3bin.out','r','b');
 	Ci  = fread(fid,[jpi*nb_in*jpj*nb_in jpk*nb_in],'float32');
 	fclose(fid);
 	Ci = reshape(Ci,[jpi*nb_in jpj*nb_in jpk*nb_in]); 
@@ -88,9 +88,9 @@ end
 	
 % Clean files:
 if 1
-	delete('interp3bin.p');
-	delete('interp3bin.inp');
-	delete('interp3bin.out');
+	delete('ddinterp3bin.p');
+	delete('ddinterp3bin.inp');
+	delete('ddinterp3bin.out');
 end
 
 

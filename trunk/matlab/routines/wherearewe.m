@@ -1,4 +1,4 @@
-% WHEREAREWE Give a back a string function of your location
+% WHEREAREWE Give back a string to identify your location
 %
 % LOCATION = wherearewe()
 %
@@ -8,14 +8,13 @@
 % system or network.
 %
 % LOCATION could be:
-%	csail_mit
-%	ocean
-%	altix
-%	csail_ao
-%	beagle
+%	csail_mit,ocean,altix,csail_ao,beagle
+%	macbook
+%	ifremer
 %
 % Copyright (c) 2004 Guillaume Maze. 
 % http://codes.guillaumemaze.org
+% Rev. by Guillaume Maze on 2009-02-24: Add LPO Ifremer identification
 
 %
 % This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
@@ -27,12 +26,12 @@
 
 function varargout = wherearewe(varargin)
 
-
 thisnam = getcomputername;
 thisnam = lower(thisnam);
  
 weare = '';
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%% TO WORK WITH MASSACHUSETTS INSTITUTE OF TECHNOLOGY:
 if strfind(thisnam,'hugo') 
 	weare = 'csail_mit';
 end
@@ -43,7 +42,7 @@ if strfind(thisnam,'eddy')
 	weare = 'csail_mit';
 end
 if strfind(thisnam,'chassiron')
-	weare = 'csail_mit';
+	weare = 'macbook';
 end
 
 if strfind(thisnam,'ocean') 
@@ -76,13 +75,28 @@ if strfind(thisnam,'compute')
 	end
 end
 
-
-
-
-
-if isempty(weare)
-	error('Can''t find where we are !');
-else
-	varargout(1) = {weare};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% NEW SELECTION TO WORK WITH LPO-IFREMER
+if strfind(thisnam,'ifremer')
+	if strfind(getenv('OSTYPE'),'darwin')
+		weare = 'macbook';
+	else
+		weare = 'ifremer';
+	end
 end
+if strfind(thisnam,'revellata')
+	weare = 'revellata@ifremer';
+end
+if strfind(thisnam,'goulphar')
+	weare = 'goulphar@ifremer';
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+if isempty(weare)
+	weare='nowhere';
+%	error('Can''t find where we are !');
+end
+varargout(1) = {weare};
+
+
+
 

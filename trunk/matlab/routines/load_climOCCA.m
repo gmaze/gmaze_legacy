@@ -1,11 +1,18 @@
 % LOAD_CLIMOCCA Load any climatological fields from OCCA
 %
-% [FIELD1, FIELD2, ...] = LOAD_CLIMOCCA([FIELD1;FIELD2;...],MONTHS)
+% [FIELD1, FIELD2, ...] = load_climOCCA('FIELD1;FIELD2;...',MONTHS)
+%
+% MONTHS can be 1 to 12 of a subset like: [1:3]
+% It may also be simply: 'y', 'year', 'annual' to mean MONTHS=[1:12];
+% 
+% EG:
+% [SST,SSH,U] = load_climOCCA('sst;ssh;u',3);
+% Will give back the March climatology of SST, SSH and Zonal Velocity
 %
 %
 % Created by Guillaume Maze on 2008-10-14.
 % Copyright (c) 2008 Guillaume Maze. 
-% http://www.guillaumemaze.org/codes
+% http://codes.guillaumemaze.org
 
 %
 %    This program is free software: you can redistribute it and/or modify
@@ -25,17 +32,21 @@ function varargout = load_climOCCA(varargin)
 	
 	
 fields  = varargin{1};
-Imonths = varargin{2};
 
-if ischar(Imonths)
-	switch lower(Imonths)
-		case {'y';'year';'annual'}
-			months = [1:12];
+if nargin == 2
+	Imonths = varargin{2};
+	if ischar(Imonths)
+		switch lower(Imonths)
+			case {'y';'year';'annual'}
+				months = [1:12];
+		end
+	else
+		months = Imonths;
 	end
-else
-	months = Imonths;
+else % Default:
+	Imonths = 'y';
+	months = [1:12];	
 end
-
 
 pathclim = '~/data/OCCA/clim/';
 pathgrid = '~/data/OCCA/grid/';
@@ -137,11 +148,17 @@ switch lower(fieldname)
 	case {'theta';'sst'}, filename = 'Dtheta'; dime = 3;
 	case {'salt';'sss'}, filename = 'Dsalt'; dime = 3;
 	case {'eta';'ssh'}, filename = 'Detan'; dime = 2;
-	case 'uvel', filename = 'Duvel'; dime = 3; gridp = 1;
-	case 'vvel', filename = 'Dvvel'; dime = 3; gridp = 2;
+	case {'uvel';'u'}, filename = 'Duvel'; dime = 3; gridp = 1;
+	case {'vvel';'v'}, filename = 'Dvvel'; dime = 3; gridp = 2;
+	case {'wvel';'w'}, filename = 'Dwvel'; dime = 3; gridp = 3;
 	case {'kppmld';'mld'}, filename = 'KPPmld'; dime = 2;
 	case {'emp','ep','snet'}, filename = 'FOsflux'; dime = 2;
 	case {'q','qnet'}, filename = 'FOtflux'; dime = 2;
+	case {'phi'}, filename = 'Dphihyd'; dime = 3;
+	case {'phib'}, filename = 'Dphibot'; dime = 2;
+	case {'rhoa'}, filename = 'Drhoan'; dime = 3;
+	case {'taux'}, filename = 'FOtaux'; dime = 2; gridp = 1;
+	case {'tauy'}, filename = 'FOtauy'; dime = 2; gridp = 2;
 end
 
 filename = strcat(prefi,filename,suffi);
