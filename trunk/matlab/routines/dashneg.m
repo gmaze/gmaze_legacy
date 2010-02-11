@@ -26,12 +26,23 @@ else
 	styl = '--';
 end
 
-ch = get(h,'children');
-
-if ~isempty(ch)
-	h = ch;
+us = get(h,'userdata');
+for ii = 1 : length(us)
+	val = get(h(ii),'userData');
+	if us{ii} < 0
+		set(h(ii),'linestyle',styl);
+	end
 end
 
-val = get(h,'userData');
-set(h(find(cell2mat(val)<0)),'linestyle',styl);
+
+
+
+
+
+
+
+
+
+
+
 

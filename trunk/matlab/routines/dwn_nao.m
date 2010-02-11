@@ -46,7 +46,7 @@ nao_file = sprintf('NAO_%s.txt',datestr(now,'yyyymm'));
 if ~exist(sprintf('%s%s',nao_path,nao_file),'file')
 	system(sprintf('wget -q -O %s%s ''%s''',nao_path,nao_file,url));
 	load(sprintf('%s%s',nao_path,nao_file));
-	assignin('caller','NAO',eval(strrep(nao_file,'.txt','')));
+	evalin(sprintf('NAO = %s;',strrep(nao_file,'.txt','')));
 	save(sprintf('%s%s',nao_path,strrep(nao_file,'.txt','.mat')),'NAO');
 end
 load(sprintf('%s%s',nao_path,strrep(nao_file,'.txt','.mat')));

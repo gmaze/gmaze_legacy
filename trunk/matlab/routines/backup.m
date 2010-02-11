@@ -25,7 +25,6 @@ function varargout = backup(varargin)
 
 growl('Starting backup');
 
-return
 
 backup_log = 'backup.log';
 global diag_screen_default
@@ -46,7 +45,7 @@ t0 = now;
 % row 3: depth of the recursive loop into folders (any integer or Inf)
 %folder_list = { '~/bin'   , 0, Inf;...
 %				'~/matlab', 0, Inf};
-folder_list = { '~/matlab',0,2};
+folder_list = { '~/matlab/routines',0,2};
 %folder_list = { '~/work/Postdoc/write/talk_MITworkshop_walin_map',0,Inf};
 %folder_list = { '~/matlab/DODS/win32Install',0,Inf};
 %folder_list = { '~/matlab/untitled\ folder',0,Inf};
@@ -72,6 +71,7 @@ diag_screen(sprintf('# The backup size is: %0.2f Mo',sum(cell2mat(file_list(:,3)
 diag_screen(sprintf('# Mounting backup disk with sshfs ...'));
 sshfs_command = sprintf('%s %s@%s:%s %s -oreconnect,volname=backup',sshfs_location,backup_username,backup_machine,backup_destination,backup_mountingpoint);
 diag_screen(sprintf('# %s',sshfs_command));
+return
 if ~exist(backup_mountingpoint,'dir')
 	mkdir(backup_mountingpoint);
 end
@@ -82,6 +82,9 @@ else
 	diag_screen(result)
 	error('Couldn''t mount backup disk, please check your installation of sshfs');
 end
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%% Next, perform the backup:
 diag_screen('# Backup in progress ...');

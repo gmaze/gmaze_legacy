@@ -2,101 +2,113 @@
 %
 % [hp ht axl] = taylordiag(STDs,RMSs,CORs,['option',value])
 %
-% Plot a Taylor diagram from statistics values given
-% by STDs (standard deviations), RMSs (centered root mean
-% square difference) and CORs (correlation)
+% Plot a Taylor diagram from statistics of different series.
 %
-% Each of STDs, RMS and CORs are one dimensional tables
-% with N variables. The 1st value corresponds to the observation 
-% statistics to compair with the others.
+% INPUTS:
+%	STDs: Standard deviations
+%	RMSs: Centered Root Mean Square Difference 
+%	CORs: Correlation
+%
+%	Each of these inputs are one dimensional with same length. First
+%	indice corresponds to the reference serie for the diagram. For exemple
+%	STDs(1) is the standard deviation of the reference serie and STDs(2:N) 
+%	are the standard deviations of the other series.
+% 
+%	Note that by definition the following relation must be true for all series i:
+%	RMSs(i) - sqrt(STDs(i).^2 + STDs(1)^2 - 2*STDs(i)*STDs(1).*CORs(i)) = 0
+%	This relation is checked and if not verified an error message is sent. Please see
+%	Taylor's JGR article for more informations about this.	
+%	You can use the ALLSTATS function to avoid this to happen, I guess ;-). You can get
+%	it somewhere from: http://codes.guillaumemaze.org/matlab
 %
 % OUTPUTS:
-% 	hp: returns a handle to the plotted points
-%	ht: returns a handle to the text legend of points
-%  axl: returns a structure of handles of axis labels
+% 	hp: returns handles of plotted points
+%	ht: returns handles of the text legend of points
+%	axl: returns a structure of handles of axis labels
 %
 % LIST OF OPTIONS:
+%	For an exhaustive list of options to customize your diagram, please call the function
+%	without arguments:
+%		>> taylordiag
 %
-% 'Npan'
-%		1 or 2: Panels to display (1 for positive correlations,
-%				2 for positive and negative correlations)
-%				Default value depends on CORs
-%
-% 'tickRMS'
-% 		RMS values to plot gridding circles from observation point
-% 'colRMS'
-%		RMS grid and tick labels color
-%		Default: green
-% 'showlabelsRMS'
-%		0 / 1 (default): Show or not the RMS tick labels
-% 'tickRMSangle'
-%		Angle for RMS tick lables with the observation point
-%		Default: 135 deg.
-% 'styleRMS'
-%		Linestyle of the RMS grid
-% 'widthRMS'
-%		Line width of the RMS grid
-% 'titleRMS'
-%		0 / 1 (default): Show RMSD axis title
-%
-% 'tickSTD' 
-%		STD values to plot gridding circles from origin
-% 'colSTD'
-%		STD grid and tick labels color
-%		Default: black
-% 'showlabelsSTD'
-%		0 / 1 (default): Show or not the STD tick labels
-% 'styleSTD'
-%		Linestyle of the STD grid
-% 'widthSTD'
-%		Line width of the STD grid
-% 'titleSTD'
-%		0 / 1 (default): Show STD axis title
-% 'limSTD'
-%		Max of the STD axis (radius of the largest circle)
-%
-% 'tickCOR'
-%		CORRELATON grid values
-% 'colCOR'
-%		CORRELATION grid color
-%		Default: blue
-% 'showlabelsCOR'
-%		0 / 1 (default): Show or not the CORRELATION tick labels
-% 'styleCOR'
-%		Linestyle of the COR grid
-% 'widthCOR'
-%		Line width of the COR grid
-% 'titleCOR'
-%		0 / 1 (default): Show CORRELATION axis title
-%
+% SHORT TUTORIAL (see taylordiag_test.m for more informations):
+%	 An easy way to get compute inputs is to use the ALLSTATS function you can get from:
+%	 	http://codes.guillaumemaze.org/matlab
+%	 Let's say you gathered all the series you want to put in the Taylor diagram in a 
+%	 single matrix BUOY(N,nt) with N the number of series and nt their (similar) length.
+%	 If BUOY(1,:) is the serie of reference for the diagram:
+%		 for iserie = 2 : size(BUOY,1)
+%		    S = allstats(BUOY(1,:),BUOY(iserie,:));
+%		    MYSTATS(iserie,:) = S(:,2); % We get stats versus reference
+%		 end%for iserie
+%		 MYSTATS(1,:) = S(:,1); % We assign reference stats to the first row
+%	 Note that the ALLSTATS function can handle NaNs, so be careful to compute statistics
+%	 with enough points !
+%	 Then you're ready to simply run:
+%		taylordiag(MYSTATS(:,2),MYSTATS(:,3),MYSTATS(:,4));
+%	
 % REF: 	K. Taylor 
 %		Summarizing multiple aspects of model performance in a single diagram
 %		Journal of Geophysical Research-Atmospheres, 2001, V106, D7.
 %
+% Rev. by Guillaume Maze on 2010-02-10: Help more helpful ! Options now displayed by call.
 % Copyright (c) 2008 Guillaume Maze. 
 % http://codes.guillaumemaze.org
+% All rights reserved.
 
+% 
+% Redistribution and use in source and binary forms, with or without
+% modification, are permitted provided that the following conditions are met:
+% 	* Redistributions of source code must retain the above copyright notice, this list of 
+% 	conditions and the following disclaimer.
+% 	* Redistributions in binary form must reproduce the above copyright notice, this list 
+% 	of conditions and the following disclaimer in the documentation and/or other materials 
+% 	provided with the distribution.
+% 	* Neither the name of the Laboratoire de Physique des Oceans nor the names of its contributors may be used 
+%	to endorse or promote products derived from this software without specific prior 
+%	written permission.
 %
-% This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
-% the Free Software Foundation, either version 3 of the License, or any later version.
-% This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-% You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+% THIS SOFTWARE IS PROVIDED BY Guillaume Maze ''AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+% INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
+% PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Guillaume Maze BE LIABLE FOR ANY 
+% DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT 
+% LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR 
+% BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+% STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+% OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
 
-function varargout = taylordiag(STDs,RMSs,CORs,varargin)
-		
-%% CHECK THE INPUT FIELDS TO BE SURE WE HAVE:
-% rms^2 = st.^2 + st(end)^2 - 2*st*st(end).*co
+
+
+function varargout = taylordiag(varargin)
+
+%%
+if nargin == 0
+	disp_optionslist;
+	return
+else
+	narg = nargin - 3;
+	if mod(narg,2) ~=0 
+		error('taylordiag.m : Wrong number of arguments')
+	end
+end
+
+STDs = varargin{1};
+RMSs = varargin{2};
+CORs = varargin{3};
+
+%% CHECK THE INPUT FIELDS:
 apro = 100;
-di = fix(RMSs*apro)/apro - fix(sqrt(STDs.^2 + STDs(1)^2 - 2*STDs*STDs(1).*CORs)*apro)/apro;
+di   = fix(RMSs*apro)/apro - fix(sqrt(STDs.^2 + STDs(1)^2 - 2*STDs*STDs(1).*CORs)*apro)/apro;
 if find(di~=0)
 %	help taylordiag.m
-	error('taylordiag.m : Something''s wrong with the datas');
-	error('We must have:')
-	error('RMSs - sqrt(STDs.^2 + STDs(1)^2 - 2*STDs*STDs(1).*CORs) = 0 !')
-	return
+	ii = find(di~=0);
+	if length(ii) == length(di)
+		error(sprintf('taylordiag.m : Something''s wrong with ALL the datas\nYou must have:\nRMSs - sqrt(STDs.^2 + STDs(1)^2 - 2*STDs*STDs(1).*CORs) = 0 !'))
+	else
+		error(sprintf('taylordiag.m : Something''s wrong with data indice(s): [%i]\nYou must have:\nRMSs - sqrt(STDs.^2 + STDs(1)^2 - 2*STDs*STDs(1).*CORs) = 0 !',ii))		
+	end
 end
 		
 %% IN POLAR COORDINATES:
@@ -105,12 +117,7 @@ theta = real(acos(CORs));
 dx    = rho(1);	% Observed STD
 
 %%
-narg = nargin - 3;
-if mod(narg,2) ~=0 
-%	help taylordiag.m	
-	error('taylordiag.m : Wrong number of arguments')
-	return
-end
+
 
 
 %% BEGIN THE PLOT HERE TO GET AXIS VALUES:
@@ -122,8 +129,8 @@ ls = '-'; % DEFINE HERE THE GRID STYLE
 next = lower(get(cax,'NextPlot'));
 
 %% LOAD CUSTOM OPTION OF AXE LIMIT:
-nopt = narg/2;foundrmax = 0;
-for iopt = 1 : 2 : narg
+nopt = narg/2; foundrmax = 0;
+for iopt = 4 : 2 : narg+3
 	optvalue = varargin{iopt+1};
 	switch lower(varargin{iopt}), case 'limstd', rmax = optvalue; foundrmax=1; end
 end
@@ -167,6 +174,7 @@ end
 tickRMSangle  = 135;	
 showlabelsRMS = 1;
 showlabelsSTD = 1;
+showlabelsCOR = 1;
 colSTD = [0 0 0];
 colRMS = [0 .6 0];
 colCOR = [0 0 1];
@@ -187,7 +195,7 @@ tickSTD = tick; rincSTD = rinc;
 
 %% LOAD CUSTOM OPTIONS:
 nopt = narg/2;
-for iopt = 1 : 2 : narg
+for iopt = 4 : 2 : narg+3
 	optname  = varargin{iopt};
 	optvalue = varargin{iopt+1};
 	switch lower(optname)
@@ -453,8 +461,10 @@ end
 		set(pp(ii),'color','r');
 		if length(STDs)<=26
 			tt(ii)=text(rho(ii)*cos(theta(ii)),rho(ii)*sin(theta(ii)),ALPHABET(ii),'color','r');
-		else
+		elseif length(STDs)<=26*2
 			tt(ii)=text(rho(ii)*cos(theta(ii)),rho(ii)*sin(theta(ii)),lower(ALPHABET(ii)),'color','r');
+		else
+			error('sorry I don''t how to handle more than 52 points labels !');
 		end
 	end
 	set(tt,'verticalalignment','bottom','horizontalalignment','right')
@@ -475,9 +485,44 @@ switch nargout
 end
 
 
+end%function
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function varargout = disp_optionslist(varargin)
 
+disp('General options:')
+dispopt('''Npan''',sprintf('1 or 2: Panels to display (1 for positive correlations, 2 for positive and negative correlations).\n\t\tDefault value depends on CORs'));
 
+disp('RMS axis options:')
+dispopt('''tickRMS''','RMS values to plot gridding circles from observation point');
+dispopt('''colRMS''','RMS grid and tick labels color. Default: green');
+dispopt('''showlabelsRMS''','0 / 1 (default): Show or not the RMS tick labels');
+dispopt('''tickRMSangle''','Angle for RMS tick lables with the observation point. Default: 135 deg.');
+dispopt('''styleRMS''','Linestyle of the RMS grid');
+dispopt('''widthRMS''','Line width of the RMS grid');
+dispopt('''titleRMS''','0 / 1 (default): Show RMSD axis title');
 
+disp('STD axis options:')
+dispopt('''tickSTD''','STD values to plot gridding circles from origin');
+dispopt('''colSTD''','STD grid and tick labels color. Default: black');
+dispopt('''showlabelsSTD''','0 / 1 (default): Show or not the STD tick labels');
+dispopt('''styleSTD''','Linestyle of the STD grid');
+dispopt('''widthSTD''','Line width of the STD grid');
+dispopt('''titleSTD''','0 / 1 (default): Show STD axis title');
+dispopt('''limSTD''','Max of the STD axis (radius of the largest circle)');
 
+disp('CORRELATION axis options:')
+dispopt('''tickCOR''','CORRELATON grid values');
+dispopt('''colCOR''','CORRELATION grid color. Default: blue');
+dispopt('''showlabelsCOR''','0 / 1 (default): Show or not the CORRELATION tick labels');
+dispopt('''styleCOR''','Linestyle of the COR grid');
+dispopt('''widthCOR''','Line width of the COR grid');
+dispopt('''titleCOR''','0 / 1 (default): Show CORRELATION axis title');
+
+end%function
+
+function [] = dispopt(optname,optval)
+	disp(sprintf('\t%s',optname));
+	disp(sprintf('\t\t%s',optval));
+end

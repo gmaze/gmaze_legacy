@@ -54,7 +54,11 @@ end
 if strfind(thisnam,'weddell')
 	weare = 'ocean';
 end
-	
+if strfind(thisnam,'dyn.mit.edu')
+	weare = 'ocean';
+end
+
+
 if strfind(thisnam,'altix')
 	weare = 'altix';
 end
@@ -73,6 +77,10 @@ if strfind(thisnam,'compute')
 	if strfind(thisnam,'local') 
 		weare = 'beagle';
 	end
+end
+
+if strfind(thisnam,'whoi.net')
+	weare = 'woodshole';
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% NEW SELECTION TO WORK WITH LPO-IFREMER

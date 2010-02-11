@@ -1,7 +1,7 @@
 % This is a test to use the taylordiag.m ploting function.
 %
 % The data file taylordiag_egdata.mat is required together
-% with the function "allstats".
+% with the function "allstats" and "ptable".
 % Both are available at: http://code.google.com/p/guillaumemaze/
 % 
 %
