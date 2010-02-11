@@ -85,7 +85,7 @@
 				<div id="ja_selectjournal">
 						<select name="jlist" size="1" scrolling="0" class="journals">
 
-						<option value="-"> ------------------------------ MOST COMMONLY USED --------------------- </option>
+						<option value="-"> ------------ MOST COMMONLY USED ------------------------------- </option>
 
 							<OPTION  VALUE="1520-0469">JAS   - Journal of the Atmospheric Sciences</option>
 							<OPTION  VALUE="1520-0442">JCLIM - Journal of Climate</option>						
