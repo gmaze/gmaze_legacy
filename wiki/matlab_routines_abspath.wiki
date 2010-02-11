@@ -1,4 +1,4 @@
-== ABSPATH.m ==
+== abspath.m ==
 Relative to Absolute path function
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/abspath.m Download here]
@@ -13,10 +13,9 @@ Relative to Absolute path function
 % variable $HOME
 %
 % Created by Guillaume Maze on 2008-10-28.
-% Rev. by Guillaume Maze on 2009-09-25: test !
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

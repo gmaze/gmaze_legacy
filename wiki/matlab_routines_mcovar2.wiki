@@ -1,4 +1,4 @@
-== MCOVAR2.m ==
+== mcovar2.m ==
 Two Dimensioal Spectral Estimation
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/mcovar2.m Download here]
@@ -27,7 +27,7 @@ Two Dimensioal Spectral Estimation
 %   variance ----> Driving noise variance (real)
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

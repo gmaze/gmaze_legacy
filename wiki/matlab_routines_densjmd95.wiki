@@ -1,4 +1,4 @@
-== DENSJMD95.m ==
+== densjmd95.m ==
 Density of sea water
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/densjmd95.m Download here]
@@ -32,7 +32,7 @@ Density of sea water
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

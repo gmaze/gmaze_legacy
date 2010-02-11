@@ -1,4 +1,4 @@
-== CHI2CONF.m ==
+== chi2conf.m ==
 Confidence interval using inverse of chi-square cdf.
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/chi2conf.m Download here]
@@ -15,7 +15,7 @@ Confidence interval using inverse of chi-square cdf.
 %     p. 76, eqn 4.16.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

@@ -1,4 +1,4 @@
-== MYPSDCHK.m ==
+== mypsdchk.m ==
 Helper function for PSD, CSD, COHERE, and TFE.
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/mypsdchk.m Download here]
@@ -22,7 +22,7 @@ Helper function for PSD, CSD, COHERE, and TFE.
 %     dflag - detrending flag, 'linear' 'mean' or 'none'
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

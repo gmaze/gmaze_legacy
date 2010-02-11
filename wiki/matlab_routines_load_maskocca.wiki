@@ -1,4 +1,4 @@
-== LOAD_MASKOCCA.m ==
+== load_maskOCCA.m ==
 Load any mask from OCCA
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/load_maskOCCA.m Download here]
@@ -12,7 +12,7 @@ Load any mask from OCCA
 % Created by Guillaume Maze on 2008-10-14.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

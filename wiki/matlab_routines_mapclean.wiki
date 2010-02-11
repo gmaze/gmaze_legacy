@@ -1,4 +1,4 @@
-== MAPCLEAN.m ==
+== mapclean.m ==
 Uniform plots and colorbars
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/mapclean.m Download here]
@@ -13,7 +13,7 @@ Uniform plots and colorbars
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

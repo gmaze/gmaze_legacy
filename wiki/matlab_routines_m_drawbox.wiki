@@ -1,4 +1,4 @@
-== M_DRAWBOX.m ==
+== m_drawbox.m ==
 Draw a rectangular box using m_line
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/m_drawbox.m Download here]
@@ -17,7 +17,7 @@ Draw a rectangular box using m_line
 % Created by Guillaume Maze on 2008-10-14.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

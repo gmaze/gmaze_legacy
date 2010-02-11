@@ -1,0 +1,22 @@
+== wsload.m ==
+Load all (or list of) variables of the base workspace into a function workspace
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/wsload.m Download here]
+
+{{{
+% wsload Load all (or list of) variables of the base workspace into a function workspace
+%
+% [] = wsload([VLIST])
+% 
+% Load all variables of the base workspace into a function workspace.
+% If VLIST is specified, only load variables given by cell array VLIST.
+%
+% Created: 2009-11-05.
+% All rights reserved.
+}}}
+----
+Last update: 2010 February 10, 14:45
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

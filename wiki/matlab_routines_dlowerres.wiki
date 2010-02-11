@@ -1,4 +1,4 @@
-== DLOWERRES.m ==
+== dlowerres.m ==
 Reduce the resolution of a field
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/dlowerres.m Download here]
@@ -18,7 +18,7 @@ Reduce the resolution of a field
 % Created by Guillaume Maze on 2008-10-09.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

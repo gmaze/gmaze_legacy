@@ -1,4 +1,4 @@
-== DINTERP3BIN.m ==
+== dinterp3bin.m ==
 Interpolate a 3D field
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/dinterp3bin.m Download here]
@@ -14,7 +14,7 @@ Interpolate a 3D field
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

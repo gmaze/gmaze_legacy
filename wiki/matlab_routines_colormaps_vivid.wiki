@@ -1,7 +1,7 @@
-== VIVID.m ==
+== vivid.m ==
 Creates a Personalized Vivid Colormap
 
-[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/vivid.m Download here]
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/colormaps/vivid.m Download here]
 
 {{{
 % VIVID Creates a Personalized Vivid Colormap
@@ -76,7 +76,7 @@ Creates a Personalized Vivid Colormap
 % Date: 07/25/08
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

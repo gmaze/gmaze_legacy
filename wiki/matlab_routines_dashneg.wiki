@@ -1,4 +1,4 @@
-== DASHNEG.m ==
+== dashneg.m ==
 Make dashed negative contours
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/dashneg.m Download here]
@@ -14,7 +14,7 @@ Make dashed negative contours
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

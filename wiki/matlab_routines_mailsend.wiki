@@ -1,4 +1,4 @@
-== MAILSEND.m ==
+== mailsend.m ==
 Send an email via the system command 'mail'
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/mailsend.m Download here]
@@ -15,7 +15,7 @@ Send an email via the system command 'mail'
 % Created by Guillaume Maze on 2008-10-14.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

@@ -1,4 +1,4 @@
-== NANMEAN.m ==
+== nanmean.m ==
 Average or mean value of matrix with NaN.
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/mynanmean.m Download here]
@@ -25,7 +25,7 @@ Average or mean value of matrix with NaN.
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

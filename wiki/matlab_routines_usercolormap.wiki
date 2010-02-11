@@ -1,4 +1,4 @@
-== USERCOLORMAP.m ==
+== usercolormap.m ==
 Create a color map.
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/usercolormap.m Download here]
@@ -61,7 +61,7 @@ Create a color map.
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

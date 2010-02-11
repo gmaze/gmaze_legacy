@@ -1,4 +1,4 @@
-== WSEDECOMP.m ==
+== WSEdecomp.m ==
 Split a signal into its downward/upward propagating and stationnary components
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/WSEdecomp.m Download here]
@@ -53,7 +53,7 @@ Split a signal into its downward/upward propagating and stationnary components
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

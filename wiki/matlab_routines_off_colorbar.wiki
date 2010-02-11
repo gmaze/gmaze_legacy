@@ -1,7 +1,7 @@
-== Display.m ==
-color bar (color scale).
+== colorbar.m ==
+Display color bar (color scale).
 
-[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/colorbar_off.m Download here]
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/off/colorbar_off.m Download here]
 
 {{{
 %COLORBAR Display color bar (color scale).
@@ -25,7 +25,7 @@ color bar (color scale).
 %    title the real data power.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

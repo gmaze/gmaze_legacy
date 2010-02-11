@@ -1,4 +1,4 @@
-== FFTMSPEC.m ==
+== fftmspec.m ==
 Module Spectra of the Fourier Transform
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/fftmspec.m Download here]
@@ -24,7 +24,7 @@ Module Spectra of the Fourier Transform
 % Future comments. Jes�s A. Rojas Zavarce.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

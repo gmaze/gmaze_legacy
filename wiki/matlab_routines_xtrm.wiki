@@ -1,4 +1,4 @@
-== XTRM.m ==
+== xtrm.m ==
 Find the extreme value of a 2D field (either positive or negative)
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/xtrm.m Download here]
@@ -13,7 +13,7 @@ Find the extreme value of a 2D field (either positive or negative)
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

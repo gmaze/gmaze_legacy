@@ -1,0 +1,21 @@
+== get_mld.m ==
+Compute the mixed layer depth
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/get_mld.m Download here]
+
+{{{
+% get_mld Compute the mixed layer depth
+%
+% H = get_mld(S,T,Z)
+% 
+% HELPTEXT
+%
+% Created: 2009-11-19.
+% All rights reserved.
+}}}
+----
+Last update: 2010 February 10, 14:45
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

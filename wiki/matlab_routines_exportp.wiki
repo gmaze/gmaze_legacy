@@ -6,7 +6,7 @@ Export a figure to A4 color PDF format
 {{{
 % exportp Export a figure to A4 color PDF format
 %
-% exportp(GCF,[ORIENTATION,FILE])
+% exportp(GCF,[ORIENTATION,FILE,KEEPFOOTNOTE])
 %
 %   Export a figure GCF to A4 color pdf format
 %   Default output file is: fig.pdf in current directory
@@ -19,7 +19,7 @@ Export a figure to A4 color PDF format
 % Created: 2009-04-22.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

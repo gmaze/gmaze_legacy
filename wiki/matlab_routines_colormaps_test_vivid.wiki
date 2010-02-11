@@ -1,7 +1,7 @@
-== TEST_VIVID.m ==
+== test_vivid.m ==
 M-file for test_vivid.fig
 
-[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/test_vivid.m Download here]
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/colormaps/test_vivid.m Download here]
 
 {{{
 % TEST_VIVID M-file for test_vivid.fig
@@ -26,7 +26,7 @@ M-file for test_vivid.fig
 % See also: GUIDE, GUIDATA, GUIHANDLES
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

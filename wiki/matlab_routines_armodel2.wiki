@@ -1,4 +1,4 @@
-== ARMODEL2.m ==
+== armodel2.m ==
 Two Dimensional Spectral Estimation
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/armodel2.m Download here]
@@ -33,7 +33,7 @@ Two Dimensional Spectral Estimation
 %CC   = zeros(p,p);
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

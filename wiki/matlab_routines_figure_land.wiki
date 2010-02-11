@@ -1,4 +1,4 @@
-== FIGURE_LAND.m ==
+== figure_land.m ==
 White background landscape figure
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/figure_land.m Download here]
@@ -8,7 +8,7 @@ White background landscape figure
 % 
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

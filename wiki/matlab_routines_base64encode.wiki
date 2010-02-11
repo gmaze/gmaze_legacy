@@ -1,5 +1,5 @@
-== Perform.m ==
-base64 encoding on a string.
+== base64encode.m ==
+Perform base64 encoding on a string.
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/base64encode.m Download here]
 
@@ -44,7 +44,7 @@ base64 encoding on a string.
 %   See also BASE64DECODE.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

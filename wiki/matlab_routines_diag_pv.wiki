@@ -1,5 +1,5 @@
-== PV.m ==
-= diag_PV(LON,LAT,DPT,SIGMATHETA,RHO)
+== diag_PV.m ==
+PV = diag_PV(LON,LAT,DPT,SIGMATHETA,RHO)
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/diag_PV.m Download here]
 
@@ -16,7 +16,7 @@
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

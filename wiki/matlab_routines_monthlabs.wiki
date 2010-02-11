@@ -1,4 +1,4 @@
-== MONTHLABS.m ==
+== monthlabs.m ==
 Get various labels of months
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/monthlabs.m Download here]
@@ -14,7 +14,7 @@ Get various labels of months
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

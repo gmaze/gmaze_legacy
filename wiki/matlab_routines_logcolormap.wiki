@@ -1,4 +1,4 @@
-== LOGCOLORMAP.m ==
+== logcolormap.m ==
 Stretch a colormap extremum toward black and white
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/logcolormap.m Download here]
@@ -12,17 +12,11 @@ Stretch a colormap extremum toward black and white
 % cmap0 is the initial colormap to stretch (N,3)
 %
 % EQ:
-% cmap = logcolormap(256,1,2,jet);
-% % or:
-% c     = [1 5];
-% cx    = [-(1+2*c(1)) 1+2*c(2)];
-% load mapanom
-% colormap(logcolormap(256,c(1),c(2),mapanom);
-% caxis(cx);
+% cmap = logcolormap(256,1,2,jet)
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

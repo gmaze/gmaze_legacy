@@ -1,31 +1,34 @@
-== REMINDME.m ==
- Will issue a remider at the specified time.
+== remindme.m ==
+Reminder using crontab and growl
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/remindme.m Download here]
 
 {{{
-% REMINDME  Will issue a remider at the specified time.
-% REMINDME(time,message) issues the user a pop-up reminder (message) at the
-% specified time (time).  If the user hits snooze, the message will be
-% given again 10 minutes later.  The user may hit snooze three times, then
-% the reminders will stop. The second argument, is not necessary, and if 
-% omitted, a default message will be displayed: 'This is your reminder.'
+% remindme Reminder using crontab and growl
 %
-% Example:   
+% [] = remindme(TIME,[TXT])
+% 
+% This function use growlnotify to send you a reminder with message TXT at
+% time given by TIME (as returned by datenum).
 %
-%       remindme('1:20','There is more to life than Matlab.')
-%       %Will issue the message to the user at the next occurence of 1:20.
+% Inputs:
+%	TIME is a serial date number as return by datenum.
+%		It can also be a string of the form 'HH:MM' to use the current day.
+%	TXT is a string
 %
-% The maximum usable time is 12 hours, but who works longer anyway?
+% Eg:
+%	remindme(now+10/60/24,'Coffee break !');
+%	remindme('16:00','Thea break !');
 %
-% See also timer, questdlg
+% Extra:
+% 	If TIME is set to NaN, the function simply clean the crontab file of all Matlab reminders
+%	
 %
-% Author:  Matt Fig
-% Contact: popkenai@yahoo.com
-% Updated: 7/25/2008
+% Created: 2009-10-15.
+% All rights reserved.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

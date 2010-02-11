@@ -1,4 +1,4 @@
-== MYPSD2.m ==
+== mypsd2.m ==
 Power Spectral Density estimate.
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/mypsd2.m Download here]
@@ -15,7 +15,7 @@ Power Spectral Density estimate.
 %   See also SPECTRUM/PSD, SPECTRUM/MSSPECTRUM, SPECTRUM/PERIODOGRAM.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

@@ -1,7 +1,7 @@
-== Determine.m ==
-la puissance de 10 d'un nombre
+== getP.m ==
+Determine la puissance de 10 d'un nombre
 
-[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/getP.m Download here]
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/off/getP.m Download here]
 
 {{{
 % Determine la puissance de 10 d'un nombre
@@ -9,7 +9,7 @@ la puissance de 10 d'un nombre
 % X=x.10^n
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

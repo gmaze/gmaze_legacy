@@ -1,7 +1,7 @@
-== BLUEWHITERED.m ==
+== bluewhitered.m ==
 Blue, white, and red color map.
 
-[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/bluewhitered.m Download here]
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/colormaps/bluewhitered.m Download here]
 
 {{{
 % BLUEWHITERED Blue, white, and red color map.
@@ -37,7 +37,7 @@ Blue, white, and red color map.
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

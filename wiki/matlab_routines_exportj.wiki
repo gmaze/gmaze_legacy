@@ -1,4 +1,4 @@
-== EXPORTJ.m ==
+== exportj.m ==
 Export a figure to A4 color PNG format
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/exportj.m Download here]
@@ -6,7 +6,7 @@ Export a figure to A4 color PNG format
 {{{
 % EXPORTJ Export a figure to A4 color PNG format
 %
-% EXPORTJ(GCF,[ORIENTATION,FILE])
+% EXPORTJ(GCF,[ORIENTATION,FILE,KEEPFOOTNOTE])
 %
 %   Export a figure GCF to A4 color png format
 %   Default output file is: fig.png in current directory
@@ -17,7 +17,7 @@ Export a figure to A4 color PNG format
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

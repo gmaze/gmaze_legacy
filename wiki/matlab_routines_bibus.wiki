@@ -12,9 +12,10 @@ Give me the next bus
 %
 %
 % Created: 2009-05-05.
+% All rights reserved.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

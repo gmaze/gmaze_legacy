@@ -1,0 +1,21 @@
+== algnfootnote.m ==
+H1LINE
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/algnfootnote.m Download here]
+
+{{{
+% algnfootnote H1LINE
+%
+% [] = algnfootnote()
+% 
+% HELPTEXT
+%
+% Created: 2010-01-13.
+% All rights reserved.
+}}}
+----
+Last update: 2010 February 10, 14:45
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

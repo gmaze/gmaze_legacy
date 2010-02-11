@@ -1,4 +1,4 @@
-== ASSYM.m ==
+== assym.m ==
 Compute sym. or assym. component of 2D field
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/assym.m Download here]
@@ -15,7 +15,7 @@ Compute sym. or assym. component of 2D field
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

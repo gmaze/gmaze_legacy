@@ -1,4 +1,4 @@
-== SUPTITLE.m ==
+== suptitle.m ==
 Puts a title above all subplots.
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/suptitle.m Download here]
@@ -15,7 +15,7 @@ Puts a title above all subplots.
 % will break.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

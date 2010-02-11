@@ -1,4 +1,4 @@
-== HANNFILTER.m ==
+== hannfilter.m ==
 Disable function
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/hannfilter.m Download here]
@@ -11,7 +11,7 @@ Disable function
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

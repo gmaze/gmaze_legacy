@@ -8,7 +8,10 @@ O2 unit conversion
 %
 % [valout] = convert_oxygen(valin,uin,uout,[aST0])
 % 
-% Cette fonction convertit les données d'oxygène d'une unité à l'autre 
+% !!! Now call convert_unit routine to convert oxygen !!!
+%
+% Cette fonction convertit les données d'oxygène d'une unité à l'autre.
+% Voir: convert_unit
 %
 % valout   = valeur d'oxygene converties dans l'unité uout 
 % valin    = valeur d'oxygene en entrée dans l'unité uin 
@@ -30,11 +33,12 @@ O2 unit conversion
 %
 %
 % Created: 2008-05 by C.LAGADEC
+% Rev. by Guillaume Maze on 2009-11-05: Now call convert_unit routine to convert oxygen !
 % Rev. by Guillaume Maze on 2009-07-31: Moved unit to lower string for flexibility
 % Rev. by Guillaume Maze on 2009-09-02: Add micromol to millimol automatic conversion
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

@@ -1,7 +1,7 @@
-== CANOM.m ==
+== canom.m ==
 Center the caxis on zero
 
-[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/canom.m Download here]
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/colormaps/canom.m Download here]
 
 {{{
 % CANOM Center the caxis on zero
@@ -12,7 +12,7 @@ Center the caxis on zero
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

@@ -1,4 +1,4 @@
-== FOPENN.m ==
+== fopenn.m ==
 Open a file whithout taking care of slash in file name
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/fopenn.m Download here]
@@ -14,7 +14,7 @@ Open a file whithout taking care of slash in file name
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

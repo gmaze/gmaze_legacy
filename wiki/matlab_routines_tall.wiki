@@ -1,0 +1,21 @@
+== tall.m ==
+Increase figure size to a large portrait format
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/tall.m Download here]
+
+{{{
+% tall Increase figure size to a large portrait format
+%
+% [] = tall([GCF])
+% 
+% Increase figure size to a large portrait format
+%
+% Created: 2009-12-30.
+% All rights reserved.
+}}}
+----
+Last update: 2010 February 10, 14:45
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

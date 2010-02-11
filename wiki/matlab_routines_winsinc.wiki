@@ -1,4 +1,4 @@
-== WINSINC.m ==
+== winsinc.m ==
 Applies a windowed sinc filter
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/winsinc.m Download here]
@@ -44,7 +44,7 @@ Applies a windowed sinc filter
 %Copy-Left, Alejandro Sanchez, 2005
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

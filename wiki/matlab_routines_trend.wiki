@@ -1,4 +1,4 @@
-== TREND.m ==
+== trend.m ==
 Find a linear trend from a vector, usually for FFT processing.
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/trend.m Download here]
@@ -20,7 +20,7 @@ Find a linear trend from a vector, usually for FFT processing.
 %   See also DETREND, MEAN
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

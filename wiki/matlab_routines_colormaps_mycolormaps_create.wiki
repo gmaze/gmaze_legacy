@@ -1,7 +1,7 @@
 == mycolormaps_create.m ==
 H1LINE
 
-[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/mycolormaps_create.m Download here]
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/colormaps/mycolormaps_create.m Download here]
 
 {{{
 % mycolormaps_create H1LINE
@@ -14,7 +14,7 @@ H1LINE
 % Created: 2009-06-18.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

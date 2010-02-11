@@ -1,4 +1,4 @@
-== CURVEAREA.m ==
+== curvearea.m ==
 Compute curve area in a crude way
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/curvearea.m Download here]
@@ -11,7 +11,7 @@ Compute curve area in a crude way
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

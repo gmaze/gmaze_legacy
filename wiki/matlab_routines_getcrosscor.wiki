@@ -1,5 +1,5 @@
-== GETCROSSCOR.m ==
-Compute a lagged cross-correlation 
+== getcrosscor.m ==
+Compute a lagged cross-correlation
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/getcrosscor.m Download here]
 
@@ -15,7 +15,7 @@ Compute a lagged cross-correlation
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

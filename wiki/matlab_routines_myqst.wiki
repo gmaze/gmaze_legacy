@@ -1,4 +1,4 @@
-== MYQST.m ==
+== myqst.m ==
 Display qstat results
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/myqst.m Download here]
@@ -23,7 +23,7 @@ Display qstat results
 % Created by Guillaume Maze on 2008-10-28.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

@@ -1,5 +1,5 @@
-== elev_along_track.m ==
-Determine topogrpahy along ship track
+== get_elev_along_track.m ==
+elev_along_track Determine topogrpahy along ship track
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/get_elev_along_track.m Download here]
 
@@ -15,7 +15,7 @@ Determine topogrpahy along ship track
 % Created: 2009-06-16.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

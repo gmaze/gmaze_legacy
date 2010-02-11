@@ -16,7 +16,7 @@ Extract only one transect from a campaign
 % Created: 2009-06-15.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

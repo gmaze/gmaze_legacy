@@ -1,4 +1,4 @@
-== FINDP.m ==
+== findp.m ==
 Find the p power of 10 of a number
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/findp.m Download here]
@@ -14,7 +14,7 @@ Find the p power of 10 of a number
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

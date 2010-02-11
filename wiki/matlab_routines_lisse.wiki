@@ -1,4 +1,4 @@
-== LISSE.m ==
+== lisse.m ==
 Smooth a scalar array with a running mean
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/lisse.m Download here]
@@ -13,7 +13,7 @@ Smooth a scalar array with a running mean
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

@@ -1,4 +1,4 @@
-== THINCOLORBAR.m ==
+== thincolorbar.m ==
 Display thinner colorbar
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/thincolorbar.m Download here]
@@ -27,7 +27,7 @@ Display thinner colorbar
 %   See also IMAGESC.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

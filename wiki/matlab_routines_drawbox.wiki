@@ -1,4 +1,4 @@
-== DRAWBOX.m ==
+== drawbox.m ==
 Draw a rectangular box
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/drawbox.m Download here]
@@ -16,7 +16,7 @@ Draw a rectangular box
 % Created by Guillaume Maze on 2008-10-14.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

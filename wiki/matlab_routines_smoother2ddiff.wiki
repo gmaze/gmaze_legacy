@@ -1,4 +1,4 @@
-== SMOOTHER2DDIFF.m ==
+== smoother2Ddiff.m ==
 Apply a diffusive smoother on a 2D field
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/smoother2Ddiff.m Download here]
@@ -21,7 +21,7 @@ Apply a diffusive smoother on a 2D field
 % Developed with Gael Forget
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

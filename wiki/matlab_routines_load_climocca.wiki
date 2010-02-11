@@ -1,4 +1,4 @@
-== LOAD_CLIMOCCA.m ==
+== load_climOCCA.m ==
 Load any climatological fields from OCCA
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/load_climOCCA.m Download here]
@@ -19,7 +19,7 @@ Load any climatological fields from OCCA
 % Created by Guillaume Maze on 2008-10-14.
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

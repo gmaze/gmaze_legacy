@@ -1,4 +1,4 @@
-== WHEREAREWE.m ==
+== wherearewe.m ==
 Give back a string to identify your location
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/wherearewe.m Download here]
@@ -21,7 +21,7 @@ Give back a string to identify your location
 % Rev. by Guillaume Maze on 2009-02-24: Add LPO Ifremer identification
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 

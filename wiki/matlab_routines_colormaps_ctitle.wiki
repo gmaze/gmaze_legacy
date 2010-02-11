@@ -1,7 +1,7 @@
-== CTITLE.m ==
+== ctitle.m ==
 Display Colorbar title.
 
-[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/ctitle.m Download here]
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/colormaps/ctitle.m Download here]
 
 {{{
 % CTITLE Display Colorbar title.
@@ -12,7 +12,7 @@ Display Colorbar title.
 %
 }}}
 ----
-Last update: 2009 September 25, 16:52
+Last update: 2010 February 10, 14:45
 
 Created by Guillaume Maze
 
