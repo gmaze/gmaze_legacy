@@ -7,7 +7,6 @@
 % variable $HOME
 %
 % Created by Guillaume Maze on 2008-10-28.
-% Rev. by Guillaume Maze on 2009-09-25: test !
 % Copyright (c) 2008 Guillaume Maze. 
 % http://codes.guillaumemaze.org
 
