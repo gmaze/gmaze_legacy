@@ -1,8 +1,9 @@
 % WOA05_grid Read World Ocean Atlas 2005 grid
 %
-% [] = WOA05_grid(tp)
+% [t,z,y,x] = WOA05_grid(tp)
 % 
-% HELPTEXT
+% tp = '0112' for monthly atlas
+% tp = '00' for climatology
 %
 %
 % Created: 2009-06-17.
