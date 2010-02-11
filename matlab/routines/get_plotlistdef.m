@@ -53,13 +53,20 @@ for il = 1 : length(l)
 
     % Recup description of plot module:
     fid = fopen(strcat(SUBDIR,sla,fil));
-    thatsit = 0; desc = '';
+    thatsit = 0; desc = ''; req = '';
 	while thatsit ~= 1
 		tline = fgetl(fid);
 		if tline ~= -1
-			if length(tline)>4 & tline(1:4) == '%DEF'
-			desc    = tline(5:end);
-			thatsit = 1;
+			if length(tline)>4 
+				switch tline(1:4) 
+					case '%DEF'
+						desc    = tline(5:end);
+					case '%REQ'
+						req     = tline(5:end);
+				end%switch
+				if ~isempty(desc) & ~isempty(req)
+					thatsit = 1;
+				end
 			end %if
        else
 %          desc = 'Not found';
@@ -70,13 +77,12 @@ for il = 1 : length(l)
 	if ~isempty(desc)
 	    ii = ii + 1; 
 	    LIST(ii).name = l(il).name;
-	    LIST(ii).index = ii;
-		LIST(ii).description = desc;
-	    disp(sprintf('%3s) Module extension "%s" : %s',...
-			 num2str(LIST(ii).index),...
-			 fil(length(MASTER)+2:end-2),...
-			 LIST(ii).description));
-	end %if 
+		a = get_index(l(il).name,pref);
+		ord(ii) = a;
+	    LIST(ii).index = a;
+		LIST(ii).description  = strtrim(desc);
+		LIST(ii).requirements = strtrim(req);
+	end
 %    disp(strcat( num2str(LIST(ii).index),': Module extension: ',fil(length(MASTER)+2:end-2)));
 %    disp(strcat('|-----> description :'  , LIST(ii).description ));
 %    disp(char(2))
@@ -87,6 +93,20 @@ end %for il
 
 if ~exist('LIST')
   LIST= NaN;
+else
+	[ord iord] = sort(ord);
+	for ii = 1 : length(ord)
+		LI(ii) = LIST(iord(ii));
+	end	
+	LIST = LI;
+	if nargout == 0
+		for ii = 1 : length(LIST)
+		    disp(sprintf('%3s) Module extension "%s" : %s',...
+				 num2str(LIST(ii).index),...
+				 LIST(ii).name,...
+				 LIST(ii).description));
+		end
+	end
 end
 
 switch nargout
@@ -96,3 +116,22 @@ end
 
 
 end %function
+
+
+
+function ind = get_index(name,pref);
+	a = strread(strrep(name,'.m',''),'%s','delimiter',pref);
+	a = unique(a);
+	a = a{2};
+	b = 'x';
+	for ii = 1 : length(a)
+		if ~isempty(str2num(a(ii)))
+			b = [b a(ii)];
+		end
+	end
+	ind = str2num(b(2:end));
+end
+
+
+
+

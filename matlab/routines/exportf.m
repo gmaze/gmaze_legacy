@@ -1,14 +1,17 @@
 % exportf Export a figure to A4 color PDF format
 %
-% exportf(GCF,[ORIENTATION,FILE])
+% exportf(GCF,[ORIENTATION,FILE,FOOTNOTE])
 %
-%   Export a figure GCF to A4 color pdf format
-%   Default output file is: fig.pdf in current directory
-%   or specify it into FILE (extension .pdf is automatic).
+%   Export a figure GCF to A4 color pdf,png anf eps formats.
+%
+%   Default output files are: fig.pdf, fig.png and fig.eps in current directory
+%   or specify it into FILE (extensions are automatic).
+%
 %   ORIENTATION is an optionnal parameter:
 %       ORIENTATION=0 : Portrait (default)
 %       ORIENTATION=1 : Landscape
 %
+%	FOOTNOTE = 1(default)/0 indicates if we keep the footnote or not
 %
 % Created: 2009-07-21.
 % Copyright (c) 2009 Guillaume Maze. 
@@ -24,7 +27,7 @@
 
 function []=exportf(f,varargin)
 
-if (nargin<1)|(nargin>3)
+if (nargin<1)|(nargin>4)
      help exportf.m
      error('exportf.m : Wrong number or bad parameter(s)')
      return
@@ -37,7 +40,7 @@ orient = 0 ;
 % --------------------------------------------
 % 1 seul para optionnel
 % --------------------------------------------
-if (nargin==2)
+if (nargin>=2)
 
  arg = varargin{:};
 
@@ -87,7 +90,7 @@ end %if
 % --------------------------------------------
 % 2 para optionnels
 % --------------------------------------------
-if (nargin==3)
+if (nargin>=3)
 
  arg  = varargin(1); arg=arg{:};
  fich = varargin(2); fich=fich{:};
@@ -119,7 +122,12 @@ if (nargin==3)
 
 end %if
 
-
+% --------------------------------------------
+if nargin >= 4
+	keepfootnote = varargin{3};
+else
+	keepfootnote = 1;
+end
 
 % --------------------------------------------
 % Record
@@ -140,10 +148,38 @@ switch orient
 	set(f,'PaperOrientation','portrait');
 end %case
 
-print(f,'-dpng',strcat(fich,'.png'));
-print(f,'-dpdf',strcat(fich,'.pdf'));
-print(f,'-depsc2',strcat(fich,'.eps'));
+footnoteTXT = get(findobj(gcf,'tag','footnotetext'),'string');
+if ischar(footnoteTXT)
+	for il = 1 : size(footnoteTXT,1) 
+		c(il) = {footnoteTXT(il,:)};
+	end
+	footnoteTXT = c;
+end
 
+for iformat = 1 : 3
+	switch iformat
+		case 1, ext = 'png'; pcom = '-dpng';
+		case 2, ext = 'pdf'; pcom = '-dpdf';
+		case 3, ext = 'eps'; pcom = '-depsc2';
+	end
+	if length(footnoteTXT) > 1
+		txt = sprintf(' %s.%s',fich,ext);
+		for il = 1 : length(footnoteTXT)
+			txt = sprintf('%s\n%s',txt,footnoteTXT{il});
+		end
+	else
+		txt = sprintf(' %s\n%s',strcat(fich,'.',ext),footnoteTXT{1});
+	end
+	if keepfootnote 
+		set(findobj(gcf,'tag','footnotetext'),'string',txt)
+	else
+		set(findobj(gcf,'tag','footnotetext'),'string','')
+	end
+	print(f,pcom,strcat(fich,'.',ext));
+end%for iformat
+
+
+set(findobj(gcf,'tag','footnotetext'),'string',footnoteTXT)
 set(f,'Position',posi)
 disp(sprintf('Figure %i saved in %s.<png><pdf><eps>',f,fich));
 disp(sprintf('! open %s.pdf',fich));

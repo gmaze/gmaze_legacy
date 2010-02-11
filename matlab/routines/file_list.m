@@ -59,8 +59,12 @@ if nargin >= 2
 		end
 	end
 end
-folder_list = {varargin{1}, WFILE, NREC};
 
+if strcmp(varargin{1},'.')
+	varargin{1} = pwd;
+end
+
+folder_list = {varargin{1}, WFILE, NREC};
 
 % Log:
 global diag_screen_default

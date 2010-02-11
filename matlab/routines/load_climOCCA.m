@@ -159,6 +159,7 @@ switch lower(fieldname)
 	case {'rhoa'}, filename = 'Drhoan'; dime = 3;
 	case {'taux'}, filename = 'FOtaux'; dime = 2; gridp = 1;
 	case {'tauy'}, filename = 'FOtauy'; dime = 2; gridp = 2;
+	case {'drhodr','drhodz'}, filename = 'Ddrhodr'; dime= 3; gridp = 3;
 end
 
 filename = strcat(prefi,filename,suffi);

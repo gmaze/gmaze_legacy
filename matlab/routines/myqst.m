@@ -53,6 +53,7 @@ colT{3} = 'State';
 colT{4} = 'Started';
 colT{5} = 'Last touch';
 colT{6} = 'Queue';
+colT{7} = 'Length';
 colT{sorting} = ['(*) ' colT{sorting}];
 
 global diag_screen_default
@@ -60,7 +61,7 @@ diag_screen_default.forma = '%s\n';
 diag_screen_default.PIDlist = [1];	
 
 % Template:
-tpl = sprintf('| %5s | %30s | %9s | %15s | %15s | %25s |','','','','','','');
+tpl = sprintf('| %5s | %30s | %9s | %15s | %15s | %25s | %10s |','','','','','','','');
 line='-';for ic=1:length(tpl)-1,line=[line '-'];end
 
 
@@ -105,7 +106,7 @@ if fid>0
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DISPLAY	
 	diag_screen(line);
-	diag_screen(sprintf('| %5s | %30s | %9s | %15s | %15s | %25s |',colT{1},colT{2},colT{3},colT{4},colT{5},colT{6}));
+	diag_screen(sprintf('| %5s | %30s | %9s | %15s | %15s | %25s | %10s |',colT{1},colT{2},colT{3},colT{4},colT{5},colT{6},colT{7}));
 	diag_screen(line);
 	job = selectthesejobs(job,sorting,select);
 	if ~isempty(job)
@@ -180,8 +181,19 @@ end
 function [] = print(job);
 
 ijob = 1;
+try 
+	dt = (job(ijob).itR-job(ijob).it0)*24*60;
+catch	
+	dt = 0;
+end
+if dt<60
+	dt = sprintf('%i mins',fix(dt));
+else
+	dt = sprintf('%ih%i',fix(dt/60),fix(rem(dt,60)));
+end
+
 %diag_screen(sprintf('| %5d | %30s | %5s | %15s | %25s |',job(ijob).id,job(ijob).script,job(ijob).state,datestr(job(ijob).it0,'ddd at HH:MM:SS'),job(ijob).queue));
-diag_screen(sprintf('| %5d | %30s | %9s | %15s | %15s | %25s |',job(ijob).id,job(ijob).script,job(ijob).state,datestr(job(ijob).it0,'ddd at HH:MM:SS'),datestr(job(ijob).itR,'ddd at HH:MM:SS'),job(ijob).queue));
+diag_screen(sprintf('| %5d | %30s | %9s | %15s | %15s | %25s | %10s |',job(ijob).id,job(ijob).script,job(ijob).state,datestr(job(ijob).it0,'ddd at HH:MM:SS'),datestr(job(ijob).itR,'ddd at HH:MM:SS'),job(ijob).queue,dt));
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 

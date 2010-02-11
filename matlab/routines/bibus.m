@@ -6,15 +6,30 @@
 %
 %
 % Created: 2009-05-05.
-% Copyright (c) 2009 Guillaume Maze. 
+% Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
+% All rights reserved.
 % http://codes.guillaumemaze.org
 
+% 
+% Redistribution and use in source and binary forms, with or without
+% modification, are permitted provided that the following conditions are met:
+% 	* Redistributions of source code must retain the above copyright notice, this list of 
+% 	conditions and the following disclaimer.
+% 	* Redistributions in binary form must reproduce the above copyright notice, this list 
+% 	of conditions and the following disclaimer in the documentation and/or other materials 
+% 	provided with the distribution.
+% 	* Neither the name of the Laboratoire de Physique des Oceans nor the names of its contributors may be used 
+%	to endorse or promote products derived from this software without specific prior 
+%	written permission.
 %
-% This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
-% the Free Software Foundation, either version 3 of the License, or any later version.
-% This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-% You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+% THIS SOFTWARE IS PROVIDED BY Guillaume Maze ''AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+% INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
+% PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Guillaume Maze BE LIABLE FOR ANY 
+% DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT 
+% LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR 
+% BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+% STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+% OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
 function varargout = bibus(varargin)
@@ -67,7 +82,7 @@ switch method
 		ye = str2num(datestr(now,'yyyy'));
 		mo = str2num(datestr(now,'mm'));
 		da = str2num(datestr(now,'dd'));
-		if datestr(now,'ddd') == 'Sat' | datestr(now,'ddd') == 'Sun'
+		if strcmp(datestr(now,'ddd'),'Sat') | strcmp(datestr(now,'ddd'),'Sun')
 			error('Pas d''horaires pour le week-end !');
 		end
 		if now < datenum(2009,8,31,0,0,0) | now > datenum(2010,6,27,0,0,0)
@@ -211,6 +226,30 @@ switch method
 		end%if
 		
 		
+		% for id=1:length(dir1)
+		% 	disp(sprintf('push @list1, DateTime->new(year => $year, month => $month, day => $day, hour => %i, minute => %i);',...
+		% 		str2num(datestr(dir1(id),'HH')),str2num(datestr(dir1(id),'MM'))));
+		% end
+		% for id=1:length(dir2)
+		% 	disp(sprintf('push @list2, DateTime->new(year => $year, month => $month, day => $day, hour => %i, minute => %i);',...
+		% 		str2num(datestr(dir2(id),'HH')),str2num(datestr(dir2(id),'MM'))));
+		% end		
+		
+		% $hours = array("21:40","22:12"); // the bus time
+		% str = '$hours = array(';
+		% for id=1:length(dir2)-1
+		% 	str = sprintf('%s"%s",',str,datestr(dir2(id),'HH:MM'));
+		% end
+		% str = sprintf('%s"%s")',str,datestr(dir2(end),'HH:MM'));
+		% disp(str)
+		% str = '$hours = array(';
+		% for id=1:length(dir1)-1
+		% 	str = sprintf('%s"%s",',str,datestr(dir1(id),'HH:MM'));
+		% end
+		% str = sprintf('%s"%s")',str,datestr(dir1(end),'HH:MM'));
+		% disp(str)
+		% return
+		
 		%% ETE 2009:
 		% dir1 = [...
 		% 	datenum(ye,mo,da,6,35,0),...
@@ -269,7 +308,8 @@ switch method
 			d=disp_list(dir2,find(dir2>=now,4));
 			if nargin == 1 % Send notification to growl for next bus
 				growl(sprintf('Prochain bus a %s',datestr(dir2(find(dir2>=now,1)),'HH:MM')),...
-					'Bus vers Brest-Liberte',1)
+					'Bus vers Brest-Liberte',1);
+				addtocrontab(dir2(find(dir2>=now,4)));
 			end
 		else
 			% This is the morning, we go to work !
@@ -279,6 +319,7 @@ switch method
 			if nargin == 1 % Send notification to growl for next bus
 				growl(sprintf('Prochain bus a %s',datestr(dir1(find(dir1>=now,1)),'HH:MM')),...
 					'Bus vers Ifremer',1)
+				addtocrontab(dir1(find(dir1>=now,4)));
 			end
 		end
 	
@@ -290,6 +331,59 @@ end  %switch
 		
 		
 end %function
+
+function addtocrontab(dd)
+	[status,result] = system('crontab -l | grep -v "no crontab for" > crontab.txt');
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% First we clean previous entries:
+	fid = fopen('crontab.txt');ii=0;
+    while 1
+        tline = fgetl(fid);
+        if ~ischar(tline), break, end
+		ii = ii + 1;
+		if strfind(tline,'# bibus reminder')
+	        keep(ii) = 0;
+		else 	
+			keep(ii) = 1;
+		end		
+    end
+    fclose(fid);
+	fid0 = fopen('crontab.txt');ii=0;
+	fid1 = fopen('crontab1.txt','wt');
+    while 1
+        tline = fgetl(fid0);
+        if ~ischar(tline), break, end
+		ii = ii + 1;
+		if keep(ii) == 1
+			fprintf(fid1,'%s\n',tline);
+		end		
+    end
+    fclose(fid0);
+    fclose(fid1);
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Then we add the new line:
+	fid = fopen('crontab1.txt','a+');
+	fseek(fid,0,1);
+	dds = dd - 15*1/(24*60);
+	
+	for id = 1 : length(dd)	
+		sticky = '-s';
+		prior  = 0;
+		mess   = sprintf('Prochain bus a %s',datestr(dd(id),'HH:MM'));
+		titl   = 'Attention au prochain bus dans 15mins !';
+		command = sprintf('/usr/local/bin/growlnotify %s -p %i --appIcon iCal -m ''%s'' -t ''%s''',sticky,prior,mess,titl);
+		tline = sprintf('%i\t%i\t%i\t%i\t*\t%s # bibus reminder',str2num(datestr(dds(id),'MM')),str2num(datestr(dds(id),'HH')),...
+				str2num(datestr(dds(id),'dd')),str2num(datestr(dds(id),'mm')),command);	
+		fprintf(fid,'%s\n',tline);
+	end%for id
+    fclose(fid);
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Install new crontab:
+	system('crontab crontab1.txt');
+	delete('crontab.txt');
+	delete('crontab1.txt');
+		
+end%function
 
 
 

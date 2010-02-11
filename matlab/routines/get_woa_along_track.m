@@ -1,6 +1,6 @@
 % get_woa_along_track Interpolate World Ocean Atlas data along a ship track
 %
-% [] = get_woa_along_track(x,y,'VAR')
+% [val z] = get_woa_along_track(x,y,'VAR',[IM])
 % 
 % Interpolate World Ocean Atlas data along a ship track given by (x,y)
 % VAR:
@@ -9,6 +9,8 @@
 %	'oxyl'
 %	'aou'
 %	'oxsl'
+%
+% IM could be a numeric month number or a character for the annual clim
 % 
 % Created: 2009-06-17.
 % Copyright (c) 2009 Guillaume Maze. 
@@ -22,7 +24,7 @@
 % You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
 
-function Cout = get_woa_along_track(varargin)
+function varargout = get_woa_along_track(varargin)
 
 global nctbx_options;
 preserv = nctbx_options;
@@ -107,7 +109,7 @@ nlat = length(lat);
 nlon = length(lon);
 iX = find(lon>=nanmin(X) & lon<= nanmax(X));
 iY = find(lat>=nanmin(Y) & lat<= nanmax(Y));
-z = fliplr(-5500+1:1:0);
+z  = fliplr(-5500+1:1:0);
 
 missval = 1e20;
 nc = netcdf(sprintf('%s/WOA05_%s_%s%s',pathi,field.name,tp,suff),'nowrite');
@@ -169,10 +171,14 @@ for ipt = 1 : length(X)
 end%for ipt
 close(nc);clear nc
 
-% switch nargout
-% 	case 1
-% 		varargout(1) = {Cout};
-% end
+switch nargout
+	case 1
+		varargout(1) = {Cout};
+	case 2
+		varargout(1) = {Cout};
+		varargout(2) = {z};
+		
+end
 
 global nctbx_options;
 nctbx_options = preserv;

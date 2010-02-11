@@ -42,17 +42,18 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if strcmp(str,'del')	
-	h = findobj(gcf,'Type','axes'); 
-	oldtitle = 0;
-	for i = 1 : length(h),
-		if (~strcmp(get(h(i),'Tag'),'footnote')),
-		else
-			oldtitle = h(i);
-		end
-	end	
-	if oldtitle
-		delete(oldtitle);
-	end
+	delete(findobj(gcf,'tag','footnote'))
+	% h = findobj(gcf,'Type','axes'); 
+	% oldtitle = 0;
+	% for i = 1 : length(h),
+	% 	if (~strcmp(get(h(i),'Tag'),'footnote')),
+	% 	else
+	% 		oldtitle = h(i);
+	% 	end
+	% end	
+	% if oldtitle
+	% 	delete(oldtitle);
+	% end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 else
 
@@ -99,7 +100,7 @@ switch method
 	end
 	ha = axes('pos',[0 0 1 0.01],'visible','off','Tag','footnote');
 %	ht = text(0,1,str);set(ht,'horizontalalignment','left','fontsize',fs);
-	ht = text(0,1,str);set(ht,'parent',ha)
+	ht = text(0,1,str);set(ht,'parent',ha,'tag','footnotetext');
 	set(ht,'horizontalalignment','left','fontsize',fs,'verticalalignment','bottom');
 	set(ht,'interpreter','none');
 	set(gcf,'nextplot','add');

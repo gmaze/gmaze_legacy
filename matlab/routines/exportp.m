@@ -1,6 +1,6 @@
 % exportp Export a figure to A4 color PDF format
 %
-% exportp(GCF,[ORIENTATION,FILE])
+% exportp(GCF,[ORIENTATION,FILE,KEEPFOOTNOTE])
 %
 %   Export a figure GCF to A4 color pdf format
 %   Default output file is: fig.pdf in current directory
@@ -24,7 +24,7 @@
 
 function []=exportp(f,varargin)
 
-if (nargin<1)|(nargin>3)
+if (nargin<1)|(nargin>4)
      help exportp.m
      error('exportp.m : Wrong number or bad parameter(s)')
      return
@@ -37,7 +37,7 @@ orient = 0 ;
 % --------------------------------------------
 % 1 seul para optionnel
 % --------------------------------------------
-if (nargin==2)
+if (nargin>=2)
 
  arg = varargin{:};
 
@@ -87,7 +87,7 @@ end %if
 % --------------------------------------------
 % 2 para optionnels
 % --------------------------------------------
-if (nargin==3)
+if (nargin>=3)
 
  arg  = varargin(1); arg=arg{:};
  fich = varargin(2); fich=fich{:};
@@ -120,6 +120,14 @@ if (nargin==3)
 end %if
 
 
+% --------------------------------------------
+if nargin >= 4
+	keepfootnote = varargin{3};
+else
+	keepfootnote = 1;
+end
+
+
 
 % --------------------------------------------
 % Record
@@ -140,14 +148,33 @@ switch orient
 	set(f,'PaperOrientation','portrait');
 end %case
 
-%fich=strcat(fich,'.jpg');
-%print(f,'-djpeg99',fich);
-fich=strcat(fich,'.pdf');
-print(f,'-dpdf',fich);
+footnoteTXT = get(findobj(gcf,'tag','footnotetext'),'string');
+if ischar(footnoteTXT)
+	for il = 1 : size(footnoteTXT,1) 
+		c(il) = {footnoteTXT(il,:)};
+	end
+	footnoteTXT = c;
+end
+ext = 'pdf'; pcom = '-dpdf';
+if  length(footnoteTXT) > 1
+	txt = sprintf(' %s.%s',fich,ext);
+	for il = 1 : length(footnoteTXT)
+		txt = sprintf('%s\n%s',txt,footnoteTXT{il});
+	end
+else
+	txt = sprintf(' %s\n%s',strcat(fich,'.',ext),footnoteTXT{1});
+end
+if keepfootnote 
+	set(findobj(gcf,'tag','footnotetext'),'string',txt)
+else
+	set(findobj(gcf,'tag','footnotetext'),'string','')
+end
+
+algnfootnote;
+print(f,pcom,strcat(fich,'.',ext));
 set(f,'Position',posi)
-disp(sprintf('Figure %i saved in %s',f,fich));
-
-
+set(findobj(gcf,'tag','footnotetext'),'string',footnoteTXT)
+disp(sprintf('Figure %i saved in %s',f,strcat(fich,'.',ext)));
 
 
 
