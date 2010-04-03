@@ -129,16 +129,14 @@ for ii = 1 : length(pl_list)
 	diag_list(ii) = {sprintf('%i: %s',pl_list(ii).index,pl_list(ii).description)};
 end
 
-
-
 %mhABOUT = uimenu('Parent',fgui,'Label','ILVB','Tag','MENU1');
 %uimenu('Parent',mhABOUT,'Label','Run it','Callback',{@runit},'Accelerator','m','Enable','on');
 %uimenu('Parent',mhABOUT,'Label','M-lint','Callback',{@mlintit},'Accelerator','m','Enable','on');
 
 mb_run   = uimenu('Parent',fgui,'Label','Run it','Tag','MENU1','Callback',{@runit});
 mb_mlint = uimenu('Parent',fgui,'Label','M-lint','Tag','MENU2','Callback',{@mlintit});
-mb_req   = uimenu('Parent',fgui,'Label','Requirements','Tag','MENU3','Callback',{@mlintit});
-mb_more  = uimenu('Parent',fgui,'Label','More','Tag','MENU3','Callback',{@mlintit});
+mb_req   = uimenu('Parent',fgui,'Label','Requirements','Tag','MENU3','Callback',{@reqit});
+%mb_more  = uimenu('Parent',fgui,'Label','More','Tag','MENU3','Callback',{@mlintit});
 
 
 diag_list_items = uicontrol('Parent',fgui,'Style','popupmenu','Units','normalized','Horizontalalignment','left',...
@@ -214,9 +212,32 @@ fgui  = get(hObject,'Parent');
 %
 PredefList = findobj(fgui,'Tag','PredefList');
 idiag      = get(PredefList,'Value');
-pl_list = guidata(fgui);
-pl_list(idiag).name
+pl_list    = guidata(fgui);
 mlint(sprintf('%s/%s',pl_list(idiag).root,pl_list(idiag).name),'string')
+
+end
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+function reqit(hObject,eventdata)
+
+% Load the setup
+fgui  = get(hObject,'Parent');	
+
+%
+PredefList = findobj(fgui,'Tag','PredefList');
+idiag      = get(PredefList,'Value');
+pl_list    = guidata(fgui);
+command    = sprintf('get_plotlistfields(''%s/%s'',''.'')',pl_list(idiag).root,pl_list(idiag).name);
+disp(command)
+try
+	evalin('base',command);
+catch
+	la =lasterror;
+	disp(la.message);
+	disp('Crashed ...');
+end
 
 end
 

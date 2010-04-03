@@ -25,6 +25,8 @@ widt=.68;
 heig=.50;
 
 clear ccol
+cx = sort(Cx); cx = cx(~isnan(cx));
+cy = sort(Cy); cy = cy(~isnan(cy));
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 sb1=subplot('position',[left bott widt heig]);
@@ -41,8 +43,8 @@ if nargin>=6
   caxis(varargin{3});
 end
 axis tight;
-set(gca,'xlim',sort([Cx(1) Cx(end)]));
-set(gca,'ylim',sort([Cy(1) Cy(end)]));
+set(gca,'xlim',sort([cx(1) cx(end)]));
+set(gca,'ylim',sort([cy(1) cy(end)]));
 %set(gca,'xticklabel',[]);
 %set(gca,'yticklabel',[]);
 set(gca,'fontsize',10)
@@ -74,7 +76,7 @@ C(isinf(C))=NaN;
 plot(Cx,nanmean(C,1));
 grid on
 box on
-set(gca,'xlim',sort([Cx(1) Cx(end)]));
+set(gca,'xlim',sort([cx(1) cx(end)]));
 set(gca,'fontsize',10)
 set(gca,'yaxislocation','left')
 xl=xlabel(' ');
@@ -85,7 +87,7 @@ sb3=subplot('position',[left+widt bott (1-widt)/2 heig]);
 plot(nanmean(C,2),Cy);
 grid on,
 box on
-set(gca,'ylim',sort([Cy(1) Cy(end)]));
+set(gca,'ylim',sort([cy(1) cy(end)]));
 set(gca,'yaxislocation','right')
 set(gca,'xaxislocation','top')
 set(gca,'fontsize',10)

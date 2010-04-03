@@ -21,7 +21,6 @@
 
 function newpath = abspath(varargin)
 
-
 pathname = varargin{1};
 
 [a hom] = dos('echo $HOME');
@@ -29,6 +28,7 @@ clear a
 
 if ~isempty(hom)
 	hom = strrep(hom,'.cshrc: No such file or directory.','');
+	hom = strrep(hom,'Loading C-Shell','');
 	newpath = strrep(pathname,'~',strtrim(hom));
 else
 	newpath = pathname;
