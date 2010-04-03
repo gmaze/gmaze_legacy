@@ -38,7 +38,7 @@ O2 unit conversion
 % Rev. by Guillaume Maze on 2009-09-02: Add micromol to millimol automatic conversion
 }}}
 ----
-Last update: 2010 February 10, 14:45
+Last update: 2010 April 03, 15:28
 
 Created by Guillaume Maze
 

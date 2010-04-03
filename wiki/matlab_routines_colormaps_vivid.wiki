@@ -76,7 +76,7 @@ Creates a Personalized Vivid Colormap
 % Date: 07/25/08
 }}}
 ----
-Last update: 2010 February 10, 14:45
+Last update: 2010 April 03, 15:28
 
 Created by Guillaume Maze
 

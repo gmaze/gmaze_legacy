@@ -20,7 +20,7 @@ Find a linear trend from a vector, usually for FFT processing.
 %   See also DETREND, MEAN
 }}}
 ----
-Last update: 2010 February 10, 14:45
+Last update: 2010 April 03, 15:28
 
 Created by Guillaume Maze
 

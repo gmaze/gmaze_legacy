@@ -28,7 +28,7 @@ Download the monthly NAO index
 % Rev. by Guillaume Maze on 2009-09-01: Add winter value option
 }}}
 ----
-Last update: 2010 February 10, 14:45
+Last update: 2010 April 03, 15:28
 
 Created by Guillaume Maze
 

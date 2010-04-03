@@ -22,7 +22,7 @@ Helper function for PSD, CSD, COHERE, and TFE.
 %     dflag - detrending flag, 'linear' 'mean' or 'none'
 }}}
 ----
-Last update: 2010 February 10, 14:45
+Last update: 2010 April 03, 15:28
 
 Created by Guillaume Maze
 

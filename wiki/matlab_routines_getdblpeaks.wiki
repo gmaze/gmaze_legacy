@@ -32,7 +32,7 @@ Find indices corresponding to a common peak in two series
 % Created: 2009-08-31.
 }}}
 ----
-Last update: 2010 February 10, 14:45
+Last update: 2010 April 03, 15:28
 
 Created by Guillaume Maze
 
