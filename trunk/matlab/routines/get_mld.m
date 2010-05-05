@@ -1,10 +1,10 @@
-% ncvarname List variable name of a netcdf object
+% get_mld Compute the mixed layer depth
 %
-% namelist = ncvarname(nc)
+% H = get_mld(S,T,Z)
 % 
-% Give back the list of names of all variables of the netcdf object nc
+% HELPTEXT
 %
-% Created: 2009-10-20.
+% Created: 2009-11-19.
 % Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
@@ -31,27 +31,41 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function varargout = ncvarname(varargin)
+function MLD = get_mld(varargin)
 
-nc = varargin{1};
-if ~isa(nc,'netcdf')
-	error('ncvarname only take as argument a netcdf object')
+S = varargin{1};
+T = varargin{2};
+Z = varargin{3};
+
+S = S(:);
+T = T(:); 
+Z = Z(:);
+P = 0.09998*9.81*abs(Z);
+T = sw_ptmp(S,T,P,0);
+
+[zmin iz0] = min(abs(Z));
+if isnan(T(iz0))
+	iz0 = iz0+1;
 end
 
-v = var(nc);
-for iv = 1 : length(v)
-	namelist(iv) = {name(v{iv})};
-end
-namelist = sort(namelist);
+SST = T(iz0);
+SSS = S(iz0);
 
-if nargout == 0
-	for iv=1:length(namelist)
-		disp(namelist{iv})
-	end
+SST08 = SST - 0.8;
+%SSS   = SSS + 35;
+Surfadens08 = densjmd95(SSS,SST08,P(iz0))-1000;
+ST = densjmd95(S,T,P)-1000;
+
+mm =  find( ST > Surfadens08 );
+if ~isempty(mm)
+	MLD = Z(min(mm));
 else
-	varargout(1) = {namelist};
+	MLD = NaN;
 end
 
+end %functionget_mld
 
 
-end %functionncvarname
+
+
+

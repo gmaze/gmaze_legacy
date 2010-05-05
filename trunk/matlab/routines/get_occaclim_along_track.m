@@ -1,11 +1,11 @@
-% ncvarname List variable name of a netcdf object
+% get_occa_along_track H1LINE
 %
-% namelist = ncvarname(nc)
+% [] = get_occa_along_track()
 % 
-% Give back the list of names of all variables of the netcdf object nc
+% HELPTEXT
 %
-% Created: 2009-10-20.
-% Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
+% Created: 2010-02-23.
+% Copyright (c) 2010, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
 
@@ -31,27 +31,69 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function varargout = ncvarname(varargin)
+function CC = get_occaclim_along_track(varargin)
 
-nc = varargin{1};
-if ~isa(nc,'netcdf')
-	error('ncvarname only take as argument a netcdf object')
-end
-
-v = var(nc);
-for iv = 1 : length(v)
-	namelist(iv) = {name(v{iv})};
-end
-namelist = sort(namelist);
-
-if nargout == 0
-	for iv=1:length(namelist)
-		disp(namelist{iv})
-	end
+X = varargin{1};
+Y = varargin{2};
+F = varargin{3}; F =list2cell(F); nf = length(F);
+if nargin == 4
+	M = varargin{4};
 else
-	varargout(1) = {namelist};
+	M = 112;
+end
+if M == 112
+	m = [1:12]; 
+else
+	m = M;
 end
 
+%%%%
+l = load('LSmask_MOA','LONmask','LATmask');
+lon = l.LONmask; nlon = length(lon);
+lat = l.LATmask; nlat = length(lat);
+clear l
+
+for ic = 1 : nf
+	for ii = 1 : length(m)
+		c = load_climOCCA(F{ic},m(ii));
+		for ipt = 1 : length(X)
+			ilon = find(lon>=X(ipt),1); ilon = [max([1 ; ilon-1]) ilon min([nlon ; ilon+1])];
+			ilat = find(lat>=Y(ipt),1); ilat = [max([1 ; ilat-1]) ilat min([nlat ; ilat+1])];
+			[ax ay] = meshgrid(lon(ilon),lat(ilat));
+			cf(ipt) = interp2(ax,ay,c(ilat,ilon),X(ipt),Y(ipt));
+		end
+		C(ii,:) = cf;
+	end
+	if M == 112
+		CC(ic,:) = nanmean(C,1);
+	else
+		CC(ic,:,:) = C;
+	end
+end
+if length(m) == 1 & nf == 1
+	CC = squeeze(CC(:,1,:))';
+elseif length(m) == 1 & nf ~= 1
+	CC = squeeze(CC(:,1,:));	
+end
+
+end %functionget_occa_along_track
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function REQUIREDfields = list2cell(tline);
+
+tl = strtrim(tline);
+if strmatch(';',tl(end)), tl = tl(1:end-1);end
+tl = [';' tl ';']; pv = strmatch(';',tl');
+for ifield = 1 : length(pv)-1
+field(ifield).name = tl(pv(ifield)+1:pv(ifield+1)-1);
+end
+REQUIREDfields = squeeze(struct2cell(field));
 
 
-end %functionncvarname
+end%function
+
+
+
+
+
+

@@ -1,11 +1,11 @@
-% ncvarname List variable name of a netcdf object
+% get_ovide_track Load OVIDE track
 %
-% namelist = ncvarname(nc)
+% [lat,lon,dist] = get_ovide_track()
 % 
-% Give back the list of names of all variables of the netcdf object nc
+% Load the OVIDE track (lat,lon) of all stations and their distances to Cape Farewell, Greenland
 %
-% Created: 2009-10-20.
-% Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
+% Created: 2010-03-02.
+% Copyright (c) 2010, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
 
@@ -31,27 +31,60 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function varargout = ncvarname(varargin)
+function varargout = get_ovide_track(varargin)
 
-nc = varargin{1};
-if ~isa(nc,'netcdf')
-	error('ncvarname only take as argument a netcdf object')
-end
-
-v = var(nc);
-for iv = 1 : length(v)
-	namelist(iv) = {name(v{iv})};
-end
-namelist = sort(namelist);
-
-if nargout == 0
-	for iv=1:length(namelist)
-		disp(namelist{iv})
-	end
+if nargin == 0
+	year = '06';
 else
-	varargout(1) = {namelist};
+	year = varargin{1};
 end
 
+nc = netcdf(abspath(sprintf('~/data/OVIDE/data/ovid%2s_dep.nc',year)),'nowrite');
+x = nc{'LONGITUDE_BEGIN'}(:,:);
+x(x>=-180 & x<0) = 360 + x(x>=-180 & x<0); x=x'; % Move to longitude from 0 to 360
+y = nc{'LATITUDE_BEGIN'}(:,:); y = y';
+close(nc);
+
+D = dfromo(x,y);
+
+switch nargout
+	case 1
+		varargout(1) = {y};
+	case 2
+		varargout(1) = {y};
+		varargout(2) = {x};
+	case 3
+		varargout(1) = {y};
+		varargout(2) = {x};
+		varargout(3) = {D};
+end
+
+end %functionget_ovide_track
 
 
-end %functionncvarname
+
+function D = dfromo(x,y);
+	
+	O = [317.5 59.8];
+
+	if length(x) ~= length(y)
+		error('Latitude and Longitude must be of same dimensions')
+	end
+
+	for is = 1 : length(x)
+		D(is) = m_lldist([O(1) x(is)],[O(2) y(is)])/1e3;
+	end
+
+end%function
+
+
+
+
+
+
+
+
+
+
+
+

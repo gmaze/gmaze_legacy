@@ -51,9 +51,11 @@ if doplot
 	figure;clf; hold on
 	m_proj('equid','lon',[nanmin(x) nanmax(x)] + [-1 1],'lat',[nanmin(y) nanmax(y)] + [-1 1]);
 	pp = m_plot(x,y,'+','markersize',10);
-	m_coast('patch',[1 1 1]*.6);m_grid('xtick',[0:5:360],'ytick',[-90:5:90]);
+	m_coast('patch',[1 1 1]*.6);
+	m_grid('xtick',[0:1:360],'ytick',[-90:1:90]);
 	m_elev('contour',[-4:-1]*1e3,'edgecolor',[1 1 1]*.5);
-	p = m_plot(x0,y0,'ro'); set(p,'markersize',10);
+	p = m_plot(x0,y0,'ro'); 
+	set(p,'markersize',10);
 end
 
 %%%%%%%%%%%%%%%%%%%% Compute distances from the starting point and find the 1st point of the section:
@@ -66,6 +68,7 @@ ipt = ipt + 1; iplist(ipt,1) = x(i0); iplist(ipt,2) = y(i0);
 dist = distance(x,y,x0,y0);
 if doplot
 	p = m_plot(x0,y0,'ko'); set(p,'markersize',10);
+	m_range_ring(x0,y0,dmin,'color','k');
 end
 
 %%%%%%%%%%%%%%%%%%%% Now we go from dmin to this point
@@ -116,6 +119,9 @@ while done ~= 1
 					if whydone==1;disp('dphi>dphmin')	;end	
 				else
 					if whydone==1;disp('error');end
+				end
+				if doplot
+					m_range_ring(x0,y0,dmin,'color','k');
 				end
 				done = 1;				
 			end
