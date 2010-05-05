@@ -199,7 +199,7 @@ ord = 1 : size(TB,2);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Create Contents.m
-if do_contentsm
+if do_contentsm 
 
 if exist(sprintf('%s/Contents.m',pathd),'file')
 	a = input(sprintf('\n%s/Contents.m already exists, do you want to overwrite it (y/[n])?',pathd),'s');
@@ -222,7 +222,23 @@ if overw_contentsm
 	diag_screen_default.fid = fopen(sprintf('%s/Contents.m',pathd),'w');
 	diag_screen_default.forma = '%% %s\n';
 	
-	diag_screen(sprintf(''));
+	try
+		% Tips on how to get your toolbox to work with VER:
+		%
+		%   VER TOOLBOX_DIR looks for lines of the form
+		%
+		%     % Toolbox Description
+		%     % Version xxx dd-mmm-yyyy
+		%
+		%   as the first two lines of the Contents.m in the directory specified.  
+		%   The date cannot have any spaces in it and must use a 2 char day (that
+		%   is, use 02-Mar-1997 instead of 2-Mar-1997).	
+		packinfo = packver(pathd,'r')
+		diag_screen(sprintf('%s',packinfo.Name));
+		diag_screen(sprintf('Version %s %s %s',packinfo.Version,packinfo.Release,datestr(packinfo.Date,'dd-mmm-yyyy')));
+	end%try
+	
+	diag_screen(sprintf(''));	
 	diag_screen(sprintf('\t\tContents from %s',pathd));
 	diag_screen(sprintf(''));
 	diag_screen(sprintf('Last update: %s',datestr(now,'yyyy mmmm dd, HH:MM')));

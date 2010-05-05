@@ -1,7 +1,7 @@
 % 
 % 		Contents from /Users/gmaze/matlab/routines
 % 
-% Last update: 2010 February 10, 14:45
+% Last update: 2010 April 03, 15:28
 % 
 % 	WOA05_grid                               - Read World Ocean Atlas 2005 grid
 % 	WSEdecomp                                - Split a signal into its downward/upward propagating and stationnary components
@@ -36,12 +36,14 @@
 % 	dinterp3bin_grid                         - Compute the new grid for DINTERP3BIN interpolated fields
 % 	dlowerres                                - Reduce the resolution of a field
 % 	drawbox                                  - Draw a rectangular box
+% 	duplicate                                - Find duplicate values among a 1D table
 % 	dwn_nao                                  - Download the monthly NAO index
 % 	export                                   - Export a figure to A4 color EPS format
 % 	exportf                                  - Export a figure to A4 color PDF format
 % 	exportj                                  - Export a figure to A4 color PNG format
 % 	exportp                                  - Export a figure to A4 color PDF format
 % 	fftmspec                                 - Module Spectra of the Fourier Transform
+% 	figs2pdf                                 - Save several figures in 1 pdf file
 % 	figur                                    - FIGUR Create figure window without Menu Bar
 % 	figure                                   - Create customized figure window
 % 	figure_land                              - White background landscape figure
@@ -59,6 +61,9 @@
 % 	getGRD                                   - Compute horizontal gradient of a geographical field
 % 	get_elev_along_track                     - elev_along_track Determine topogrpahy along ship track
 % 	get_mld                                  - Compute the mixed layer depth
+% 	get_mmld_along_track                     - Get Boyer-Montegut MLD climatology along a track
+% 	get_occaclim_along_track                 - get_occa_along_track H1LINE
+% 	get_ovide_track                          - Load OVIDE track
 % 	get_plotlist                             - Return description of diagnostic/plot files
 % 	get_plotlistdef                          - Display/return description of diagnostic files
 % 	get_plotlistfields                       - Returns the list of fields required by a diag
@@ -115,11 +120,13 @@
 % 	ncvarname                                - List variable name of a netcdf object
 % 	newclim                                  - Used to get more than 1 colormap in subplot windows
 % 	nlines                                   - Number of lines in a text file
+% 	nojvmwaitbar                             - Progress waitbar for Matlab running without JVM
 % 	periodogram2                             - Computes the 2-D periodogram based on Fourier Method
 % 	plgrep                                   - Grep a string into definitions of sub plots/diagnostics
 % 	pllist                                   - Shortcut for function get_plotlistdef(MASTER,'.')
 % 	pllist_gui                               - H1LINE
 % 	plotts                                   - Plot Temperature, Salinity on a T,S diag
+% 	ps2pdf                                   - Function to convert a PostScript file to PDF using Ghostscript
 % 	ptable                                   - Creates non uniform subplot handles
 % 	qstat                                    - Return command qstat -u user outputs
 % 	realgnfootnote                           - H1LINE

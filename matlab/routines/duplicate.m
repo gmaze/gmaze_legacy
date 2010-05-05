@@ -1,11 +1,22 @@
-% ncvarname List variable name of a netcdf object
+% duplicate Find duplicate values among a 1D table
 %
-% namelist = ncvarname(nc)
-% 
-% Give back the list of names of all variables of the netcdf object nc
+% [Vdup Idup] = duplicate(C,[PREC])
 %
-% Created: 2009-10-20.
-% Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
+% Find duplicate values among a 1D table, ie identify values among
+% C which are similar (to the approximate precisions PREC), give them back
+% in Vdup and their occurences in C in Idup.
+%
+% Eg:
+%	C = [1 3 2 2 3 7];
+%	[Vdup Idup] = duplicate(C)
+%
+%	C = [1.9572    3.4854    2.8003    2.1419    3.4218    7.9157];
+%	[Vdup Idup] = duplicate(C,0)
+%	[Vdup Idup] = duplicate(C,1)
+%	[Vdup Idup] = duplicate(C,2)
+%
+% Created: 2010-02-11.
+% Copyright (c) 2010, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
 
@@ -31,27 +42,27 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function varargout = ncvarname(varargin)
+function [Vdup Idup] = duplicate(C,varargin)
 
-nc = varargin{1};
-if ~isa(nc,'netcdf')
-	error('ncvarname only take as argument a netcdf object')
+if nargin==2
+	ord = varargin{1};
+	C = fix(C*10^ord)/10^ord;
 end
 
-v = var(nc);
-for iv = 1 : length(v)
-	namelist(iv) = {name(v{iv})};
-end
-namelist = sort(namelist);
-
-if nargout == 0
-	for iv=1:length(namelist)
-		disp(namelist{iv})
+uni = unique(C);
+idup = 0;
+for iv = 1 : length(uni)
+	ic = find(C==uni(iv));
+	if length(ic)>1
+		idup = idup + 1;
+		Vdup(idup) = uni(iv);
+		Idup(idup) = {ic};
 	end
-else
-	varargout(1) = {namelist};
 end
 
+if ~exist('Vdup','var')
+	Vdup = [];
+	Idup = {};
+end
 
-
-end %functionncvarname
+end %functionduplicate

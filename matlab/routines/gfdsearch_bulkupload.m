@@ -1,11 +1,11 @@
-% ncvarname List variable name of a netcdf object
+% gfdsearch_bulkupload H1LINE
 %
-% namelist = ncvarname(nc)
+% [] = gfdsearch_bulkupload()
 % 
-% Give back the list of names of all variables of the netcdf object nc
+% HELPTEXT
 %
-% Created: 2009-10-20.
-% Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
+% Created: 2010-04-06.
+% Copyright (c) 2010, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
 
@@ -31,27 +31,33 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function varargout = ncvarname(varargin)
+function varargout = gfdsearch_bulkupload(varargin)
 
-nc = varargin{1};
-if ~isa(nc,'netcdf')
-	error('ncvarname only take as argument a netcdf object')
-end
+file = '~/Documents/bookmarks.html';
+fid = fopen(file);
 
-v = var(nc);
-for iv = 1 : length(v)
-	namelist(iv) = {name(v{iv})};
-end
-namelist = sort(namelist);
-
-if nargout == 0
-	for iv=1:length(namelist)
-		disp(namelist{iv})
+while 1	
+	tline = fgetl(fid);
+	if ~ischar(tline), break, end
+	if strfind(tline,'href=')
+%		disp(tline)
+		a = strread(tline,'%s','delimiter','"');
+		disp(a{2});
+%		is1 = strfind(tline,'<a href=');
+%		strfind(tline,'"
 	end
-else
-	varargout(1) = {namelist};
 end
+fclose(fid);
+
+
+end %functiongfdsearch_bulkupload
 
 
 
-end %functionncvarname
+
+
+
+
+
+
+

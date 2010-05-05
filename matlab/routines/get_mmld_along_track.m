@@ -1,11 +1,18 @@
-% ncvarname List variable name of a netcdf object
+% get_mmld_along_track Get Boyer-Montegut MLD climatology along a track
 %
-% namelist = ncvarname(nc)
+% H = get_mmld_along_track(x,y,[M])
 % 
-% Give back the list of names of all variables of the netcdf object nc
+% Compute the MLD from the de Boyer Montegut Argo monthly climatology along a set of stations.
 %
-% Created: 2009-10-20.
-% Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
+% Inputs:
+%	x,y: longitude,latitude coordinates of the stations
+%	M: from 1 to 12 for a single month or 112 for the annual mean
+%
+% Outputs:
+%	H: Mixed Layer Depth
+%
+% Created: 2010-02-23.
+% Copyright (c) 2010, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
 
@@ -31,27 +38,59 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function varargout = ncvarname(varargin)
+function MLD = get_mmld_along_track(varargin)
 
-nc = varargin{1};
-if ~isa(nc,'netcdf')
-	error('ncvarname only take as argument a netcdf object')
-end
-
-v = var(nc);
-for iv = 1 : length(v)
-	namelist(iv) = {name(v{iv})};
-end
-namelist = sort(namelist);
-
-if nargout == 0
-	for iv=1:length(namelist)
-		disp(namelist{iv})
-	end
+X = varargin{1};
+Y = varargin{2};
+if nargin == 3
+	M = varargin{3};
 else
-	varargout(1) = {namelist};
+	M = 112;
+end	
+if M == 112
+	m = [1:12]; 
+else
+	m = M;
+end
+
+
+%%%%
+ncfile = abspath('~/data/MONTEGUT_MLD/netcdf/mldT02_sk.nc');
+nc     = netcdf(ncfile,'nowrite');
+lon    = nc{'lon'}(:); nlon = length(lon);
+lat    = nc{'lat'}(:); nlat = length(lat);
+
+%%%%
+for ipt = 1 : length(X)
+	ilon = find(lon>=X(ipt),1); ilon = [max([1 ; ilon-1]) ilon min([nlon ; ilon+1])];
+	ilat = find(lat>=Y(ipt),1); ilat = [max([1 ; ilat-1]) ilat min([nlat ; ilat+1])];
+	[ax ay] = meshgrid(lon(ilon),lat(ilat));
+	
+	for ii = 1 : length(m)
+		mld = nc{'mld'}(m(ii),ilat,ilon);
+		mld(mld<=-9999) = NaN; mld(mld==1e9) = NaN;
+		H(ii) = interp2(ax,ay,mld,X(ipt),Y(ipt));
+	end
+	MLD(:,ipt) = H;
+end
+close(nc);
+
+if M == 112
+	MLD = nanmean(MLD,2);
 end
 
 
 
-end %functionncvarname
+end %functionget_mmld_along_track
+
+
+
+
+
+
+
+
+
+
+
+
