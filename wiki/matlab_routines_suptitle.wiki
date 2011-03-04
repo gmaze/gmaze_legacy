@@ -16,7 +16,7 @@ Puts a title above all subplots.
 % will break.
 }}}
 ----
-Last update: 2011 March 04, 14:01
+Last update: 2011 March 04, 14:47
 
 Created by Guillaume Maze
 

@@ -44,7 +44,7 @@ Perform base64 encoding on a string.
 %   See also BASE64DECODE.
 }}}
 ----
-Last update: 2011 March 04, 14:01
+Last update: 2011 March 04, 14:47
 
 Created by Guillaume Maze
 

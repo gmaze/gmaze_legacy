@@ -15,7 +15,7 @@ Give the number of dimensions of a field
 % Created: 2009-02-24.
 }}}
 ----
-Last update: 2011 March 04, 14:01
+Last update: 2011 March 04, 14:47
 
 Created by Guillaume Maze
 

@@ -14,7 +14,7 @@ LaTeX to Html converter for intranet
 % Created: 2009-07-18.
 }}}
 ----
-Last update: 2011 March 04, 14:01
+Last update: 2011 March 04, 14:47
 
 Created by Guillaume Maze
 

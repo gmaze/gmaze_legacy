@@ -43,7 +43,7 @@ Cross or dot product of two 3D scalar fields
 % Created: 2008-12-14.
 }}}
 ----
-Last update: 2011 March 04, 14:01
+Last update: 2011 March 04, 14:47
 
 Created by Guillaume Maze
 

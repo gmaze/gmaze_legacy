@@ -1,0 +1,20 @@
+== cw.m ==
+Move to working directory
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/cw.m Download here]
+
+{{{
+% cw Move to working directory
+%
+% Change to your working directory simply using:
+%	cw
+%
+% Created: 2010-05-10.
+% All rights reserved.
+}}}
+----
+Last update: 2011 March 04, 14:47
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

@@ -11,7 +11,7 @@ Ensure the menu bar is shown on a figure
 % Created by Guillaume Maze on 2008-10-14.
 }}}
 ----
-Last update: 2011 March 04, 14:01
+Last update: 2011 March 04, 14:47
 
 Created by Guillaume Maze
 

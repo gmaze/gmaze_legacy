@@ -19,7 +19,7 @@ Grep a string into definitions of functions
 % Created: 2009-08-25.
 }}}
 ----
-Last update: 2011 March 04, 14:01
+Last update: 2011 March 04, 14:47
 
 Created by Guillaume Maze
 

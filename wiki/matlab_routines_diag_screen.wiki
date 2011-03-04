@@ -31,7 +31,7 @@ Same as DISP but allow to print in a log file
 %
 }}}
 ----
-Last update: 2011 March 04, 14:01
+Last update: 2011 March 04, 14:47
 
 Created by Guillaume Maze
 

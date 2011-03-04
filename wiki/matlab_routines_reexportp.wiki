@@ -1,0 +1,24 @@
+== reexportp.m ==
+Re-export a figure in pdf using app datas
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/reexportp.m Download here]
+
+{{{
+% reexportp Re-export a figure in pdf using app datas
+%
+% [] = reexportp(H)
+% 
+% Re-export a figure in pdf using app datas (orientation and file name).
+% H is the figure's handle.
+%
+% See also: exportp
+%
+% Created: 2010-07-22.
+% All rights reserved.
+}}}
+----
+Last update: 2011 March 04, 14:47
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]
