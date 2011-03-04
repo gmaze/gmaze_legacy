@@ -1,7 +1,7 @@
 % 
 % 		Contents from /Users/gmaze/matlab/routines
 % 
-% Last update: 2011 March 04, 14:01
+% Last update: 2011 March 04, 14:47
 % 
 % 	WSEdecomp                                - Split a signal into its downward/upward propagating and stationnary components
 % 	abspath                                  - Relative to Absolute path function
@@ -10,7 +10,6 @@
 % 	allstats                                 - STATM Compute statistics from 2 series
 % 	armodel2                                 - Two Dimensional Spectral Estimation
 % 	assym                                    - Compute sym. or assym. component of 2D field
-% 	backup                                   - Backup disk content to some remote directory
 % 	base64encode                             - Perform base64 encoding on a string.
 % 	bibus                                    - Give me the next bus
 % 	boldnul                                  - Make null contours line style dashed
@@ -56,7 +55,6 @@
 % 	findp                                    - Find the p power of 10 of a number
 % 	finish                                   - Terminate a Matlab session
 % 	fitgauss                                 - Fit a Gaussian to a distribution plot
-% 	floatAxisX                               - create floating x-axis for multi-parameter plot
 % 	floatAxisY                               - create floating x-axis for multi-parameter plot
 % 	floatAxisY_right                         - floatAxisY create floating x-axis for multi-parameter plot
 % 	fmv                                      - System command move on a file
@@ -124,7 +122,6 @@
 % 	mypsd2                                   - Power Spectral Density estimate.
 % 	mypsdchk                                 - Helper function for PSD, CSD, COHERE, and TFE.
 % 	myqst                                    - Display qstat results
-% 	myqst2                                   - Display qstat results based on xml
 % 	myrunmean                                - Perform running mean on an array
 % 	myspecgram                               - Spectrogram
 % 	mytoolbar                                - Add my personnal buttons to the figure toolbar
