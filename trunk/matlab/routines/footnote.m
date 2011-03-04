@@ -6,6 +6,8 @@
 % By default, add the date with the path
 % if TEXT='del', just remove the existing footnote
 %
+% The text object has the tag: 'footnotetext'
+% 
 % Example:
 %	footnote(footstamp(2,[mfilename('fullpath') '.m']));
 %
@@ -70,6 +72,11 @@ switch method
 		fs = 6;
 	end
 	%
+	if ~isempty(get(gcf,'CurrentAxes'))
+		prea = true;
+	else
+		prea = false;
+	end
 	haold = gca;
 	
 	figunits = get(gcf,'units');
@@ -106,7 +113,11 @@ switch method
 	set(gcf,'nextplot','add');
 	%set(haold,'visible','off');
 %	mytoolbar;
-	axes(haold);
+
+	axes(haold);	
+	if ~prea
+		set(haold,'visible','off');
+	end
 
 	if nargout >= 1
 		varargout(1) = {ht};

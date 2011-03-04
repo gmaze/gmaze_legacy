@@ -40,32 +40,57 @@ function DV = getdV(Z,Y,X)
 	end
 
 	% Surface and Volume elements:
-	for ix = 1 : nx
-	  for iy = 1 : ny
-	      % Zonal grid length centered in X(ix),Y(iY)
-	      if ix == 1
-	         dx = abs(m_lldist([X(ix) X(ix+1)],[1 1]*Y(iy)))/2;
-	      elseif ix == nx 
-	         dx = abs(m_lldist([X(ix-1) X(ix)],[1 1]*Y(iy)))/2;
-	      else
-	         dx = abs(m_lldist([X(ix-1) X(ix)],[1 1]*Y(iy)))/2+abs(m_lldist([X(ix) X(ix+1)],[1 1]*Y(iy)))/2;
-	      end	
+	if 0
+		for ix = 1 : nx
+		  for iy = 1 : ny
+		      % Zonal grid length centered in X(ix),Y(iY)
+		      if ix == 1
+	%	         dx = abs(m_lldist([X(ix) X(ix+1)],[1 1]*Y(iy)))/2;
+		         dx = abs(lldist([1 1]*Y(iy),[X(ix) X(ix+1)]))/2;
+		      elseif ix == nx 
+	%	         dx = abs(m_lldist([X(ix-1) X(ix)],[1 1]*Y(iy)))/2;
+		         dx = abs(lldist([1 1]*Y(iy),[X(ix-1) X(ix)]))/2;
+		      else
+	%	         dx = abs(m_lldist([X(ix-1) X(ix)],[1 1]*Y(iy)))/2+abs(m_lldist([X(ix) X(ix+1)],[1 1]*Y(iy)))/2;
+		         dx = abs(lldist([1 1]*Y(iy),[X(ix-1) X(ix)]))/2 + abs(lldist([1 1]*Y(iy),[X(ix) X(ix+1)]))/2;
+		      end	
 
-	      % Meridional grid length centered in X(ix),Y(iY)
-	      if iy == 1
-	        dy = abs(m_lldist([1 1]*X(ix),[Y(iy) Y(iy+1)]))/2;
-	      elseif iy == ny
-	        dy = abs(m_lldist([1 1]*X(ix),[Y(iy-1) Y(iy)]))/2;
-	      else	
-	        dy = abs(m_lldist([1 1]*X(ix),[Y(iy-1) Y(iy)]))/2+abs(m_lldist([1 1]*X(ix),[Y(iy) Y(iy+1)]))/2;
-	      end
+		      % Meridional grid length centered in X(ix),Y(iY)
+		      if iy == 1
+	%	        dy = abs(m_lldist([1 1]*X(ix),[Y(iy) Y(iy+1)]))/2;
+		        dy = abs(lldist([Y(iy) Y(iy+1)],[1 1]*X(ix)))/2;
+		      elseif iy == ny
+	%	        dy = abs(m_lldist([1 1]*X(ix),[Y(iy-1) Y(iy)]))/2;
+		        dy = abs(lldist([Y(iy-1) Y(iy)],[1 1]*X(ix)))/2;
+		      else	
+	%	        dy = abs(m_lldist([1 1]*X(ix),[Y(iy-1) Y(iy)]))/2+abs(m_lldist([1 1]*X(ix),[Y(iy) Y(iy+1)]))/2;
+		        dy = abs(lldist([Y(iy-1) Y(iy)],[1 1]*X(ix)))/2 + abs(lldist([Y(iy) Y(iy+1)],[1 1]*X(ix)))/2;
+		      end
 
-	      % Surface element:
-	      DA = dx*dy.*ones(1,nz);
+		      % Surface element:
+		      DA = dx*dy.*ones(1,nz);
 
-	      % Volume element:
-	      DV(:,iy,ix) = DZ.*DA;
-	  end %for iy
-	end %for ix
+		      % Volume element:
+		      DV(:,iy,ix) = DZ.*DA;
+		  end %for iy
+		end %for ix
 
+	else
+		x  = [X(1)-diff(X(1:2)) ; X ; X(end)+diff(X(end-1:end))];        x = x(1:end-1)+diff(x)/2;
+		y  = [Y(1)-diff(Y(1:2)) ; Y(1:end) ; Y(end)+diff(Y(end-1:end))]; y = y(1:end-1)+diff(y)/2;
+		dS = getdS(y,x,0); % dx*dy centered in X,Y
+		
+		[a b ] = meshgrid(dS,DZ);
+		a = reshape(a,[nz ny nx]);
+		b = reshape(b,[nz ny nx]);
+		DV = a.*b;		
+	end
 end %function
+
+
+
+
+
+
+
+

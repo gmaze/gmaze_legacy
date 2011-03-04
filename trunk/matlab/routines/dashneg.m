@@ -16,25 +16,62 @@
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 % You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
-function varargout = dashneg(varargin)
+function varargout = dashneg(h,varargin)
 	
-h = varargin{1};
-
-if nargin==2
-	styl = varargin{2};
+if nargin>1
+	styl = varargin(:);
 else
-	styl = '--';
-end
-
-us = get(h,'userdata');
-for ii = 1 : length(us)
-	val = get(h(ii),'userData');
-	if us{ii} < 0
-		set(h(ii),'linestyle',styl);
-	end
+	styl = {'linestyle';'--'};
 end
 
 
+switch get(h(1),'type')
+	case 'hggroup'
+		hch = get(h,'children');
+	otherwise
+		hch = h;
+end
+
+method = 2;ii=0;d=[];
+method = 1;
+
+isonhold = ishold;
+hold on
+for ich = 1 : length(hch)
+	us = get(hch(ich),'userdata');
+	if us < 0
+		switch method
+			case 1
+		%			set(hch(ich),'linestyle',styl);
+				set(hch(ich),styl{:});
+			case 2
+				xdata = get(hch(ich),'xdata');
+				ydata = get(hch(ich),'ydata');
+				col   = get(hch(ich),'edgecolor');
+				set(hch(ich),'edgecolor','none');
+				if ischar(col)
+					if strcmp(col,'flat')
+						ii=ii+1;
+						d(ii) = dashline(xdata,ydata,1,3,1,3);
+						stophere
+					%	set(d,'color',col);
+					end
+				end
+%					stophere
+%				stophere				
+		end%swtich
+	end%if negative
+end%for ich
+switch isonhold
+	case 0
+		hold off
+	case 1
+		hold on
+end
+
+if nargout==1 & method == 2
+	varargout(1) = {d};
+end
 
 
 

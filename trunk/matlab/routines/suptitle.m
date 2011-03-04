@@ -4,11 +4,21 @@
 %	after all subplot commands.
 %
 % Drea Thomas 6/15/95 drea@mathworks.com
+% Rev. by Guillaume Maze on 2011-02-08: also modify figure title
 %
 % Warning: If the figure or axis units are non-default, this
 % will break.
 
 function hout=suptitle(str)
+
+% Rev. by Guillaume Maze on 2011-02-08: To modify figure's name
+% Is their already a suptitle:
+if ~isempty(findall(gcf,'tag','suptitleText'))
+	oldsuptitle = get(findall(gcf,'tag','suptitleText'),'string');
+else
+	oldsuptitle = '';
+end
+
 
 % Parameters used to position the supertitle.
 
@@ -16,7 +26,7 @@ function hout=suptitle(str)
 plotregion = .92;
 
 % Y position of title in normalized coordinates
-titleypos  = .95;
+titleypos  = .96;
 
 % Fontsize for supertitle
 fs = get(gcf,'defaultaxesfontsize')+4;
@@ -49,7 +59,10 @@ figunits = get(gcf,'units');
 % findobj is a 4.2 thing.. if you don't have 4.2 comment out
 % the next line and uncomment the following block.
 	
-h = findobj(gcf,'Type','axes');  % Change suggested by Stacy J. Hills
+h  = findobj(gcf,'Type','axes');  % Change suggested by Stacy J. Hills
+
+h2 = findobj(gcf,'tag','footnote');
+h  = setdiff(h,h2);
 
 % If you don't have 4.2, use this code instead
 %ch = get(gcf,'children');
@@ -59,9 +72,6 @@ h = findobj(gcf,'Type','axes');  % Change suggested by Stacy J. Hills
 %    h=[h,ch(i)];
 %  end
 %end
-
-	
-
 
 max_y=0;
 min_y=1;
@@ -93,12 +103,27 @@ if (oldtitle),
 	delete(oldtitle);
 end
 ha=axes('pos',[0 1 1 1],'visible','off','Tag','suptitle');
-ht=text(.5,titleypos-1,str);set(ht,'horizontalalignment','center','fontsize',fs);
+ht=text(.5,titleypos-1,str);set(ht,'horizontalalignment','center','fontsize',fs,'Tag','suptitleText','fontweight','bold');
 set(gcf,'nextplot',np);
 axes(haold);
 if nargout,
 	hout=ht;
 end
 
+% Rev. by Guillaume Maze on 2011-02-08: Also Modify figure title
+%stophere
+% check if figure's name is already from suptitle string ? :
+if ~isempty(oldsuptitle) & strcmp(oldsuptitle,get(gcf,'name'))
+	overw = true; % Yes, so we over-write	
+elseif isempty(get(gcf,'name'))
+	overw = true;
+else
+	overw = false; % No, this is probably a custom name, so we don't change it
+end
+if overw	
+	figname = str;
+	set(gcf,'name',figname);
+end
+end%if simple case, parent is a figure handle
 
 

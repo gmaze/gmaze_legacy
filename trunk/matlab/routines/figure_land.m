@@ -1,5 +1,9 @@
 % FIGURE_LAND White background landscape figure
 % 
+%  figure_land([H])
+%
+%	Set current figure, or with handle H, to a landscape format.
+% 
 % Copyright (c) 2004 Guillaume Maze. 
 % http://codes.guillaumemaze.org
 
@@ -16,13 +20,17 @@ function figure_land(num);
 if nargin == 0;
 	num = gcf;
 else
-%  builtin('figure',num); num = gcf;
+%	builtin('figure',num); num = gcf;
 	num = figure;
 end
 
 orient landscape
 posi = get(num,'position');
-set(gcf,'Position',[posi(1:2) 800 620])
+set(num,'Position',[posi(1:2) 800 620])
+
+
 %set(gcf,'Position',[2+10*(num-1) 225-10*(num-1) 800 620])
 
-set(gcf,'Color', [ 1 1 1 ] );
+if get(num,'color') == [.8 .8 .8]
+	set(num,'Color', [ 1 1 1 ]);
+end

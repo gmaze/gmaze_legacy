@@ -85,9 +85,9 @@ for ih = 1 : length(FIGLIST)
 end
 
 if isempty(strfind(lower(PDFFILE),'.pdf'))
-	ps2pdf('psfile',epsname,'pdffile',sprintf('%s.pdf',PDFFILE),'deletepsfile',1);
+	ps2pdf('psfile',epsname,'pdffile',sprintf('%s.pdf',PDFFILE),'deletepsfile',0,'gspapersize','a4');
 else
-	ps2pdf('psfile',epsname,'pdffile',sprintf('%s',PDFFILE),'deletepsfile',1);
+	ps2pdf('psfile',epsname,'pdffile',sprintf('%s',PDFFILE),'deletepsfile',0,'gspapersize','a4');
 end
 
 end %functionfigs2pdf
@@ -382,7 +382,9 @@ function gsData = LocalParseArgs(varargin)
     if ~isfield(gsData, 'cmd') 
         
         v = ver('MATLAB');
-        if str2double(v.Version) < 7.4
+		v.Version = strread(v.Version,'%s','delimiter','.');
+%        if str2double(v.Version) < 7.4 %% Does not work after 7.10 version !
+        if str2double(v.Version{2}) < 4
             [gsCmd, ghostDir] = Local_GetOldGhostscript();
             gsData.cmd = gsCmd;
         else 

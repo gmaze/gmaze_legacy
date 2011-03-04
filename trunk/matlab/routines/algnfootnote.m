@@ -1,8 +1,8 @@
-% algnfootnote H1LINE
+% algnfootnote Horizontal alignement of the footnote for export
 %
-% [] = algnfootnote()
+% [] = algnfootnote([GCF])
 % 
-% HELPTEXT
+% Horizontal alignement of the footnote for export.
 %
 % Created: 2010-01-13.
 % Copyright (c) 2010, Guillaume Maze (Laboratoire de Physique des Oceans).

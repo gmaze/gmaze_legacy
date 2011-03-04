@@ -103,6 +103,11 @@ switch nargout
 		varargout(1) = {lon};
 		varargout(2) = {lat};
 		varargout(3) = {p};
+	case 4
+		varargout(1) = {lon};
+		varargout(2) = {lat};
+		varargout(3) = {p};
+		varargout(4) = {but};
 end
 
 end %functiondrawpoly

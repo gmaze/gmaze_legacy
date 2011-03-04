@@ -163,23 +163,24 @@ function emailpanel(varargin);
 				body = body0;
 			end
 			
-			% This is where we choose how to send the email: 
+			% THIS IS WHERE WE CHOOSE HOW TO SEND THE EMAIL: 
 			
             if usejava('jvm') % Matlab runs with java, cool, it's easy !
 				disp('Sending mail with Java sendmail ...');
-                % Simple Matlab builtin function:
-				set = load('private/email_settings.mat'); % This contains variables: mail and password
-				mail     = set.mail;
-				password = set.password;
-				% Then this code will set up the preferences properly:
-				setpref('Internet','E_mail',mail);
-				setpref('Internet','SMTP_Server','smtp.gmail.com');
-				setpref('Internet','SMTP_Username',mail);
-				setpref('Internet','SMTP_Password',password);
-				props = java.lang.System.getProperties;
-				props.setProperty('mail.smtp.auth','true');
-				props.setProperty('mail.smtp.socketFactory.class', 'javax.net.ssl.SSLSocketFactory');
-				props.setProperty('mail.smtp.socketFactory.port','465');
+				if 0 % parameters settings is now down in the startup file.
+					set = load('private/email_settings.mat'); % This contains variables: mail and password
+					mail     = set.mail;
+					password = set.password;
+					% Then this code will set up the preferences properly:
+					setpref('Internet','E_mail',mail);
+					setpref('Internet','SMTP_Server','smtp.gmail.com');
+					setpref('Internet','SMTP_Username',mail);
+					setpref('Internet','SMTP_Password',password);
+					props = java.lang.System.getProperties;
+					props.setProperty('mail.smtp.auth','true');
+					props.setProperty('mail.smtp.socketFactory.class', 'javax.net.ssl.SSLSocketFactory');
+					props.setProperty('mail.smtp.socketFactory.port','465');
+					end
 				sendmail(destinat,subject,body,data.file);
 				disp('Done');
 				

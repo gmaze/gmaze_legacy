@@ -40,12 +40,12 @@ end
 	
 switch typ
 	case 2
-		we = wherearewe;
+		we   = wherearewe;
 		mfil = varargin{2};
-		str = datestr(now,'dd-mmm-yyyy HH:MM');
-		str = sprintf(' code@guillaumemaze.org (%s)\n (%s) file:/%s',str,we,mfil);		
+		str  = datestr(now,'dd-mmm-yyyy HH:MM');
+		str  = sprintf(' code@guillaumemaze.org (%s)\n (%s) file:/%s',str,we,mfil);		
 	otherwise	
-		we = wherearewe;
+		we  = wherearewe;
 		str = datestr(now,'dd-mmm-yyyy HH:MM');
 		str = sprintf(' code@guillaumemaze.org (%s)\n %s:/%s',str,we,pwd);
 end

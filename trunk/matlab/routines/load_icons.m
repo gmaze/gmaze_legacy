@@ -32,8 +32,6 @@ here = strrep(here,'load_icons.m','');
 sla  = here(1);
 pathtoicons = strcat(here,sla,'icons',sla,'mat',sla);
 
-
-
 switch iicon
 	case 1 % Random
 		a = [.20:.05:0.95];

@@ -8,6 +8,8 @@
 % Example:
 % grep('mean')
 %
+% See Also: gmat
+%
 % Created: 2009-08-25.
 % Copyright (c) 2009 Guillaume Maze. 
 % http://codes.guillaumemaze.org

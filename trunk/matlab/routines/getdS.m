@@ -232,35 +232,36 @@ DY = zeros(ny,nx);
 
 % Surface elements:
 for ix = 1 : nx
+	ix
 	for iy = 1 : ny
 		
 		% Zonal grid size centered in X(ix),Y(iY)
 		if ix == 1
 			switch issym
 				case 0
-					dx = abs(lldist([X(1) X(2)],[1 1]*Y(iy),method))/2;					
+					dx = abs(lldist([1 1]*Y(iy),[X(1) X(2)],method));					
 				case 1
-					dx = abs(lldist([X(end) X(1)],[1 1]*Y(iy),method))/2 + abs(lldist([X(1) X(2)],[1 1]*Y(iy),method))/2 ;
+					dx = abs(lldist([1 1]*Y(iy),[X(end) X(1)+360],method))/2 + abs(lldist([1 1]*Y(iy),[X(1) X(2)],method))/2 ;
 			end
 		elseif ix == nx 
 			switch issym
 				case 0
-					dx = abs(lldist([X(nx-1) X(nx)],[1 1]*Y(iy),method))/2;
+					dx = abs(lldist([1 1]*Y(iy),[X(nx-1) X(nx)],method));
 				case 1
-					dx = abs(lldist([X(end) X(1)],[1 1]*Y(iy),method))/2 + abs(lldist([X(nx-1) X(nx)],[1 1]*Y(iy),method))/2 ;
+					dx = abs(lldist([1 1]*Y(iy),[X(end) X(1)+360],method))/2 + abs(lldist([1 1]*Y(iy),[X(nx-1) X(nx)],method))/2 ;
 			end
 		else
-			dx = abs(lldist([X(ix-1) X(ix)],[1 1]*Y(iy),method))/2+abs(lldist([X(ix) X(ix+1)],[1 1]*Y(iy),method))/2;
+			dx = abs(lldist([1 1]*Y(iy),[X(ix-1) X(ix)],method))/2+abs(lldist([1 1]*Y(iy),[X(ix) X(ix+1)],method))/2;
 		end	
 		DX(iy,ix) = dx;
 
 		% Meridional grid size centered in X(ix),Y(iY)
 		if iy == 1
-			dy = abs(lldist([1 1]*X(ix),[Y(iy) Y(iy+1)],method))/2;
+			dy = abs(lldist([Y(iy) Y(iy+1)],[1 1]*X(ix),method));
 		elseif iy == ny
-			dy = abs(lldist([1 1]*X(ix),[Y(iy-1) Y(iy)],method))/2;
+			dy = abs(lldist([Y(iy-1) Y(iy)],[1 1]*X(ix),method));
 		else	
-			dy = abs(lldist([1 1]*X(ix),[Y(iy-1) Y(iy)],method))/2+abs(lldist([1 1]*X(ix),[Y(iy) Y(iy+1)],method))/2;
+			dy = abs(lldist([Y(iy-1) Y(iy)],[1 1]*X(ix),method))/2+abs(lldist([Y(iy) Y(iy+1)],[1 1]*X(ix),method))/2;
 		end
 		DY(iy,ix) = dy;
 		
