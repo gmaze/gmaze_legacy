@@ -31,9 +31,16 @@
 function varargout = figure(varargin)
 
 a = dbstack('-completenames');
-fil_caller = a(end).file;
-%if strfind(fil_caller,matlabroot)
-if isempty(strfind(fil_caller,getenv('HOME')))
+
+mycall = true;
+for ia = 1 : length(a)
+%	a(ia).name
+	if ~isempty(intersect(a(ia).name,{'listdlg','warndlg','msgbox','dialog','local_GUImenu','iconEditor','floatAxisX'}))
+		mycall = false;
+	end
+end
+
+if ~ mycall
 	f = builtin('figure',varargin{:});	
 	if nargout == 1
 	       varargout(1) = {f};
@@ -41,51 +48,31 @@ if isempty(strfind(fil_caller,getenv('HOME')))
 	
 else
 
-		% We only run this script from the home directory
-
-		% Get static screen size:
-		si = get(0,'MonitorPositions');
- 		ii = find(si(:,3)==max(si(:,3)));
-		si = si(ii,:);
-
-		% New dimension:
-		dx = 620; dy = 440;
-		dx = 570; dy = 440;
-		posi = [si(3)/2-dx/2 si(4)/2-dy/2 dx dy];
-		if si(3) == 1680 & si(4) == 1028 % Laptop 17''
-			posi = [20 50 dx dy];
-		elseif si(3) == 1680 & si(4) == 1050 % Cinema Display Ifremer
-			posi = [1 1 dx dy];
-		elseif si(3) == 1280 & si(4) == 778 % MacBook 13.1''
-%			posi = [1 50 dx dy];
-			posi = [1 50 450 450/1.2955];
-		end
-		co = 10;
-%		posi(1) = 1;
-%		posi(2) = si(4)-posi(4);
-		si = get(0,'MonitorPositions');
-		if si(1,2) > 2
-			posi(2) = max(si(:,2));
-		end
+	% 
+	posi = figure_central;
+	co = 10;
 		
-
-		if isempty(nargin)     
-
-		else
-			f = builtin('figure',varargin{:});
+	if isempty(nargin)     
+		f = builtin('figure');
+	else
+		f = builtin('figure',varargin{:});
+	end
+	
+	% Special figures:
+	tag = get(f,'Tag');
+	if ~strcmp(tag,'TMWWaitbar') | ~strcmp(tag,'floatAxisX')
+		switch get(0,'DefaultFigureWindowStyle')
+			case 'docked'
+			otherwise
+				set(f,'position',[posi(1)+co*(f-1) posi(2) posi(3:4)]);
 		end
+		set(f,'menubar','none');
+		footnote;
+	end
 
-		% Special figures:
-		tag = get(f,'Tag');
-		if ~strcmp(tag,'TMWWaitbar')
-			set(f,'position',[posi(1)+co*(gcf-1) posi(2) posi(3:4)]);
-			set(gcf,'menubar','none');
-			footnote;
-		end
-
-		if nargout==1
-		       varargout(1) = {f};
-		end
+	if nargout==1
+	       varargout(1) = {f};
+	end
 
 end %if
 

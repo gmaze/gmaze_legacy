@@ -17,7 +17,49 @@
 
 function varargout = canom(varargin)
 
-	cx=abs(caxis);
-	caxis([-1 1]*max(cx));
+% Look for contour values in the plot:
+ch = get(gca,'children');
+ch = setdiff(ch,findall(ch,'type','text'));
+
+ct = findall(ch,'type','hggroup');
+v  = cell2mat(get(get(ct,'children'),'userdata'));
+	
+if isempty(ct) % This is not a contour plot
+	ct = findall(ch,'type','surface');
+	if isempty(find(size(get(ct,'xdata'))==1))
+		if isempty(find(size(get(ct,'ydata'))==1))
+			if isempty(find(size(get(ct,'zdata'))==1))
+				error('')
+			else
+				v = get(ct,'zdata');
+			end
+		else
+			v = get(ct,'ydata');
+		end
+	else
+		v = get(ct,'xdata');
+	end
+end
+
+if isempty(v)
+	% Let's if these are m_map stuff
+	ct = findall(ch,'tag','m_contourf');
+	v  = cell2mat(get(ct,'userdata'));
+end	
+
+%		stophere
+	
+%	v = cell2mat(get(get(gca,'children'),'userdata')); % Ok for contours
+	if isempty(v)
+%		v = get(get(gca,'children'),'cdata');
+	end	
+	if nargin==1
+		v = varargin{1};
+	end
+	cx = max(abs(v(:)));
+%	cx = abs(caxis);
+	
+	
 	load mapanom2
 	colormap(mapanom)
+	caxis([-1 1]*max(cx));

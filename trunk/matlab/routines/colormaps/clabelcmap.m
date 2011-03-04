@@ -55,6 +55,7 @@ if length(cx) ~= 2
 	error('clabelcmap: 2nd argument must a 1x2 caxis value !');
 end
 N	 = varargin{3};
+
 if nargin >= 4
 	centered = varargin{4};
 else
@@ -78,10 +79,10 @@ for ii = 1 : length(yt)
 	ytl(ii) = {eval(['sprintf(''',forma,''',yt(ii))'])};
 end
 
-switch get(cl,'Location')
-	case {'EastOutside','WestOutside'}
+switch getor(cl)
+	case 'v'
 		set(cl,'ytick',yt,'yticklabel',ytl);
-	case {'SouthOutside','NorthOutside'}
+	case 'h'
 		set(cl,'xtick',yt,'xticklabel',ytl);
 end
 
@@ -89,6 +90,18 @@ end
 end %functionclabelcmap
 
 
+
+function or = getor(cl);
+	
+if isempty(get(cl,'xtick'))
+	or = 'v';
+elseif isempty(get(cl,'ytick'))	
+	or = 'h';
+else
+	error('');
+end
+
+end%function
 
 
 
