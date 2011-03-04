@@ -33,7 +33,8 @@
 
 function varargout = tall(varargin)
 
-posi =  [0   859   763   942];
+posi = [0   859   763   942];
+posi = [  692        1873         770        1001];
 
 switch nargin
 	case 0

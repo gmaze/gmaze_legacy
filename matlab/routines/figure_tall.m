@@ -1,5 +1,9 @@
 % FIGURE_TALL White background portrait figure
 % 
+%  figure_tall([H])
+%
+%	Set current figure, or with handle H, to a portrait format.
+%
 % Copyright (c) 2004 Guillaume Maze. 
 % http://codes.guillaumemaze.org
 
@@ -13,16 +17,19 @@
 
 function figure_tall(num);
 	
-if nargin == 0;
-	num = gcf;
-else
-%  builtin('figure',num); num = gcf;
-	num = figure;
-end
+switch nargin
+	case 0
+		num = gcf;
+	case 1
+		num = varargin{1};
+end% switch 
 
-orient tall
+	
+orient(num,'tall');
 posi = get(num,'position');
-set(gcf,'Position',[posi(1:2) 560 700])
+set(num,'Position',[posi(1:2) 560 700])
 %set(gcf,'Position',[2+10*(num-1) 225-10*(num-1) 560 722])
 
-set(gcf,'Color', [ 1 1 1 ] );
+if get(num,'color') == [.8 .8 .8]
+	set(num,'Color', [ 1 1 1 ]);
+end

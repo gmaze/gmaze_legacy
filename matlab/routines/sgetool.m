@@ -19,7 +19,6 @@
 
 function varargout = sgetool(varargin)
 
-
 if nargin == 1
 	if ischar(varargin{1})
 		par = NaN;
@@ -35,6 +34,7 @@ else
 	% Create the toolbar:
 	par = uitoolbar(gcf,'Tag','sgetool');		
 end
+
 if ~isnan(par)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
