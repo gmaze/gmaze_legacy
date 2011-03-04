@@ -114,9 +114,9 @@ else
       % Use no-side effect WAITFORBUTTONPRESS
       waserr = 0;
       try
-	keydown = wfbp;
+		keydown = wfbp;
       catch
-	waserr = 1;
+		waserr = 1;
       end
       if(waserr == 1)
          if(ishandle(fig))

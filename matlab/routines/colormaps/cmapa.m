@@ -1,8 +1,9 @@
-% cmapa H1LINE
+% cmapa change colormap for anomalies
 %
-% [] = cmapa()
+% [] = cmapa([TYP])
 % 
-% HELPTEXT
+% TYP=1 Color (default)
+% TYP=2 B&W
 %
 % Created: 2010-01-11.
 % Copyright (c) 2010, Guillaume Maze (Laboratoire de Physique des Oceans).
@@ -33,10 +34,26 @@
 
 function varargout = cmapa(varargin)
 
-c(1,:) = [.6 .3 .3];
-c(2,:) = [1 0 0];
-0.1953    0.0976    0.5024
-c(5,:) = [1 0 .2];
+switch nargin
+	case 0
+		load mapanom2
+		cmap = logcolormap(128,1,1,mapanom);
+	case 1
+		switch varargin{1}
+			case 1
+				load mapanom2
+				cmap = logcolormap(128,1,1,mapanom);
+			case 2
+				cmap = [gray;flipud(gray)];
+			case 3
+				load mapanom2
+				cmap = mapanom;
+			case 4
+				load mapanom
+				cmap = mapanom;
+		end
+end
+colormap(cmap)
 
 end %functioncmapa
 

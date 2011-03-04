@@ -86,7 +86,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% NEW SELECTION TO WORK WITH LPO-IFREMER
 if strfind(thisnam,'ifremer')
 	if strfind(getenv('OSTYPE'),'darwin')
-		weare = 'macbook';
+		weare = 'macbook-ifremer';
 	else
 		weare = 'ifremer';
 	end
@@ -97,6 +97,16 @@ end
 if strfind(thisnam,'goulphar')
 	weare = 'goulphar@ifremer';
 end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% NEW SELECTION TO WORK WITH LEMAR-IUEM
+if strfind(thisnam,'lemar')
+	if strfind(getenv('OSTYPE'),'darwin')
+		weare = 'macbook';
+	else
+		weare = 'lemar';
+	end
+end
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 if isempty(weare)
