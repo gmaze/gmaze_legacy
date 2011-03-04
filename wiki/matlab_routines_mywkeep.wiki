@@ -21,7 +21,7 @@ Keep part of a vector or a matrix.
 %   matrix X, of size S and starting from X(FIRSTR,FIRSTC).
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

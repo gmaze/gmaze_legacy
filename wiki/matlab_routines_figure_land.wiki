@@ -6,9 +6,13 @@ White background landscape figure
 {{{
 % FIGURE_LAND White background landscape figure
 % 
+%  figure_land([H])
+%
+%	Set current figure, or with handle H, to a landscape format.
+% 
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

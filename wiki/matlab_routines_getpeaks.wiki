@@ -22,7 +22,7 @@ Determine peak(s) of function X
 % Rev. by Guillaume Maze on 2009-08-31: Fix a bug with find
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

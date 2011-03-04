@@ -1,15 +1,15 @@
 == figure.m ==
-Create customized figure window
+FIGUR Create figure window without Menu Bar
 
-[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/figure.m Download here]
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/figur.m Download here]
 
 {{{
-% FIGURE Create customized figure window
+% FIGUR Create figure window without Menu Bar
 %
-%    FIGURE, by itself, creates a new figure window, and returns
+%    FIGUR, by itself, creates a new figure window, and returns
 %    its handle.
 %  
-%    FIGURE(H) makes H the current figure, forces it to become visible,
+%    FIGUR(H) makes H the current figure, forces it to become visible,
 %    and raises it above all other figures on the screen.  If Figure H
 %    does not exist, and H is an integer, a new figure is created with
 %    handle H.
@@ -21,11 +21,11 @@ Create customized figure window
 %    properties and their possible values.
 % 
 %    See also SUBPLOT, AXES, GCF, CLF.
-% 
+%
 % Created by Guillaume Maze on 2008-10-09.
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

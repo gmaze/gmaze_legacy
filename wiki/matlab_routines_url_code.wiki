@@ -16,7 +16,7 @@ Percent encode/decode of a string
 % Created: 2009-06-16.
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

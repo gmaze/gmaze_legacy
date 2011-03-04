@@ -30,7 +30,7 @@ High, low, band pass filters based on Lanczos filter
 % Rev. by Guillaume Maze on 2010-02-18: Improved help, changed arguments order, add arguments check
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

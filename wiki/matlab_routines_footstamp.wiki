@@ -22,7 +22,7 @@ Create the default footnote for figure
 % Created: 2009-07-22.
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

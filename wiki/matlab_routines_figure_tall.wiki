@@ -6,9 +6,13 @@ White background portrait figure
 {{{
 % FIGURE_TALL White background portrait figure
 % 
+%  figure_tall([H])
+%
+%	Set current figure, or with handle H, to a portrait format.
+%
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

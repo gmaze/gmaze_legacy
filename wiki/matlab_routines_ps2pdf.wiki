@@ -91,7 +91,7 @@ Function to convert a PostScript file to PDF using Ghostscript
 %      ps2pdf('psfile', 'input.ps', 'pdffile', 'output.pdf', 'gspapersize', 'a4', 'deletepsfile', 1)
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

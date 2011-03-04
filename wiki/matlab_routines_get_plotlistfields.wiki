@@ -15,7 +15,7 @@ Returns the list of fields required by a diag
 % Created: 2006-05-06.
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

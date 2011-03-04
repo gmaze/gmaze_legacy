@@ -13,7 +13,7 @@ Find the extreme value of a 2D field (either positive or negative)
 %
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

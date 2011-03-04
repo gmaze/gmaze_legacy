@@ -10,12 +10,13 @@ Puts a title above all subplots.
 %	after all subplot commands.
 %
 % Drea Thomas 6/15/95 drea@mathworks.com
+% Rev. by Guillaume Maze on 2011-02-08: also modify figure title
 %
 % Warning: If the figure or axis units are non-default, this
 % will break.
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

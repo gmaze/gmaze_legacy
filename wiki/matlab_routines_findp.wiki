@@ -7,14 +7,15 @@ Find the p power of 10 of a number
 % FINDP Find the p power of 10 of a number
 %
 % p = FINDP(X) 
-%     Find p power of 10 of X
-% so that if X = 4,345,134
-% findp returns p = 6
+% Find p power of 10 of X
 %
+% Eg:
+%	findp(4345134) = 6
+%	findp(1e12) = 12
 %
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

@@ -14,7 +14,7 @@ Open a file whithout taking care of slash in file name
 %
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

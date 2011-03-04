@@ -14,12 +14,14 @@ Export a figure to A4 color PDF format
 %   ORIENTATION is an optionnal parameter:
 %       ORIENTATION=0 : Portrait (default)
 %       ORIENTATION=1 : Landscape
-%
+%       ORIENTATION=2 : Crop PDF to plot (like eps print)
 %
 % Created: 2009-04-22.
+% Rev. by Guillaume Maze on 2011-03-04: Made it stand alone function
+% Rev. by Guillaume Maze on 2010-10-21: Add cropped pdf option
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 

@@ -14,10 +14,12 @@ Grep a string into definitions of functions
 % Example:
 % grep('mean')
 %
+% See Also: gmat
+%
 % Created: 2009-08-25.
 }}}
 ----
-Last update: 2010 April 03, 15:28
+Last update: 2011 March 04, 14:01
 
 Created by Guillaume Maze
 
