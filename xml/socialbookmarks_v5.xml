@@ -82,7 +82,7 @@
 		<EnumValue value="addthis_button_stumbleupon" display_value="StumbleUpon"/>
 		<EnumValue value="addthis_button_twitter" display_value="Twitter"/>
 	</UserPref>
-	<UserPref name="button5" display_name="Button 5" default_value="addthis_button_email" datatype="enum">
+	<UserPref name="button5" display_name="Button 5" default_value="addthis_button_digg" datatype="enum">
 		<EnumValue value="addthis_button_blogger" display_value="Blogger"/>
 		<EnumValue value="addthis_button_delicious" display_value="Delicious"/>
 		<EnumValue value="addthis_button_digg" display_value="Digg"/>
