@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+	<ModulePrefs title="AddThis 6 by TVS! Rev. by G. Maze" title_url="https://sites.google.com/site/tvsgadgets/google-gadgets-for-websites/addthis-by-tvs" description="Webmasters let your visitors easily Share your web page with users on Facebook, Twitter, MySpace and more. After loading this gadget to your web page remember adjust the properties. Visit http://www.tvshelp.com/google-gadgets-for-websites/addthis_6_-by-tvs/ for more information." width="250" height="32" scrolling="false" author="Chris Smith" author_email="csmithiowa+ggadget@gmail.com" author_affiliation="Techno-Visions Software">
+</ModulePrefs>
+	<UserPref name="ID" display_name="Addthis User ID" required="true" default_value="ra-4d9393d217d0c596"/>
+	<UserPref name="URL" display_name="URL" required="true" default_value="http://code.guillaumemaze.org"/>
+	<UserPref name="Title" display_name="Title" required="true" default_value="Code: Guillaume Maze"/>
+	<UserPref name="Description" display_name="Description" required="true" default_value="Code Designed by Guillaume Maze"/>
+	<UserPref name="BackCol" display_name="Back Color" default_value="White" datatype="enum">
+		<EnumValue value="Aqua" display_value="Aqua"/>
+		<EnumValue value="Black" display_value="Black"/>
+		<EnumValue value="Blue" display_value="Blue"/>
+		<EnumValue value="Brown" display_value="Brown"/>
+		<EnumValue value="#3f2e1e" display_value="DarkBrown"/>
+		<EnumValue value="DarkRed" display_value="DarkRed"/>
+		<EnumValue value="FireBrick" display_value="FireBrick"/>
+		<EnumValue value="Gray" display_value="Gray"/>
+		<EnumValue value="Lime" display_value="Lime"/>
+		<EnumValue value="Maroon" display_value="Maroon"/>
+		<EnumValue value="MediumSeaGreen" display_value="MediumSeaGreen"/>
+		<EnumValue value="MediumSlateBlue" display_value="MediumSlateBlue"/>
+		<EnumValue value="MidnightBlue" display_value="MidnightBlue"/>
+		<EnumValue value="Navy" display_value="Navy"/>
+		<EnumValue value="Orange" display_value="Orange"/>
+		<EnumValue value="Pink" display_value="Pink"/>
+		<EnumValue value="Purple" display_value="Purple"/>
+		<EnumValue value="Red" display_value="Red"/>
+		<EnumValue value="RosyBrown" display_value="RosyBrown"/>
+		<EnumValue value="RoyalBlue" display_value="RoyalBlue"/>
+		<EnumValue value="Silver" display_value="Silver"/>
+		<EnumValue value="Tan" display_value="Tan"/>
+		<EnumValue value="Teal" display_value="Teal"/>
+		<EnumValue value="Transparent" display_value="Transparent"/>
+		<EnumValue value="Wheat" display_value="Wheat"/>
+		<EnumValue value="White" display_value="White"/>
+		<EnumValue value="WhiteSmoke" display_value="WhiteSmoke"/>
+		<EnumValue value="Yellow" display_value="Yellow"/>
+		<EnumValue value="YellowGreen" display_value="YellowGreen"/>
+	</UserPref>
+	<Content type="html"><![CDATA[ 
+
+	<style type="text/css">
+	body
+	{
+	padding: 0px;
+	margin: 0px;
+	background: __UP_BackCol__;
+	}
+	</style>
+
+	<body>
+
+	<center>
+	<div id="my_id"></div>
+	<div class="addthis_toolbox addthis_default_style">
+	    <a href="https://addthis.com/bookmark.php?v=250"></a>
+	    <a class="addthis_button_twitter"></a>
+		<a class="addthis_button_facebook"></a>
+	    <a class="addthis_button_googlebuzz"></a>
+	    <a class="addthis_button_linkedin"></a>
+	    <a class="addthis_button_digg"></a>
+	    <span class="addthis_separator"> </span>
+	    <a class="addthis_button_printfriendly"></a>
+	</div></center>
+	<script type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js#username=__UP_ID__"></script>
+	<script type="text/javascript">var addthis_config = {"data_track_clickback":true};
+	var addthis_share = {
+	                url: "__UP_URL__", title: "__UP_Title__", description: "__UP_Description__"
+	        }</script>
+
+	  ]]></Content>
+	<Content type="html" view="canvas"><![CDATA[
+	<head>
+	<base target="_blank" />
+	<style style="text/css">
+	body
+	{
+	background-color:__UP_BackCol__;
+	}
+	</style>
+	</head>
+	<body>
+	<!-- Credits to Http://www.addthis.com for this great service -->
+	<br /> <br /><br />
+	<Center>
+	<div>Find out more about this Gadget <a href="http://www.tvshelp.com/google-gadgets-for-websites/addthis_6_-by-tvs/" rel="nofollow" target="_blank">AddThis 6 by TVS!</a><br>
+	</div>
+	<div><a href="http://www.tvshelp.com/" rel="nofollow" target="_blank">Google Gadgets by Techno-Visions Software</a><br>
+	</div>
+	<br /><br />
+	<div>AddThis 6 by TVS! - Current Version 1.05 revised 03/22/2011<br>
+	</div></Center>
+	    ]]></Content>
+</Module>
