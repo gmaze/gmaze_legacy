@@ -6,7 +6,7 @@
 	width="250" height="32" scrolling="false" 
 	author="Chris Smith" 
 	author_email="csmithiowa+ggadget@gmail.com" 
-	author_affiliation="Techno-Visions Software" 
+	author_affiliation="Techno-Visions Software">
 </ModulePrefs>
 <UserPref name="ID" display_name="Addthis User ID" required="true" default_value="ra-4d9393d217d0c596"/>
 <UserPref name="URL" display_name="URL" required="true" default_value="http://code.guillaumemaze.org"/>
