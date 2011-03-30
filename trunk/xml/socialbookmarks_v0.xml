@@ -1,46 +1,153 @@
-<?xml version="1.0" encoding="utf-8"?>
 <Module>
 <ModulePrefs 
-	title="Website Addthis Gadget" 
-    title_url="http://code.guillaumemaze.org" 
-	description=""
- 	height="50" 
-    author="Guillaume Maze" 
-    author_email="code@guillaumemaze.org"
-	version="1.0"
-	scrolling="false" 	
-/> 
-<Require feature="dynamic-height"/> 
-<UserPref name="USERNAME" display_name="Your AddThis Profile ID"
-		datatype="string" required="true"
-		default_value="ra-4d9393d217d0c596"
-/>
+	title="AddThis 6 by TVS! Rev. by G. Maze" 		
+	title_url="https://sites.google.com/site/tvsgadgets/google-gadgets-for-websites/addthis-by-tvs" 
+	description="Webmasters let your visitors easily Share your web page with users on Facebook, Twitter, MySpace and more. After loading this gadget to your web page remember adjust the properties. Visit http://www.tvshelp.com/google-gadgets-for-websites/addthis_6_-by-tvs/ for more information." 
+	width="250" height="32" scrolling="false" 
+	author="Chris Smith" 
+	author_email="csmithiowa+ggadget@gmail.com" 
+	author_affiliation="Techno-Visions Software" 
+</ModulePrefs>
+<UserPref name="ID" display_name="Addthis User ID" required="true" default_value="ra-4d9393d217d0c596"/>
+<UserPref name="URL" display_name="URL" required="true" default_value="http://code.guillaumemaze.org"/>
+<UserPref name="Title" display_name="Title" required="true" default_value="Code Design by Guillaume Maze"/>
+<UserPref name="Description" display_name="Description" required="true" default_value="Code Design by Guillaume Maze"/>
+<UserPref name="BackCol" display_name="Back Color" default_value="White" datatype="enum">
+	<EnumValue value="Aqua" display_value="Aqua"/>
+	<EnumValue value="Black" display_value="Black"/>
+	<EnumValue value="Blue" display_value="Blue"/>
+	<EnumValue value="Brown" display_value="Brown"/>
+	<EnumValue value="#3f2e1e" display_value="DarkBrown"/>
+	<EnumValue value="DarkRed" display_value="DarkRed"/>
+	<EnumValue value="FireBrick" display_value="FireBrick"/>
+	<EnumValue value="Gray" display_value="Gray"/>
+	<EnumValue value="Lime" display_value="Lime"/>
+	<EnumValue value="Maroon" display_value="Maroon"/>
+	<EnumValue value="MediumSeaGreen" display_value="MediumSeaGreen"/>
+	<EnumValue value="MediumSlateBlue" display_value="MediumSlateBlue"/>
+	<EnumValue value="MidnightBlue" display_value="MidnightBlue"/>
+	<EnumValue value="Navy" display_value="Navy"/>
+	<EnumValue value="Orange" display_value="Orange"/>
+	<EnumValue value="Pink" display_value="Pink"/>
+	<EnumValue value="Purple" display_value="Purple"/>
+	<EnumValue value="Red" display_value="Red"/>
+	<EnumValue value="RosyBrown" display_value="RosyBrown"/>
+	<EnumValue value="RoyalBlue" display_value="RoyalBlue"/>
+	<EnumValue value="Silver" display_value="Silver"/>
+	<EnumValue value="Tan" display_value="Tan"/>
+	<EnumValue value="Teal" display_value="Teal"/>
+	<EnumValue value="Transparent" display_value="Transparent"/>
+	<EnumValue value="Wheat" display_value="Wheat"/>
+	<EnumValue value="White" display_value="White"/>
+	<EnumValue value="WhiteSmoke" display_value="WhiteSmoke"/>
+	<EnumValue value="Yellow" display_value="Yellow"/>
+	<EnumValue value="YellowGreen" display_value="YellowGreen"/>
+</UserPref>
+<UserPref name="button1" display_name="Button 1" default_value="addthis_button_twitter" datatype="enum">
+	<EnumValue value="addthis_button_twitter"  display_value="Twitter"/>	
+	<EnumValue value="addthis_button_facebook" display_value="Facebook"/>
+	<EnumValue value="addthis_button_email" display_value="Email"/>
+	<EnumValue value="addthis_button_facebook_like" display_value="Facebook Like"/>
+	<EnumValue value="addthis_button_favorites" display_value="Favorites"/>
+	<EnumValue value="addthis_button_google" display_value="Google Bookmark"/>
+	<EnumValue value="addthis_button_googlebuzz" display_value="Google Buzz"/>
+</UserPref>
+<UserPref name="button2" display_name="Button 2" default_value="addthis_button_facebook_like" datatype="enum">
+	<EnumValue value="addthis_button_twitter"  display_value="Twitter"/>	
+	<EnumValue value="addthis_button_facebook" display_value="Facebook"/>
+	<EnumValue value="addthis_button_facebook_like" display_value="Facebook Like"/>
+	<EnumValue value="addthis_button_favorites" display_value="Favorites"/>
+	<EnumValue value="addthis_button_google" display_value="Google Bookmark"/>
+	<EnumValue value="addthis_button_googlebuzz" display_value="Google Buzz"/>
+	<EnumValue value="addthis_button_email" display_value="Email"/>
+</UserPref>
+<UserPref name="button3" display_name="Button 3" default_value="addthis_button_googlebuzz" datatype="enum">
+	<EnumValue value="addthis_button_twitter"  display_value="Twitter"/>	
+	<EnumValue value="addthis_button_facebook" display_value="Facebook"/>
+	<EnumValue value="addthis_button_googlebuzz" display_value="Google Buzz"/>
+	<EnumValue value="addthis_button_facebook_like" display_value="Facebook Like"/>
+	<EnumValue value="addthis_button_favorites" display_value="Favorites"/>
+	<EnumValue value="addthis_button_google" display_value="Google Bookmark"/>
+	<EnumValue value="addthis_button_email" display_value="Email"/>
+</UserPref>
 
-   <Content type="html">
-   <![CDATA[
+<UserPref name="button4" display_name="Button 4" default_value="addthis_button_orkut" datatype="enum">
+<EnumValue value="addthis_button_blogger" display_value="Blogger"/>
+<EnumValue value="addthis_button_delicious" display_value="Delicious"/>
+<EnumValue value="addthis_button_digg" display_value="Digg"/>
+<EnumValue value="addthis_button_email" display_value="Email"/>
+<EnumValue value="addthis_button_facebook" display_value="Facebook"/>
+<EnumValue value="addthis_button_facebook_like" display_value="Facebook Like"/>
+<EnumValue value="addthis_button_favorites" display_value="Favorites"/>
+<EnumValue value="addthis_button_google" display_value="Google Bookmark"/>
+<EnumValue value="addthis_button_googlebuzz" display_value="Google Buzz"/>
+<EnumValue value="addthis_button_hotmail" display_value="Hotmail"/>
+<EnumValue value="addthis_button_linkedin" display_value="LinkedIn Button"/>
+<EnumValue value="addthis_button_orkut" display_value="Orkut"/>
+<EnumValue value="addthis_button_myspace" display_value="MySpace"/>
+<EnumValue value="addthis_button_printfriendly" display_value="PrintFriendly"/>
+<EnumValue value="addthis_button_stumbleupon" display_value="StumbleUpon"/>
+<EnumValue value="addthis_button_twitter" display_value="Twitter"/>
+</UserPref>
+<UserPref name="button5" display_name="Button 5" default_value="addthis_button_googlebuzz" datatype="enum">
+<EnumValue value="addthis_button_blogger" display_value="Blogger"/>
+<EnumValue value="addthis_button_delicious" display_value="Delicious"/>
+<EnumValue value="addthis_button_digg" display_value="Digg"/>
+<EnumValue value="addthis_button_email" display_value="Email"/>
+<EnumValue value="addthis_button_facebook" display_value="Facebook"/>
+<EnumValue value="addthis_button_facebook_like" display_value="Facebook Like"/>
+<EnumValue value="addthis_button_favorites" display_value="Favorites"/>
+<EnumValue value="addthis_button_google" display_value="Google Bookmark"/>
+<EnumValue value="addthis_button_googlebuzz" display_value="Google Buzz"/>
+<EnumValue value="addthis_button_hotmail" display_value="Hotmail"/>
+<EnumValue value="addthis_button_linkedin" display_value="LinkedIn Button"/>
+<EnumValue value="addthis_button_orkut" display_value="Orkut"/>
+<EnumValue value="addthis_button_myspace" display_value="MySpace"/>
+<EnumValue value="addthis_button_printfriendly" display_value="PrintFriendly"/>
+<EnumValue value="addthis_button_stumbleupon" display_value="StumbleUpon"/>
+<EnumValue value="addthis_button_twitter" display_value="Twitter"/>
+</UserPref>
+<UserPref name="button6" display_name="Button 6" default_value="addthis_button_facebook_like" datatype="enum">
+<EnumValue value="addthis_button_blogger" display_value="Blogger"/>
+<EnumValue value="addthis_button_delicious" display_value="Delicious"/>
+<EnumValue value="addthis_button_digg" display_value="Digg"/>
+<EnumValue value="addthis_button_email" display_value="Email"/>
+<EnumValue value="addthis_button_facebook" display_value="Facebook"/>
+<EnumValue value="addthis_button_facebook_like" display_value="Facebook Like"/>
+<EnumValue value="addthis_button_favorites" display_value="Favorites"/>
+<EnumValue value="addthis_button_google" display_value="Google Bookmark"/>
+<EnumValue value="addthis_button_googlebuzz" display_value="Google Buzz"/>
+<EnumValue value="addthis_button_hotmail" display_value="Hotmail"/>
+<EnumValue value="addthis_button_linkedin" display_value="LinkedIn Button"/>
+<EnumValue value="addthis_button_orkut" display_value="Orkut"/>
+<EnumValue value="addthis_button_myspace" display_value="MySpace"/>
+<EnumValue value="addthis_button_printfriendly" display_value="PrintFriendly"/>
+<EnumValue value="addthis_button_stumbleupon" display_value="StumbleUpon"/>
+<EnumValue value="addthis_button_twitter" display_value="Twitter"/>
+</UserPref>
 
-<!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style ">
-	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-	<a class="addthis_button_tweet"></a>
-	<a class="addthis_counter addthis_pill_style"></a>
-</div>
-<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-<!--<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d9393d217d0c596"></script>-->
-<!-- AddThis Button END -->
-
-<script language="javascript">
-	/* This script is going to insert the addthis javascript using the pref panel user id */
-	var prefs = new _IG_Prefs();
-	var USERNAME = prefs.getString("USERNAME");			
-	var mys = document.createElement('script'); 
-	mys.type = 'text/javascript'; 
-	mys.async = true;
-	mys.src = 'http://s7.addthis.com/js/250/addthis_widget.js#pubid='+USERNAME;
-	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(mys); 
-   alert(mys.src);
-</script>
-
-   ]]>  
-  </Content>
+<Content type="html">
+	<style type="text/css"> 
+		body { padding: 0px; margin: 0px; background: __UP_BackCol__; } 
+	</style> 
+	<body> 
+		<center> 
+		<div id="my_id"></div> 
+		<div class="addthis_toolbox addthis_default_style"> 
+			<a href="https://addthis.com/bookmark.php?v=250"</a> 
+			<a class="__UP_button1__"></a> 
+			<a class="__UP_button2__"></a> 
+			<a class="__UP_button3__"></a> 
+			<a class="__UP_button4__"></a> 
+			<a class="__UP_button5__"></a> 
+			<span class="addthis_separator"> </span> 
+			<a class="__UP_button6__"></a> 
+		</div>
+		</center>
+		<script type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js#username=__UP_ID__"></script> 	
+		<script type="text/javascript">
+			var addthis_config = {"data_track_clickback":true}; 
+			var addthis_share = { url: "__UP_URL__", title: "__UP_Title__", description: "__UP_Description__" };
+		</script>
+</Content>
 </Module>
