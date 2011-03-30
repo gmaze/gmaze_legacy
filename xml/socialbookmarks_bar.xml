@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+	<ModulePrefs title="AddThis social bar" description="" width="130" height="32" scrolling="false" author="Guillaume Maze" author_email="code@guillaumemaze.org">
+</ModulePrefs>
+	<UserPref name="URL" display_name="URL" required="true" default_value="http://code.guillaumemaze.org"/>
+	<UserPref name="Title" display_name="Title" required="true" default_value="Code: Guillaume Maze"/>
+	<UserPref name="Description" display_name="Description" required="true" default_value="Code Designed by Guillaume Maze"/>
+	<UserPref name="ID" display_name="Addthis User ID" required="true" default_value="ra-4d9393d217d0c596"/>
+	<Content type="html"><![CDATA[ 
+		<style type="text/css">
+		#HTML10 {
+		background-color: transparent;
+		border: none;
+		}
+		</style>
+	<body>
+	<center>
+	<div id="my_id"></div>
+	<div class="addthis_toolbox addthis_default_style">
+	    <a href="https://addthis.com/bookmark.php?v=250"></a>
+	    <a class="addthis_button_twitter"></a>
+		<a class="addthis_button_facebook"></a>
+	    <a class="addthis_button_googlebuzz"></a>
+	    <a class="addthis_button_linkedin"></a>
+	    <a class="addthis_button_digg"></a>
+	    <span class="addthis_separator"> </span>
+	    <a class="addthis_button_printfriendly"></a>
+	</div></center>
+	<script type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js#username=__UP_ID__"></script>
+	<script type="text/javascript">var addthis_config = {"data_track_clickback":true};
+	var addthis_share = {
+	                url: "__UP_URL__", title: "__UP_Title__", description: "__UP_Description__"
+	        }</script>
+	</body>
+
+	  ]]>
+	</Content>
+</Module>
