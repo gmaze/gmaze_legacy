@@ -53,9 +53,9 @@
 	<center>
 	<div id="my_id"></div>
 	<div class="addthis_toolbox addthis_default_style">
-	    <a href="https://addthis.com/bookmark.php?v=250"></a>
+	    <a href="https://addthis.com/bookmark.php?v=250"</a>
 	    <a class="addthis_button_tweet"></a>
-		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+		<a class="addthis_button_facebook"></a>
 	    <a class="addthis_button_linkedin"></a>
 	    <a class="addthis_button_digg"></a>
 	    <span class="addthis_separator"> </span>
