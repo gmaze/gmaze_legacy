@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Module>
+<ModulePrefs 
+	title="Website Addthis Gadget" 
+    title_url="http://code.guillaumemaze.org" 
+	description=""
+ 	height="50" 
+    author="Guillaume Maze" 
+    author_email="code@guillaumemaze.org"
+	version="1.0" /> 
+<UserPref name="USERNAME" display_name="Your AddThis Profile ID"
+		datatype="string" required="true"
+		default_value="ra-4d9393d217d0c596"
+/>
+
+   <Content type="html">
+   <![CDATA[
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	<a class="addthis_button_tweet"></a>
+	<a class="addthis_counter addthis_pill_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+/*<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d9393d217d0c596"></script>*/
+<!-- AddThis Button END -->
+
+<script language="javascript">
+	/* This script is going to insert the addthis javascript using the pref panel user id */
+	var prefs = new _IG_Prefs();
+	var USERNAME = prefs.getString("USERNAME");			
+	var mys = document.createElement('script'); 
+	mys.type = 'text/javascript'; 
+	mys.async = true;
+	mys.src = 'http://s7.addthis.com/js/250/addthis_widget.js#pubid='+USERNAME;
+	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(mys); 
+</script>
+
+   ]]>  
+  </Content>
+</Module>
