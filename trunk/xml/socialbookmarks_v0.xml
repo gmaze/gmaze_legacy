@@ -26,7 +26,7 @@
 	<a class="addthis_counter addthis_pill_style"></a>
 </div>
 <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-/*<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d9393d217d0c596"></script>*/
+<!--<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d9393d217d0c596"></script>-->
 <!-- AddThis Button END -->
 
 <script language="javascript">
@@ -38,6 +38,7 @@
 	mys.async = true;
 	mys.src = 'http://s7.addthis.com/js/250/addthis_widget.js#pubid='+USERNAME;
 	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(mys); 
+   alert(mys.src);
 </script>
 
    ]]>  
