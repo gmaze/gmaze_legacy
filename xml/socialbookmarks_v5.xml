@@ -46,7 +46,7 @@
 		<EnumValue value="addthis_button_google" display_value="Google Bookmark"/>
 		<EnumValue value="addthis_button_googlebuzz" display_value="Google Buzz"/>
 	</UserPref>
-	<UserPref name="button2" display_name="Button 2" default_value="addthis_button_facebook_like" datatype="enum">
+	<UserPref name="button2" display_name="Button 2" default_value="addthis_button_facebook" datatype="enum">
 		<EnumValue value="addthis_button_twitter" display_value="Twitter"/>
 		<EnumValue value="addthis_button_facebook" display_value="Facebook"/>
 		<EnumValue value="addthis_button_facebook_like" display_value="Facebook Like"/>
