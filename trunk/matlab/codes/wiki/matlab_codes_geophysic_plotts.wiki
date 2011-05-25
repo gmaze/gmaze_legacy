@@ -1,0 +1,21 @@
+== plotts.m ==
+Plot Temperature, Salinity on a T,S diag
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/geophysic/plotts.m Download here]
+
+{{{
+% plotts Plot Temperature, Salinity on a T,S diag
+%
+% [p,h,cs] = plotts(TEMP,SALT,[PRES])
+% 
+% HELPTEXT
+%
+%
+% Created: 2009-06-04.
+}}}
+----
+Last update: 2011 March 04, 18:36
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

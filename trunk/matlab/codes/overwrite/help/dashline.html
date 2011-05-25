@@ -1,0 +1,32 @@
+<html>
+<head>
+     <title>Help: dashline</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <h4>dashline</h4>Function to produce accurate dotted and dashed lines
+                  <br><small>Last modified: 08-Dec-2010 15:42:55</small>
+
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/overwrite/dashline.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  <br>%DASHLINE  Function to produce accurate dotted and dashed lines<br>%   DASHLINE(XDATA, YDATA, DASH1, GAP1, DASH2, GAP2, ...) plots <br>%   the data XDATA and YDATA usig a two dash linestyle. The <br>%   function allows the lengths of the dashes to be specified. <br>%   DASH1 is the length of the first dash; GAP1 is the length of <br>%   the first gap; DASH2 is the length of the second  dash and <br>%   GAP2 is the length of the second gap, with all lengths being <br>%   in millimeters. The two dash pattern is repeated along the <br>%   length of the line. The routine is designed to allow greater<br>%   control over the linestyle than is available using PLOT.<br>%<br>%   Additional inputs may be given to specify line properties. <br>%   These are passed through to the plot function. <br>%<br>%   DASH1 or DASH2 may be strings specifying plot symbols. A <br>%   dashlength of 0 will cause a dot to be plotted. If GAP1 and <br>%   GAP2 are 0 then the arguments are simply passed through to a <br>%   plot command<br>%<br>%   For example: <br>%   clf;<br>%   dashline([1:10],rand(1,10),1,1,1,1) <br>%      %produces a dashed line with 1mm dashes and 1mm gaps<br>%   hold on;<br>%   dashline([1:10],rand(1,10),4,2,'o',2,'markerfacecolor','y',...<br>%      'color','k') <br>%      %produces a line with black dashes and yellow centred circles<br>%<br>%   [H1, H2]=DASHLINE(...) Outputs are handles to the plotted <br>%      lines and markers<br>%<br>%   DASHLINE works by calculating the distance along the line to be <br>%   plotted, using the existing axes position. If HOLD is OFF when <br>%   DASHLINE is called, then the axis limits are set automatically; <br>%   otherwise the existing limits are used. DASHLINE then <br>%   interpolates XDATA and YDATA at the positions of the start and <br>%   end of the dashes, using NaN's to lift the pen. Rescaling the <br>%   axes after DASHLINE has been called, or changing the limits, or <br>%   changing from log to linear plots, will mean that the dashes no <br>%   longer have the specified lengths. This routine does not calculate <br>%   distances correctly if the axes DataAspectRatio or <br>%   PlotBoxAspectRatio have been manually specified. The lines will <br>%   not display properly in a call to LEGEND.<br>%<br>%   Kluged together by Edward Abraham (e.abraham@niwa.cri.nz) <br>%   27-Sept-2002 Minor change made so that it works with Matlab 6.5<br>%   27-June-2002 Original version
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  Last update: 2011 March 04, 17:46<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<head>
+     <title>Help: getdblpeaks</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <h4>getdblpeaks</h4>Find indices corresponding to a common peak in two series
+                  <br><small>Last modified: 25-Sep-2009 16:28:37</small>
+
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/stats/getdblpeaks.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  <br>% getdblpeaks Find indices corresponding to a common peak in two series<br>%<br>% ipeaks = getdblpeaks(C1,C2,N,Z,dZpeaks,dZseries)<br>% <br>% We identify peaks of order N(1) in C1 and N(2) in C2 and then<br>% try to find common peaks.<br>%<br>% Inputs:<br>% 	C1 and C2 are two 1xn series.<br>%	N = [n1 n2] specify the order of each peaks. See: getpeaks<br>%	Z is the common axis of C1 and C2.<br>%	dZpeaks is the maximum distance between peaks of each series.<br>%		(ie, larger than dZpeaks they are merged)<br>%	dZseries is the minimum distance between peaks in both series.<br>%		(ie, larger than dZseries they are rejected)<br>%<br>% Output:<br>%	ipeaks is the list of indices among Z  of double peaks.<br>%<br>% Example:<br>%	todo !<br>%<br>% See also:<br>%	getpeaks<br>%<br>% Created: 2009-08-31.
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  Last update: 2011 March 04, 17:46<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>

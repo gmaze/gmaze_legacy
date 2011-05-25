@@ -1,0 +1,17 @@
+== refresh.m ==
+Refresh figure
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/overwrite/refresh.m Download here]
+
+{{{
+% REFRESH Refresh figure
+%
+%   REFRESH causes the current figure window to be redrawn. 
+%   REFRESH(FIG) causes the figure FIG to be redrawn.
+}}}
+----
+Last update: 2011 March 04, 18:36
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

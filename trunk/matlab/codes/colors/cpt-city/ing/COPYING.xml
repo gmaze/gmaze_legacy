@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: COPYING.xml,v 1.1 2010/01/10 14:12:00 jjg Exp $ -->
+<copying>
+  <authors>
+    <author href="http://www.ingerlise.dk/">
+      <name>Ingerlise</name>
+    </author>
+  </authors>
+  <license>
+    <informal>Free to use</informal>
+    <year>2005</year>
+    <text>None specified</text>
+  </license>
+  <src>
+    <format>Paint Shop Pro gradient (grd version 3)</format>
+    <remark>Contributed to the archive by the author, Feb 2005</remark>
+  </src>
+</copying>

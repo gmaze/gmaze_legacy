@@ -1,0 +1,18 @@
+== hannfilter.m ==
+Disable function
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/stats/hannfilter.m Download here]
+
+{{{
+% HANNFILTER Disable function
+%
+% Hann filter of C(1,N)
+%
+%
+}}}
+----
+Last update: 2011 March 04, 17:46
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

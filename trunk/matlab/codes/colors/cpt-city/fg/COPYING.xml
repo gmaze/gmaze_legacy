@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: COPYING.xml,v 1.2 2010/01/01 17:15:35 jjg Exp $ -->
+<copying>
+  <authors>
+    <author href="http://www.fused-graphics.com/">
+      <name>George Kemp</name>
+      <org>Fused Graphics</org>
+    </author>
+  </authors>
+  <license>
+    <informal>Credit requested</informal>
+    <year>2009</year>
+    <text>
+      Thank you for downloading Vista Button Gradients by Fused Graphics! 
+      
+      These buttons can be used for anything you want but if you edit, 
+      distribute or send anybody these buttons please give credit to me 
+      and link to my website. www.Fused-Graphics.com Thanks.
+    </text>
+  </license>
+  <src>
+    <format>GIMP gradient (ggr)</format>
+    <link href="http://www.fused-graphics.com/?p=28">Blog entry</link>
+  </src>
+</copying>

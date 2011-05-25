@@ -1,0 +1,32 @@
+<html>
+<head>
+     <title>Help: taylordiag</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <h4>taylordiag</h4>Plot a Taylor Diagram
+                  <br><small>Last modified: 21-Feb-2011 11:52:24</small>
+
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/stats/taylordiag.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  <br>% TAYLORDIAG Plot a Taylor Diagram<br>%<br>% [hp ht axl] = taylordiag(STDs,RMSs,CORs,['option',value])<br>%<br>% Plot a Taylor diagram from statistics of different series.<br>%<br>% INPUTS:<br>%	STDs: Standard deviations<br>%	RMSs: Centered Root Mean Square Difference <br>%	CORs: Correlation<br>%<br>%	Each of these inputs are one dimensional with same length. First<br>%	indice corresponds to the reference serie for the diagram. For exemple<br>%	STDs(1) is the standard deviation of the reference serie and STDs(2:N) <br>%	are the standard deviations of the other series.<br>% <br>%	Note that by definition the following relation must be true for all series i:<br>%	RMSs(i) - sqrt(STDs(i).^2 + STDs(1)^2 - 2*STDs(i)*STDs(1).*CORs(i)) = 0<br>%	This relation is checked and if not verified an error message is sent. Please see<br>%	Taylor's JGR article for more informations about this.	<br>%	You can use the ALLSTATS function to avoid this to happen, I guess ;-). You can get<br>%<br>% OUTPUTS:<br>% 	hp: returns handles of plotted points<br>%	ht: returns handles of the text legend of points<br>%	axl: returns a structure of handles of axis labels<br>%<br>% LIST OF OPTIONS:<br>%	For an exhaustive list of options to customize your diagram, please call the function<br>%	without arguments:<br>%		>> taylordiag<br>%<br>% SHORT TUTORIAL (see taylordiag_test.m for more informations):<br>%	 An easy way to get compute inputs is to use the ALLSTATS function you can get from:<br>%	 Let's say you gathered all the series you want to put in the Taylor diagram in a <br>%	 single matrix BUOY(N,nt) with N the number of series and nt their (similar) length.<br>%	 If BUOY(1,:) is the serie of reference for the diagram:<br>%		 for iserie = 2 : size(BUOY,1)<br>%		    S = allstats(BUOY(1,:),BUOY(iserie,:));<br>%		    MYSTATS(iserie,:) = S(:,2); % We get stats versus reference<br>%		 end%for iserie<br>%		 MYSTATS(1,:) = S(:,1); % We assign reference stats to the first row<br>%	 Note that the ALLSTATS function can handle NaNs, so be careful to compute statistics<br>%	 with enough points !<br>%	 Then you're ready to simply run:<br>%		taylordiag(MYSTATS(:,2),MYSTATS(:,3),MYSTATS(:,4));<br>%	<br>% REF: 	K. Taylor <br>%		Summarizing multiple aspects of model performance in a single diagram<br>%		Journal of Geophysical Research-Atmospheres, 2001, V106, D7.<br>%<br>% Rev. by Guillaume Maze on 2010-02-10: Help more helpful ! Options now displayed by call.<br>% All rights reserved.
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  Last update: 2011 March 04, 17:46<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>

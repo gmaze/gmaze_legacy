@@ -1,0 +1,21 @@
+== getscatter.m ==
+Get scatter plot distribution
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/stats/getscatter.m Download here]
+
+{{{
+% GETSCATTER Get scatter plot distribution
+%
+% [P,Paxis] = GETSCATTER(C,dC)
+%
+% Get the distribution of values in C with
+% resolution dC
+%
+%
+}}}
+----
+Last update: 2011 March 04, 17:46
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

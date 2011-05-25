@@ -1,0 +1,32 @@
+<html>
+<head>
+     <title>Help: tbcont</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <h4>tbcont</h4>Audit a directory and create html/wiki pages and table of content
+                  <br><small>Last modified: 15-Apr-2010 14:17:20</small>
+
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/tbcont.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  <br>% TBCONT Audit a directory and create html/wiki pages and table of content<br>%<br>% [] = tbcont(PATH_TO_DIR,[OPTION1,VALUE1,...])<br>%<br>% Scan the directory PATH_TO_DIR and create html/wiki pages and table of content for<br>% matlab script files (*.m).<br>%<br>% The function creates under PATH_TO_DIR:<br>% 	- a tbcont.html file with an index of all .m routines<br>%		This is not a standlone html file because it has no header and body.<br>%		It contains a html table to be inserted in any webpage. However, <br>%		most modern browsers will support this and display the content.<br>%	- a 'help' folder with html help file for each routines<br>%	- a 'wiki' folder with wiki help file for each routines<br>%	- a Contents.m file with an index of all .m routines<br>%<br>% OPTIONS:<br>%	link_pref (string): Absolute base path to source .m files<br>%		By default: 'http://guillaumemaze.googlecode.com/svn/trunk/matlab/'<br>%	link_rel (string): relative path to source .m files from link_pref<br>%		So that url to source file is: link_pref/link_rel/XXXX.m<br>%	link_wiki (string): Absolute path to wiki pages<br>%		By default: 'http://code.google.com/p/guillaumemaze/wiki'<br>%		All wiki pages are under the same directory PATH_TO_DIR/wiki/<br>%		Unlike html pages, no subfolders are created.<br>%	ndepth (integer): Depth of the recursive scan of folders<br>%		0 means only PATH_TO_DIR/*.m files will be incorporated<br>%		1 means only PATH_TO_DIR/*.m and PATH_TO_DIR/*/*.m files will be incorporated<br>%		etc<br>%		if ndpeth > 0, then url to source file is: link_pref/link_rel/SUBFOLDER/XXXX.m, etc ...<br>%<br>% TBCONT.HTML FILE DESCRIPTION:<br>% 	In tbcont.html, we create a first table 'Quick Links' which <br>% 	lists all routines and link them to an url of the source file. <br>% 	The url prefix for these links is by default relative to:<br>%		'http://guillaumemaze.googlecode.com/svn/trunk/matlab/';<br>% 	and it can be specified in the options list with opts link_rel.<br>%<br>% 	Then a second table lists all routines with there h1line as:<br>%		column 1: link to a wiki page for the routine<br>%		column 2: the h1line<br>%		column 3: link to the source file (similar to the one in the 'Quick Links' table)<br>%<br>% NOTES:<br>% - This function aims to be used in tight conjunction with a Google Code project svn repository.<br>%<br>% EXAMPLE:<br>% Imagine there's one function called toto0.m under PATH_TO_DIR and one function called toto1.m<br>% under PATH_TO_DIR/test/<br>%	tbcont(PATH_TO_DIR,'link_rel',myexample);<br>% will create:<br>%	PATH_TO_DIR/tbcont.html<br>%	PATH_TO_DIR/Contents.m<br>%	PATH_TO_DIR/html/toto0.html<br>%	PATH_TO_DIR/html/test/toto1.html<br>%	PATH_TO_DIR/wiki/matlab_myexample_toto0.wiki<br>%	PATH_TO_DIR/wiki/matlab_myexample_test_toto1.wiki<br>% and links to source files points to:<br>%	http://guillaumemaze.googlecode.com/svn/trunk/matlab/myexample/toto0.m<br>%	http://guillaumemaze.googlecode.com/svn/trunk/matlab/myexample/test/toto1.m<br>% and links to wiki pages points to:<br>%	http://code.google.com/p/guillaumemaze/wiki/matlab_myexample_toto0<br>%	http://code.google.com/p/guillaumemaze/wiki/matlab_myexample_test_toto1<br>%<br>% HELP:<br>% How to update my google code setup for matlab/routines ?:<br>%	% Run:<br>%	tbcont('~/matlab/routines','link_rel','routines');<br>%	% Then copy '~/matlab/routines/wiki/*' to '~/work/code.google.com/guillaumemaze_wiki/'<br>%	% launch svnx, open working copies of Google code wiki pages<br>%	% Then update, remove or add files and click on commit !<br>% How to build a local setup ?:<br>%	tbcont('~/matlab/routines','link_pref','/Users/gmaze/matlab/','link_wiki','/Users/gmaze/matlab/routines/wiki')<br>%	tbcont('~/matlab/hydrolpo','link_pref','/Users/gmaze/matlab/','link_wiki','/Users/gmaze/matlab/hydrolpo/wiki','link_rel','hydrolpo')<br>%<br>% REQUIREMENTS:<br>%	file_list,<br>%<br>% Created: 2008-10-30.<br>% Rev. by Guillaume Maze on 2009-09-28: Added Contents.m creation, ndepth option<br>% Rev. by Guillaume Maze on 2009-09-25: Added complete help, Handle options, Manage subfolders<br>% All rights reserved.
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  Last update: 2011 March 04, 17:46<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>

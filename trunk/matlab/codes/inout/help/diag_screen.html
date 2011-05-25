@@ -1,0 +1,32 @@
+<html>
+<head>
+     <title>Help: diag_screen</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <h4>diag_screen</h4>Same as DISP but allow to print in a log file
+                  <br><small>Last modified: 25-Sep-2009 16:28:37</small>
+
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/diag_screen.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  <br>% DIAG_SCREEN Same as DISP but allow to print in a log file<br>%<br>% [] = DIAG_SCREEN(MESSAGE,PID,[FIDLOGFILE],[FORMAT])<br>%<br>% Print to the screen and/or in a log file<br>% PID = 1 : Print to screen<br>% PID = 2 : Print to file LOGFILE (fid pointer)<br>%<br>% May also use: PID = [1 2]<br>% To make to implementation easier in big routines, a default set<br>% is available in global variables:<br>% DEFAULT IS:<br>% global <br>% PID = [1 2]; % Screen and log file<br>% [LOGFILE] = fid_logfile; % <br>% [FORMAT] = '%s\n';<br>%<br>% EG OF USE:<br>% global diag_screen_default<br>% diag_screen_default.PIDlist = [1 2];<br>% fid = fopen('myrun.log','w');<br>% diag_screen_default.fid = fid;<br>% diag_screen_default.forma = '%s\n';<br>% diag_screen('Hello world');<br>%
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  Last update: 2011 March 04, 17:46<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<head>
+     <title>Help: linvp</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <h4>linvp</h4>Linear inverse problem
+                  <br><small>Last modified: 09-Sep-2010 17:49:52</small>
+
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/stats/linvp.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  <br>% linvp Linear inverse problem<br>%<br>% [Xs, Cs, FXs, FX0] = linvp(X0,C0,F,CT,F0,[OPTIONS])<br>% <br>% Solve a linear inverse problem.<br>%<br>% Given f a set of constraints to be applied at points X<br>% F is the matrix of partial derivatives of f with respect to X:<br>%	F(t,k) = d f(t) / d X(k)<br>% Because the problem is linear, no X(k) are found in F(t,k)<br>%<br>%<br>% With:	<br>% 	NC the Number of constraints and<br>% 	NU the Number of unknowns to be estimated,<br>%<br>% INPUTS:<br>%	X0: A priori unknowns estimates<br>%		size(X0) = NU x 1<br>%	C0: A priori error covariance matrix of unknowns estimates<br>%		size(C0) = NU x NU<br>%	F: Constraints matrix<br>%		size(F) = NC x NU<br>% 	CT: A priori error covariance matrix on constraints<br>%		size(CT) = NC x NC<br>% 	F0: a priori constraints estimate -> f(X0)<br>%		size(F0) = NC x 1<br>%<br>% OUTPUTS:<br>% 	Xs: unknowns estimates<br>%		size(Xs) = NU x 1	<br>% 	Cs: error covariance matrix of unknowns estimates<br>%		size(Cs) = NU x NU<br>% 	FXs = F*Xs-F0: A posteriori constraints residuals<br>%		size(FXs) = NC x 1<br>% 	FX0 = F*X0-F0 : A priori constraints residuals<br>%		size(FX0) = NC x 1<br>%<br>% Ref: <br>%	A. Tarantola and B. Valette. Generalized nonlinear inverse problems <br>%		solved using the least squares criterion. <br>%		Rev. Geophys. Space Phys, 20(2):219–232, 1982.<br>% 	H. Mercier. Determining the general circulation of the ocean: A <br>%		nonlinear inverse problem. J. Geophys. Res., 91(C4):5103–5109, 1986.<br>%		http://dx.doi.org/10.1029/JC091iC04p05103<br>%<br>% See also:<br>%	nlinvp<br>%<br>% Created: 2010-06-17.<br>% All rights reserved.
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  Last update: 2011 March 04, 17:46<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: COPYING.xml,v 1.2 2010/01/01 17:02:24 jjg Exp $ -->
+<copying>
+  <authors>
+    <author href="http://itstriangle.com/~fme/">
+      <name>Fred M. Erickson</name>
+    </author>
+  </authors>
+  <license>
+    <informal>GPLv2</informal>
+    <year>2005</year>
+    <text href="http://www.gnu.org/licenses/gpl-2.0.html"/>
+  </license>
+  <src>
+    <format>C source code</format>
+    <link href="http://itstriangle.com/~fme/drawmap.html">Drawmap 
+      homepage</link>
+    <remark>
+      Gradients manually extracted from C header file
+      colors.h in the drawmap distribution.
+    </remark>
+  </src>
+</copying>

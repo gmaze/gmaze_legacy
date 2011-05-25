@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: COPYING.xml,v 1.1 2010/01/05 19:25:49 jjg Exp $ -->
+<copying>
+  <authors>
+    <author href="http://soliton.vm.bytemark.co.uk/pub/jjg/">
+      <name>J.J. Green</name>
+    </author>
+  </authors>
+  <license>
+    <informal>Public domain</informal>
+    <year>2004</year>
+  </license>
+  <src>
+    <format>GMT colour palette (cpt)</format>
+    <remark>
+      See cpt file for details of production.
+    </remark>
+  </src>
+</copying>

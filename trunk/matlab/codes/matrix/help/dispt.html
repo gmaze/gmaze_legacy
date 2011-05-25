@@ -1,0 +1,32 @@
+<html>
+<head>
+     <title>Help: dispt</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <h4>dispt</h4>Display a table on prompt
+                  <br><small>Last modified: 10-Jun-2010 14:16:27</small>
+
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/matrix/dispt.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  <br>% dispt Display a table on prompt<br>%<br>% [LINES] = dispt(C,[OPTIONS]);<br>% <br>% Custom matrix display on prompt of double matrix C.<br>%<br>% OPTIONS are paired like: OPTION_NAME,OPTION_VALUE<br>%<br>% List of OPTIONS:<br>%	numform (string): Numerical format use to display values of C.<br>%		Default value: %0.2f<br>%	rowT: Title of rows to appear in the upper left table.<br>%	colT: Title of columns to appear in the upper left table.<br>%	rowl: Row labels.<br>%	coll: Column labels.<br>%		About rowl and coll:<br>%			They can a string with a char for each column or row.<br>%			They can a single char, in this case the rol/col number is added<br>%			They can a cell of one string with the ley '#r' replaced by <br>%				the rol/col number<br>%			Or they can be a cell of strings for each column or row.<br>%	dohline (logical): Insert a horizontal line between each row.<br>%		Default value: false<br>%	col1w (integer): Width of the first column.<br>%		Default value: 12<br>%	colw (integer): Width of each columns.<br>%		Default value: 10<br>%<br>% Outputs:<br>%	LINES is a cell with each lines displayed on prompt as a row.<br>%<br>% Examples:<br>%	dispt(randn(4,6),'numform','%0.3f')<br>%	dispt(randn(4,6),'colT','Columns','rowT','Rows')<br>%	dispt(randn(4,6),'colT','Columns','rowT','Rows','col1w',20)<br>%	dispt(randn(4,6),'coll','abcdef')<br>%	dispt(randn(4,6),'coll',{'Column number #r'})<br>%	dispt(randn(4,3),'coll',{'Column number #r'},'rowl',{'Row number #r'},'colw',20,'col1w',20)<br>%<br>% Created: 2010-06-10.<br>% All rights reserved.
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  Last update: 2011 March 04, 17:46<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: COPYING.xml,v 1.7 2010/01/28 23:18:48 jjg Exp $ -->
+<copying>
+  <authors>
+    <author>
+      <name>Lester M. Anderson</name>
+      <org>CASP, UK</org>
+    </author>
+    <author>
+      <name>Jesse Varner</name>
+      <org>NOAA/NGDC</org>
+    </author>
+    <author>
+      <name>Elliot Lim</name>
+      <org>NOAA/NGDC</org>
+    </author>
+  </authors>
+  <license>
+    <informal>GPLv2</informal>
+    <year>2009</year>
+    <text href="http://www.gnu.org/licenses/gpl-2.0.html"/>
+  </license>
+  <src>
+    <format>GMT colour palette (cpt)</format>
+    <link href="http://www.ngdc.noaa.gov/mgg/global/global.html"
+	  >NGDC global relief data site</link>
+    <remark>Derived from GMT_globe and GMT_haxby
+      which are licensed under the GPL.</remark>
+    <remark>Contributed to the archive by Jesse Varner, 
+      Feb 2009</remark>
+  </src>
+</copying>

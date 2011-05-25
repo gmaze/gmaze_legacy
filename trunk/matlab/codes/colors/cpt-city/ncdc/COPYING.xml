@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: COPYING.xml,v 1.2 2010/01/21 23:35:46 jjg Exp $ -->
+<copying>
+  <authors>
+    <author href="http://www.ncdc.noaa.gov/oa/ncdc.html">
+      <name>NCDC</name>
+    </author>
+  </authors>
+  <license>
+    <informal>Free to use</informal>
+    <year>2010</year>
+    <text>No licence specified</text>
+  </license>
+  <src>
+    <format>Image (gif)</format>
+    <link href="http://www.ncdc.noaa.gov/oa/climate/extremes/2001/december/extremes1201.html"
+	  >NCDC's white Christmas page</link>
+    <remark>Andy Goss gave permission to add to the archive Jan 2010</remark>
+  </src>
+</copying>
