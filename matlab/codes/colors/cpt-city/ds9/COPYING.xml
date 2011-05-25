@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: COPYING.xml,v 1.1 2010/06/25 21:03:17 jjg Exp $ -->
+<copying>
+  <authors>
+    <author>
+      <name>William Joye</name>
+    </author>
+  </authors>
+  <license>
+    <informal>GPL</informal>
+    <year>2010</year>
+    <text href="http://www.gnu.org/copyleft/gpl.html"/>
+  </license>
+  <src>
+    <format>C++ program source</format>
+    <link href="http://hea-www.harvard.edu/RD/ds9/">DS9 homepage</link>
+  </src>
+</copying>

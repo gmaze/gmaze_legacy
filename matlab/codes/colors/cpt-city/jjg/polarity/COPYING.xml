@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: COPYING.xml,v 1.2 2010/01/06 00:21:26 jjg Exp $ -->
+<copying>
+  <authors>
+    <author href="http://soliton.vm.bytemark.co.uk/pub/jjg/">
+      <name>J.J. Green</name>
+    </author>
+  </authors>
+  <license>
+    <informal>Apache-like</informal>
+    <year>2004</year>
+    <text>
+      As Cynthia Brewer.
+    </text>
+  </license>
+  <src>
+    <format>GMT colour palette (cpt)</format>
+    <remark>
+      Derived from the diverging schemes by Cynthia Brewer
+      and so released under the same licence.
+    </remark>
+  </src>
+</copying>

@@ -1,0 +1,32 @@
+# isle-of-man.cpt
+#
+# extracted from Isle_of_Man_topographic_map-en.svg 
+# by Eric Gaba (Wikimedia Commons user: Sting) released under 
+# the following licence:
+#
+# Permission is granted to copy, distribute and/or modify this document 
+# under the terms of the GNU Free Documentation License, Version 1.2 or 
+# any later version published by the Free Software Foundation; with no 
+# Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A 
+# copy of the license is included in the section entitled "GNU Free 
+# Documentation License".
+#
+# Translated by J.J. Green 2009, translation under same licence
+#
+# $Id: wiki-isle-of-man.cpt.body,v 1.1 2010/03/12 22:45:49 jjg Exp $
+# COLOR_MODEL = RGB
+-200 185 227 255  -50 185 227 255
+-50  216 242 254  0   216 242 254
+0    172 208 165  25  172 208 165
+25   148 191 139  50  148 191 139
+50   168 198 143  100 168 198 143
+100  189 204 150  150 189 204 150
+150  209 215 171  200 209 215 171
+200  225 228 181  300 225 228 181
+300  239 235 192  400 239 235 192
+400  232 225 182  500 232 225 182
+500  222 214 163  600 222 214 163
+600  202 185 130  700 202 185 130
+B   0   0   0
+F 255 255 255
+N 255   0   0

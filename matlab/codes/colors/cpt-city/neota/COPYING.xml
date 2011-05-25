@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: COPYING.xml,v 1.1 2010/01/07 00:20:37 jjg Exp $ -->
+<copying>
+  <authors>
+    <author href="http://dgowers.livejournal.com/">
+      <name>David Gowers</name>
+      <alias>Neota</alias>
+      <alias>Aicaz</alias>
+    </author>
+  </authors>
+  <license>
+    <informal>Free to use</informal>
+    <year>2004</year>
+  </license>
+  <src>
+    <format>GIMP gradient (ggr)</format>
+    <link href="http://aicaz.deviantart.com/gallery">Aicas' 
+      DeviantArt page</link>
+    <remark>Contributed to the archive by the author, 
+      June 2004</remark>
+  </src>
+</copying>

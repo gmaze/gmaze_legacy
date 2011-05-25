@@ -1,0 +1,23 @@
+== suptitle.m ==
+Puts a title above all subplots.
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/graphicxPlots/suptitle.m Download here]
+
+{{{
+% SUPTITLE Puts a title above all subplots.
+%	SUPTITLE('text') adds text to the top of the figure
+%	above all subplots (a "super title"). Use this function
+%	after all subplot commands.
+%
+% Drea Thomas 6/15/95 drea@mathworks.com
+% Rev. by Guillaume Maze on 2011-02-08: also modify figure title
+%
+% Warning: If the figure or axis units are non-default, this
+% will break.
+}}}
+----
+Last update: 2011 March 04, 18:36
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

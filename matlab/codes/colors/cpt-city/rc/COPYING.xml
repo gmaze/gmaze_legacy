@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: COPYING.xml,v 1.2 2010/01/10 15:47:08 jjg Exp $ -->
+<copying>
+  <authors>
+    <author href="http://www.restlessconcepts.com/">
+      <name>Restless Concepts</name>
+    </author>
+  </authors>
+  <license>
+    <informal>Free to use</informal>
+    <year>2005</year>
+    <text>None specified</text>
+  </license>
+  <src>
+    <format>Paint Shop Pro</format>
+    <link 
+       href="http://www.restlessconcepts.com/psp/grads.htm"
+       >Download link</link>
+    <remark>Contributed to the archive by the author, April 2005</remark>
+  </src>
+</copying>
+

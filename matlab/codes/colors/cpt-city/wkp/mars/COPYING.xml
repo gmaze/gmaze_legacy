@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: COPYING.xml,v 1.3 2010/01/10 18:14:16 jjg Exp $ -->
+<copying>
+  <authors>
+    <author href="http://fr.wikipedia.org/wiki/Utilisateur:Sémhur">
+      <name>Sémhur</name>
+    </author>
+  </authors>
+  <license>
+    <informal>Creative commons attribution share-alike 3.0 unported</informal>
+    <year>2009</year>
+    <text href="http://creativecommons.org/licenses/by-sa/3.0/deed.fr"/>
+  </license>
+  <src>
+    <format>GIMP palette</format>
+    <link href="http://fr.wikipedia.org/wiki/Aide:Cartographie#Palettes_de_couleurs"
+	  >Palette page</link>
+  </src>
+</copying>
+
+

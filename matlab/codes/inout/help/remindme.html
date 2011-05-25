@@ -1,0 +1,32 @@
+<html>
+<head>
+     <title>Help: remindme</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <h4>remindme</h4>Reminder using crontab and growl
+                  <br><small>Last modified: 15-Oct-2009 16:33:33</small>
+
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/remindme.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  <br>% remindme Reminder using crontab and growl<br>%<br>% [] = remindme(TIME,[TXT])<br>% <br>% This function use growlnotify to send you a reminder with message TXT at<br>% time given by TIME (as returned by datenum).<br>%<br>% Inputs:<br>%	TIME is a serial date number as return by datenum.<br>%		It can also be a string of the form 'HH:MM' to use the current day.<br>%	TXT is a string<br>%<br>% Eg:<br>%	remindme(now+10/60/24,'Coffee break !');<br>%	remindme('16:00','Thea break !');<br>%<br>% Extra:<br>% 	If TIME is set to NaN, the function simply clean the crontab file of all Matlab reminders<br>%	<br>%<br>% Created: 2009-10-15.<br>% All rights reserved.
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  Last update: 2011 March 04, 17:46<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>

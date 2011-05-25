@@ -1,0 +1,604 @@
+     <b>Last update: 2011 March 04, 18:36</b>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;"><center><h3>Quick links:</h3></center></td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;">
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/abspath.m" title="Relative to Absolute path function">abspath.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/base64encode.m" title="Perform base64 encoding on a string.">base64encode.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/diag_screen.m" title="Same as DISP but allow to print in a log file">diag_screen.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/dirr.m" title="Lists all files in the current directory and sub directories recursively.">dirr.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/file_list.m" title="Create a file list from a folder">file_list.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/finish.m" title="Terminate a Matlab session">finish.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/fmv.m" title="System command move on a file">fmv.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/fopenn.m" title="Open a file whithout taking care of slash in file name">fopenn.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/fstrrep.m" title="Replace string with another into a text file">fstrrep.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/get_plotlist.m" title="Return description of diagnostic/plot files">get_plotlist.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/get_plotlistdef.m" title="Display/return description of diagnostic files">get_plotlistdef.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/get_plotlistfields.m" title="Returns the list of fields required by a diag">get_plotlistfields.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/getcomputername.m" title="returns the name of the computer (hostname)">getcomputername.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/getip.m" title="Return the computer network IP address">getip.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/gmat.m" title="Grep a string into comments of Matlab routines within a given folder or file">gmat.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/grep.m" title="Grep a string into definitions of functions">grep.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/growl.m" title="Send a notification to Growl">growl.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/helptocxml2html.m" title="H1LINE">helptocxml2html.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/ltp.m" title="List directory as ls -rtl">ltp.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/ltx_dlist.m" title="Copy a LaTeX file TeX ressources to a local folder">ltx_dlist.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/ltx_tbll.m" title="Print a LaTeX table line">ltx_tbll.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/ltx_tblo.m" title="Print opening LaTeX table lines">ltx_tblo.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/machine_list.m" title="List all network machine with system command 'nslookup'">machine_list.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/mailsend.m" title="Send an email via the system command 'mail'">mailsend.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/myqst.m" title="Display qstat results">myqst.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/nlines.m" title="Number of lines in a text file">nlines.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/nojvmwaitbar.m" title="Progress waitbar for Matlab running without JVM">nojvmwaitbar.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/packver.m" title="Manage Package Version file">packver.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/plgrep.m" title="Grep a string into definitions of sub plots/diagnostics">plgrep.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/pllist.m" title="Shortcut for function get_plotlistdef(MASTER,'.')">pllist.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/qstat.m" title="Return command qstat -u user outputs">qstat.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/remindme.m" title="Reminder using crontab and growl">remindme.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/serveraddress.m" title="Display nslookup output">serveraddress.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/strins.m" title="Insert a string into another">strins.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/tbcont.m" title="Audit a directory and create html/wiki pages and table of content">tbcont.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/url_code.m" title="Percent encode/decode of a string">url_code.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/wsload.m" title="Load all (or list of) variables of the base workspace into a function workspace">wsload.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/wssave.m" title="Save all (or list of) variables from the caller workspace into the base workspace">wssave.m</a> 
+     <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/wssize.m" title="H1LINE">wssize.m</a> 
+             </td>
+          </tr>
+     </tbody></table></center>
+     <br>
+     <table><tbody>
+          <tr>
+             <td colspan="2" style="border: 1px solid rgb(170, 170, 170); padding: 25px; font-size:16px;font-weight:bold;">
+                  Function Name
+             </td>
+             <td colspan="2" style="border: 1px solid rgb(170, 170, 170); padding: 25px; font-size:16px;font-weight:bold;">
+                  Description
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  1
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_abspath" title="Click to get more details" target="_blank">abspath</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Relative to Absolute path function
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/abspath.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  2
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_base64encode" title="Click to get more details" target="_blank">base64encode</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Perform base64 encoding on a string.
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/base64encode.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  3
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_diag_screen" title="Click to get more details" target="_blank">diag_screen</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Same as DISP but allow to print in a log file
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/diag_screen.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  4
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_dirr" title="Click to get more details" target="_blank">dirr</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Lists all files in the current directory and sub directories recursively.
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/dirr.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  5
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_file_list" title="Click to get more details" target="_blank">file_list</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Create a file list from a folder
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/file_list.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  6
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_finish" title="Click to get more details" target="_blank">finish</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Terminate a Matlab session
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/finish.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  7
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_fmv" title="Click to get more details" target="_blank">fmv</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  System command move on a file
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/fmv.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  8
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_fopenn" title="Click to get more details" target="_blank">fopenn</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Open a file whithout taking care of slash in file name
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/fopenn.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  9
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_fstrrep" title="Click to get more details" target="_blank">fstrrep</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Replace string with another into a text file
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/fstrrep.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  10
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_get_plotlist" title="Click to get more details" target="_blank">get_plotlist</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Return description of diagnostic/plot files
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/get_plotlist.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  11
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_get_plotlistdef" title="Click to get more details" target="_blank">get_plotlistdef</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Display/return description of diagnostic files
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/get_plotlistdef.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  12
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_get_plotlistfields" title="Click to get more details" target="_blank">get_plotlistfields</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Returns the list of fields required by a diag
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/get_plotlistfields.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  13
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_getcomputername" title="Click to get more details" target="_blank">getcomputername</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  returns the name of the computer (hostname)
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/getcomputername.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  14
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_getip" title="Click to get more details" target="_blank">getip</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Return the computer network IP address
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/getip.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  15
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_gmat" title="Click to get more details" target="_blank">gmat</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Grep a string into comments of Matlab routines within a given folder or file
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/gmat.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  16
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_grep" title="Click to get more details" target="_blank">grep</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Grep a string into definitions of functions
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/grep.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  17
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_growl" title="Click to get more details" target="_blank">growl</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Send a notification to Growl
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/growl.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  18
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_helptocxml2html" title="Click to get more details" target="_blank">helptocxml2html</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  H1LINE
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/helptocxml2html.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  19
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_ltp" title="Click to get more details" target="_blank">ltp</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  List directory as ls -rtl
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/ltp.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  20
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_latexlist" title="Click to get more details" target="_blank">ltx_dlist</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Copy a LaTeX file TeX ressources to a local folder
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/ltx_dlist.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  21
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_ltx_tbll" title="Click to get more details" target="_blank">ltx_tbll</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Print a LaTeX table line
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/ltx_tbll.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  22
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_ltx_tblo" title="Click to get more details" target="_blank">ltx_tblo</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Print opening LaTeX table lines
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/ltx_tblo.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  23
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_machine_list" title="Click to get more details" target="_blank">machine_list</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  List all network machine with system command 'nslookup'
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/machine_list.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  24
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_mailsend" title="Click to get more details" target="_blank">mailsend</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Send an email via the system command 'mail'
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/mailsend.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  25
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_myqst" title="Click to get more details" target="_blank">myqst</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Display qstat results
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/myqst.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  26
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_nlines" title="Click to get more details" target="_blank">nlines</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Number of lines in a text file
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/nlines.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  27
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_nojvmwaitbar" title="Click to get more details" target="_blank">nojvmwaitbar</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Progress waitbar for Matlab running without JVM
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/nojvmwaitbar.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  28
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_packver" title="Click to get more details" target="_blank">packver</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Manage Package Version file
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/packver.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  29
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_plgrep" title="Click to get more details" target="_blank">plgrep</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Grep a string into definitions of sub plots/diagnostics
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/plgrep.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  30
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_pllist" title="Click to get more details" target="_blank">pllist</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Shortcut for function get_plotlistdef(MASTER,'.')
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/pllist.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  31
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_qstat" title="Click to get more details" target="_blank">qstat</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Return command qstat -u user outputs
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/qstat.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  32
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_remindme" title="Click to get more details" target="_blank">remindme</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Reminder using crontab and growl
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/remindme.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  33
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_serveraddress" title="Click to get more details" target="_blank">serveraddress</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Display nslookup output
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/serveraddress.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  34
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_strins" title="Click to get more details" target="_blank">strins</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Insert a string into another
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/strins.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  35
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_tbcont" title="Click to get more details" target="_blank">tbcont</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Audit a directory and create html/wiki pages and table of content
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/tbcont.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  36
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_url_code" title="Click to get more details" target="_blank">url_code</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Percent encode/decode of a string
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/url_code.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  37
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_wsload" title="Click to get more details" target="_blank">wsload</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  Load all (or list of) variables of the base workspace into a function workspace
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/wsload.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  38
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_wssave" title="Click to get more details" target="_blank">wssave</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  Save all (or list of) variables from the caller workspace into the base workspace
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/wssave.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;">
+                  39
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://code.google.com/p/guillaumemaze/wiki/matlab_codes_inout_wssize" title="Click to get more details" target="_blank">wssize</a>
+             </td>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  H1LINE
+             </td>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px;; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/wssize.m" title="Download the .m file">.m</a>
+             </td>
+          </tr>
+     </tbody></table>

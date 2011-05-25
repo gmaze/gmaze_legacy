@@ -1,0 +1,22 @@
+== getdV.m ==
+Compute 3D volume elements matrix
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/geophysic/getdV.m Download here]
+
+{{{
+% getdV Compute 3D volume elements matrix
+%
+% dV = getdV(DEPTH,LATITUDE,LONGITUDE)
+%
+% Compute 3D volume elements matrix from geographical
+% axis DEPTH(<0,downward), LATITUDE(northward) and
+% LONGITUDE(eastward)
+%
+% Created: 2009-04-21.
+}}}
+----
+Last update: 2011 March 04, 18:36
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

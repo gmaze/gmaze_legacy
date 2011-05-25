@@ -1,0 +1,17 @@
+# white_christmas.cpt 
+#
+# manually extracted from the NOAA's "probability 
+# of a white christmas" map
+# J.J. Green 2010
+# $Id: white_christmas.cpt,v 1.1 2010/01/19 21:28:32 jjg Exp $ 
+# COLOR_MODEL = RGB
+0  189 165 132  5   189 165 132
+5  107 214 180  10  107 214 180
+10  74 148 214  25   74 148 214
+25   0  83 165  40    0  83 165
+40 140 156 198  50  140 156 198
+50 107  99 148  60  107  99 148
+60 148  99 173  75  148  99 173
+75 165 165 165  90  165 165 165
+90 255 255 255  100 255 255 255
+N 255   0   0

@@ -1,0 +1,19 @@
+== ctitle.m ==
+Display Colorbar title.
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/colors/ctitle.m Download here]
+
+{{{
+% CTITLE Display Colorbar title.
+%
+% HTITLE = CTITLE(H,'text')  
+%   
+% Add a title to the colorbar
+%
+}}}
+----
+Last update: 2011 March 04, 18:36
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

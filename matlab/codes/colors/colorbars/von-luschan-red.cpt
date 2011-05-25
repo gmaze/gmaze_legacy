@@ -1,0 +1,16 @@
+# A reduced-complexity version of Felix von-Luschan's skin color 
+# classification, derived from
+# http://commons.wikimedia.org/wiki/File:Unlabeled_Renatto_Luschan_Skin_color_map.png
+# Creative Commons Attribution ShareAlike 3.0
+# Converted to cpt by J.J. Green 2010
+# $Id: von-luschan-red.cpt,v 1.1 2010/06/08 21:20:21 jjg Exp $
+#
+# COLOR MODEL = RGB
+0    244 242 245 12.0 244 242 245
+12.0 255 249 225 14.5 255 249 225
+14.5 224 210 147 17.5 224 210 147
+17.5 235 216 133 20.5 235 216 133
+20.5 223 193 123 23.5 223 193 123
+23.5 188 151  98 26.5 188 151  98
+26.5 123  75  46 29.5 123  75  46
+29.5  98  46  32 34.0  98  46  32

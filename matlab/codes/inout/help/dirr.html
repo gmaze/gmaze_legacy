@@ -1,0 +1,32 @@
+<html>
+<head>
+     <title>Help: dirr</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <h4>DIRR</h4>Lists all files in the current directory and sub directories recursively.
+                  <br><small>Last modified: 27-May-2010 17:46:15</small>
+
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/dirr.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  <br>% DIRR Lists all files in the current directory and sub directories recursively.<br>% <br>% [LIST] = DIRR(PATH)<br>% Returns a structure LIST with the same fieldnames as returned <br>% by LIST = DIR(PATH)<br>% PATH can contain wildcards * and ? after the last \ or / (filename<br>% filter)<br>% The content of each directory in PATH is listed inside its 'isdir'<br>% field with the same format. The 'bytes' field is NOT zero but the<br>% sum of all filesizes inside the directory.<br>% <br>% [LIST,BYTES] = DIRR(PATH)<br>% BYTES is a structure with fields 'total' and 'dir'. 'total' is the total<br>% size of PATH. 'dir' is a recursive substructure that contains the<br>% same fields ('total' and 'dir') for the subdirectories.<br>% <br>% [...] = DIRR(PATH,FILTER)<br>% Lists only files matching the string FILTER (non case sensitive<br>% regular expression).<br>% N.B.: FILTER is optional and must not be equal to a fieldname<br>% ('name' or 'date' ... will never be interpreted as filters)<br>% <br>% [LIST,BYTES,FIELDOUT] = DIRR(PATH,FIELDIN, ...)<br>% FIELDIN is a string specifying a field (of the structure LIST) that<br>% will be listed in a separate cell array of strings in FIELDOUT for<br>% every file with absolute path at the begining of the string.<br>% Multiple fields can be specified.<br>% <br>% [LIST,BYTES,FIELDOUT] = DIRR(PATH,FIELDIN,FILTER, ...)<br>% Only files for which FIELDIN matches FILTER will be returned.<br>% Multiple [FIELDIN, FILTER] couples may be specified.<br>% Recursion can be avoided here by setting 'isdir' filter to '0'.<br>% For bytes, numeric comparison will be performed.<br>% <br>% <br>% EXAMPLES :<br>% <br>% DIRR<br>% Lists all files (including path) in the current directory and it's<br>% subdirectories recursively.<br>% <br>% DIRR('c:\matlab6p5\work\*.m')<br>% Lists all M-files in the c:\matlab6p5\work directory and it's<br>% subdirectories recursively.<br>% <br>% Music = DIRR('G:\Ma musique\&Styles\Reggae\Alpha Blondy')<br>% Returns a structure Music very similar to what DIR returns <br>% but containing the information on the files stored in<br>% subdirectories of 'G:\Ma musique\&Styles\Reggae\Alpha Blondy'.<br>% The structure Music is a bit difficult to explore though.<br>% See next examples.<br>% <br>% [Files,Bytes,Names] = DIRR('c:\matlab6p5\toolbox','\.mex\>','name')<br>% Lists all MEX-files in the c:\matlab6p5\toolbox directory in the cell<br>% array of strings Names (including path).<br>% Note the regexp syntax of the filter string.<br>% Bytes is a structure with fields "total" and "dir". total is the<br>% total size of the directory, dir is a recursive substructure with<br>% the same fields as bytes for the subdirectories. <br>% <br>% [Files,Bytes,Names] = DIRR('c:\toto'...<br>%       ,'name','bytes','>50000','isdir','0')<br>% Lists all files larger than 50000 bytes NOT recursively.<br>% <br>% [Files,Bytes,Dates] = DIRR('c:\matlab6p5\work','date','2005')<br>% Lists all dates of files from year 2005. (With path in front of<br>% date in the cell array of strings Dates)<br>% <br>% <br>% <br>%       v1.02        <br>%       Maximilien Chaumon<br>%       maximilien.chaumon@chups.jussieu.fr<br>%       2006 06 16
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  Last update: 2011 March 04, 17:46<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>
