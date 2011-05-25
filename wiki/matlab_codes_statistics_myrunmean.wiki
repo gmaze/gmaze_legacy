@@ -1,0 +1,23 @@
+== myrunmean.m ==
+Perform running mean on an array
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/statistics/myrunmean.m Download here]
+
+{{{
+% MYRUNMEAN Perform running mean on an array
+%
+% A = myrunmean(a,NF,bool,dirm)
+% compute runing mean of a in direction dirm with
+% NF mean, i.e at each time step
+%  A(i) --> mean( a(i-NF/2:i+NF/2) ,dirm )
+%
+% if bool == 1, A has only the N-NF elemts
+% if bool == 0, A is Nan outside and has N elmts
+%
+}}}
+----
+Last update: 2011 March 04, 18:36
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]
