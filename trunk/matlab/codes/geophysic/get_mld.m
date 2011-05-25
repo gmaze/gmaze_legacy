@@ -17,10 +17,12 @@
 %	H: mixed layer depth (m)
 %
 % Rq:
-%	- Absolute temperature is converted to potential temperature using the SeaWater library
-%	function 'sw_ptmp'
-
-
+%	- Absolute temperature is converted to potential temperature using the CSIRO SeaWater 
+%	library function 'sw_ptmp' 
+%	(You can get the library at: http://www.cmar.csiro.au/datacentre/ext_docs/seawater.htm)
+%	- Potential density is computed using the 'densjmd95' function
+%	- We assume the vertical axis to be sorted from top (surface) to bottom.
+%
 % Created: 2009-11-19.
 % Rev. by Guillaume Maze on 2011-05-25: Added help
 % Copyright (c) 2009-2011, Guillaume Maze (Laboratoire de Physique des Oceans).
