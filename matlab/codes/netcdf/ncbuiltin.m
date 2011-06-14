@@ -1,11 +1,12 @@
-% ncvarname List variable name of a netcdf object
+% ncbuiltin Is this Matlab using built-in netcdf or not ?
 %
-% namelist = ncvarname(nc)
+% res = ncbuiltin()
 % 
-% Give back the list of names of all variables of the netcdf object nc
+% Is this Matlab using built-in netcdf or not ?
+% res is true or false.
 %
-% Created: 2009-10-20.
-% Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
+% Created: 2011-06-14.
+% Copyright (c) 2011, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
 
@@ -31,49 +32,24 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function varargout = ncvarname(varargin)
+function builtin = ncbuiltin(varargin)
 
-switch ncbuiltin
-	case 0
-		nc = varargin{1};
-		if ~isa(nc,'netcdf')
-			error('ncvarname only take as argument a netcdf object')
-		end
+	fi = ['.' num2str(randi(9,1,30)')' '.nc'];
+	try
+		% Try this syntax only working with the built in Matlab netcdf tool:
+		netcdf.create(fi,'NC_NOCLOBBER');
+		builtin = true;
+	catch
+		builtin = false;
+	end%try
+	delete(fi);
 
-		v = var(nc);
-		for iv = 1 : length(v)
-			namelist(iv) = {name(v{iv})};
-		end
-		namelist = sort(namelist);
 
-	case 1
-		ncid = varargin{1};	
-		switch isinteger(ncid)
-			case 0
-				ncid = netcdf.open(ncid,'NO_WRITE');
-				closeit= true;
-			case 1
-				closeit = false;
-		end% switch 
-		[ndims,nvars,ngatts,unlimdimid] = netcdf.inq(ncid);		
-		for iv = 1 : nvars
-			[varname, xtype, dimids, atts] = netcdf.inqVar(ncid,iv-1);
-			namelist(iv) = {varname};
-		end% for iv		
-		namelist = sort(namelist);
-		
-		if closeit
-			netcdf.close(ncid);
-		end% if 
-		
-end% switch 
+end %functionncbuiltin
 
-if nargout == 0
-	for iv=1:length(namelist)
-		disp(namelist{iv})
-	end
-else
-	varargout(1) = {namelist};
-end
 
-end %functionncvarname
+
+
+
+
+
