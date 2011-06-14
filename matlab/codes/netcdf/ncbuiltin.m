@@ -34,7 +34,7 @@
 
 function builtin = ncbuiltin(varargin)
 
-	fi = ['.' num2str(randi(9,1,30)')' '.nc'];
+	fi = ['.' num2str(fix(rand(1,30)*10)')' '.nc'];
 	try
 		% Try this syntax only working with the built in Matlab netcdf tool:
 		netcdf.create(fi,'NC_NOCLOBBER');
