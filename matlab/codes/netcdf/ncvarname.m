@@ -48,11 +48,11 @@ switch ncbuiltin
 
 	case 1
 		ncid = varargin{1};	
-		switch isinteger(ncid)
-			case 0
-				ncid = netcdf.open(ncid,'NC_NOWRITE');
-				closeit= true;
+		switch ischar(ncid)
 			case 1
+				ncid    = netcdf.open(ncid,'NC_NOWRITE');
+				closeit = true;
+			case 2
 				closeit = false;
 		end% switch 
 		[ndims,nvars,ngatts,unlimdimid] = netcdf.inq(ncid);		
