@@ -50,7 +50,7 @@ switch ncbuiltin
 		ncid = varargin{1};	
 		switch isinteger(ncid)
 			case 0
-				ncid = netcdf.open(ncid,'NO_WRITE');
+				ncid = netcdf.open(ncid,'NC_NOWRITE');
 				closeit= true;
 			case 1
 				closeit = false;
