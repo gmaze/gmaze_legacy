@@ -89,14 +89,14 @@ if nargin == 0
 	return
 else
 	narg = nargin - 3;
-	if mod(narg,2) ~=0 
+	if mod(narg,2) ~= 0 
 		error('taylordiag.m : Wrong number of arguments')
 	end
 end
 
-STDs = varargin{1};
-RMSs = varargin{2};
-CORs = varargin{3};
+STDs = varargin{1}
+RMSs = varargin{2}
+CORs = varargin{3}
 
 %% CHECK THE INPUT FIELDS:
 apro = 100;
@@ -104,11 +104,19 @@ di   = fix(RMSs*apro)/apro - fix(sqrt(STDs.^2 + STDs(1)^2 - 2*STDs*STDs(1).*CORs
 if find(di~=0)
 %	help taylordiag.m
 	ii = find(di~=0);
-	if length(ii) == length(di)
-		error(sprintf('taylordiag.m : Something''s wrong with ALL the datas\nYou must have:\nRMSs - sqrt(STDs.^2 + STDs(1)^2 - 2*STDs*STDs(1).*CORs) = 0 !'))
-	else
-		error(sprintf('taylordiag.m : Something''s wrong with data indice(s): [%i]\nYou must have:\nRMSs - sqrt(STDs.^2 + STDs(1)^2 - 2*STDs*STDs(1).*CORs) = 0 !',ii))		
-	end
+%	if length(ii) == length(di)
+%		error(sprintf('taylordiag.m : Something''s wrong with ALL the datas\nYou must have:\nRMSs - sqrt(STDs.^2 + STDs(1)^2 - 2*STDs*STDs(1).*CORs) = 0 !'))
+%	else
+		desc = '';
+		for ier = 1 : length(ii)
+			a = fix(RMSs(ii(ier))*apro)/apro;
+			b = fix(sqrt(STDs(ii(ier)).^2 + STDs(1)^2 - 2*STDs(ii(ier))*STDs(1).*CORs(ii(ier)))*apro)/apro;
+			desc = sprintf('%s\ntaylordiag.m : Something''s wrong with data index: [%i]',desc,ii(ier));
+			desc = sprintf('%s\nYou must have:\n\tRMSs(%i) - sqrt(STDs(%i).^2 + STDs(1)^2 - 2*STDs(%i)*STDs(1).*CORs(%i)) = 0\n\tand it''s equal to: %0.3f - %0.3f = %0.3f !',desc,ii(ier),ii(ier),ii(ier),ii(ier),a,b,di(ii(ier)));
+		end% for ier
+		error(desc);
+%		error(sprintf('taylordiag.m : Something''s wrong with data indice(s): [%i]\nYou must have:\nRMSs - sqrt(STDs.^2 + STDs(1)^2 - 2*STDs*STDs(1).*CORs) = 0 (and it''s equal to: %0.3f)!\n',ii,di(ii)))		
+%	end
 end
 		
 %% IN POLAR COORDINATES:

@@ -63,8 +63,10 @@ for ifield = 1 : size(REQUIREDfields,1)
 	fil = name2file(REQUIREDfields{ifield});
 	fid_list(ifield) = fopen(strcat(pathclim,fil),'r','ieee-be');
 end
+if find(fid_list<0)
+	error(sprintf('I can''t load %s in file %s',REQUIREDfields{find(fid_list<0)},name2file(REQUIREDfields{find(fid_list<0)})));
+end% if 
 [LSmask3D_0 LSmask3D_1 LSmask3D_2 LSmask3D_3] = load_mask(pathgrid);
-
 
 for ifield = 1 : size(REQUIREDfields,1)
 	clear C
@@ -119,6 +121,7 @@ if nargout >= 1
 	end
 end
 
+end%function
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -134,6 +137,8 @@ for ifield = 1 : length(pv)-1
 field(ifield).name = tl(pv(ifield)+1:pv(ifield+1)-1);
 end
 REQUIREDfields = squeeze(struct2cell(field));
+
+end%function
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 function varargout = name2file(varargin);
@@ -176,6 +181,7 @@ switch nargout
 		varargout(3) = {gridp};
 end
 
+end%function
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -220,7 +226,7 @@ varargout(3) = {LSmask3D_v};
 varargout(4) = {LSmask3D_w};
 
 
-
+end%function
 
 
 

@@ -1,14 +1,23 @@
-% gauss Gaussian function
+% datenumserie Create a time serie with datenum
 %
-% y = gauss(x,sigma,x0,amp)
+% N = datenumserie(Y,MO,[D,M,S])
 % 
-% Give back:
+% Create a time serie with datenum: return the serial date
+% numbers for corresponding elements of the Y, MO (year, month)
+% and eventually D, M or S (day, minutes, seconds).
 %
-%	y = amp*exp( -(x-x0)^2 / 2 / sigma^2 );
+% This function is a fix for the fact that when calling:
+%	datenum(2002:2003,1:12,1,0,0,0)
+% the outcome is a 12 elements array similar to:
+%	datenum(2002,1:12,1,0,0,0)
+% which is not satisfactory.
+% When calling:
+%	datenumserie(2002:2003,1:12,1,0,0,0)
+% the outcome is the expected time serie of 24 elements 
+% between 2002/01 and 2003/12.
 %
-% Created: 2009-11-23.
-% Rev. by Guillaume Maze on 2011-06-15: Added possibility to handle multiple sigma.
-% Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
+% Created: 2011-06-17.
+% Copyright (c) 2011, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
 
@@ -34,24 +43,47 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function y = gauss(x,sigma,x0,a)
+function N = datenumserie(Y,MO,varargin)
 
-%x       = x(:);
-%sigma   = sigma(:);
-[mx ms] = meshgrid(x,sigma);
+D  = 1;
+H  = 0;
+MI = 0;
+SE = 0;
 
-y = a*exp(- (mx-x0).^2 / 2 ./ ms.^2 );
+switch nargin
+	case 3
+		D = varargin{1};
+	case 4
+		D = varargin{1};
+		H = varargin{2};
+	case 5
+		D  = varargin{1};
+		H  = varargin{2};
+		MI = varargin{3};
+	case 6
+		D  = varargin{1};
+		H  = varargin{2};
+		MI = varargin{3};
+		SE = varargin{4};
+end% switch 
 
-%y = a*exp(- (x-x0).^2 / 2 / sigma.^2 );
+it = 0;
+for iy = 1 : length(Y)
+	for im = 1 : length(MO)
+		for id = 1 : length(D)
+			for ih = 1 : length(H)
+				for imi = 1 : length(MI)
+					for is = 1 : length(SE)
+						it = it + 1;
+						N(it) = datenum(Y(iy),MO(im),D(id),H(ih),MI(imi),SE(is));
+					end% for is
+				end% for imi
+			end% for ih
+		end% for id
+	end% for im
+end% for iy
 
-end %functiongauss
-
-
-
-
-
-
-
+end %functiondatenumserie
 
 
 

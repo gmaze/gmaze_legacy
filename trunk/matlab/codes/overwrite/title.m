@@ -78,6 +78,8 @@ else
 
 end
 
+set(h,'fontweight','bold');
+
 if nargout > 0
   hh = h;
 end
