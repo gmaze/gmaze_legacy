@@ -56,12 +56,13 @@ end
 X(X>=-180 & X<0) = 360 + X(X>=-180 & X<0);
 
 % Is this grid regular ?
+sum(diff(X))/(nx-1)
 if sum(diff(X))/(nx-1) == diff(X(1:2)) && sum(diff(Y))/(ny-1) == diff(Y(1:2)) % yep !
+	disp('This grid is regular')
 	[DS DY DX] = go_method2(X,Y,diff(X(1:2)),diff(Y(1:2)),issym);
 else
 	[DS DY DX] = go_method1(X,Y,issym,method);
-end	
-	
+end		
 	
 
 switch nargout
@@ -123,7 +124,7 @@ function [DS DY DX] = go_method2(X,Y,DX,DY,issym);
       return
     end
   end
-	[ix1 ix2 iy1 iy2];
+  [ix1 ix2 iy1 iy2];
   ixc = ix1:1:ix2;
   iyc = iy1:1:iy2;
 

@@ -1,14 +1,12 @@
 % GETCOMPUTERNAME returns the name of the computer (hostname)
+%
 % name = getComputerName()
 %
 % WARN: output string is converted to lower case
 %
-%
 % See also SYSTEM, GETENV, ISPC, ISUNIX
 %
-% m j m a r i n j (AT) y a h o o (DOT) e s
-% (c) MJMJ/2007
-%
+
 
 function name = getcomputername()
 
@@ -26,3 +24,9 @@ if isempty('name')
    end
 end
 name = lower(name);
+name = strrep(name,' ','');
+name = urlencode(name);
+name = strrep(name,'%0A','');
+name = strrep(name,'%20','');
+name = urldecode(name);
+

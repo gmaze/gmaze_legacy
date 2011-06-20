@@ -76,11 +76,13 @@ if length(iok) ~= length(Cr)
 end
 Cr  = Cr(iok);
 Cf  = Cf(iok);
-N  = length(Cr);
+N   = length(Cr);
 
 %%% STD:
 st(1) = sqrt(sum(  (Cr-mean(Cr) ).^2)  / N );
 st(2) = sqrt(sum(  (Cf-mean(Cf) ).^2)  / N );
+%st(1) = sqrt(sum(  (Cr-mean(Cr) ).^2)  / (N-1) );
+%st(2) = sqrt(sum(  (Cf-mean(Cf) ).^2)  / (N-1) );
 
 %%% MEAN:
 me(1) = mean(Cr);

@@ -41,7 +41,7 @@ end
 
 % Get the original time serie:
 url = 'http://www.cpc.noaa.gov/products/precip/CWlink/pna/norm.nao.monthly.b5001.current.ascii';
-nao_path = '~/matlab/routines/data/';
+nao_path = '~/matlab/codes/data/';
 nao_file = sprintf('NAO_%s.txt',datestr(now,'yyyymm'));
 if ~exist(sprintf('%s%s',nao_path,nao_file),'file')
 	system(sprintf('wget -q -O %s%s ''%s''',nao_path,nao_file,url));

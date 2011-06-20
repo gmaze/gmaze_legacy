@@ -82,12 +82,17 @@ for iy = 1 : length(y0)
 	end% for is
 	
 	% Add text:
+	if ~exist('label','var')
+		txt = num2str(y0(iy));
+	else
+		txt = label{iy};
+	end% if 
 	switch get(gca,'yaxislocation')
 		case 'left'
-			tt(iy) = text(min(get(gca,'xlim')),y0(iy),num2str(y0(iy)),'tag','hline');		
+			tt(iy) = text(min(get(gca,'xlim')),y0(iy),txt,'tag','hline');		
 			set(tt(iy),'verticalAlignment','middle','horizontalAlignment','right');						
 		case 'right'
-			tt(iy) = text(max(get(gca,'xlim')),y0(iy),num2str(y0(iy)),'tag','hline');		
+			tt(iy) = text(max(get(gca,'xlim')),y0(iy),txt,'tag','hline');		
 			set(tt(iy),'verticalAlignment','middle','horizontalAlignment','left');
 	end% switch 
 	for is = 1 : 2 : length(style)
