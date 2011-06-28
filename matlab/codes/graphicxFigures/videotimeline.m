@@ -19,7 +19,6 @@
 
 function varargout = videotimeline(TIME,it,POSIT)
 
-
 [nt nc] = size(TIME);
 
 DY = .02;
