@@ -29,7 +29,8 @@ if isempty(ct) % This is not a contour plot
 	if isempty(find(size(get(ct,'xdata'))==1))
 		if isempty(find(size(get(ct,'ydata'))==1))
 			if isempty(find(size(get(ct,'zdata'))==1))
-				error('')
+				v = get(ct,'cdata');
+%				error('I don''t know how to retrieve values from this plot ...')
 			else
 				v = get(ct,'zdata');
 			end
@@ -42,7 +43,7 @@ if isempty(ct) % This is not a contour plot
 end
 
 if isempty(v)
-	% Let's if these are m_map stuff
+	% Let's see if these are m_map stuff
 	ct = findall(ch,'tag','m_contourf');
 	v  = cell2mat(get(ct,'userdata'));
 end	
@@ -59,7 +60,15 @@ end
 	cx = max(abs(v(:)));
 %	cx = abs(caxis);
 	
+	if isempty(cx)
+		warning('I don''t know how to retrieve values from this plot ...')
+	else	
+		load mapanom2
+		colormap(mapanom)
+		caxis([-1 1]*max(cx));
+	end% if 
 	
-	load mapanom2
-	colormap(mapanom)
-	caxis([-1 1]*max(cx));
+	
+	
+	
+	
