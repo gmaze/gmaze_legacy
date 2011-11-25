@@ -9,6 +9,7 @@
 % get_plotlistdef('hydro_selected_O2','.');
 % % will list all hydro_selected_O2_pl* matlab files
 %
+% Rev. by Guillaume Maze on 2011-07-08: Get rid of variables sla, using fullfile
 % Rev. by Guillaume Maze on 2011-03-28: Fix bug in determining the index of module
 % Rev. by Guillaume Maze on 2009-05-29: Remove from the output diag without descriptions
 % Created: 2006-07-12.
@@ -25,14 +26,12 @@
 
 function varargout = get_plotlistdef(MASTER,SUBDIR)
 
-global sla
-
-% Define suffix of plot modules:
+%- Define suffix of plot modules:
 suff = '_pl';
 
 d = dir(SUBDIR);
 ii = 0;
-% Select Matlab files:
+%- Select Matlab files:
 for id = 1 : length(d)
   en = length( d(id).name );
   if en~=1 & (d(id).name(en-1:en) == '.m') &  ~d(id).isdir
@@ -41,18 +40,18 @@ for id = 1 : length(d)
   end
 end
 
-% Select Matlab files with MASTER as prefix
+%- Select Matlab files with MASTER as prefix
 ii = 0;
 for il = 1 : length(l)
   fil = l(il).name;
   pref = strcat(MASTER,suff);
 %  iM =  findstr( strcat(SUBDIR,sla,fil) , pref ) ;
-  iM =  strfind( strcat(SUBDIR,sla,fil) , pref ) ;
+  iM =  strfind( fullfile(SUBDIR,fil) , pref ) ;
 
   if ~isempty(iM)
 
     % Recup description of the plot module:
-    fid = fopen(strcat(SUBDIR,sla,fil));
+    fid = fopen(fullfile(SUBDIR,fil),'r');
     thatsit = 0; desc = ''; req = '';
 	while thatsit ~= 1
 		tline = fgetl(fid);

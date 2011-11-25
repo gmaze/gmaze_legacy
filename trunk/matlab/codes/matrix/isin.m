@@ -1,18 +1,14 @@
-% gauss Gaussian function
+% isin Check if a table contains values of another table
 %
-% y = gauss(x,sigma,x0,amp)
+% [C,IA,IB] = isin(A,B)
 % 
-% Give back:
+% Check if table A contains values of table B.
+%	C: Values of A containing values of B.
+%	IA: C = A(IA)
+%	IB: C = B(IB)
 %
-%	y = amp*exp( -(x-x0)^2 / 2 / sigma^2 );
-%
-% Rev. by Guillaume Maze on 2011-10-25: 
-%	Now scale input sigma by sqrt(2)
-%	so that half curve thickness at y(x0)/exp(1) is sigma !
-%
-% Created: 2009-11-23.
-% Rev. by Guillaume Maze on 2011-06-15: Added possibility to handle multiple sigma.
-% Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
+% Created: 2011-11-07.
+% Copyright (c) 2011, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
 
@@ -38,28 +34,33 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function y = gauss(x,sigma,x0,a)
+function [C IA IB] = isin(A,B)
 
-% Scale sigma so that the gaussian thickness is correct
-sigma = sigma/sqrt(2);
+ia = findin(A,B);
+IA = find(ia~=0);
+if ~isempty(IA)
+	C  = A(IA);	
+	vlist = unique(A(IA));
+	ib = findin(B,vlist);
+	IB = find(ib~=0);	
+else
+	C = [];
+	IB = [];
+end
 
-[mx ms] = meshgrid(x,sigma);
-
-y = a*exp(- (mx-x0).^2 / 2 ./ ms.^2 );
-
-end %functiongauss
-
-
-
-
-
-
-
+end %functionisin
 
 
 
-
-
+function ii = findin(A,B)
+	for iv = 1 : length(B)
+		if iv == 1
+			ii = A==B(iv);
+		else
+			ii = ii | A==B(iv);
+		end% if 
+	end% for ib
+end% function
 
 
 
