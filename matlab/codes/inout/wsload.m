@@ -6,6 +6,7 @@
 % If VLIST is specified, only load variables given by cell array VLIST.
 %
 % Created: 2009-11-05.
+% Rev. by G. Maze on 2011-07-28: Change warning to error when trying to load a nonexistent variable.
 % Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
@@ -52,7 +53,7 @@ switch nargin
 					tmp = evalin('base',ws_base{iv});
 					assignin('caller',ws_base{iv},tmp);
 				else
-					warning(sprintf('Cannot load ''%s'' because it is not in the base workspace',vlist{ii}));
+					error(sprintf('Cannot load ''%s'' because it is not in the base workspace',vlist{ii}));
 				end
 			end
 		end
