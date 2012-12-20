@@ -3,7 +3,7 @@
 % 
 % 		Contents from /Users/gmaze/matlab/codes/custom
 % 
-% Last update: 2012 December 20, 14:03
+% Last update: 2012 December 20, 15:17
 % 
 % 	bibus                                    - Give me the next bus
 % 	blk                                      - Insert a blank page at the terminal prompt
