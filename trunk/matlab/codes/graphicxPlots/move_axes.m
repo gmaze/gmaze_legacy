@@ -9,12 +9,17 @@
 %		given by PARAM.
 %	'verticalshift': Move the axis vertically by an amount
 %		given by PARAM.
+%
 %	'expandleft': Expand the axis toward the left by an amount
 %		given by PARAM. The right axis position is preserved.
 %	'setwidthleft': Change the axis width by extending/cropping it 
 %		on the left side. The new width is given by PARAM.
+%
 %	'vshrink': Change the axis height without changing the vertical
-%		position of the axis middle position.
+%		position of the axis center position.
+%	'hshrink': Change the axis width without changing the horizontal
+%		position of the axis center position.
+%
 %	'reset': Set the axis back to its initial position
 %
 % WARNING:
@@ -73,10 +78,15 @@ end% switch Already set up
 
 %- Move or reset the axis position:
 switch move_type
-	case 'vshrink'
-		dz = varargin{3};
+	case 'hshrink'
+		dx  = varargin{3};
 		pos = get(axishl,'position');
-		set(axishl,'position',[pos(1) pos(2)-dz/2 pos(3) pos(4)+dz]);
+		set(axishl,'position',[pos(1)-dx/2 pos(2) pos(3)+dx pos(4)]);
+
+	case 'vshrink'
+		dy  = varargin{3};
+		pos = get(axishl,'position');
+		set(axishl,'position',[pos(1) pos(2)-dy/2 pos(3) pos(4)+dy]);
 		
 	case {'horizontalshift'}
 		dx  = varargin{3};
@@ -98,6 +108,7 @@ switch move_type
 		pos = get(axishl,'position');
 		wd0 = pos(3);
 		set(axishl,'position',[pos(1)+wd0-wd pos(2) wd pos(4)]);
+		
 	case 'reset'
 		ix = find(SubplotInitialPositions.axlist==axishl);
 		if isempty(ix)
