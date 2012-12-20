@@ -1,11 +1,13 @@
-% MY CODES: Tools for plots/axes/annotations
-% Version 1 1 04-Mar-2011
+% MY CODES: GRAPHICXPLOTS
+% Version 1 1 20-Dec-2012
 % 
 % 		Contents from /Users/gmaze/matlab/codes/graphicxPlots
 % 
-% Last update: 2011 March 04, 18:36
+% Last update: 2012 December 20, 15:17
 % 
 % 	addarrows                                - Add arrows along a contour handle
+% 	ahline                                   - Draw a horizontal line on a plot and print value on the y-axis
+% 	barerror                                 - H1LINE
 % 	boldnul                                  - Make null contours line style dashed
 % 	cleancont                                - Update color for m_contourf plots
 % 	cs2st                                    - Transform contour matrix into output from streamline
@@ -16,7 +18,7 @@
 % 	floatAxisY_right                         - floatAxisY create floating x-axis for multi-parameter plot
 % 	hline                                    - Draw a horizontal line on a plot
 % 	mapclean                                 - Uniform plots and colorbars
-% 	move_axis                                - Move an axis
+% 	move_axes                                - Move an axis (plot) within a figure
 % 	outerbox                                 - Plot a box around a plot
 % 	patcharrow                               - Create a polygon with an arrow for annotation
 % 	ptable                                   - Creates non uniform subplot handles
