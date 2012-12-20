@@ -3,7 +3,7 @@
 % 
 % 		Contents from /Users/gmaze/matlab/codes/colors
 % 
-% Last update: 2011 March 04, 18:36
+% Last update: 2012 December 20, 13:47
 % 
 % 	bluewhitered                             - Blue, white, and red color map.
 % 	canom                                    - Center the caxis on zero
@@ -11,6 +11,7 @@
 % 	cmapa                                    - change colormap for anomalies
 % 	colormap                                 - Color look-up table.
 % 	colormap_cpt                             - builds a matlab colormap from a cpt file
+% 	colormap_plt                             - Load a colormap from the Matplotlib palette
 % 	cseason                                  - Colormap for seasons
 % 	ctitle                                   - Display Colorbar title.
 % 	logcolormap                              - Stretch a colormap extremum toward black and white

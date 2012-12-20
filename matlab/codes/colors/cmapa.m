@@ -44,16 +44,49 @@ switch nargin
 				load mapanom2
 				cmap = logcolormap(128,1,1,mapanom);
 			case 2
-				cmap = [gray;flipud(gray)];
+				cmap = [gray ; flipud(gray)];
 			case 3
 				load mapanom2
 				cmap = mapanom;
 			case 4
 				load mapanom
 				cmap = mapanom;
+			case 5
+				load mapanom2
+				cmap = mapanom;
+				cmap = mycolormap(cmap,128);
+				cm   = rgb2hsv(cmap);
+				cm(:,1) = linspace(1,.5,size(cm,1)); 
+				cmap = hsv2rgb(cm);
+				cmap = flipud(cmap);
+			case 6
+				load mapanom2
+				cmap = mapanom;
+				cmap = mycolormap(cmap,128);
+				cm   = rgb2hsv(cmap);
+				cm(:,1) = linspace(.5,1,size(cm,1)); 
+				cmap = hsv2rgb(cm);
+			case 7
+				cmap1 = cmapa(5);
+				cmap2 = cmapa(6);
+				cmap(1:64,:)   = cmap1(1:64,:);
+				cmap(65:128,:) = cmap2(65:128,:);
+			case 8
+				cmap1 = cmapa(5);
+				cmap2 = cmapa(6);
+				cmap(1:64,:)   = flipud(cmap1(65:128,:));
+				cmap(65:128,:) = flipud(cmap2(1:64,:));	
+				cmap = flipud(cmap);
 		end
 end
-colormap(cmap)
+
+switch nargout
+	case 0
+		colormap(cmap)
+	otherwise
+		varargout(1) = {cmap};
+end% switch 
+
 
 end %functioncmapa
 
