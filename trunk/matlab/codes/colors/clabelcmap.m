@@ -1,6 +1,6 @@
 % clabelcmap Create labels for colorbar
 %
-% [] = clabelcmap(hcb,cx,N,[C,F])
+% [yt ytl] = clabelcmap(hcb,cx,N,[C,F])
 % 
 % Create clean labels for a colorbar
 % Inputs:
@@ -18,6 +18,7 @@
 %	subplot(1,2,2);caxis(cx);cl=colorbar;clabelcmap(cl,cx,N,0,'%g');title('Labels not centered');
 %	
 % Created: 2009-11-24.
+% Rev. by Guillaume Maze on 2012-06-11: Added output handles
 % Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
@@ -85,6 +86,15 @@ switch getor(cl)
 	case 'h'
 		set(cl,'xtick',yt,'xticklabel',ytl);
 end
+
+
+switch nargout
+	case 1
+		varargout(1) = {yt};
+	case 2
+		varargout(1) = {yt};
+		varargout(2) = {ytl};
+end% switch 
 
 
 end %functionclabelcmap
