@@ -94,9 +94,9 @@ else
 	end
 end
 
-STDs = varargin{1}
-RMSs = varargin{2}
-CORs = varargin{3}
+STDs = varargin{1};
+RMSs = varargin{2};
+CORs = varargin{3};
 
 %% CHECK THE INPUT FIELDS:
 apro = 100;
@@ -489,7 +489,12 @@ switch nargout
 	case 3
 		varargout(1) = {pp};
 		varargout(2) = {tt};
+		varargout(3) = {ax};
+	case 4
+		varargout(1) = {pp};
+		varargout(2) = {tt};
 		varargout(3) = {ax};		
+		varargout(4) = {gca};		
 end
 
 

@@ -1,9 +1,9 @@
 % MY CODES: STATISTICS
-% Version 1 1 04-Mar-2011
+% Version 1 1 20-Dec-2012
 % 
 % 		Contents from /Users/gmaze/matlab/codes/statistics
 % 
-% Last update: 2011 March 04, 18:36
+% Last update: 2012 December 20, 15:17
 % 
 % 	WSEdecomp                                - Split a signal into its downward/upward propagating and stationnary components
 % 	allstats                                 - STATM Compute statistics from 2 series
@@ -27,6 +27,7 @@
 % 	myspecgram                               - Spectrogram
 % 	nlinvp                                   - Non-Linear inverse problem
 % 	periodogram2                             - Computes the 2-D periodogram based on Fourier Method
+% 	stan                                     - Return a standardized serie
 % 	taylordiag                               - Plot a Taylor Diagram
 % 	trend                                    - Find a linear trend from a vector, usually for FFT processing.
 % 	wmean                                    - Compute a weighted mean
