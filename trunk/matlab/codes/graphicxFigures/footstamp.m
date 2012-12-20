@@ -13,8 +13,10 @@
 %		>> footstamp(2,[mfilename('fullpath') '.m'])
 %		code@guillaumemaze.org (22-Jul-2009 14:29)
 %		(macbook) file://Users/gmaze/work/Postdoc/work/main/hydrolpo/hydro_selected_viewdates.m
+%	3: Same as 2 but output is a cell of string
 %	
 %
+% Rev. by Guillaume Maze on 2012-02-13: Added option 3 for cell outputs
 % Created: 2009-07-22.
 % Copyright (c) 2009 Guillaume Maze. 
 % http://codes.guillaumemaze.org
@@ -39,6 +41,12 @@ else
 end
 	
 switch typ
+	case 3
+		we   = wherearewe;
+		mfil = varargin{2};
+		dte  = datestr(now,'dd-mmm-yyyy HH:MM');
+		str(1) = {sprintf('code@guillaumemaze.org (%s)',dte)};
+		str(2) = {sprintf('(%s) file:/%s',we,mfil)};
 	case 2
 		we   = wherearewe;
 		mfil = varargin{2};
