@@ -119,8 +119,8 @@ pref_wiki = 'matlab';
 % The depth of the recursive scan:
 ndepth    = Inf;
 % Build Contents.m ?
-do_contentsm   = 1;
-overw_contentsm = 0; % By default we do not over write the TOC file
+do_contentsm    = 1;
+overw_contentsm = 0; % By default we do not overwrite the TOC file
 
 % Build tbcont.html ?
 do_tbcont      = 1;
@@ -286,6 +286,22 @@ diag_screen_default.forma = '%s\n';
 
 % Insert last update time:
 diag_screen(sprintf('%5s<b>Last update: %s</b>',blk,datestr(now,'yyyy mmmm dd, HH:MM')));
+
+% Insert google widget to share the page:
+share = '<img src="https://www.google.com/chart?chc=sites&amp;cht=d&amp;chdp=sites&amp;chl=%5B%5BGoogle+Gadget''%3D20''f%5Cv''a%5C%3D0''10''%3D449''0''dim''%5Cbox1''b%5CF6F6F6''fC%5CF6F6F6''eC%5C0''sk''%5C%5B%22AddThis+6+by+TVS!%22''%5D''a%5CV%5C%3D12''f%5C%5DV%5Cta%5C%3D10''%3D0''%3D450''%3D157''dim''%5C%3D10''%3D10''%3D450''%3D157''vdim''%5Cbox1''b%5Cva%5CF6F6F6''fC%5CC8C8C8''eC%5C''a%5C%5Do%5CLauto''f%5C&amp;';
+share = sprintf('%s%s',share,'sig=vz20UQShVhTn3xY5t2cX4y69ubs" data-igsrc="http://59.gmodules.com/ig/ifr?mid=59&amp;synd=trogedit&amp;url=http%3A%2F%2Fhosting.gmodules.com%2Fig%2Fgadgets%2Ffile%2F101665793460931063207%2Fcloudsters-add-this01.xml&amp;');
+share = sprintf('%s%s',share,'up_ID=ra-4d9393d217d0c596&amp;up_URL=http%3A%2F%2Fcodes.guillaumemaze.org%2Fmatlab&amp;up_Title=Matlab%20scripts&amp;up_Description=A%20list%20of%20useful%20and%20free%20Matlab%20scripts%20&amp;up_BackCol=White&amp;');
+share = sprintf('%s%s',share,'up_button1=addthis_button_twitter&amp;up_button2=addthis_button_google_plusone&amp;up_button3=addthis_button_facebook&amp;up_button4=addthis_button_linkedin&amp;up_button5=addthis_button_blogger&amp;');
+share = sprintf('%s%s',share,'up_button6=addthis_button_digg&amp;up_iconsize=addthis_32x32_style&amp;h=160&amp;w=450" data-type="ggs-gadget" data-props="align:right;borderTitle:AddThis 6 by TVS!;height:160;');
+share = sprintf('%s%s',share,'igsrc:http#58//59.gmodules.com/ig/ifr?mid=59&amp;synd=trogedit&amp;url=http%3A%2F%2Fhosting.gmodules.com%2Fig%2Fgadgets%2Ffile%2F101665793460931063207%2Fcloudsters-add-this01.xml&amp;');
+share = sprintf('%s%s',share,'up_ID=ra-4d9393d217d0c596&amp;up_URL=http%3A%2F%2Fcodes.guillaumemaze.org%2Fmatlab&amp;up_Title=Matlab%20scripts&amp;up_Description=A%20list%20of%20useful%20and%20free%20Matlab%20scripts%20&amp;');
+share = sprintf('%s%s',share,'up_BackCol=White&amp;up_button1=addthis_button_twitter&amp;up_button2=addthis_button_google_plusone&amp;up_button3=addthis_button_facebook&amp;up_button4=addthis_button_linkedin&amp;');
+share = sprintf('%s%s',share,'up_button5=addthis_button_blogger&amp;up_button6=addthis_button_digg&amp;up_iconsize=addthis_32x32_style&amp;h=160&amp;w=450;mid:59;scrolling:auto;showBorder:false;showBorderTitle:null;');
+share = sprintf('%s%s',share,'spec:http#58//hosting.gmodules.com/ig/gadgets/file/101665793460931063207/cloudsters-add-this01.xml;up_BackCol:White;up_Description:A list of useful and free Matlab scripts ;up_ID:ra-4d9393d217d0c596;');
+share = sprintf('%s%s',share,'up_Title:Matlab scripts;up_URL:http#58//codes.guillaumemaze.org/matlab;up_button1:addthis_button_twitter;up_button2:addthis_button_google_plusone;up_button3:addthis_button_facebook;');
+share = sprintf('%s%s',share,'up_button4:addthis_button_linkedin;up_button5:addthis_button_blogger;up_button6:addthis_button_digg;up_iconsize:addthis_32x32_style;view:default;width:450;wrap:true;"');
+share = sprintf('%s%s',share,' width="450" height="160" style="display:inline;float:right;margin:5px 0 5px 20px;" class="igm">');
+diag_screen(sprintf('%s%s',blk,share));
 
 %%%%%%%%%%%%%%% First create the 'Quick links' list:
 diag_screen(sprintf('%5s<center><table><tbody>',blk));
