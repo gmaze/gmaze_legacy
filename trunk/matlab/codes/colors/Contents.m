@@ -1,9 +1,9 @@
-% MY CODES: All about colormaps and colorbars
-% Version 1 1 04-Mar-2011
+% MY CODES: COLORS
+% Version 1 1 20-Dec-2012
 % 
 % 		Contents from /Users/gmaze/matlab/codes/colors
 % 
-% Last update: 2012 December 20, 13:47
+% Last update: 2012 December 20, 15:17
 % 
 % 	bluewhitered                             - Blue, white, and red color map.
 % 	canom                                    - Center the caxis on zero
