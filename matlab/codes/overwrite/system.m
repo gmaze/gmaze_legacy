@@ -1,8 +1,8 @@
-% system H1LINE
+% system Fix issue with missing .cshrc
 %
 % [] = system()
 % 
-% HELPTEXT
+% Fix issue with missing .cshrc
 %
 % Created: 2011-01-29.
 % Copyright (c) 2011, Guillaume Maze (Laboratoire de Physique des Oceans).
