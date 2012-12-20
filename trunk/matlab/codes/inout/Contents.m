@@ -1,14 +1,13 @@
-% MY CODES: I/O routines
-% Version 1 1 04-Mar-2011
+% MY CODES: INOUT
+% Version 1 1 20-Dec-2012
 % 
 % 		Contents from /Users/gmaze/matlab/codes/inout
 % 
-% Last update: 2011 March 04, 18:36
+% Last update: 2012 December 20, 15:17
 % 
 % 	abspath                                  - Relative to Absolute path function
 % 	base64encode                             - Perform base64 encoding on a string.
 % 	diag_screen                              - Same as DISP but allow to print in a log file
-% 	dirr                                     - Lists all files in the current directory and sub directories recursively.
 % 	file_list                                - Create a file list from a folder
 % 	finish                                   - Terminate a Matlab session
 % 	fmv                                      - System command move on a file
@@ -37,7 +36,9 @@
 % 	pllist                                   - Shortcut for function get_plotlistdef(MASTER,'.')
 % 	qstat                                    - Return command qstat -u user outputs
 % 	remindme                                 - Reminder using crontab and growl
+% 	sep                                      - Draw/Create a horizontal line on the terminal
 % 	serveraddress                            - Display nslookup output
+% 	stralign                                 - Align/Justify a string within a given sized blank space
 % 	strins                                   - Insert a string into another
 % 	tbcont                                   - Audit a directory and create html/wiki pages and table of content
 % 	url_code                                 - Percent encode/decode of a string
