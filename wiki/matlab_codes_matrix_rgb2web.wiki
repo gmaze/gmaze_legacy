@@ -1,0 +1,21 @@
+== rgb2web.m ==
+Convert an rgb colormap map to a javascript array of webcolor strings.
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/matrix/rgb2web.m Download here]
+
+{{{
+% rgb2web Convert an rgb colormap map to a javascript array of webcolor strings.
+%
+% tbl = rgb2web(cmap)
+% 
+% Convert an rgb colormap map to a javascript array of webcolor strings.
+%
+% Created: 2011-12-05.
+% All rights reserved.
+}}}
+----
+Last update: 2012 December 20, 15:17
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

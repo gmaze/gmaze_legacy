@@ -12,10 +12,11 @@ Load all (or list of) variables of the base workspace into a function workspace
 % If VLIST is specified, only load variables given by cell array VLIST.
 %
 % Created: 2009-11-05.
+% Rev. by G. Maze on 2011-07-28: Change warning to error when trying to load a nonexistent variable.
 % All rights reserved.
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2012 December 20, 15:17
 
 Created by Guillaume Maze
 

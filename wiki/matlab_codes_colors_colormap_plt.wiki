@@ -1,0 +1,22 @@
+== colormap_plt.m ==
+Load a colormap from the Matplotlib palette
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/colors/colormap_plt.m Download here]
+
+{{{
+% colormap_plt Load a colormap from the Matplotlib palette
+%
+% [CMAP] = colormap_plt([NAME])
+% 
+% Load a colormap from the Matplotlib palette.
+% If no NAME is specified, we loop through all colormaps on the current figure.
+%
+% Created: 2012-02-16.
+% All rights reserved.
+}}}
+----
+Last update: 2012 December 20, 15:17
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

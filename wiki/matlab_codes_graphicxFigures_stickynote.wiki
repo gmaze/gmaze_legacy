@@ -1,0 +1,21 @@
+== stickynote.m ==
+H1LINE
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/graphicxFigures/stickynote.m Download here]
+
+{{{
+% stickynote H1LINE
+%
+% [] = stickynote()
+% 
+% HELPTEXT
+%
+% Created: 2011-03-04.
+% All rights reserved.
+}}}
+----
+Last update: 2012 December 20, 15:17
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

@@ -1,0 +1,16 @@
+== popd.m ==
+Pops you back up in the PUSHD stack
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/mcentral/popd.m Download here]
+
+{{{
+%POPD Pops you back up in the PUSHD stack
+%
+%   See also pushd, cd, pwd
+}}}
+----
+Last update: 2012 December 20, 14:01
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

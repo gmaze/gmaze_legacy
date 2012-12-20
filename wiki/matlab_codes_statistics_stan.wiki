@@ -1,0 +1,22 @@
+== stan.m ==
+Return a standardized serie
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/statistics/stan.m Download here]
+
+{{{
+% stan Return a standardized serie
+%
+% X = stan(X,[DIM])
+% 
+% Return a standardized serie:
+%	[X - mean(X)]/std(X)
+%
+% Created: 2012-01-30.
+% All rights reserved.
+}}}
+----
+Last update: 2012 December 20, 15:17
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

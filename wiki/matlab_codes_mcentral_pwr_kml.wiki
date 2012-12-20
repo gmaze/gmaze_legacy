@@ -1,0 +1,16 @@
+== pwr_kml.m ==
+makes a kml file for use in google earth
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/mcentral/pwr_kml.m Download here]
+
+{{{
+%makes a kml file for use in google earth
+%input:  name of track, one matrix containing latitude and longitude
+%usage:  pwr_kml('track5',latlon)
+}}}
+----
+Last update: 2012 December 20, 14:01
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

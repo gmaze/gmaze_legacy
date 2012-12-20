@@ -1,0 +1,24 @@
+== isin.m ==
+Check if a table contains values of another table
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/matrix/isin.m Download here]
+
+{{{
+% isin Check if a table contains values of another table
+%
+% [C,IA,IB] = isin(A,B)
+% 
+% Check if table A contains values of table B.
+%	C: Values of A containing values of B.
+%	IA: C = A(IA)
+%	IB: C = B(IB)
+%
+% Created: 2011-11-07.
+% All rights reserved.
+}}}
+----
+Last update: 2012 December 20, 15:17
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

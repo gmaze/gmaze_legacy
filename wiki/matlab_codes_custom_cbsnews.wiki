@@ -1,0 +1,22 @@
+== cbsnews.m ==
+Open the CBS Evening News podcast with your browser
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/custom/cbsnews.m Download here]
+
+{{{
+% cbsnews Open the CBS Evening News podcast with your browser
+%
+% cbsnews([DATE])
+% 
+% Open the CBS Evening News podcast with your browser.
+% If DATE is specified (format: MM/DD) open it instead.
+%
+% Created: 2009-10-15.
+% All rights reserved.
+}}}
+----
+Last update: 2012 December 20, 15:17
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

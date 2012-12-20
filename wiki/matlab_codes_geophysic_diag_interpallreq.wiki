@@ -1,0 +1,28 @@
+== diag_interpallREQ.m ==
+NEWFIELD = diag_interpallREQ(FIELD,LON,LAT,netcdf_domain,resolution,...
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/geophysic/diag_interpallREQ.m Download here]
+
+{{{
+% NEWFIELD = diag_interpallREQ(FIELD,LON,LAT,netcdf_domain,resolution,...
+%                              [grid])
+%
+% We interpolate linearly FIELD(LAT,LON) on a grid, independant of the dataset
+% with a resolution on the domain netcdf_domain.
+%
+% [grid] = 'T' or 'U' or 'V'
+% Indicate where the field is on the C-grid
+% Default is 'T'
+%
+% Output is:
+% [NEWFIELD,LON,LAT,DLON,DLAT]
+%
+% 2008/02/13
+% gmaze@mit.edu
+}}}
+----
+Last update: 2012 December 20, 15:17
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]
