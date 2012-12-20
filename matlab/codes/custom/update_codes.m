@@ -51,7 +51,7 @@ tbcont('~/matlab/codes/','link_rel','codes','ndepth',1,'overw_contentsm',1);
 %- Remove wiki pages with personal data:
 delete('~/matlab/codes/wiki/matlab_codes_off*');
 delete('~/matlab/codes/wiki/matlab_codes_mcentral*');
-delete('~/matlab/codes/wiki/matlab_codes_custom*');
+%delete('~/matlab/codes/wiki/matlab_codes_custom*');
 
 %- Also create a toc for each individual package:
 subl = {'custom';'colors';'geophysic';'graphicxFigures';'graphicxPlots';'inout';'matrix';'netcdf';'overwrite';'statistics';'mcentral'};
@@ -64,23 +64,14 @@ end
 
 %- Update wiki pages
 system('\cp ~/matlab/codes/wiki/* ~/work/Contributions/code.google.com/guillaumemaze_wiki/');
-pushd('~/work/Contributions/code.google.com/guillaumemaze_wiki/');
-system('svn add matlab_codes*');
-system('svn update matlab_codes*');
-system('svn commit -m "Update to matlab codes wikipages" ');
-popd;
-
+%pushd('~/work/Contributions/code.google.com/guillaumemaze_wiki/');
+%system('svn add matlab_codes*');
+%system('svn update matlab_codes*');
+%system('svn commit -m "Update to matlab codes wikipages" ');
+%popd;
 
 
 end %functionupdate_codes
-
-
-
-
-
-
-
-
 
 
 
