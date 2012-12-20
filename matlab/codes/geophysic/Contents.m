@@ -1,9 +1,9 @@
-% MY CODES: Scripts for physical oceanography, meteorology and climatology
-% Version 1 1 04-Mar-2011
+% MY CODES: GEOPHYSIC
+% Version 1 1 20-Dec-2012
 % 
 % 		Contents from /Users/gmaze/matlab/codes/geophysic
 % 
-% Last update: 2011 March 04, 18:36
+% Last update: 2012 December 20, 15:17
 % 
 % 	WOA05_grid                               - Read World Ocean Atlas 2005 grid
 % 	compute_air_sea_o2_flux                  - Compute air-sea oxygen flux
@@ -17,6 +17,7 @@
 % 	diagCatH                                 - Compute a 3D field projection on a 2D surface
 % 	diagHatisoC                              - Compute iso-surface of a 3D field
 % 	diag_PV                                  - PV = diag_PV(LON,LAT,DPT,SIGMATHETA,RHO)
+% 	diag_interpallREQ                        - NEWFIELD = diag_interpallREQ(FIELD,LON,LAT,netcdf_domain,resolution,...
 % 	dinterp3bin                              - Interpolate a 3D field
 % 	dinterp3bin_grid                         - Compute the new grid for DINTERP3BIN interpolated fields
 % 	dlowerres                                - Reduce the resolution of a field
@@ -25,11 +26,12 @@
 % 	fillgaps                                 - Try to fill gaps in 2D geograpical field
 % 	getGRD                                   - Compute horizontal gradient of a geographical field
 % 	get_elev_along_track                     - elev_along_track Determine topograpahy along ship track
-% 	get_mld                                  - Compute the mixed layer depth
+% 	get_mld                                  - Compute a mixed layer depth
 % 	get_mmld_along_track                     - Get Boyer-Montegut MLD climatology along a track
 % 	get_occaclim_along_track                 - get_occa_along_track H1LINE
 % 	get_ovide_track                          - Load OVIDE track
 % 	get_thd                                  - Determine the seasonal and main thermocline depths
+% 	get_thdv2                                - H1LINE
 % 	get_woa_along_track                      - Interpolate World Ocean Atlas data along a ship track
 % 	getdS                                    - Compute 2D surface elements matrix
 % 	getdV                                    - Compute 3D volume elements matrix
@@ -41,6 +43,7 @@
 % 	oc_vmodes                                - Compute vertical mode solutions
 % 	piston_velocity                          - Compute a gaz air-sea interface transfer velocity (piston velocity)
 % 	plotts                                   - Plot Temperature, Salinity on a T,S diag
+% 	project3don2d                            - Project a 3D field on a 2D surface
 % 	scalprod                                 - Cross or dot product of two 3D scalar fields
 % 	schmidt_number                           - Compute a Schmidt number
 % 	select_1transect                         - Extract only one transect from a campaign
