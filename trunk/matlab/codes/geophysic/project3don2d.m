@@ -10,7 +10,7 @@
 % Inputs:
 %	'Z' is positive and oriented from the surface to the bottom.
 %	'THREEDFIELD' is of size (NZ,N1,N2).
-%	'TWODSURFACE' is of size (N1,N2) with positive values.
+%	'TWODSURFACE' is of size (N1,N2) with positive values defined along 'Z'.
 %
 % Outputs:
 %	'C' is the projected field.
@@ -20,7 +20,7 @@
 % Rq:
 %	For any given point, the TWODSURFACE falls in between two index of the
 %	Z axis (iZup and iZdw). 'Cup' and 'Cdw' are the THREEDFIELD values on 
-%	these indeces and C is the linear interpolation at the TWODSURFACE depth.
+%	these indeces and C is the linear interpolation at the TWODSURFACE level.
 %
 % Created: 2011-06-23.
 % Copyright (c) 2011, Guillaume Maze (Laboratoire de Physique des Oceans).

@@ -7,7 +7,6 @@
 % There are many criteria out there to compute a MLD, the one used here defined MLD as:
 % the first depth for which:
 %		ST(T(z),S(z)) > ST(T(z=0)-0.8,S(z=0))
-% Honestly, I don't remember the reference for this definition.
 % 
 % Inputs:
 %	S: salinity (psu)

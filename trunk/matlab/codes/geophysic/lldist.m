@@ -9,7 +9,8 @@
 %	LON (double): Longitude (degree)
 %	METHOD (optional, integer): Define the method to use:
 %		1: Haversine formula
-%		2: (default) Vincenty inverse formula with WGS-84 ellipsoid 
+%		2: (default) Vincenty inverse formula with WGS-84 ellipsoid using mex file
+%		3: Vincenty inverse formula with WGS-84 ellipsoid using Matlab routine
 %
 % Output:
 %	D (double): distance in meters between points

@@ -1,9 +1,11 @@
 % dfromo Compute distances of points from an origin
 %
-% d = dfromo(LON0,LAT0,LON,LAT)
+% d = dfromo(LON0,LAT0,LON,LAT,[METHOD])
 % 
 % Compute the distance in meters between the point of coordinates
 % [LON0,LAT0] and all points defined by [LON,LAT].
+%
+% See lldist help for the METHOD option
 %
 % Created: 2010-05-31.
 % Copyright (c) 2010, Guillaume Maze (Laboratoire de Physique des Oceans).
@@ -38,13 +40,18 @@ x0 = varargin{1};
 y0 = varargin{2};
 x  = varargin{3};
 y  = varargin{4};
+if nargin == 5
+	im = varargin{5};
+else
+	im = 1;
+end% if 
 
 if length(x) ~= length(y)
 	error('LON and LAT must be of similar length');
 end
 
 for is = 1 : length(x)
-	d(is) = lldist([y0 y(is)],[x0 x(is)]);
+	d(is) = lldist([y0 y(is)],[x0 x(is)],im);
 end%for is
 
 end %functiondfromo

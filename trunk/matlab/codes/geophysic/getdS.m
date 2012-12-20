@@ -56,11 +56,11 @@ end
 X(X>=-180 & X<0) = 360 + X(X>=-180 & X<0);
 
 % Is this grid regular ?
-sum(diff(X))/(nx-1)
 if sum(diff(X))/(nx-1) == diff(X(1:2)) && sum(diff(Y))/(ny-1) == diff(Y(1:2)) % yep !
-	disp('This grid is regular')
+	warning('This grid is regular')
 	[DS DY DX] = go_method2(X,Y,diff(X(1:2)),diff(Y(1:2)),issym);
 else
+	warning('This grid is not regular')
 	[DS DY DX] = go_method1(X,Y,issym,method);
 end		
 	
