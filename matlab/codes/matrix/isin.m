@@ -2,11 +2,15 @@
 %
 % [C,IA,IB] = isin(A,B)
 % 
-% Check if table A contains values of table B.
-%	C: Values of A containing values of B.
+% Check if table A contains any values from table B. This is similar
+% to 'intersect' for cells but for doubles.
+% 
+% Outputs:
+%	C: Values of B found in A
 %	IA: C = A(IA)
 %	IB: C = B(IB)
-%
+% 
+% Rev. by Guillaume Maze on 2013-01-10: Updated help text
 % Created: 2011-11-07.
 % Copyright (c) 2011, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.

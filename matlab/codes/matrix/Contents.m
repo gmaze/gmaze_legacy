@@ -1,9 +1,9 @@
 % MY CODES: MATRIX
-% Version 1 1 20-Dec-2012
+% Version 1 1 10-Jan-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/matrix
 % 
-% Last update: 2012 December 20, 15:17
+% Last update: 2013 January 10, 15:02
 % 
 % 	assym                                    - Compute sym. or assym. component of 2D field
 % 	curvearea                                - Compute curve area in a crude way
