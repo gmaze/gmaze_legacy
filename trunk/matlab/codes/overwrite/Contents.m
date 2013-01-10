@@ -1,9 +1,9 @@
 % MY CODES: OVERWRITE
-% Version 1 1 20-Dec-2012
+% Version 1 1 10-Jan-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/overwrite
 % 
-% Last update: 2012 December 20, 15:17
+% Last update: 2013 January 10, 15:02
 % 
 % 	clf                                      - Clear current figure
 % 	corrcoef                                 - Correlation coefficients.
@@ -14,7 +14,7 @@
 % 	ginput                                   - Graphical input from mouse.
 % 	refline                                  - Add a reference line to a plot.
 % 	refresh                                  - Refresh figure
-% 	system                                   - H1LINE
+% 	system                                   - Fix issue with missing .cshrc
 % 	title                                    - Custom Graph title
 % 
 % This Contents.m file was automatically created using: /Users/gmaze/matlab/codes/inout/tbcont
