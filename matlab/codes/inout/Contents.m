@@ -1,9 +1,9 @@
 % MY CODES: INOUT
-% Version 1 1 20-Dec-2012
+% Version 1 1 10-Jan-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/inout
 % 
-% Last update: 2012 December 20, 15:17
+% Last update: 2013 January 10, 15:02
 % 
 % 	abspath                                  - Relative to Absolute path function
 % 	base64encode                             - Perform base64 encoding on a string.
@@ -41,6 +41,7 @@
 % 	stralign                                 - Align/Justify a string within a given sized blank space
 % 	strins                                   - Insert a string into another
 % 	tbcont                                   - Audit a directory and create html/wiki pages and table of content
+% 	tweet                                    - Send tweets !
 % 	url_code                                 - Percent encode/decode of a string
 % 	wsload                                   - Load all (or list of) variables of the base workspace into a function workspace
 % 	wssave                                   - Save all (or list of) variables from the caller workspace into the base workspace

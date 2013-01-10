@@ -15,7 +15,7 @@
 %
 % Eg:
 % 	tweet('Hello world !');
-% 	tweet('Check this out ! A tweet from #matlab','to','MATLAB')
+% 	tweet('Check this out ! http://code.google.com/p/guillaumemaze/source/browse/trunk/matlab/codes/inout/tweet.m A tweet from #matlab','to','MATLAB')
 %
 % Info:
 % 'ttytter' is a perl code to use twitter from script and command line. Check it out at:
@@ -70,7 +70,7 @@ if length(TWEET)<5
 	error('This seems to be a very very short tweet, I won''t send it !');
 end% if 
 if length(TWEET)>140
-	error('This seems to be a long tweet, I won''t send it !');
+%	error('This seems to be a long tweet, I won''t send it !');
 end% if
 
 %-
