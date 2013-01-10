@@ -1,9 +1,9 @@
 % MY CODES: CUSTOM
-% Version 1 1 20-Dec-2012
+% Version 1 1 10-Jan-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/custom
 % 
-% Last update: 2012 December 20, 15:17
+% Last update: 2013 January 10, 15:02
 % 
 % 	bibus                                    - Give me the next bus
 % 	blk                                      - Insert a blank page at the terminal prompt
