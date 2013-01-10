@@ -1,9 +1,9 @@
 % MY CODES: GRAPHICXFIGURES
-% Version 1 1 20-Dec-2012
+% Version 1 1 10-Jan-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/graphicxFigures
 % 
-% Last update: 2012 December 20, 15:17
+% Last update: 2013 January 10, 15:02
 % 
 % 	algnfootnote                             - Horizontal alignement of the footnote for export
 % 	command2fig                              - Print on a figure the command window output of one variable
@@ -13,11 +13,11 @@
 % 	exportp                                  - Export a figure to A4 color PDF format
 % 	exports                                  - Export a figure to A4 color PDF format
 % 	expt                                     - Export a figure to pdf format in a temporary folder/file
+% 	ffband                                   - White background thin landscape figure
 % 	ffland                                   - Open a new figure with landscape orientation
 % 	fftall                                   - Open a new figure with portrait orientation
 % 	figs2pdf                                 - Save several figures in 1 pdf file
 % 	figur                                    - FIGUR Create figure window without Menu Bar
-% 	figure_band                              - White background thin landscape figure
 % 	figure_land                              - White background landscape figure
 % 	figure_setcolor                          - Change background color of a set of figures
 % 	figure_tall                              - White background portrait figure
