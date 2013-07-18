@@ -2,8 +2,11 @@
 %
 % [p,h,cs] = plotts(TEMP,SALT,[PRES])
 % 
-% HELPTEXT
-%
+% Plot temperature TEMP and salinity SALT on a T/S diagram.
+% Output:
+% - p: handle for points
+% - h: handle for density contours
+% - cs: density contours matrix
 %
 % Created: 2009-06-04.
 % Copyright (c) 2009 Guillaume Maze. 

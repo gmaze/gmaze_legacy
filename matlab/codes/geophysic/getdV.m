@@ -35,7 +35,7 @@ function DV = getdV(Z,Y,X)
 	  	  dz = abs(sum(diff(Z(iz-1:iz))/2));
 		else
 	  	  dz = abs(sum(diff(Z(iz-1:iz+1))/2));
-	        end
+	    end
 		DZ(iz) = dz;
 	end
 
