@@ -10,7 +10,7 @@
 %		By default it is set to 'm' for monthly values
 %		It can be:
 %			'y' for yearly means
-%			'w' for yearly winter values (DJF average)
+%			'w' for yearly winter values (DJFM average)
 %
 % Outputs:
 %	NAO_index: well, the NAO index !
@@ -81,10 +81,7 @@ switch DT
 		t  = str2num(datestr(NAO_t,'yyyy'));
 		tm = str2num(datestr(NAO_t,'mm'));
 		for ye = min(t) : max(t)
-			ii = find(  t==ye & (...
-						tm==12 | ...
-						tm==1 | ...
-						tm==2));
+			ii = find(  (t==ye & (tm==12)) | (t==ye+1 & (tm==1 | tm==2 | tm==3)) );
 			if ~isempty(ii)
 				nao_index(ye) = nanmean(NAO(ii));
 			else

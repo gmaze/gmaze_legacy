@@ -233,7 +233,6 @@ DY = zeros(ny,nx);
 
 % Surface elements:
 for ix = 1 : nx
-	ix
 	for iy = 1 : ny
 		
 		% Zonal grid size centered in X(ix),Y(iY)
