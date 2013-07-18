@@ -18,13 +18,20 @@
 % You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
 
-function DV = getdV(Z,Y,X)
+function DV = getdV(Z,Y,X,varargin)
 
 	nz = length(Z);
 	ny = length(Y);
 	nx = length(X);
 
 	DV = zeros(nz,ny,nx);
+
+	n = nargin - 3;
+	if n >= 1 
+		issym = varargin{1};
+	else
+		issym = 0;
+	end% if 
 
 	% Vertical elements:
 	for iz = 1 : nz % Toward the deep ocean (because DPT<0)
@@ -77,9 +84,9 @@ function DV = getdV(Z,Y,X)
 
 	else
 		x  = [X(1)-diff(X(1:2)) ; X ; X(end)+diff(X(end-1:end))];        x = x(1:end-1)+diff(x)/2;
-		y  = [Y(1)-diff(Y(1:2)) ; Y(1:end) ; Y(end)+diff(Y(end-1:end))]; y = y(1:end-1)+diff(y)/2;
-		dS = getdS(y,x,0); % dx*dy centered in X,Y
-		
+		y  = [Y(1)-diff(Y(1:2)) ; Y(1:end) ; Y(end)+diff(Y(end-1:end))]; y = y(1:end-1)+diff(y)/2;		
+		dS = getdS(y,x,issym); % dx*dy centered in X,Y
+
 		[a b ] = meshgrid(dS,DZ);
 		a = reshape(a,[nz ny nx]);
 		b = reshape(b,[nz ny nx]);
