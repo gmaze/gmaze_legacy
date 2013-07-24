@@ -17,7 +17,7 @@
 % Test si bon appel a la fonction.
 %
 
-function [y] = lanczos(x,fn,nj)
+function [y, ss] = lanczos(x,fn,nj)
 
 	if nargin ~= 3
 		error('Il faut 3 parametres en entree de la fonction lanczos')
@@ -54,7 +54,7 @@ function [y] = lanczos(x,fn,nj)
 % Somme des poids.
 %
 	ss=pds(1)+sum(2*pds(2:nk));
-
+	
 %
 % Filtrage des nj premiers points.
 %

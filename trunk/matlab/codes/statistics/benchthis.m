@@ -1,12 +1,13 @@
-% stan Return a standardized serie
+% benchthis Benchmark an expression or function call (performace)
 %
-% X = stan(X,[DIM])
+% [] = benchthis(EXPR,[N])
 % 
-% Return a standardized serie:
-%	[X - nanmean(X)]/nanstd(X)
+% Benchmark an expression or function call:
+% Evaluate in the caller workspace expression 'EXPR', N (20 by defaults) times 
+% and return the N elapsed time necessary to evaluate the expr.
 %
-% Created: 2012-01-30.
-% Copyright (c) 2012, Guillaume Maze (Laboratoire de Physique des Oceans).
+% Created: 2013-01-31.
+% Copyright (c) 2013, Guillaume Maze (Ifremer, Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
 
@@ -18,7 +19,7 @@
 % 	* Redistributions in binary form must reproduce the above copyright notice, this list 
 % 	of conditions and the following disclaimer in the documentation and/or other materials 
 % 	provided with the distribution.
-% 	* Neither the name of the Laboratoire de Physique des Oceans nor the names of its contributors may be used 
+% 	* Neither the name of the Ifremer, Laboratoire de Physique des Oceans nor the names of its contributors may be used 
 %	to endorse or promote products derived from this software without specific prior 
 %	written permission.
 %
@@ -32,16 +33,20 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function X = stan(X,varargin)
+function B = benchthis(varargin)
 
-switch nargin
-	case 1
-		idim = 1;
-	otherwise
-		idim = varargin{1};
-end% switch 
+expr = varargin{1};
+if nargin == 2
+	N = varargin{2};
+else
+	N = 20;
+end% if 
 
-X = (X - nanmean(X,idim))./nanstd(X,[],idim);
+for iN = 1 : N
+	t0 = now;
+	evalin('caller',expr);
+	t1 = now;
+	B(iN) = (t1-t0)*86400; % Elapsed time in seconds.
+end% for iN
 
-
-end %functionstan
+end %functionbenchthis
