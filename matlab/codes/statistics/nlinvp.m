@@ -75,6 +75,8 @@
 
 function varargout = nlinvp(X0,C0,F,CT,F0,varargin)
 
+error('Sorry, this function needs corrections !')
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Check dimensions:
 [NU b] = size(X0); 
 if b ~= 1
