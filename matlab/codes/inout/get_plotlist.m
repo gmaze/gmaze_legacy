@@ -2,6 +2,8 @@
 %
 % LIST = get_plotlist(MASTER,SUBDIR)
 %
+% 
+% Rev. by Guillaume Maze on 2013-07-03: Get rid of variables sla, using fullfile
 % This function determines the list of pre-defined plots
 % available with the MASTER.m in the folder SUBDIR
 % LIST is a structure with name and description of each modules.
@@ -33,7 +35,7 @@ ii = 0;
 for il = 1 : size(l,2)
   fil = l(il).name;
   pref = strcat(MASTER,suff);
-  iM =  findstr( strcat(SUBDIR,sla,fil) , pref ) ;
+  iM =  findstr( fullfile(SUBDIR,fil) , pref ) ;
   
   if ~isempty(iM)
     ii = ii + 1; 
@@ -41,9 +43,9 @@ for il = 1 : size(l,2)
     LIST(ii).index = ii;
     
     % Recup description of plot module:
-    fid = fopen(strcat(SUBDIR,sla,fil));
+    fid = fopen(fullfile(SUBDIR,fil));
     if fid < 0
-      sprintf('Problem with file: %s',strcat(SUBDIR,sla,fil))
+      sprintf('Problem with file: %s',fullfile(SUBDIR,fil))
       return
     end
     thatsit = 0;

@@ -6,6 +6,7 @@
 % the modules of MASTER file in SUBDIR
 %
 %
+% Rev. by Guillaume Maze on 2013-07-03: Get rid of variables sla, using fullfile
 % Created: 2006-05-06.
 % Copyright (c) 2009 Guillaume Maze. 
 % http://codes.guillaumemaze.org
@@ -27,7 +28,6 @@ global sla
 % Define suffixe of module:
 suff = '_pl';
 
-
 d = dir(SUBDIR);
 ii = 0;
 % Select Matlab files:
@@ -44,12 +44,13 @@ ii = 0;
 for il = 1 : length(l)
 	fil = l(il).name;
 	pref = strcat(MASTER,suff);
-	iM =  findstr( strcat(SUBDIR,sla,fil) , pref );
+%	iM = findstr( strcat(SUBDIR,sla,fil) , pref );
+  	iM = strfind( fullfile(SUBDIR,fil) , pref ) ;
 
 	if ~isempty(iM)
    
 		% Recup list of fields required by the module:
-		fid = fopen(strcat(SUBDIR,sla,fil));
+		fid = fopen(fullfile(SUBDIR,fil),'r');	    
 		thatsit = 0; 
 		clear fiel
 		while thatsit ~= 1
@@ -81,10 +82,10 @@ for il = 1 : length(l)
 			LIST(ii).required = fiel;
 %			disp(strcat( num2str(LIST(ii).index),': Module extension : ',fil(length(MASTER)+2:end-2)));
 %		    disp(sprintf('|-----> REQ : %s'  , thisreq ));
-		    disp(sprintf('%3s) Module extension "%s" : %s',...
-				 num2str(LIST(ii).index),...
-				 fil(length(MASTER)+2:end-2),...
-				 thisreq));
+		    % disp(sprintf('%3s) Module extension "%s" : %s',...
+		    % 				 num2str(LIST(ii).index),...
+		    % 				 fil(length(MASTER)+2:end-2),...
+		    % 				 thisreq));
 		end %if
 
 

@@ -1,11 +1,15 @@
 % wsload Load all (or list of) variables of the base workspace into a function workspace
 %
-% [] = wsload([VLIST])
+% wsload() Load all variables from the base workspace to the caller workspace.
 % 
-% Load all variables of the base workspace into a function workspace.
-% If VLIST is specified, only load variables given by cell array VLIST.
-%
+% wsload('var') Load variable named 'var' from the base workspace to the caller workspace.
+% 
+% wsload('pat*') List all variables with names 'pat*' and load from the base workspace to the caller workspace.
+% 
+% wsload({'var1','var2'}) Load variables named 'var1' and 'var2' from the base workspace to the caller workspace.
+% 
 % Created: 2009-11-05.
+% Rev. by Guillaume Maze on 2013-07-25: Added wild card * loading type and modified help
 % Rev. by G. Maze on 2011-07-28: Change warning to error when trying to load a nonexistent variable.
 % Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
@@ -43,9 +47,20 @@ switch nargin
 		vlist = varargin{1};
 		if isnumeric(vlist)
 			error('I can only load variables given by a string !');
-		elseif ischar(vlist)
-			vlist = {vlist};
-		end
+		elseif ischar(vlist)			
+			if strfind(vlist,'*')
+				pat = vlist; clear vlist
+				pat = strrep(pat,'*','\w*');
+				vlist = {};
+				for ii = 1 : length(ws_base)
+					if ~isempty(regexp(ws_base{ii},pat))
+						vlist = cat(1,vlist,ws_base{ii});
+					end% if 
+				end% for ii
+			else
+				vlist = {vlist};
+			end% if			
+		end% if 
 		for ii = 1 : length(vlist)
 			if ~strcmp(vlist{ii},'ans') 
 				if ismember(vlist{ii},ws_base)
