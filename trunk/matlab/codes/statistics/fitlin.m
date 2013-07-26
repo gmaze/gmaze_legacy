@@ -26,8 +26,11 @@
 % the variance of x.
 % 
 % References:
-% - http://mathworld.wolfram.com/LeastSquaresFitting.html
-% - Dennis L. Hartmann, 2002: Objective analysis (Course Notes)
+% Weisstein, Eric W. "Least Squares Fitting." 
+% From MathWorld--A Wolfram Web Resource
+% http://mathworld.wolfram.com/LeastSquaresFitting.html
+% See Also:
+% Dennis L. Hartmann, 2002: Objective analysis (Course Notes)
 %
 % Created: 2013-07-23.
 % Copyright (c) 2013, Guillaume Maze (Ifremer, Laboratoire de Physique des Oceans).
