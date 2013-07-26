@@ -40,17 +40,17 @@ switch nargin
 		% pathd = abspath('~/matlab/codes/*');
 		% di = getdiprivate;
 		% di = cat(1,di,dir(abspath('~/matlab/copoda_project/svn/trunk/copoda/utils'),'*.m'));
-		error('Please specify a string to seach for !');		
+		error('Please specify a string to search for !');		
 	case 1
 		pattern = varargin{1};
-		pathd = abspath('~/matlab/codes/*');
+		pathd   = abspath('~/matlab/codes/*');
 		di = getdiprivate;
 		di = cat(1,di,getdicopoda);
 	case 2
 		pattern = varargin{1};
 		pathd = abspath(varargin{2});
 		di = dir(fullfile(pathd,'*.m'));
-		di = fixlist(pathd,di);	
+		di = fixlist(pathd,di);
 	otherwise
 		error('Bad number of arguments');
 end		
@@ -84,8 +84,9 @@ for ifil = 1 : size(di,1)
 				TB(ifct).path = fpath;
 %				TB(ifct).name = fctname;
 				TB(ifct).name = strrep(strrep(fname,'.m',''),'.M','');
-				TB(ifct).def  = fctdefi;
-				TB(ifct).head  = head;
+%				TB(ifct).def  = fctdefi;
+				TB(ifct).def  = regexprep(fctdefi,sprintf('(\\w*)%s(\\w*)',pattern),sprintf('$1[%s]$2',pattern),'ignorecase');
+				TB(ifct).head = head;
 				TBlist(ifct) = {name};
 				% disp(sprintf('%20s: %s',fctname,fctdefi));
 			else

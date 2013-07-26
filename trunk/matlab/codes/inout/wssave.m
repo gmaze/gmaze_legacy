@@ -1,10 +1,15 @@
 % wssave Save all (or list of) variables from the caller workspace into the base workspace
 %
-% [] = wssave([VLIST])
+% wssave() Save all variables from the caller workspace to the base workspace.
 % 
-% Save all variables from the caller workspace into the base workspace.
+% wssave('var') Save variable named 'var' from the caller workspace to the base workspace.
+% 
+% wssave('pat*') List all variables with names 'pat*' and save them from the caller workspace to the base workspace.
+% 
+% wssave({'var1','var2'}) Save variables named 'var1' and 'var2' from the caller workspace to the base workspace.
 %
 % Created: 2009-11-05.
+% Rev. by Guillaume Maze on 2013-07-25: Added the wild card * possibility
 % Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
@@ -42,7 +47,18 @@ switch nargin
 		if isnumeric(vlist)
 			error('I can only save variables given by a string !');
 		elseif ischar(vlist)
-			vlist = {vlist};
+			if strfind(vlist,'*')
+				pat = vlist; clear vlist
+				pat = strrep(pat,'*','\w*');
+				vlist = {};
+				for ii = 1 : length(ws_caller)
+					if ~isempty(regexp(ws_caller{ii},pat))
+						vlist = cat(1,vlist,ws_caller{ii});
+					end% if 
+				end% for ii
+			else
+				vlist = {vlist};
+			end% if 
 		end
 		for ii = 1 : length(vlist)
 			if ~strcmp(vlist{ii},'ans') 
