@@ -24,7 +24,7 @@ Add a footnote to a plot
 % Inspired by the suptitle function of: Drea Thomas 6/15/95 drea@mathworks.com
 }}}
 ----
-Last update: 2013 November 06, 15:49
+Last update: 2013 November 06, 15:58
 
 Created by Guillaume Maze
 

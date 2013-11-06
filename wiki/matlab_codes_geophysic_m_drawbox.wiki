@@ -17,7 +17,7 @@ Draw a rectangular box using m_line
 % Created by Guillaume Maze on 2008-10-14.
 }}}
 ----
-Last update: 2013 November 06, 15:49
+Last update: 2013 November 06, 15:58
 
 Created by Guillaume Maze
 

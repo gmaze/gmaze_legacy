@@ -15,7 +15,7 @@ Used by FITDEMO.
 %   with n linear parameters and n nonlinear parameters.
 }}}
 ----
-Last update: 2013 November 06, 15:49
+Last update: 2013 November 06, 15:58
 
 Created by Guillaume Maze
 

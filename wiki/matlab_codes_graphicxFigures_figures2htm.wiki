@@ -54,7 +54,7 @@ Writes all open figures to .png files and integrates them in a html file
 %  2006
 }}}
 ----
-Last update: 2013 November 06, 15:49
+Last update: 2013 November 06, 15:58
 
 Created by Guillaume Maze
 

@@ -31,7 +31,7 @@ builds a matlab colormap from a cpt file
 % See also: colormaps
 }}}
 ----
-Last update: 2013 November 06, 15:49
+Last update: 2013 November 06, 15:58
 
 Created by Guillaume Maze
 

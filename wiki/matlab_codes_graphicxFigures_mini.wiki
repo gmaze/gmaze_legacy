@@ -13,7 +13,7 @@ Reduce figure size to a mini standard
 %
 }}}
 ----
-Last update: 2013 November 06, 15:49
+Last update: 2013 November 06, 15:58
 
 Created by Guillaume Maze
 

@@ -21,7 +21,7 @@ NEWFIELD = diag_interpallREQ(FIELD,LON,LAT,netcdf_domain,resolution,...
 % gmaze@mit.edu
 }}}
 ----
-Last update: 2013 November 06, 15:49
+Last update: 2013 November 06, 15:58
 
 Created by Guillaume Maze
 

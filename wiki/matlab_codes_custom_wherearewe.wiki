@@ -21,7 +21,7 @@ Give back a string to identify your location
 % Rev. by Guillaume Maze on 2009-02-24: Add LPO Ifremer identification
 }}}
 ----
-Last update: 2013 November 06, 15:49
+Last update: 2013 November 06, 15:58
 
 Created by Guillaume Maze
 

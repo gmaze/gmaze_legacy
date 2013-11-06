@@ -22,7 +22,7 @@ Load CDdata of an predefined icon
 % Created: 2008-11-20.
 }}}
 ----
-Last update: 2013 November 06, 15:49
+Last update: 2013 November 06, 15:58
 
 Created by Guillaume Maze
 
