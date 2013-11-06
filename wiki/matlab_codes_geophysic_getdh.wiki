@@ -1,0 +1,20 @@
+== getdH.m ==
+Compute Layer thickness from a vertical axis
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/geophysic/getdH.m Download here]
+
+{{{
+% getdH Compute Layer thickness from a vertical axis
+%
+% dH = getdH(Z) Return the layer thickness for each level as
+% the sum of half the upper and half the lower layers.
+% 
+% Created: 2013-07-22.
+% All rights reserved.
+}}}
+----
+Last update: 2013 November 06, 15:49
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

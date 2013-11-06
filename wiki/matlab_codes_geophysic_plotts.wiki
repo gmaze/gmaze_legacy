@@ -8,13 +8,16 @@ Plot Temperature, Salinity on a T,S diag
 %
 % [p,h,cs] = plotts(TEMP,SALT,[PRES])
 % 
-% HELPTEXT
-%
+% Plot temperature TEMP and salinity SALT on a T/S diagram.
+% Output:
+% - p: handle for points
+% - h: handle for density contours
+% - cs: density contours matrix
 %
 % Created: 2009-06-04.
 }}}
 ----
-Last update: 2012 December 20, 15:17
+Last update: 2013 November 06, 15:49
 
 Created by Guillaume Maze
 

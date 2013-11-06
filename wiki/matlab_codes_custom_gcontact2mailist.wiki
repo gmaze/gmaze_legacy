@@ -9,7 +9,7 @@ Removed < and > from a Google contacts list
 % Created by Guillaume Maze on 2008-10-23.
 }}}
 ----
-Last update: 2012 December 20, 15:17
+Last update: 2013 November 06, 15:49
 
 Created by Guillaume Maze
 

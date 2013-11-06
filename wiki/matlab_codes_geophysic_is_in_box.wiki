@@ -1,0 +1,22 @@
+== is_in_box.m ==
+Identify points inside a geographical domain or box
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/geophysic/is_in_box.m Download here]
+
+{{{
+% is_in_box Identify points inside a geographical domain or box
+%
+% I = is_in_box(BOX,x,y)
+% 
+% Determine indeces I in the list of points (x,y) which
+% are inside the polygon defined by [BOX.lon,BOX.lat]
+%
+% Created: 2013-03-14.
+% All rights reserved.
+}}}
+----
+Last update: 2013 November 06, 15:49
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

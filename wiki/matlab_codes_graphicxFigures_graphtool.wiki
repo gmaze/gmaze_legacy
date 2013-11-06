@@ -14,7 +14,7 @@ Custom graphic toolbar for figure
 % Created: 2008-11-18.
 }}}
 ----
-Last update: 2012 December 20, 15:17
+Last update: 2013 November 06, 15:49
 
 Created by Guillaume Maze
 

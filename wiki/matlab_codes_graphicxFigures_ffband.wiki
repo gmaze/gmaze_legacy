@@ -1,0 +1,22 @@
+== ffband.m ==
+White background thin landscape figure
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/graphicxFigures/ffband.m Download here]
+
+{{{
+% ffband White background thin landscape figure
+%
+% [] = ffband()
+% 
+% Change gcf figure to white background, thin, full screen wide and landscape.
+%
+% Created: 2011-06-24.
+% Rev. by Guillaume Maze on 2012-12-21: Change name from figure_band to ffband
+% All rights reserved.
+}}}
+----
+Last update: 2013 November 06, 15:49
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

@@ -1,0 +1,31 @@
+== diag_error.m ==
+Propagate error estimates for misc operators
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/matrix/diag_error.m Download here]
+
+{{{
+% diag_error Propagate error estimates for misc operators
+%
+% er = diag_error(typeOP,A,Aer,varargin)
+% 
+% Combine error estimates for misc operators/
+% 
+% Eg:
+% 
+% To compute the error of the sum of elements (A) given 
+% their errors (Aer):
+% er = diag_error('+',A,Aer);
+% 
+% To compute the error of the product of A elements with B elements (A) 
+% given their errors (Aer and Ber):
+% er = diag_error('*',A,Aer,B,Ber);
+%
+% Created: 2010-11-12.
+% All rights reserved.
+}}}
+----
+Last update: 2013 November 06, 15:49
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

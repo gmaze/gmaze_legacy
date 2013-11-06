@@ -17,7 +17,7 @@ Export a figure to A4 color EPS format
 %
 }}}
 ----
-Last update: 2012 December 20, 15:17
+Last update: 2013 November 06, 15:49
 
 Created by Guillaume Maze
 

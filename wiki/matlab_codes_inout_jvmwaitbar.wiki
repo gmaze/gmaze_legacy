@@ -1,0 +1,28 @@
+== jvmwaitbar.m ==
+Progress wait bar for Matlab running with Java on console
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/jvmwaitbar.m Download here]
+
+{{{
+% jvmwaitbar Progress wait bar for Matlab running with Java on console
+%
+% jvmwaitbar(N,i,[TITLE])
+% 
+% Display a progress waitbar of fractional length i versus N
+% with an optional message TITLE.
+% 
+% Eg:
+%	for ii=1:100
+%		jvmwaitbar(100,ii,sprintf('single line text'));
+%		pause(1/20);
+%	end
+%
+% Created: 2013-03-11.
+% All rights reserved.
+}}}
+----
+Last update: 2013 November 06, 15:49
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

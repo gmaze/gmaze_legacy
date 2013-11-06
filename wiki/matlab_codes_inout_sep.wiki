@@ -17,7 +17,7 @@ Draw/Create a horizontal line on the terminal
 % All rights reserved.
 }}}
 ----
-Last update: 2012 December 20, 15:17
+Last update: 2013 November 06, 15:49
 
 Created by Guillaume Maze
 

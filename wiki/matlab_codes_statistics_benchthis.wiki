@@ -1,0 +1,23 @@
+== benchthis.m ==
+Benchmark an expression or function call (performace)
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/statistics/benchthis.m Download here]
+
+{{{
+% benchthis Benchmark an expression or function call (performace)
+%
+% [] = benchthis(EXPR,[N])
+% 
+% Benchmark an expression or function call:
+% Evaluate in the caller workspace expression 'EXPR', N (20 by defaults) times 
+% and return the N elapsed time necessary to evaluate the expr.
+%
+% Created: 2013-01-31.
+% All rights reserved.
+}}}
+----
+Last update: 2013 November 06, 15:49
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

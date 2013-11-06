@@ -1,0 +1,34 @@
+== fitlog.m ==
+Logarithmic least-square curve fitting
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/statistics/fitlog.m Download here]
+
+{{{
+% fitlog Logarithmic least-square curve fitting
+%
+% [a,b] = fitlog(x,y)
+% 
+% Estimate coefficients a and b so that:
+%	y = a + b*log(x)
+% is optimized in a least-square sense.
+% 
+% Inputs:
+% 	x,y: two series of data points
+% 
+% Outputs:
+%	a,b: Coefficients of the optimized logarithmic relation between x and y.
+%
+% Reference:
+% Weisstein, Eric W. "Least Squares Fitting--Logarithmic." 
+% From MathWorld--A Wolfram Web Resource. 
+% http://mathworld.wolfram.com/LeastSquaresFittingLogarithmic.html
+% 
+% Created: 2013-07-25.
+% All rights reserved.
+}}}
+----
+Last update: 2013 November 06, 15:49
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]
