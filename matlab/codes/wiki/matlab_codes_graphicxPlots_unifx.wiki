@@ -1,20 +1,18 @@
 == unifx.m ==
-Uniforms y-axis limits on different figures
+Uniforms x-axis limits on different figures
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/graphicxPlots/unifx.m Download here]
 
 {{{
-% unifx Uniforms y-axis limits on different figures
+% unifx Uniforms x-axis limits on different figures
 %
 % [] = unifx(FLIST,[xl])
 % 
-% 
-%
-%
+% Rev. by Guillaume Maze on 2013-11-06: Do no include colormap anymore
 % Created: 2008-11-06.
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

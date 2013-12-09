@@ -1,14 +1,15 @@
 % MY CODES: COLORS
-% Version 1 1 10-Jan-2013
+% Version 1 1 09-Dec-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/colors
 % 
-% Last update: 2013 January 10, 15:02
+% Last update: 2013 December 09, 15:15
 % 
 % 	bluewhitered                             - Blue, white, and red color map.
 % 	canom                                    - Center the caxis on zero
 % 	clabelcmap                               - Create labels for colorbar
 % 	cmapa                                    - change colormap for anomalies
+% 	cmaptwo                                  - Join two colormaps
 % 	colormap                                 - Color look-up table.
 % 	colormap_cpt                             - builds a matlab colormap from a cpt file
 % 	colormap_plt                             - Load a colormap from the Matplotlib palette

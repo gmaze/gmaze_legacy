@@ -1,11 +1,12 @@
 % getdV Compute 3D volume elements matrix
 %
-% dV = getdV(DEPTH,LATITUDE,LONGITUDE)
+% dV = getdV(DEPTH,LATITUDE,LONGITUDE,[ISSYM])
 %
 % Compute 3D volume elements matrix from geographical
 % axis DEPTH(<0,downward), LATITUDE(northward) and
 % LONGITUDE(eastward)
 %
+% Rev. by Guillaume Maze on 2013-07-18: Added issym option
 % Created: 2009-04-21.
 % Copyright (c) 2009 Guillaume Maze. 
 % http://codes.guillaumemaze.org

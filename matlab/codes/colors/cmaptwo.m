@@ -1,11 +1,11 @@
-% figure_band White background thin landscape figure
+%cmaptwo Join two colormaps
 %
-% [] = figure_band()
+% [] = cmaptwo()
 % 
 % HELPTEXT
 %
-% Created: 2011-06-24.
-% Copyright (c) 2011, Guillaume Maze (Laboratoire de Physique des Oceans).
+% Created: 2013-01-17.
+% Copyright (c) 2013, Guillaume Maze (Ifremer, Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
 
@@ -17,7 +17,7 @@
 % 	* Redistributions in binary form must reproduce the above copyright notice, this list 
 % 	of conditions and the following disclaimer in the documentation and/or other materials 
 % 	provided with the distribution.
-% 	* Neither the name of the Laboratoire de Physique des Oceans nor the names of its contributors may be used 
+% 	* Neither the name of the Ifremer, Laboratoire de Physique des Oceans nor the names of its contributors may be used 
 %	to endorse or promote products derived from this software without specific prior 
 %	written permission.
 %
@@ -31,26 +31,18 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function varargout = figure_band(num)
-	
-if nargin == 0;
-	num = gcf;
-else
-%	builtin('figure',num); num = gcf;
-%	num = figure;
-end
+function [A B cmap cx] = cmaptwo(A,cxA,cmapA,B,cxB,cmapB)
 
-sic = get(0,'MonitorPositions');
+Na = size(cmapA,1);
+Nb = size(cmapB,1);
 
-orient landscape
-posi = get(num,'position');
-set(num,'Position',[0 posi(2)-(num-1)*20 sic(3) 330])
+alp = Na/(Na+Nb)
+bet = Nb/(Na+Nb)
 
-%set(gcf,'Position',[2+10*(num-1) 225-10*(num-1) 800 620])
+A = (A-cxA(1))/cxA(2)*alp;
+B = (B-cxB(1))/cxB(2)*bet;
 
-if get(num,'color') == [.8 .8 .8]
-	set(num,'Color', [ 1 1 1 ]);
-end
+cmap = [cmapA;cmapB];
+cx   = [0 1];
 
-
-end %functionfigure_band
+end %functioncmaptwo

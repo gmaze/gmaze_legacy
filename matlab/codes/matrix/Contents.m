@@ -1,13 +1,14 @@
 % MY CODES: MATRIX
-% Version 1 1 10-Jan-2013
+% Version 1 1 09-Dec-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/matrix
 % 
-% Last update: 2013 January 10, 15:02
+% Last update: 2013 December 09, 15:15
 % 
 % 	assym                                    - Compute sym. or assym. component of 2D field
 % 	curvearea                                - Compute curve area in a crude way
 % 	datenumserie                             - Create a time serie with datenum
+% 	diag_error                               - Propagate error estimates for misc operators
 % 	dim                                      - Give the number of dimensions of a field
 % 	dispt                                    - Display a table on prompt
 % 	duplicate                                - Find duplicate values among a 1D table

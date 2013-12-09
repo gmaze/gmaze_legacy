@@ -6,7 +6,7 @@ Create labels for colorbar
 {{{
 % clabelcmap Create labels for colorbar
 %
-% [] = clabelcmap(hcb,cx,N,[C,F])
+% [yt ytl] = clabelcmap(hcb,cx,N,[C,F])
 % 
 % Create clean labels for a colorbar
 % Inputs:
@@ -24,10 +24,11 @@ Create labels for colorbar
 %	subplot(1,2,2);caxis(cx);cl=colorbar;clabelcmap(cl,cx,N,0,'%g');title('Labels not centered');
 %	
 % Created: 2009-11-24.
+% Rev. by Guillaume Maze on 2012-06-11: Added output handles
 % All rights reserved.
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

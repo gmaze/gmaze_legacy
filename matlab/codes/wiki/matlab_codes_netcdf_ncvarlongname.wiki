@@ -6,15 +6,17 @@ List variables long name of a netcdf object
 {{{
 % ncvarlongname List variables long name of a netcdf object
 %
-% long_namelist = ncvarlongname(nc)
+% [long_namelist var_name_list] = ncvarlongname(nc)
 % 
-% Give back the list of long names of all variables of the netcdf object nc
+% Give back the list of long names of all variables of the netcdf object nc.
+% If no output are requested, simply display the list on screen.
 %
 % Created: 2009-12-02.
+% Rev. by Guillaume Maze on 2011-03-07: Improved outputs
 % All rights reserved.
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

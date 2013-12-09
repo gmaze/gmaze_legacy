@@ -64,7 +64,14 @@ function [a0 a1 a0_er a1_er rsq] = fitlin(xi,yi)
 %- Handle inputs:
 xi = xi(:);
 yi = yi(:);
-n = length(xi);
+
+%- Work with real values, not nans
+iok = ~isnan(xi) & ~isnan(yi);
+xi = xi(iok);
+yi = yi(iok);
+clear iok
+
+n  = length(xi);
 
 if length(yi) ~= n
 	error('x and y must be of similar length !')

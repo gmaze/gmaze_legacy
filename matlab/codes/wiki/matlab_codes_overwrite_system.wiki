@@ -1,20 +1,20 @@
 == system.m ==
-H1LINE
+Fix issue with missing .cshrc
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/overwrite/system.m Download here]
 
 {{{
-% system H1LINE
+% system Fix issue with missing .cshrc
 %
 % [] = system()
 % 
-% HELPTEXT
+% Fix issue with missing .cshrc
 %
 % Created: 2011-01-29.
 % All rights reserved.
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

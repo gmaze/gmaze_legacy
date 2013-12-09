@@ -12,10 +12,11 @@ Returns the list of fields required by a diag
 % the modules of MASTER file in SUBDIR
 %
 %
+% Rev. by Guillaume Maze on 2013-07-03: Get rid of variables sla, using fullfile
 % Created: 2006-05-06.
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

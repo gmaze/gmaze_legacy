@@ -14,7 +14,7 @@ Compute a typical year from a daily volume time serie
 % Created: 2008-11-06.
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

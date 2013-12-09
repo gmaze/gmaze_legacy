@@ -1,9 +1,9 @@
 % MY CODES: GRAPHICXFIGURES
-% Version 1 1 10-Jan-2013
+% Version 1 1 09-Dec-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/graphicxFigures
 % 
-% Last update: 2013 January 10, 15:02
+% Last update: 2013 December 09, 15:15
 % 
 % 	algnfootnote                             - Horizontal alignement of the footnote for export
 % 	command2fig                              - Print on a figure the command window output of one variable

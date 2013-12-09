@@ -6,18 +6,19 @@ Re-export a figure in pdf using app datas
 {{{
 % reexportp Re-export a figure in pdf using app datas
 %
-% [] = reexportp(H)
+% [] = reexportp([H])
 % 
 % Re-export a figure in pdf using app datas (orientation and file name).
-% H is the figure's handle.
+% H is the figure's handle, by default the current figure is used.
 %
 % See also: exportp
 %
+% Rev. by Guillaume Maze on 2011-03-29: Default figure is the current one
 % Created: 2010-07-22.
 % All rights reserved.
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

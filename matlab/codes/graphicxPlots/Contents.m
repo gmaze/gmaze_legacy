@@ -1,13 +1,12 @@
 % MY CODES: GRAPHICXPLOTS
-% Version 1 1 10-Jan-2013
+% Version 1 1 09-Dec-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/graphicxPlots
 % 
-% Last update: 2013 January 10, 15:02
+% Last update: 2013 December 09, 15:15
 % 
 % 	addarrows                                - Add arrows along a contour handle
 % 	ahline                                   - Draw a horizontal line on a plot and print value on the y-axis
-% 	barerror                                 - H1LINE
 % 	boldnul                                  - Make null contours line style dashed
 % 	cleancont                                - Update color for m_contourf plots
 % 	cs2st                                    - Transform contour matrix into output from streamline
@@ -17,6 +16,7 @@
 % 	floatAxisY                               - create floating x-axis for multi-parameter plot
 % 	floatAxisY_right                         - floatAxisY create floating x-axis for multi-parameter plot
 % 	hline                                    - Draw a horizontal line on a plot
+% 	linerr                                   - Plot a line whose thickness represents error bars (using patch)
 % 	mapclean                                 - Uniform plots and colorbars
 % 	move_axes                                - Move an axis (plot) within a figure
 % 	outerbox                                 - Plot a box around a plot
@@ -27,7 +27,7 @@
 % 	thematrix                                - Animate a 3D plot by rotating around
 % 	twodcumsum                               - Plot a 2D field together with its cumsum in both directions
 % 	twodmean                                 - Plot a 2D field together with its means in both directions
-% 	unifx                                    - Uniforms y-axis limits on different figures
+% 	unifx                                    - Uniforms x-axis limits on different figures
 % 	unify                                    - Uniforms y-axis limits on different figures
 % 	vline                                    - Draw a vertical line on a plot
 % 	xanom                                    - Make x-axis centered around 0

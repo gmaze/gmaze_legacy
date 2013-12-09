@@ -6,7 +6,7 @@ Determine the seasonal and main thermocline depths
 {{{
 % get_thd Determine the seasonal and main thermocline depths
 %
-% [THD THD_sc QC R D] = get_thd(ST,DPT,[PLOT],[METHOD],[SMOOTHING])
+% [THD THD_sc QC R D] = get_thd(ST,DPT,[PLOT],[DZMETHOD],[SMOOTHING])
 % 
 % Determine the seasonal and main thermocline depths from the vertical
 % density gradient.
@@ -53,7 +53,7 @@ Determine the seasonal and main thermocline depths
 %	PLOT: 0 (default) or 1 
 %		Plot a figure with relevant informations about the 
 %		determination of depths.
-%	METHOD: method used to compute the vertical gradient
+%	DZMETHOD: method used to compute the vertical gradient
 %		1: classic forward difference (2 points)
 %		2 (default): classic centered difference (3 points)
 %		3: classic centered difference (5 points)
@@ -73,10 +73,11 @@ Determine the seasonal and main thermocline depths
 %	D: Depth range used to determine depth.
 %
 % Created: 2009-11-23.
+% Rev. by Guillaume Maze on 2011-05-26: Added log method
 % All rights reserved.
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

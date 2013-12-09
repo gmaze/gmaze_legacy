@@ -10,19 +10,19 @@ O2 unit conversion
 % 
 % !!! Now call convert_unit routine to convert oxygen !!!
 %
-% Cette fonction convertit les données d'oxygène d'une unité à l'autre.
+% Cette fonction convertit les donnes d'oxygne d'une unit  l'autre.
 % Voir: convert_unit
 %
-% valout   = valeur d'oxygene converties dans l'unité uout 
-% valin    = valeur d'oxygene en entrée dans l'unité uin 
-% aST0     = anomalie de densité potentielle référencée à 0 de l'eau 
-%			considérée, si aucun valeur n'est entrée, on considère qu'on 
-%			a de l'eau douce et l'anomalie de densité est nulle 
+% valout   = valeur d'oxygene converties dans l'unit uout 
+% valin    = valeur d'oxygene en entre dans l'unit uin 
+% aST0     = anomalie de densit potentielle rfrence  0 de l'eau 
+%			considre, si aucun valeur n'est entre, on considre qu'on 
+%			a de l'eau douce et l'anomalie de densit est nulle 
 %			(rho=1000) sinon rho = 1000 + aST0 
 %
 % uin et uout sont: 
 % 	ml/l: milli litre par litre 
-% 	mmol/m3: milli mole par mètre cube 
+% 	mmol/m3: milli mole par mtre cube 
 % 	mumol/l: micromole par litre 
 % 	mg/l : milli gramme par litre 
 % 	mumol/kg : micromole par kilo 
@@ -38,7 +38,7 @@ O2 unit conversion
 % Rev. by Guillaume Maze on 2009-09-02: Add micromol to millimol automatic conversion
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

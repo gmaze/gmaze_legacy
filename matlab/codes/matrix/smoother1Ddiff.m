@@ -38,7 +38,7 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function [field_out] = smoother1Ddiff(field_in,dist_in1);
+function [field_out] = smoother1Ddiff(field_in,dist_in1)
 
 % Same as 2D version but much faster if performed on a single dimension
 
@@ -60,12 +60,18 @@ field_out = field_in;
 
 for icur = 1 : smooth2D_nbt
 %	if mod(icur,10) == 0, disp(sprintf('Smoother Iteration: %3.0f/%3.0f',icur,smooth2D_nbt));end
+	
+	circ1 = circshift(field_out,[1 0]);
+	circ2 = circshift(smooth2D_kh1,[1 0]);
+	tmp1 = (field_out-circ1)./e1t.^2.*(smooth2D_kh1/2+circ2/2);  
+%	tmp1(find(isnan(tmp1))) = 0;
+	tmp1(isnan(tmp1)) = 0;
 
-	tmp1 = (field_out-circshift(field_out,[1 0]))./e1t.^2.*(smooth2D_kh1/2+circshift(smooth2D_kh1,[1 0])/2);  
-	tmp1(find(isnan(tmp1))) = 0;
-
-	tmp2 = (circshift(field_out,[-1 0])-field_out)./e1t.^2.*(smooth2D_kh1/2+circshift(smooth2D_kh1,[-1 0])/2); 
-	tmp2(find(isnan(tmp2))) = 0;
+	circ1 = circshift(field_out,[-1 0]);
+	circ2 = circshift(smooth2D_kh1,[-1 0]);
+	tmp2 = (circ1-field_out)./e1t.^2.*(smooth2D_kh1/2+circ2/2); 
+%	tmp2(find(isnan(tmp2))) = 0;
+	tmp2(isnan(tmp2)) = 0;
 
 	field_out = field_out-(smooth2D_dt*(tmp1-tmp2))./e1t.^2;
 end

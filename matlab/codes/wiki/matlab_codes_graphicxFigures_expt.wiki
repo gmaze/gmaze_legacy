@@ -17,7 +17,7 @@ Export a figure to pdf format in a temporary folder/file
 % All rights reserved.
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 
