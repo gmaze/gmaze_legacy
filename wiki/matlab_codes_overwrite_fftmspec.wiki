@@ -24,7 +24,7 @@ Module Spectra of the Fourier Transform
 % Future comments. Jess A. Rojas Zavarce.
 }}}
 ----
-Last update: 2013 December 09, 14:37
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

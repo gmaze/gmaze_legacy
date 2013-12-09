@@ -17,7 +17,7 @@ Compute the angle between two points on the sphere
 % Based on script from Guillaume Roullet.
 }}}
 ----
-Last update: 2013 December 09, 14:37
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

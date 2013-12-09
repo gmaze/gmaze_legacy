@@ -13,7 +13,7 @@ Search for text in h1 lines
 % All rights reserved.
 }}}
 ----
-Last update: 2013 December 09, 14:37
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

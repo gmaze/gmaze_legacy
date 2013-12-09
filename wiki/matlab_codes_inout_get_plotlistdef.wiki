@@ -21,7 +21,7 @@ Display/return description of diagnostic files
 % Created: 2006-07-12.
 }}}
 ----
-Last update: 2013 December 09, 14:37
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 
