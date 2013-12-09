@@ -2,9 +2,7 @@
 %
 % [] = unify(FLIST,[YL])
 % 
-% 
-%
-%
+% Rev. by Guillaume Maze on 2013-11-06: Do no include colormap anymore
 % Created: 2008-11-05.
 % Copyright (c) 2008 Guillaume Maze. 
 % http://codes.guillaumemaze.org
@@ -33,7 +31,7 @@ else
 		 gc = builtin('figure',flist(ifig));
 		 h = findobj(gc,'Type','axes'); 
 		 for ih = 1 : length(h)
-			 if ~strcmp(get(h(ih),'Tag'),'legend') & ~strcmp(get(h(ih),'Tag'),'footnote')  & ~strcmp(get(h(ih),'Tag'),'suptitle')
+			 if ~strcmp(get(h(ih),'Tag'),'legend') & ~strcmp(get(h(ih),'Tag'),'footnote')  & ~strcmp(get(h(ih),'Tag'),'suptitle') & ~strcmp(get(h(ih),'Tag'),'Colorbar')
 			     limit1 = min(get(h(ih),'ylim'));
 			     if limit1 <= yl(1), yl(1) = limit1; end
 			     limit2 = max(get(h(ih),'ylim'));
@@ -50,7 +48,7 @@ for ifig = 1 : nfig
 	gc = builtin('figure',flist(ifig));
 	h = findobj(gc,'Type','axes'); 
 	for ih = 1 : length(h)	
-		if ~strcmp(get(h(ih),'Tag'),'legend') & ~strcmp(get(h(ih),'Tag'),'footnote')  & ~strcmp(get(h(ih),'Tag'),'suptitle')		
+		if ~strcmp(get(h(ih),'Tag'),'legend') & ~strcmp(get(h(ih),'Tag'),'footnote')  & ~strcmp(get(h(ih),'Tag'),'suptitle') & ~strcmp(get(h(ih),'Tag'),'Colorbar')	
 			set(h(ih),'ylim',yl);
 		end
 	end

@@ -8,13 +8,11 @@ Uniforms y-axis limits on different figures
 %
 % [] = unify(FLIST,[YL])
 % 
-% 
-%
-%
+% Rev. by Guillaume Maze on 2013-11-06: Do no include colormap anymore
 % Created: 2008-11-05.
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

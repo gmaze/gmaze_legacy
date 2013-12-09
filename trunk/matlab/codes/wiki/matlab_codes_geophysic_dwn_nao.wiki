@@ -16,7 +16,7 @@ Download the monthly NAO index
 %		By default it is set to 'm' for monthly values
 %		It can be:
 %			'y' for yearly means
-%			'w' for yearly winter values (DJF average)
+%			'w' for yearly winter values (DJFM average)
 %
 % Outputs:
 %	NAO_index: well, the NAO index !
@@ -28,7 +28,7 @@ Download the monthly NAO index
 % Rev. by Guillaume Maze on 2009-09-01: Add winter value option
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

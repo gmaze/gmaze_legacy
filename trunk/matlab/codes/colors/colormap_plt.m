@@ -53,6 +53,7 @@ if ic == 0
 	error(sprintf('I couldn''t find any colormap file in folder: %s\nPlease adjust variable <txtpath> in this function !',s))
 end% if 
 
+
 if nargin == 0
 	%- No arguments, we want to check out all colormaps:
 	

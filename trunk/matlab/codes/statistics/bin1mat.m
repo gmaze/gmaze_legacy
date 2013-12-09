@@ -44,7 +44,7 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function YG = bin2mat(x,y,XI,varargin)
+function YG = bin1mat(x,y,XI,varargin)
 
 %check inputs
 error(nargchk(3,inf,nargin,'struct'));

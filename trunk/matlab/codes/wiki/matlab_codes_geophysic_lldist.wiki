@@ -15,7 +15,8 @@ Compute distance in m between two points on Earth
 %	LON (double): Longitude (degree)
 %	METHOD (optional, integer): Define the method to use:
 %		1: Haversine formula
-%		2: (default) Vincenty inverse formula with WGS-84 ellipsoid 
+%		2: (default) Vincenty inverse formula with WGS-84 ellipsoid using mex file
+%		3: Vincenty inverse formula with WGS-84 ellipsoid using Matlab routine
 %
 % Output:
 %	D (double): distance in meters between points
@@ -33,7 +34,7 @@ Compute distance in m between two points on Earth
 % All rights reserved.
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

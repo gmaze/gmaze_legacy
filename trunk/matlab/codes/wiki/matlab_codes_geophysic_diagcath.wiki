@@ -18,7 +18,7 @@ Compute a 3D field projection on a 2D surface
 % Created by Guillaume Maze on 2006/08
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

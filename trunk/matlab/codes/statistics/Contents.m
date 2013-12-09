@@ -1,14 +1,21 @@
 % MY CODES: STATISTICS
-% Version 1 1 10-Jan-2013
+% Version 1 1 09-Dec-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/statistics
 % 
-% Last update: 2013 January 10, 15:02
+% Last update: 2013 December 09, 15:15
 % 
 % 	WSEdecomp                                - Split a signal into its downward/upward propagating and stationnary components
 % 	allstats                                 - STATM Compute statistics from 2 series
 % 	armodel2                                 - Two Dimensional Spectral Estimation
+% 	benchthis                                - Benchmark an expression or function call (performace)
+% 	bin1mat                                  - create a 1D matrix from scattered data without interpolation
 % 	chi2conf                                 - Confidence interval using inverse of chi-square cdf.
+% 	comp2ts                                  - Plot a serie of graphes to compare two time series (scatter, crosscor)
+% 	fitbest                                  - Determine the best least-square curve fitting solution
+% 	fitlin                                   - Linear least-square curve fitting
+% 	fitlog                                   - Logarithmic least-square curve fitting
+% 	fitpow                                   - Power Law least-square curve fitting
 % 	gauss                                    - Gaussian function
 % 	getcrosscor                              - Compute a lagged cross-correlation
 % 	getdblpeaks                              - Find indices corresponding to a common peak in two series
@@ -27,6 +34,8 @@
 % 	myspecgram                               - Spectrogram
 % 	nlinvp                                   - Non-Linear inverse problem
 % 	periodogram2                             - Computes the 2-D periodogram based on Fourier Method
+% 	scat2mat                                 - Map scattered data onto a regular grid
+% 	smartchunk                               - Compute homogeneous chunks of data
 % 	stan                                     - Return a standardized serie
 % 	taylordiag                               - Plot a Taylor Diagram
 % 	trend                                    - Find a linear trend from a vector, usually for FFT processing.

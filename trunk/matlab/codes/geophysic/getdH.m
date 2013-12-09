@@ -1,11 +1,10 @@
-% barerror H1LINE
+% getdH Compute Layer thickness from a vertical axis
 %
-% [] = barerror()
+% dH = getdH(Z) Return the layer thickness for each level as
+% the sum of half the upper and half the lower layers.
 % 
-% HELPTEXT
-%
-% Created: 2011-03-24.
-% Copyright (c) 2011, Guillaume Maze (Laboratoire de Physique des Oceans).
+% Created: 2013-07-22.
+% Copyright (c) 2013, Guillaume Maze (Ifremer, Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
 
@@ -17,7 +16,7 @@
 % 	* Redistributions in binary form must reproduce the above copyright notice, this list 
 % 	of conditions and the following disclaimer in the documentation and/or other materials 
 % 	provided with the distribution.
-% 	* Neither the name of the Laboratoire de Physique des Oceans nor the names of its contributors may be used 
+% 	* Neither the name of the Ifremer, Laboratoire de Physique des Oceans nor the names of its contributors may be used 
 %	to endorse or promote products derived from this software without specific prior 
 %	written permission.
 %
@@ -31,29 +30,40 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function varargout = barerror(bh,err)
-return
-bh = bh(:);
-if length(bh) ~= size(err,2)
-	error('Errors are not of the correct size')
-end% if 
+function H = getdH(varargin)
 
-% bh is bar object handle
-stophere
-for ib = 1 : length(bh)
-	get(bh(ib),'barwidth')
-	ydata = get(bh(ib),'ydata');
+Z = varargin{1};
+
+%- Format input data as expected:
+% negative and oriented from bottom to surface
+Z = sort(-abs(Z(:)));
+
+%-
+nz  = length(Z);
+Hup = zeros(nz,1)*NaN;
+Hdw = zeros(nz,1)*NaN;
+
+for iz = 1 : nz
 	
-end% for ib
+	if iz < nz
+		% Upper layer half thickness:
+		Hup(iz) = (Z(iz+1)-Z(iz))/2;
+	end% if 
+	
+	if iz > 1
+		% Lower layer half thickness:
+		Hdw(iz) = (Z(iz) - Z(iz-1))/2;
+	end% if 
 
+end% for iz
+	
+%- Layer thickness:
+H = nansum([Hup , Hdw],2);
 
-end %functionbarerror
+%-
+H = reshape(H,size(varargin{1}));
 
-
-
-
-
-
+end %functiongetdH
 
 
 

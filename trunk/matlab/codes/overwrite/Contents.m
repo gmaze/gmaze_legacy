@@ -1,9 +1,9 @@
 % MY CODES: OVERWRITE
-% Version 1 1 10-Jan-2013
+% Version 1 1 09-Dec-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/overwrite
 % 
-% Last update: 2013 January 10, 15:02
+% Last update: 2013 December 09, 15:15
 % 
 % 	clf                                      - Clear current figure
 % 	corrcoef                                 - Correlation coefficients.

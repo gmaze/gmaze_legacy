@@ -22,7 +22,7 @@ Compute 2D surface elements matrix
 % Rev. by Guillaume Maze on 2009-09-30: Added dx,dy optional output
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

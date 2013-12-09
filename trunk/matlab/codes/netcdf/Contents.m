@@ -1,9 +1,9 @@
 % MY CODES: NETCDF
-% Version 1 1 10-Jan-2013
+% Version 1 1 09-Dec-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/netcdf
 % 
-% Last update: 2013 January 10, 15:02
+% Last update: 2013 December 09, 15:15
 % 
 % 	ncbuiltin                                - Is this Matlab using built-in netcdf or not ?
 % 	ncdimname                                - List dimensions name of a netcdf object

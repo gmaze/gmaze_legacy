@@ -37,7 +37,7 @@ Export a figure to A4 color PDF format
 % Rev. by Guillaume Maze on 2010-10-21: Add cropped pdf option
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

@@ -1,13 +1,14 @@
 % MY CODES: GEOPHYSIC
-% Version 1 1 10-Jan-2013
+% Version 1 1 09-Dec-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/geophysic
 % 
-% Last update: 2013 January 10, 15:02
+% Last update: 2013 December 09, 15:15
 % 
 % 	WOA05_grid                               - Read World Ocean Atlas 2005 grid
 % 	compute_air_sea_o2_flux                  - Compute air-sea oxygen flux
 % 	constraint_jstar                         - H1LINE
+% 	convX                                    - Convert longitude convention
 % 	convert_oxygen                           - O2 unit conversion
 % 	convert_unit                             - Convert unit of oceanic concentration substance
 % 	csvreadargo                              - H1LINE
@@ -20,6 +21,7 @@
 % 	diag_interpallREQ                        - NEWFIELD = diag_interpallREQ(FIELD,LON,LAT,netcdf_domain,resolution,...
 % 	dinterp3bin                              - Interpolate a 3D field
 % 	dinterp3bin_grid                         - Compute the new grid for DINTERP3BIN interpolated fields
+% 	distsphere                               - Compute the angle between two points on the sphere
 % 	dlowerres                                - Reduce the resolution of a field
 % 	drawmpoly                                - drawpoly Draw a polygon on a map (using m_map)
 % 	dwn_nao                                  - Download the monthly NAO index
@@ -30,12 +32,17 @@
 % 	get_mmld_along_track                     - Get Boyer-Montegut MLD climatology along a track
 % 	get_occaclim_along_track                 - get_occa_along_track H1LINE
 % 	get_ovide_track                          - Load OVIDE track
+% 	get_pyc                                  - Compute pycnocline characteristics
+% 	get_pyc_idvgrads_v2                      - Identify profile properties based on N2
+% 	get_pyc_idvgrads_v2b                     - Identify profile properties based on N2
 % 	get_thd                                  - Determine the seasonal and main thermocline depths
 % 	get_thdv2                                - H1LINE
 % 	get_woa_along_track                      - Interpolate World Ocean Atlas data along a ship track
+% 	getdH                                    - Compute Layer thickness from a vertical axis
 % 	getdS                                    - Compute 2D surface elements matrix
 % 	getdV                                    - Compute 3D volume elements matrix
 % 	guiOCCA                                  - GUI to OCCA dataset
+% 	is_in_box                                - Identify points inside a geographical domain or box
 % 	lldist                                   - Compute distance in m between two points on Earth
 % 	load_climOCCA                            - Load any climatological fields from OCCA
 % 	load_maskOCCA                            - Load any mask from OCCA

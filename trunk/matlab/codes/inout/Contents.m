@@ -1,9 +1,9 @@
 % MY CODES: INOUT
-% Version 1 1 10-Jan-2013
+% Version 1 1 09-Dec-2013
 % 
 % 		Contents from /Users/gmaze/matlab/codes/inout
 % 
-% Last update: 2013 January 10, 15:02
+% Last update: 2013 December 09, 15:15
 % 
 % 	abspath                                  - Relative to Absolute path function
 % 	base64encode                             - Perform base64 encoding on a string.
@@ -21,7 +21,9 @@
 % 	gmat                                     - Grep a string into comments of Matlab routines within a given folder or file
 % 	grep                                     - Grep a string into definitions of functions
 % 	growl                                    - Send a notification to Growl
+% 	h1line                                   - Search for text in h1 lines
 % 	helptocxml2html                          - H1LINE
+% 	jvmwaitbar                               - Progress wait bar for Matlab running with Java on console
 % 	ltp                                      - List directory as ls -rtl
 % 	ltx_dlist                                - Copy a LaTeX file TeX ressources to a local folder
 % 	ltx_tbll                                 - Print a LaTeX table line
@@ -35,6 +37,7 @@
 % 	plgrep                                   - Grep a string into definitions of sub plots/diagnostics
 % 	pllist                                   - Shortcut for function get_plotlistdef(MASTER,'.')
 % 	qstat                                    - Return command qstat -u user outputs
+% 	readh1line                               - Read the H1 line of a matlab script file
 % 	remindme                                 - Reminder using crontab and growl
 % 	sep                                      - Draw/Create a horizontal line on the terminal
 % 	serveraddress                            - Display nslookup output

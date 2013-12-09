@@ -8,13 +8,15 @@ Return description of diagnostic/plot files
 %
 % LIST = get_plotlist(MASTER,SUBDIR)
 %
+% 
+% Rev. by Guillaume Maze on 2013-07-03: Get rid of variables sla, using fullfile
 % This function determines the list of pre-defined plots
 % available with the MASTER.m in the folder SUBDIR
 % LIST is a structure with name and description of each modules.
 %
 }}}
 ----
-Last update: 2011 March 04, 18:36
+Last update: 2013 December 09, 15:15
 
 Created by Guillaume Maze
 

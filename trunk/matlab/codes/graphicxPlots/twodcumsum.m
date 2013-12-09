@@ -17,7 +17,6 @@
 %
 function varargout = twodcumsum(Cx,Cy,C,varargin)
 
-figure
 clf;hold on
 
 left=.10;
