@@ -1,0 +1,31 @@
+== scat2mat.m ==
+Map scattered data onto a regular grid
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/statistics/scat2mat.m Download here]
+
+{{{
+% scat2mat Map scattered data onto a regular grid
+%
+% M = scat2mat(Xi,Yi,Zi,Xb,Yb) Map values Zi scattered along two irregular Xi,Yi 
+% 	coordinates onto a regular grid defined by meshed axis Xb,Yb. See bin2mat 
+% 	for more details.
+%
+% M = scat2mat(Xi,Yi,Zi,Xb,Yb,@fun) Map values Zi scattered along irregular Xi,Yi 
+% 	coordinates onto a regular grid defined by meshed axis Xb,Yb. The function @fun 
+% 	is used to agregate values. See bin2mat for more details.
+% 
+% [M IND] = scat2mat(Xi,Yi,Zi,Xb,Yb,@fun,@ope,val) Map values Zi scattered along 
+% 	irregular Xi,Yi coordinates onto a regular grid defined by meshed axis Xb,Yb. 
+% 	The function @fun is used to agregate values. IND is the list of indexes in Zi
+% 	for which the operator @ope is satisfied with value val on the normalized map
+% 	values.
+% 
+% Created: 2013-11-07.
+% All rights reserved.
+}}}
+----
+Last update: 2013 December 09, 14:37
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]
