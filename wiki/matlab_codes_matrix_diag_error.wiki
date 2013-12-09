@@ -24,7 +24,7 @@ Propagate error estimates for misc operators
 % All rights reserved.
 }}}
 ----
-Last update: 2013 November 06, 15:58
+Last update: 2013 December 09, 14:37
 
 Created by Guillaume Maze
 

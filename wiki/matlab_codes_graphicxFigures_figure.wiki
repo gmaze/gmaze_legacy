@@ -25,7 +25,7 @@ FIGUR Create figure window without Menu Bar
 % Created by Guillaume Maze on 2008-10-09.
 }}}
 ----
-Last update: 2013 November 06, 15:58
+Last update: 2013 December 09, 14:37
 
 Created by Guillaume Maze
 

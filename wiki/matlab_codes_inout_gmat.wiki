@@ -24,7 +24,7 @@ Grep a string into comments of Matlab routines within a given folder or file
 % Created: 2009-06-23.
 }}}
 ----
-Last update: 2013 November 06, 15:58
+Last update: 2013 December 09, 14:37
 
 Created by Guillaume Maze
 
