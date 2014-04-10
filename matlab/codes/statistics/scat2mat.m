@@ -62,6 +62,11 @@ switch nargin
 		mapfun = varargin{1};
 		levfun = varargin{2};
 		levval = varargin{3};
+		if nargin == 9
+			N = varargin{4};
+		else
+			N = 1;
+		end% if 
 		% follow on below ...
 end% switch 
 
@@ -75,7 +80,7 @@ H = bin2mat(Xi,Yi,Zi,Xb,Yb,mapfun);
 %- Normalize H so that it goes from -1 to 1 only:
 Hn = H./abs(xtrm(H));
 
-%- Identify region:
+%- Identify one region by normalised contours:
 [ix iy] = find( feval(levfun,Hn,levval) );
 if ~isempty(ix)
 	Ilist = [];
@@ -83,9 +88,70 @@ if ~isempty(ix)
 		Ilist = cat(1,Ilist,Hindex{ix(ic),iy(ic)});
 	end% for ic
 end% if 
+%stophere
 
+%- Identify multiple regions by normalized contours:
+cs = contour(Xb,Yb,Hn,levval);
+st = cs2st(cs);
+for ist = 1 : length(st)
+	clen(ist) = size(st{ist},1);
+end% for ist
+[clen ist] = sort(clen,'descend');
+st = st(ist);
+if length(st) < N
+	N = length(st);
+end% if 
+
+% Now that we have contour coordinates, we indentify the corresponding indeces
+%[ix iy] = find( feval(levfun,Hn,levval) );
+mask = zeros(size(Hn));
+mask(find( feval(levfun,Hn,levval) )) = 1;
+for ist = 1 : N
+	coords = st{ist};
+	in = inpolygon(Xb,Yb,coords(:,1),coords(:,2));
+	[ix iy] = find( in == true );
+	if ~isempty(ix)
+		ilist = [];
+		for ic = 1 : length(ix)
+			ilist = cat(1,ilist,Hindex{ix(ic),iy(ic)});
+		end% for ic
+		CLUSTER(ist).indeces = ilist;
+		CLUSTER(ist).contour = coords;
+	end% if
+end% for ist
+
+%- Output
 varargout(1) = {H};
 varargout(2) = {Ilist};
+varargout(3) = {CLUSTER};
 
 
 end %functionbinning2d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

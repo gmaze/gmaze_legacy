@@ -1,19 +1,19 @@
-function y = gauss(x,sigma,x0,a)
-% gauss Gaussian function
+% nanstan Return a standardized serie discarding NaNs
 %
-% y = gauss(x,sigma,x0,amp)
+% X = nanstan(X,[DIM])
 % 
-% Give back:
+% Return a standardized serie:
+%	[X - nanmean(X,DIM)]/nanstd(X,[],DIM)
 %
-%	y = amp*exp( -(x-x0)^2 / 2 / sigma^2 );
+% Mean and std are taken along DIM (1 by default)
+% 
+% See also: nanstan
 %
 % http://codes.guillaumemaze.org
-% Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
-% Created: 2009-11-23 by G. Maze
-% Revised: 2011-06-15 (G. Maze) Added possibility to handle multiple sigma.
-% Revised: 2011-10-25 (G. Maze) Now scale input sigma by sqrt(2) so that half curve 
-% 	thickness at y(x0)/exp(1) is sigma !
-% Revised: 2014-04-09 (C. Feucher) Added possibility to handle multiple amplitude
+% Copyright (c) 2013, Guillaume Maze (Ifremer, Laboratoire de Physique des Oceans).
+% Created: 2013-12-20 by G. Maze
+% Revised: 2014-04-09 (C. Feucher) Added possibility to handle series with 2 dimensions.
+% Revised: 2014-04-10 (G. Maze) Now handle arrays with any number of dimensions
 
 % 
 % Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@ function y = gauss(x,sigma,x0,a)
 % 	* Redistributions in binary form must reproduce the above copyright notice, this list 
 % 	of conditions and the following disclaimer in the documentation and/or other materials 
 % 	provided with the distribution.
-% 	* Neither the name of the Laboratoire de Physique des Oceans nor the names of its contributors may be used 
+% 	* Neither the name of the Ifremer, Laboratoire de Physique des Oceans nor the names of its contributors may be used 
 %	to endorse or promote products derived from this software without specific prior 
 %	written permission.
 %
@@ -37,11 +37,17 @@ function y = gauss(x,sigma,x0,a)
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-% Scale sigma so that the gaussian thickness is correct
-sigma = sigma/sqrt(2);
+function X = nanstan(X,varargin)
 
-[mx ms ma] = meshgrid(x,sigma,a);
+switch nargin
+	case 1
+		idim = 1;
+	otherwise
+		idim = varargin{1};
+end% switch 
 
-y = ma.*exp(- (mx-x0).^2 / 2 ./ ms.^2 );
+Xmean = nanmean(X,idim);
+Xstd  = nanstd(X,[],idim);
+X = bsxfun(@rdivide,bsxfun(@minus,X,Xmean),Xstd);
 
-end %functiongauss
+end %functionnanstan
