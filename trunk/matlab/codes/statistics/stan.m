@@ -3,12 +3,19 @@
 % X = stan(X,[DIM])
 % 
 % Return a standardized serie:
-%	[X - nanmean(X)]/nanstd(X)
-%
-% Created: 2012-01-30.
-% Copyright (c) 2012, Guillaume Maze (Laboratoire de Physique des Oceans).
-% All rights reserved.
+%	[X - mean(X,DIM)]/std(X,[],DIM)
+% 
+% Mean and std are taken along DIM (1 by default)
+% 
+% See also: nanstan
+% 
 % http://codes.guillaumemaze.org
+% Copyright (c) 2012, Guillaume Maze (Laboratoire de Physique des Oceans).
+% Created: 2012-01-30 by G. Maze
+% Revised: 2013-12-20 (G. Maze) Not using nanmean/nanstd anymore, because
+% 	created nanstan.m for this usage
+% Revised: 2014-04-09 (C. Feucher) Added possibility to handle series with 2 dimensions.
+% Revised: 2014-04-10 (G. Maze) Now handle arrays with any number of dimensions
 
 % 
 % Redistribution and use in source and binary forms, with or without
@@ -41,7 +48,13 @@ switch nargin
 		idim = varargin{1};
 end% switch 
 
-X = (X - nanmean(X,idim))./nanstd(X,[],idim);
+if ~isempty(find(isnan(X(:))==1))
+	warning('There''s NaNs in this array, you may want to use nanstan instead');
+end% if 
+
+Xmean = mean(X,idim);
+Xstd  = std(X,[],idim);
+X = bsxfun(@rdivide,bsxfun(@minus,X,Xmean),Xstd);
 
 
 end %functionstan
