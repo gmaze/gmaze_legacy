@@ -35,7 +35,6 @@
 
 function flist = file_list(varargin)
 
-
 % Default parameters:
 WFILE = 1;
 NREC  = 0;
@@ -78,7 +77,7 @@ diag_screen_default.forma = '%s\n';
 ifile = 0; t = now; itot = 0; irej = 0;
 for ifold = 1 : size(folder_list,1);
 	folder     = abspath(folder_list{ifold,1});
-	diag_screen(sprintf('# Scanning %s ...',folder));
+	%diag_screen(sprintf('# Scanning %s ...',folder));
 	system(sprintf('/bin/ls -R -A -C -l -L -F %s > .ls',folder));
 	
 	fid = fopen('.ls');
@@ -140,7 +139,7 @@ for ifold = 1 : size(folder_list,1);
 end%for ifold
 
 %whos flist
-diag_screen(sprintf('# I found a total of %i files and selected %i among them (%0.1f seconds)',itot,size(flist,1),(now-t)*86400));
+%diag_screen(sprintf('# I found a total of %i files and selected %i among them (%0.1f seconds)',itot,size(flist,1),(now-t)*86400));
 %diag_screen(sprintf('%i files were rejected',irej));
 
 fclose(fid_log);
