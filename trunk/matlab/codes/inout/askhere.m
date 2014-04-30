@@ -4,6 +4,7 @@
 % 
 % Invoke keyboard from M-file indicating where we stop and ask if we continue 
 %
+%TAGS public,debug
 % Created: 2011-03-07.
 % Copyright (c) 2011, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
@@ -31,7 +32,6 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-
 try
 	dstophere = dbstack;
 	disp(sprintf('Stop in %s at %s line #%i',dstophere(2).file,dstophere(2).name,dstophere(2).line));clear dstophere
@@ -39,4 +39,3 @@ try
 		keyboard
 	end
 end
-%keyboard

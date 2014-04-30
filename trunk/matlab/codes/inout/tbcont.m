@@ -1,4 +1,4 @@
-% TBCONT Audit a directory and create html/wiki pages and table of content
+% TBCONT Audit a directory and create html/wiki pages and a table of content
 %
 % [] = tbcont(PATH_TO_DIR,[OPTION1,VALUE1,...])
 %
@@ -65,7 +65,7 @@
 %
 % 
 % REQUIREMENTS:
-%	file_list,
+%	Matlab function file_list()
 %
 % Created: 2008-10-30.
 % Rev. by Guillaume Maze on 2009-09-28: Added Contents.m creation, ndepth option
@@ -97,9 +97,7 @@
 
 function varargout = tbcont(varargin)
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Options and defaults parameters:
+%- Options and defaults parameters:
 if nargin >= 1
 	pathd = abspath(varargin{1});
 else
@@ -107,29 +105,39 @@ else
 end
 if pathd(end) == '/'; pathd = pathd(1:end-1); end
 
-%%%%%%%%%%%%% Default parameters 
+%- Default parameters 
 % The absolute path or url to source files:
 link_pref = 'http://guillaumemaze.googlecode.com/svn/trunk/matlab/';
+
 % The relative to link_pref path to source files:
 link_rel  = 'routines/'; % tuned for the '~/matlab/routines' folder:
+
 % The absolute path to wiki pages:
 link_wiki = 'http://code.google.com/p/guillaumemaze/wiki';
+
 % The prefix to all wiki page files:
 pref_wiki = 'matlab';
+
 % The depth of the recursive scan:
 ndepth    = Inf;
+
 % Build Contents.m ?
 do_contentsm    = 1;
 overw_contentsm = 0; % By default we do not overwrite the TOC file
 
 % Build tbcont.html ?
 do_tbcont      = 1;
+
 % Build Individual html files under /help ?
 do_single_html = 1;
+
 % Build Individual wikie files under /wiki ?
 do_single_wiki = 1;
 
-%%%%%%%%%%%%% Load options:
+% Display verbose:
+verb = false;
+
+%- Load options:
 if nargin >= 2
 	if mod(nargin-1,2)~=0
 		error('Options must come with their values !')
@@ -144,8 +152,9 @@ if nargin >= 2
 			end
 		end
 	end
-end
-%%%%%%%%%%%%% Format path links:
+end% if 
+
+%- Format path links:
 if link_rel(1) == '/', link_rel = link_rel(2:end); end     % Remove any trailing slash in link_rel
 pref_wiki = strrep(pref_wiki,'_','');
 pref_wiki = sprintf('%s_%s',pref_wiki,strrep(link_rel,'/','_'));
@@ -153,21 +162,24 @@ if link_rel(end)  ~= '/',  link_rel = [link_rel '/']; end  % Add slash at the en
 if link_pref(end) ~= '/',  link_pref = [link_pref '/']; end % Add slash at the end of link_pref
 link_pref = sprintf('%s%s',link_pref,link_rel);
 
-%%%%%%%%%%%%% Screen log:
-disp(sprintf('I will create:'))
+%- Screen log:
+global tbcont_verbose
+tbcont_verbose = verb;
+
+local_disp(sprintf('I will create:'))
 if do_contentsm
-	disp(sprintf('\t%s/Contents.m',pathd))
+	local_disp(sprintf('\t%s/Contents.m',pathd))
 end
 if do_tbcont
-	disp(sprintf('\t%s/tbcont.html',pathd))
-	disp(sprintf('Links to source files point to:\n\t%sXXXX.m',link_pref));	
-	disp(sprintf('Links to wiki pages point to:\n\t%s/%s_XXXX',link_wiki,pref_wiki));
+	local_disp(sprintf('\t%s/tbcont.html',pathd))
+	local_disp(sprintf('Links to source files point to:\n\t%sXXXX.m',link_pref));	
+	local_disp(sprintf('Links to wiki pages point to:\n\t%s/%s_XXXX',link_wiki,pref_wiki));
 end
 if do_single_html
-	disp(sprintf('Individual HTML pages are here:\n\t%s/help/XXXX.html',pathd));
+	local_disp(sprintf('Individual HTML pages are here:\n\t%s/help/XXXX.html',pathd));
 end
 if do_single_wiki
-	disp(sprintf('Individual wiki pages are here:\n\t%s/wiki/XXXX.wiki',pathd));
+	local_disp(sprintf('Individual wiki pages are here:\n\t%s/wiki/XXXX.wiki',pathd));
 end
 
 %%%%%%%%%%%%% Misc
@@ -208,7 +220,7 @@ else
 end
 
 if overw_contentsm
-	disp(sprintf('Creating %s/Contents.m ...',pathd));
+	local_disp(sprintf('Creating %s/Contents.m ...',pathd));
 	
 	global diag_screen_default
 	diag_screen_default.PIDlist = [2];
@@ -273,7 +285,7 @@ end%if do_contentsm
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Create tbcont.html
 if do_tbcont
 
-disp(sprintf('Creating %s/tbcont.html ...',pathd));
+local_disp(sprintf('Creating %s/tbcont.html ...',pathd));
 
 global diag_screen_default
 diag_screen_default.PIDlist = [2];
@@ -416,7 +428,7 @@ for ifct = 1 : size(TB,2)
 	% Folder:
 	pa = sprintf('%s/help%s',pathd,TB(ifct).rpath);
 	if ~exist(pa,'dir'),mkdir(pa);end
-	disp(sprintf('Creating %s ...',indiv_html));
+	local_disp(sprintf('Creating %s ...',indiv_html));
 	
 	global diag_screen_default
 	diag_screen_default.PIDlist = [2];
@@ -489,7 +501,7 @@ col(2).val = '#ddd';
 for ifct = 1 : size(TB,2)
 	[murl murlname rpath indiv_html indiv_wiki wurl] = get_murl(TB(ifct),link_pref,link_rel,link_wiki,pref_wiki,pathd);
 	
-	disp(sprintf('Creating %s ...',indiv_wiki));
+	local_disp(sprintf('Creating %s ...',indiv_wiki));
 	
 	global diag_screen_default
 	diag_screen_default.PIDlist = [2];
@@ -543,6 +555,7 @@ end%if do_single_wiki
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clear global tbcont_verbose
 if nargout == 1
 	varargout(1) = {TB};
 end
@@ -553,8 +566,6 @@ end%function
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SUB-FUNCTIONS
-
-
 
 %%%%%%%%%%%%%%% %%%%%%%%%%%%%%% 
 function TB = get_TB_struct(pathd,ndepth);
@@ -572,31 +583,36 @@ for ifil = 1 : size(flist,1)
 	% Is this file a script or a function ?
 	[res fname] = isfunction(flist{ifil,1});
 	if res
-		h1line = get_h1line(flist{ifil,1},fname);
-%		disp(sprintf('%20s - %s (%s)',fname,h1line,flist{ifil,1}));
+		%-- Ensure that this is a file we want to share publicly:
+		if mtags(flist{ifil,1},'has','public')
+			h1line = get_h1line(flist{ifil,1},fname);
+	%		local_disp(sprintf('%20s - %s (%s)',fname,h1line,flist{ifil,1}));
 		
-		fid    = fopen(flist{ifil,1},'r');
-		head   = readheader(fid);
-		fclose(fid);	
-		rpath  = strrep(flist{ifil,4},pathd,'');
-		isla    = strfind(rpath,'/');		
+			fid    = fopen(flist{ifil,1},'r');
+			head   = readheader(fid);
+			fclose(fid);	
+			rpath  = strrep(flist{ifil,4},pathd,'');
+			isla   = strfind(rpath,'/');		
 		
-		ifct = ifct + 1;
-		TB(ifct).file = flist{ifil,2};
-		TB(ifct).name = fname;
-		TB(ifct).def  = h1line;
-		TB(ifct).head  = head;
-		TB(ifct).path  = flist{ifil,4};
-		TB(ifct).date  = flist{ifil,5};
-		TB(ifct).rpath = rpath;
-		if ~isempty(isla)
-			TB(ifct).ilevl = length(isla);
+			ifct = ifct + 1;
+			TB(ifct).file = flist{ifil,2};
+			TB(ifct).name = fname;
+			TB(ifct).def  = h1line;
+			TB(ifct).head  = head;
+			TB(ifct).path  = flist{ifil,4};
+			TB(ifct).date  = flist{ifil,5};
+			TB(ifct).rpath = rpath;
+			if ~isempty(isla)
+				TB(ifct).ilevl = length(isla);
+			else
+				TB(ifct).ilevl = 0;
+			end
 		else
-			TB(ifct).ilevl = 0;
-		end
+			local_disp(sprintf('%s won''t be included in TOC files because it does not contain the tag ''public''',flist{ifil,1}));
+		end% if 
 		
 	else
-%		disp(sprintf('%s : Not a function !',flist{ifil,1}));
+%		local_disp(sprintf('%s : Not a function !',flist{ifil,1}));
 	end
 
 end%for ifil
@@ -731,11 +747,11 @@ for ifil = 1 : size(flist,1)
 				else
 					TB(ifct).ilevl = 0;
 				end
-				%disp(sprintf('%20s: %s',fctname,fctdefi));
+				%local_disp(sprintf('%20s: %s',fctname,fctdefi));
 			end
 		end % we exclude this one
 	catch
-		disp(sprintf('Error processing file: %s',name))
+		local_disp(sprintf('Error processing file: %s',name))
 	end %try		
 end %for ifil
 
@@ -826,17 +842,17 @@ function [murl murlname rpath indiv_html indiv_wiki wurl] = get_murl(TB,link_pre
 		pref  = sprintf('%s',pref_wiki);
 	end
 	if pref(end) ~= '_', pref = [pref '_']; end
-%	disp(pref_wiki),disp(pref)
+%	local_disp(pref_wiki),local_disp(pref)
 	wurl = sprintf('%s/%s%s',link_wiki,pref,lower(strtrim(TB.name)));
 	wurl = strrep(wurl,'@','');
 	
 	
-%	disp(sprintf('\t%s/Contents.m',pathd))
-%	disp(sprintf('\t%s/tbcont.html',pathd))
-	% disp(sprintf('Links to source file point to:\n\t%s',murl));	
-%	disp(sprintf('Links to wiki page point to:\n\t%s',wurl));
-	% disp(sprintf('Individual HTML page is here:\n\t%s',indiv_html));
-%	disp(sprintf('Individual wiki page is here:\n\t%s',indiv_wiki));
+%	local_disp(sprintf('\t%s/Contents.m',pathd))
+%	local_disp(sprintf('\t%s/tbcont.html',pathd))
+	% local_disp(sprintf('Links to source file point to:\n\t%s',murl));	
+%	local_disp(sprintf('Links to wiki page point to:\n\t%s',wurl));
+	% local_disp(sprintf('Individual HTML page is here:\n\t%s',indiv_html));
+%	local_disp(sprintf('Individual wiki page is here:\n\t%s',indiv_wiki));
 	
 end%function
 
@@ -848,7 +864,39 @@ function ii = flip(ii);
 
 end%function
 
+function local_disp(str)
+	global tbcont_verbose
+	if tbcont_verbose == 1
+		disp(str);
+	end% if 
+end%function
+
+function outcome = ispublic(fname)
+	
+	outcome = false;
+
+	fid = fopen(fname,'r');
+	fseek(fid,0,'bof');
+	
+	done = 0;
+	il = 0;
+	while done ~= 1
+		tline = fgetl(fid);
+		tl = strtrim(tline); 
+		if ~ischar(tline)
+			done = 1;
+		elseif ~isempty(tl)
+			if length(tl) > 5
+				if strcmp(tl(1:4),'%TAG')
+					stophere
+				end% if 
+			end% if 
+		else
+			done = 1;			
+		end% if 
+
+	end%while
 
 
-
+end%function
 
