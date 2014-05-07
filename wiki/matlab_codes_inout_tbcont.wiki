@@ -1,10 +1,10 @@
 == tbcont.m ==
-Audit a directory and create html/wiki pages and table of content
+Audit a directory and create html/wiki pages and a table of content
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/inout/tbcont.m Download here]
 
 {{{
-% TBCONT Audit a directory and create html/wiki pages and table of content
+% TBCONT Audit a directory and create html/wiki pages and a table of content
 %
 % [] = tbcont(PATH_TO_DIR,[OPTION1,VALUE1,...])
 %
@@ -71,7 +71,7 @@ Audit a directory and create html/wiki pages and table of content
 %
 % 
 % REQUIREMENTS:
-%	file_list,
+%	Matlab function file_list()
 %
 % Created: 2008-10-30.
 % Rev. by Guillaume Maze on 2009-09-28: Added Contents.m creation, ndepth option
@@ -79,7 +79,7 @@ Audit a directory and create html/wiki pages and table of content
 % All rights reserved.
 }}}
 ----
-Last update: 2013 December 09, 15:15
+Last update: 2014 May 07, 17:43
 
 Created by Guillaume Maze
 

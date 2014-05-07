@@ -22,7 +22,7 @@ Export a figure to A4 color PDF format
 % Created: 2009-07-21.
 }}}
 ----
-Last update: 2013 December 09, 15:15
+Last update: 2014 May 07, 17:43
 
 Created by Guillaume Maze
 

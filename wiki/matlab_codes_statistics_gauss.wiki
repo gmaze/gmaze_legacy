@@ -12,16 +12,14 @@ Gaussian function
 %
 %	y = amp*exp( -(x-x0)^2 / 2 / sigma^2 );
 %
-% Rev. by Guillaume Maze on 2011-10-25: 
-%	Now scale input sigma by sqrt(2)
-%	so that half curve thickness at y(x0)/exp(1) is sigma !
-%
-% Created: 2009-11-23.
-% Rev. by Guillaume Maze on 2011-06-15: Added possibility to handle multiple sigma.
-% All rights reserved.
+% Created: 2009-11-23 by G. Maze
+% Revised: 2011-06-15 (G. Maze) Added possibility to handle multiple sigma.
+% Revised: 2011-10-25 (G. Maze) Now scale input sigma by sqrt(2) so that half curve 
+% 	thickness at y(x0)/exp(1) is sigma !
+% Revised: 2014-04-09 (C. Feucher) Added possibility to handle multiple amplitude
 }}}
 ----
-Last update: 2013 December 09, 15:15
+Last update: 2014 May 07, 17:43
 
 Created by Guillaume Maze
 

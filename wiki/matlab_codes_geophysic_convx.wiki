@@ -14,12 +14,13 @@ Convert longitude convention
 % 	idconv:	One of the following:
 % 		1 (default): Convert to longitude East, ie: 0 < lon < 360
 % 		0: Convert to longitude East/West, ie: -180 < lon < 180
-%
+% 		2: Convert to longitude East with sorted axis, ie: 0 < lon < 360
+% 
 % Created: 2013-02-21.
 % All rights reserved.
 }}}
 ----
-Last update: 2013 December 09, 15:15
+Last update: 2014 May 07, 17:43
 
 Created by Guillaume Maze
 

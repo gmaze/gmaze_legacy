@@ -6,9 +6,9 @@ Create a time serie with datenum
 {{{
 % datenumserie Create a time serie with datenum
 %
-% N = datenumserie(Y,MO,[D,M,S])
+% DTNUM = datenumserie(Y,MO,[D,M,S])
 % 
-% Create a time serie with datenum: return the serial date
+% Create a timeseries of datenum: return the serial date
 % numbers for corresponding elements of the Y, MO (year, month)
 % and eventually D, M or S (day, minutes, seconds).
 %
@@ -17,6 +17,7 @@ Create a time serie with datenum
 % the outcome is a 12 elements array similar to:
 %	datenum(2002,1:12,1,0,0,0)
 % which is not satisfactory.
+% 
 % When calling:
 %	datenumserie(2002:2003,1:12,1,0,0,0)
 % the outcome is the expected time serie of 24 elements 
@@ -26,7 +27,7 @@ Create a time serie with datenum
 % All rights reserved.
 }}}
 ----
-Last update: 2013 December 09, 15:15
+Last update: 2014 May 07, 17:43
 
 Created by Guillaume Maze
 

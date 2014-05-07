@@ -6,16 +6,19 @@ Send an email via the system command 'mail'
 {{{
 % MAILSEND Send an email via the system command 'mail'
 %
-% [] = mailsend(email,subject,body)
+% [] = mailsend(email,subject,'body string')           % Use a string
+% [] = mailsend(email,subject,'body line1 \nline 2')   % Use \n in string to add new lines
+% [] = mailsend(email,subject,{'body line1','line 2'}) % Use cell array of strings
+% [] = mailsend(email,subject,{'body line1',132})      % Use cell array of strings or not
+% [] = mailsend(email,subject,'body_file_content.txt') % Use a text file content 
 %
 % Send an email via the system command 'mail'
 %
-% For multiple lines, insert \n in the body string chaine
-%
 % Created by Guillaume Maze on 2008-10-14.
+% Revised: 2014-04-30 (G. Maze) Added support for file content in the body
 }}}
 ----
-Last update: 2013 December 09, 15:15
+Last update: 2014 May 07, 17:43
 
 Created by Guillaume Maze
 

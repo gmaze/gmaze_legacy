@@ -7,7 +7,7 @@ Map scattered data onto a regular grid
 % scat2mat Map scattered data onto a regular grid
 %
 % M = scat2mat(Xi,Yi,Zi,Xb,Yb) Map values Zi scattered along two irregular Xi,Yi 
-% 	coordinates onto a regular grid defined by meshed axis Xb,Yb. See bin2mat 
+% 	axis coordinates onto a regular grid defined by meshed grid axis Xb,Yb. See bin2mat 
 % 	for more details.
 %
 % M = scat2mat(Xi,Yi,Zi,Xb,Yb,@fun) Map values Zi scattered along irregular Xi,Yi 
@@ -24,7 +24,7 @@ Map scattered data onto a regular grid
 % All rights reserved.
 }}}
 ----
-Last update: 2013 December 09, 15:15
+Last update: 2014 May 07, 17:43
 
 Created by Guillaume Maze
 

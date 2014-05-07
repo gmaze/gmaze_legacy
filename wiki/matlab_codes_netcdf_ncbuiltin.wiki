@@ -1,21 +1,20 @@
 == ncbuiltin.m ==
-Is this Matlab using built-in netcdf or not ?
+Determine if this Matlab is using built-in netcdf library or not ?
 
 [http://guillaumemaze.googlecode.com/svn/trunk/matlab/codes/netcdf/ncbuiltin.m Download here]
 
 {{{
-% ncbuiltin Is this Matlab using built-in netcdf or not ?
+% ncbuiltin Determine if this Matlab is using built-in netcdf library or not ?
 %
 % res = ncbuiltin()
 % 
-% Is this Matlab using built-in netcdf or not ?
-% res is true or false.
+% Return TRUE if this Matlab is using the built-in netcdf library, return FALSE otherwise.
 %
 % Created: 2011-06-14.
 % All rights reserved.
 }}}
 ----
-Last update: 2013 December 09, 15:15
+Last update: 2014 May 07, 17:43
 
 Created by Guillaume Maze
 
