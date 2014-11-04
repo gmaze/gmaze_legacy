@@ -59,7 +59,7 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function [a0 a1 a0_er a1_er rsq] = fitlin(xi,yi)
+function [a0 a1 a0_er a1_er rsq Qmin] = fitlin(xi,yi)
 
 %- Handle inputs:
 xi = xi(:);
@@ -114,7 +114,7 @@ ssq = sum( ei.^2 / (n-2) );
 % Then s can be given by:
 s = sqrt((ssyy - a1*ssxy)/(n-2));
 
-% and th standard errors for a0 and a1 are:
+% and the standard errors for a0 and a1 are:
 a0_er = s * sqrt( 1/n + nanmean(xi)^2/ssxx );
 a1_er = s/sqrt(ssxx);
 

@@ -1,9 +1,9 @@
 % MY CODES: STATISTICS
-% Version 1 1 09-Dec-2013
+% Version 1 1 07-May-2014
 % 
 % 		Contents from /Users/gmaze/matlab/codes/statistics
 % 
-% Last update: 2013 December 09, 15:15
+% Last update: 2014 May 07, 17:43
 % 
 % 	WSEdecomp                                - Split a signal into its downward/upward propagating and stationnary components
 % 	allstats                                 - STATM Compute statistics from 2 series
@@ -32,6 +32,7 @@
 % 	mypsdchk                                 - Helper function for PSD, CSD, COHERE, and TFE.
 % 	myrunmean                                - Perform running mean on an array
 % 	myspecgram                               - Spectrogram
+% 	nanstan                                  - Return a standardized serie discarding NaNs
 % 	nlinvp                                   - Non-Linear inverse problem
 % 	periodogram2                             - Computes the 2-D periodogram based on Fourier Method
 % 	scat2mat                                 - Map scattered data onto a regular grid

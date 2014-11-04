@@ -1,7 +1,8 @@
+function varargout = scat2mat(Xi,Yi,Zi,Xb,Yb,varargin)
 % scat2mat Map scattered data onto a regular grid
 %
 % M = scat2mat(Xi,Yi,Zi,Xb,Yb) Map values Zi scattered along two irregular Xi,Yi 
-% 	axis coordinates onto a regular grid defined by meshed axis Xb,Yb. See bin2mat 
+% 	axis coordinates onto a regular grid defined by meshed grid axis Xb,Yb. See bin2mat 
 % 	for more details.
 %
 % M = scat2mat(Xi,Yi,Zi,Xb,Yb,@fun) Map values Zi scattered along irregular Xi,Yi 
@@ -40,8 +41,6 @@
 % STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
-
-function varargout = scat2mat(Xi,Yi,Zi,Xb,Yb,varargin)
 
 %- Pre-proc
 Xi = Xi(:);

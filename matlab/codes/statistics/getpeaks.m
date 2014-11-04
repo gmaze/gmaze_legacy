@@ -7,11 +7,6 @@
 % of points on each side of the peak to which X(ipeaks) is superior to:
 % X(ipeak) is the maximum in the interval: X(ipeak-N:ipeak+N)
 %
-% Example:
-%
-% See also:
-%	getdblkpeaks
-%
 % Created: 2007.
 % Rev. by Guillaume Maze on 2009-08-31: Fix a bug with find
 % Copyright (c) 2009 Guillaume Maze. 
@@ -55,10 +50,10 @@ switch method
 
 		checkfig=0;
 		if checkfig
-		   figure(60);clf;hold on;set(gcf,'position',[5 470 481 256]);
+		   figure(60);hold on;set(gcf,'position',[5 470 481 256]);
 		   plot(X);grid on;title('signal');
 		   drawnow;refresh;
-		   figure(61);clf;hold on;set(gcf,'position',[5 156 481 230]);
+		   figure(61);hold on;set(gcf,'position',[5 156 481 230]);
 		   plot(gr);grid on;title('Signal gradient');
 		   ll=line([1 1],get(gca,'ylim'));
 		end   
@@ -74,7 +69,7 @@ switch method
 		% $$$       ll=line([1 1]*it,get(gca,'ylim'));
 		% $$$     end
     
-		    % Cas d'une derivee nulle, pic 'parfait': gr= 1 1 0 -1 -1 
+		    % Cas d'une derivee nulle, pic 'parfait': gr = 1 1 0 -1 -1 
 		    if (sign(gr(it))==0)
 		       % On garde le pic par defaut:
 		       ok=1; 
@@ -142,11 +137,13 @@ switch method
 			ii = ii + 1;
 			ma(ii) = nanmax(x(max([1 ix-N]):min([nx ix+N])));			
 		end%for ix
-		pics=ma - nanmin(X);
-	
+		pics = ma - nanmin(X);
 	
 	
 end %switch
 
+if isnan(pics)
+	pics = [];
+end% if 
 
 end %for it
