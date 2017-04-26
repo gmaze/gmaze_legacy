@@ -1,6 +1,6 @@
 % cmapa change colormap for anomalies
 %
-% [] = cmapa([TYP])
+% [] = cmapa([TYP],[Nc])
 % 
 % TYP=1 Color (default)
 % TYP=2 B&W
@@ -38,7 +38,7 @@ switch nargin
 	case 0
 		load mapanom2
 		cmap = logcolormap(128,1,1,mapanom);
-	case 1
+	case {1,2}
 		switch varargin{1}
 			case 1
 				load mapanom2
@@ -79,6 +79,13 @@ switch nargin
 				cmap = flipud(cmap);
 		end
 end
+
+if nargin == 2
+	N = varargin{2};
+else
+	N = 64;
+end% if 
+cmap = mycolormap(cmap,N);
 
 switch nargout
 	case 0

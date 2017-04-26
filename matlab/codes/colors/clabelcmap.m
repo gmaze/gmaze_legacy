@@ -102,13 +102,22 @@ end %functionclabelcmap
 
 
 function or = getor(cl);
-	
-if isempty(get(cl,'xtick'))
-	or = 'v';
-elseif isempty(get(cl,'ytick'))	
-	or = 'h';
+
+if ~isa(cl,'matlab.graphics.illustration.ColorBar')
+    if isempty(get(cl,'xtick'))
+        or = 'v';
+    elseif isempty(get(cl,'ytick'))	
+        or = 'h';
+    else
+        error('');
+    end
 else
-	error('');
+    p = cl.Position;
+    if p(4)>p(3)
+        or = 'v';
+    else
+        or = 'h';
+    end
 end
 
 end%function
