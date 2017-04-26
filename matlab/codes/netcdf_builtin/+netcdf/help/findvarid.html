@@ -1,0 +1,32 @@
+<html>
+<head>
+     <title>Help: findvarid</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <h4>findVarID</h4>Find a VarID
+                  <br><small>Last modified: 28-Nov-2011 14:07:50</small>
+
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #fff;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/findVarID.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  <br>% findVarID Find a VarID<br>%<br>% VARID = netcdf.findVarID(NCID,VARNAMELIST)<br>% <br>% Find VARID of the variable name given in VARNAMELIST in the netcdf pointer NCID.<br>%<br>% 'VARNAMELIST' is a cell of string, so that it can contains more than version of <br>% the variable name. This is usefull in case you don't exactly know the name<br>% of the variable or want to use the same script to retrieve the same variable but<br>% named differently.<br>%<br>% Note that <br>%	netcdf.findVarID(ncid,'time')<br>% will return the same id as:<br>%	netcdf.inqVarID(ncid,'time')<br>%<br>% Example:<br>%	ncid = netcdf.open('myfile.nc','NC_NOWRITE');<br>%	netcdf.findVarID(ncid,'time')<br>%	netcdf.findVarID(ncid,{'t','time'})<br>%<br>% Created: 2011-11-25.<br>% All rights reserved.
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  Last update: 2016 April 22, 14:47<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>

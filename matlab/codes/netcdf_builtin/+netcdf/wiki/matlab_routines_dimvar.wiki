@@ -1,0 +1,22 @@
+== DimVar.m ==
+Return dimensions id and name of a variable
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/DimVar.m Download here]
+
+{{{
+% DimVar Return dimensions id and name of a variable
+%
+% [Dim_ids Dim_names Dim_length] = netcdf.DimVar(ncid,VAR)
+% 
+% Return dimensions id/name/length for the variable with name or id given by VAR.
+% If no output are specify, results are listed on screen.
+%
+% Created: 2011-11-28.
+% All rights reserved.
+}}}
+----
+Last update: 2016 April 22, 14:47
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

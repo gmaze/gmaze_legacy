@@ -7,17 +7,17 @@
 % OPTIONS are paired like: OPTION_NAME,OPTION_VALUE
 %
 % List of OPTIONS:
-%	numform (string): Numerical format use to display values of C.
+%	numform (string): Numerical format used to display values of C.
 %		Default value: %0.2f
 %	rowT: Title of rows to appear in the upper left table.
 %	colT: Title of columns to appear in the upper left table.
 %	rowl: Row labels.
 %	coll: Column labels.
 %		About rowl and coll:
-%			They can a string with a char for each column or row.
-%			They can a single char, in this case the rol/col number is added
-%			They can a cell of one string with the ley '#r' replaced by 
-%				the rol/col number
+%			They can be a string with a char for each column or row.
+%			They can be a single char, in this case the rol/col number is added
+%			They can be a cell of one string where the key '#r' will be replaced
+%				byv the rol/col number
 %			Or they can be a cell of strings for each column or row.
 %	dohline (logical): Insert a horizontal line between each row.
 %		Default value: false
@@ -25,6 +25,12 @@
 %		Default value: 12
 %	colw (integer): Width of each columns.
 %		Default value: 10
+%   verb (integer): Determine how the table should be displayed:
+% 			0: no display, a cell array of strings is returned
+% 			1: display in the command window 
+% 			2: no display, a cell array of LaTeX strings is returned
+% 			3: display in the command window as a LaTeX array
+%		Default value: 1
 %
 % Outputs:
 %	LINES is a cell with each lines displayed on prompt as a row.
@@ -38,9 +44,11 @@
 %	dispt(randn(4,3),'coll',{'Column number #r'},'rowl',{'Row number #r'},'colw',20,'col1w',20)
 %
 % Created: 2010-06-10.
+% Revised: 2014-05-17 (G. Maze) added the 'verb' option
 % Copyright (c) 2010, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
+% Revised: 2014-10-17 (G. Maze) Added verb 2/3 for LaTeX tables
 
 % 
 % Redistribution and use in source and binary forms, with or without
@@ -98,6 +106,9 @@ rowT = 'row nb';
 
 % Insert a horizontal line between each rows:
 dohline = false;
+
+% Really print result ?
+verb = true;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Load user custom values:
 if nargin > 1
@@ -222,7 +233,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TABLE HEADER:
 switch notitles
 	case false
-		tablstr = dispp(hline,tablstr); % Start with a horizontal line
+		tablstr = dispp(verb,hline,tablstr); % Start with a horizontal line
 	
 		%%%%%% First line is the columns title
 		str = sprintf('|\\%s',algn(colT,'','center',col1w-1)); % First row
@@ -231,7 +242,7 @@ switch notitles
 		%	str = sprintf('%s|%s',str,algn(coll{ic},'','center',colw));
 		end,
 		str = sprintf('%s|',str);
-		tablstr = dispp(str,tablstr); 
+		tablstr = dispp(verb,str,tablstr); 
 	
 		%%%%%% Second line is columns labels
 		% First col:
@@ -244,7 +255,7 @@ switch notitles
 			str = sprintf('%s|%s',str,algn(coll{ic},'','center',colw));
 		end,
 		str = sprintf('%s|',str);
-		tablstr = dispp(str,tablstr); ;
+		tablstr = dispp(verb,str,tablstr); ;
 
 		%%%%%% Third line is rows title:
 		str = sprintf('|%s\\',algn(rowT,'','center',col1w-1)); % First row
@@ -252,12 +263,12 @@ switch notitles
 			str = sprintf('%s|%s',str,algn('','','center',colw));
 		end,
 		str = sprintf('%s|',str);
-		tablstr = dispp(str,tablstr); ;
+		tablstr = dispp(verb,str,tablstr); ;
 
-		tablstr = dispp(hline,tablstr); ; % End with a horizontal line
+		tablstr = dispp(verb,hline,tablstr); ; % End with a horizontal line
 		
 	case true
-		tablstr = dispp(hline2,tablstr); ; % Start with a horizontal line
+		tablstr = dispp(verb,hline2,tablstr); ; % Start with a horizontal line
 	
 		%%%%%% First line is the columns title
 		if 0
@@ -267,7 +278,7 @@ switch notitles
 			%	str = sprintf('%s|%s',str,algn(coll{ic},'','center',colw));
 			end,
 			str = sprintf('%s|',str);
-			tablstr = dispp(str,tablstr);
+			tablstr = dispp(verb,str,tablstr);
 		end
 		
 		%%%%%% Second line is columns labels
@@ -281,7 +292,7 @@ switch notitles
 			str = sprintf('%s|%s',str,algn(coll{ic},'','center',colw));
 		end,
 		str = sprintf('%s|',str);
-		tablstr = dispp(str,tablstr); ;
+		tablstr = dispp(verb,str,tablstr); ;
 
 		%%%%%% Third line is rows title:
 		if 0
@@ -290,9 +301,9 @@ switch notitles
 				str = sprintf('%s|%s',str,algn('','','center',colw));
 			end,
 			str = sprintf('%s|',str);
-			tablstr = dispp(str,tablstr); 
+			tablstr = dispp(verb,str,tablstr); 
 		end
-		tablstr = dispp(hline,tablstr); ; % End with a horizontal line
+		tablstr = dispp(verb,hline,tablstr); ; % End with a horizontal line
 end
 
 
@@ -304,14 +315,18 @@ end
 for ir = 1 : nr
 	str = sprintf('|%s',algn(rowl{ir},'','center',col1w));
 	for ic = 1 : nc
-		v = eval(sprintf('sprintf(''%s'',C(ir,ic))',numform));
+		if isa(C,'cell')
+			v = eval(sprintf('sprintf(''%s'',C{ir,ic})',numform));
+		else
+			v = eval(sprintf('sprintf(''%s'',C(ir,ic))',numform));
+		end% if 
 		str = sprintf('%s|%s',str,algn(v,'','center',colw));		
 	end%for ic
 	str = sprintf('%s|',str);
-	tablstr = dispp(str,tablstr); ;	
-	if dohline,tablstr = dispp(hline,tablstr); ;end
+	tablstr = dispp(verb,str,tablstr); ;	
+	if dohline,tablstr = dispp(verb,hline,tablstr); ;end
 end%for it
-if ~dohline,tablstr = dispp(hline,tablstr); ;end
+if ~dohline,tablstr = dispp(verb,hline,tablstr); ;end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 if nargout == 1
@@ -323,9 +338,35 @@ end %functiondispt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-function tablstr = dispp(str,tablstr);
-	disp(str)
+function tablstr = dispp(verb,str,tablstr);
+	% All the printing comes here !
+	switch verb
+		case 0 % No display, return matlab string
+		case 1 % Matlab Display
+			disp(str)
+		case {2,3} % LaTeX 
+			str = strrep(str,'\',' ');
+			if strcmp(str(end),'|') % Standard line
+				str(end) = '';
+				str = sprintf('%s\\\\',str(1:end-1));
+			end% if
+			if strcmp(str(1),'|') % Standard line
+				str(1) = ' ';
+			end% if 
+			if strcmp(unique(str),'-') % Horizontal line
+				str = '\hline';
+			end% if 
+			str = strrep(str,'|','&');
+			if verb == 2
+				% No display, return LaTeX string
+			else
+				% LaTeX display
+				disp(str);
+			end% if 
+	end% if 
 	tablstr = cat(1,tablstr,str);
+	
+	
 end%fcuntion
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 

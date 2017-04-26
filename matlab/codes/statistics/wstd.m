@@ -1,25 +1,28 @@
-% wstd Compute a weighted standard deviation
+% wstd Compute a sample size bias corrected weighted standard deviation
 %
 % S = wstd(W,X)
 % 
 % Compute the standard deviation of values into array X with weights W.
-% 	S  = sum(W) / (v1-v2) * sum( W*(X-wmean(W,X)).^2 )
+% 	S^2  = sum(A) / (V1 - V2/V1) 
 % with
-%	v1 = sum(W).^2;
-%	v2 = sum(W^2);
+% 	A  = W*(X-wmean(W,X)).^2
+%	V1 = sum(W).^2;
+%	V2 = sum(W^2);
 %
-% See also:
-%	wmean
+% See also:	wmean
 %
 % Ref:
-%	http://en.wikipedia.org/wiki/Mean_square_weighted_deviation
+% Rimoldini R.: Weighted skewness and kurtosis unbiased by sample size and Gaussian uncertainties.
+% Astronomy and Computing, 2014 (5) 1-8.
+% http://dx.doi.org/10.1016/j.ascom.2014.02.001
 %
 % Created: 2011-02-14.
 % Copyright (c) 2011, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
+% Revised: 2015-10-19 (G. Maze) Now use the Rimoldini formulation
+% Revised: 2015-10-19 (G. Maze) Fixed a bug ! We were computing the variance, not the std !
 
-% 
 % Redistribution and use in source and binary forms, with or without
 % modification, are permitted provided that the following conditions are met:
 % 	* Redistributions of source code must retain the above copyright notice, this list of 
@@ -41,23 +44,48 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function S = wstd(W,X)
+function S = wstd(W,X,varargin)
 
-X = X(:);
-W = W(:);
-W = W(~isnan(X));
-X = X(~isnan(X));
+switch nargin
+	case 2
+		X = X(:);
+		W = W(:);
+		W = W(~isnan(X));
+		X = X(~isnan(X));
 
-a = W.*(X - wmean(W,X)).^2;
-v1 = sum(W).^2;
-v2 = sum(W.^2);
-S  = sum(W) / (v1-v2) * sum(a);
+		a  = W.*( (X - wmean(W,X)).^2 );
+		v1 = sum(W);
+		v2 = sum(W.^2);
+		%S  = sqrt( sum(a)./v1 ); % From biased weighted variance
+		S  = sqrt( sum(a)./(v1 - v2./v1) ); % From un-biased Weighted variance
+		
+	case 200
+		X = X(:);
+		W = W(:);
+		W = W(~isnan(X));
+		X = X(~isnan(X));
+
+		V = @(w,p) sum(w.^p); % Sum of the pth power of weights		
+		m = @(w,x,r) sum(w.*(x-mean(x)).^r)/V(w,1); % Sample weighted central moments
+
+		% Eq 5 from Rimoldini, 2014
+		M2 = V(W,1)^2/(V(W,1)^2 - V(W,2))*m(W,X,2);
+		S = sqrt(M2);
+	
+	case 3
+		error('Please update this part of the code with Rimoldini formulae !')
+		dim = varargin{1};
+		n = size(X,dim);
+		s = size(X);
+		s(setdiff(1:length(s),dim))=1;
+		Xm = repmat(wmean(W,X,dim),s);
+		a = W.*((X - Xm).^2);
+		v1 = sum(W,dim).^2;
+		v2 = sum(W.^2,dim);
+		S  = sum(W,dim) ./ (v1-v2) .* sum(a,dim);
+end% switch 
 
 end %functionwstd
-
-
-
-
 
 
 

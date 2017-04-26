@@ -1,10 +1,16 @@
-%NETCDF Summary of ADDITIONAL MATLAB NETCDF capabilities.
-%
-%      findVarID        - Similar to inqVarID but allows a list of searchable variable names.
-%      listVarLongName  - Return list variables long_name
-%      DimVar           - Return dimensions ids and name of a variable
-
-% Created: 2011-11-28.
-% Copyright (c) 2011, Guillaume Maze (Laboratoire de Physique des Oceans).
-% All rights reserved.
-% http://codes.guillaumemaze.org
+% MY CODES: NETCDF_BUILTIN/+NETCDF
+% Version 1 1 20-Dec-2012
+% 
+% 		Contents from /Users/gmaze/matlab/codes/netcdf_builtin/+netcdf
+% 
+% Last update: 2016 April 22, 14:47
+% 
+% 	DimVar                                   - Return dimensions id and name of a variable
+% 	findVarID                                - Find a VarID
+% 	listAtt                                  - List all Attributes of a variable
+% 	listVar                                  - List all variables of a netcdf
+% 	listVarLongName                          - List variables long name of a netcdf object
+% 	xtype                                    - Corresponding value between NC_TYPE and XTYPE
+% 
+% This Contents.m file was automatically created using: /Users/gmaze/matlab/codes/inout/tbcont
+% 

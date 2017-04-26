@@ -3,7 +3,7 @@
 % 
 % 		Contents from /Users/gmaze/matlab/codes
 % 
-% Last update: 2013 December 09, 15:15
+% Last update: 2014 May 07, 17:43
 % 
 % Files in: colors/
 % 	colors/bluewhitered                      - Blue, white, and red color map.
@@ -179,6 +179,7 @@
 % 	inout/ltx_tblo                           - Print opening LaTeX table lines
 % 	inout/machine_list                       - List all network machine with system command 'nslookup'
 % 	inout/mailsend                           - Send an email via the system command 'mail'
+% 	inout/mtags                              - Read/write tags to Matlab function header section
 % 	inout/myqst                              - Display qstat results
 % 	inout/nlines                             - Number of lines in a text file
 % 	inout/nojvmwaitbar                       - Progress waitbar for Matlab running without JVM
@@ -192,7 +193,7 @@
 % 	inout/serveraddress                      - Display nslookup output
 % 	inout/stralign                           - Align/Justify a string within a given sized blank space
 % 	inout/strins                             - Insert a string into another
-% 	inout/tbcont                             - Audit a directory and create html/wiki pages and table of content
+% 	inout/tbcont                             - Audit a directory and create html/wiki pages and a table of content
 % 	inout/tweet                              - Send tweets !
 % 	inout/url_code                           - Percent encode/decode of a string
 % 	inout/wsload                             - Load all (or list of) variables of the base workspace into a function workspace
@@ -203,12 +204,13 @@
 % 	matrix/assym                             - Compute sym. or assym. component of 2D field
 % 	matrix/curvearea                         - Compute curve area in a crude way
 % 	matrix/datenumserie                      - Create a time serie with datenum
+% 	matrix/datenumserie_forbins              - H1LINE
 % 	matrix/diag_error                        - Propagate error estimates for misc operators
 % 	matrix/dim                               - Give the number of dimensions of a field
 % 	matrix/dispt                             - Display a table on prompt
 % 	matrix/duplicate                         - Find duplicate values among a 1D table
 % 	matrix/findp                             - Find the p power of 10 of a number
-% 	matrix/iseven                            - True for even array
+% 	matrix/iseven                            - True for even array, False for odd
 % 	matrix/isin                              - Check if a table contains values of another table
 % 	matrix/m2cols                            - Transform a 1 dimensional matrix to a square one with elements on columns
 % 	matrix/m2diag                            - Transform a 1 dimensional matrix to a square one with elements on the diagonal
@@ -225,6 +227,7 @@
 % 	mcentral/barwitherr                      - Make a bar plot with errors
 % 	mcentral/bin2mat                         - - create a 2D matrix from scattered data without interpolation
 % 	mcentral/clusterData                     - Clusters an MxN array of data into an unspecified number (P) of bins.
+% 	mcentral/date2utc                        - Converts matlab date-time format to Coordinated Universal Time (UTC) to
 % 	mcentral/datevec2doy                     - Takes a date vector and returns the day of year, known incorrectly in the
 % 	mcentral/dirr                            - Lists all files in the current directory and sub directories recursively.
 % 	mcentral/dragdemo                        - Demo for the draggable.m
@@ -254,12 +257,13 @@
 % 	mcentral/stretchcolormap                 - STRETCHCOLOR stretch the colormap
 % 	mcentral/sw_vmodes                       - calculate vertical modes in a flat-bottomed ocean.
 % 	mcentral/usercolormap                    - Create a color map.
+% 	mcentral/utc2date                        - Converts the Coordinated Universal Time (UTC) to matlab date-time format.
 % 	mcentral/variogramfit                    - Fit a theoretical variogram to an experimental variogram
 % 	mcentral/winsinc                         - Applies a windowed sinc filter
 % 	mcentral/xticklabel_rotate               - hText = xticklabel_rotate(XTick,rot,XTickLabel,varargin) Rotate XTickLabel
 % 
 % Files in: netcdf/
-% 	netcdf/ncbuiltin                         - Is this Matlab using built-in netcdf or not ?
+% 	netcdf/ncbuiltin                         - Determine if this Matlab is using built-in netcdf library or not ?
 % 	netcdf/ncdimname                         - List dimensions name of a netcdf object
 % 	netcdf/ncvardesc                         - List informations about variables of a netcdf object
 % 	netcdf/ncvarlongname                     - List variables long name of a netcdf object
@@ -314,6 +318,7 @@
 % 	statistics/mypsdchk                      - Helper function for PSD, CSD, COHERE, and TFE.
 % 	statistics/myrunmean                     - Perform running mean on an array
 % 	statistics/myspecgram                    - Spectrogram
+% 	statistics/nanstan                       - Return a standardized serie discarding NaNs
 % 	statistics/nlinvp                        - Non-Linear inverse problem
 % 	statistics/periodogram2                  - Computes the 2-D periodogram based on Fourier Method
 % 	statistics/scat2mat                      - Map scattered data onto a regular grid
@@ -324,21 +329,6 @@
 % 	statistics/wmean                         - Compute a weighted mean
 % 	statistics/wstd                          - Compute a weighted standard deviation
 % 	statistics/xtrm                          - Find the extreme value of a 2D field (either positive or negative)
-% 
-% Files in: veryprivate/
-% 	veryprivate/bibus                        - Give me the next bus
-% 	veryprivate/blk                          - Insert a blank page at the terminal prompt
-% 	veryprivate/cbsnews                      - Open the CBS Evening News podcast with your browser
-% 	veryprivate/check_ethlog                 - Update and view the my IFREMER working timeline
-% 	veryprivate/cw                           - Move to working directory
-% 	veryprivate/figure_central               - Returns customized parameters to create a figure
-% 	veryprivate/gcontact2maillist            - Removed < and > from a Google contacts list
-% 	veryprivate/gfdsearch_bulkupload         - H1LINE
-% 	veryprivate/google_reader_to_timeline    - Google reader opml file to be used in Google Timeline
-% 	veryprivate/tex2html                     - LaTeX to Html converter for intranet
-% 	veryprivate/top                          - Give back informations about the memory use of Matlab
-% 	veryprivate/update_codes                 - Update meta informations for my Matlab Codes
-% 	veryprivate/wherearewe                   - Give back a string to identify your location
 % 
 % This Contents.m file was automatically created using: /Users/gmaze/matlab/codes/inout/tbcont
 % 

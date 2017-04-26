@@ -6,7 +6,7 @@
 %
 % field_in:	field to be smoothed (masked with NaN)
 % dist_in1:	scale in first direction
-% field_out:	smoothed field
+% field_out: smoothed field
 %
 % The domain is assumed cyclic.
 % If it is not, you want to mask edge points with NaNs.
@@ -38,7 +38,7 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function [field_out] = smoother1Ddiff(field_in,dist_in1)
+function [field_out smooth2D_nbt smooth2D_kh1] = smoother1Ddiff(field_in,dist_in1)
 
 % Same as 2D version but much faster if performed on a single dimension
 

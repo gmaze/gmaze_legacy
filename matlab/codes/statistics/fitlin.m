@@ -65,7 +65,7 @@ function [a0 a1 a0_er a1_er rsq Qmin] = fitlin(xi,yi)
 xi = xi(:);
 yi = yi(:);
 
-%- Work with real values, not nans
+%- Work with real values, no nans
 iok = ~isnan(xi) & ~isnan(yi);
 xi = xi(iok);
 yi = yi(iok);

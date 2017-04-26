@@ -1,0 +1,37 @@
+== listAtt.m ==
+List all Attributes of a variable
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/listAtt.m Download here]
+
+{{{
+% listAtt List all Attributes of a variable
+%
+% [AttName, AttIDs, AttNCtype] = listAtt(ncid,var[id])
+% 
+% List all Attributes of a variable. If no output required displau list on screen
+%
+% Inputs:
+% 	ncid: netcdf scope of the variable
+% 	var[id]: Variable name (string) or ID (int). 
+% 		It can also be 'NC_GLOBAL' for global variables
+%
+% Outputs:
+%	AttName: Cell of Attribute's name (string)
+% 	AttIDs: Attribute's IDs (int)
+% 	AttXtype: Cell of Attribute's NC_TYPE (string)
+% 
+% Eg:
+%	listAtt(ncid,3)
+%	listAtt(ncid,'TEMP')
+%	listAtt(ncid,'GLOBAL')
+% 
+% See Also: listVar
+%
+% Created: 2016-04-14 (G. Maze)
+}}}
+----
+Last update: 2016 April 22, 14:47
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

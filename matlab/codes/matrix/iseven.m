@@ -1,4 +1,4 @@
-% ISEVEN True for even array
+% ISEVEN True for even array, False for odd
 %
 %     ISEVEN(x) return 1 if X is even and 0 otherwise
 %

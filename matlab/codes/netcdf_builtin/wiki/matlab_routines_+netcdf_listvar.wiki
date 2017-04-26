@@ -1,0 +1,21 @@
+== listVar.m ==
+List all variables of a netcdf
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/+netcdf/listVar.m Download here]
+
+{{{
+% listVar List all variables of a netcdf
+%
+% [] = netcdf.listVar(ncid)
+% 
+% List all variables of a netcdf
+%
+% Created: 2011-11-28.
+% All rights reserved.
+}}}
+----
+Last update: 2016 April 22, 14:47
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

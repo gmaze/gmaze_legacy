@@ -1,0 +1,23 @@
+== listVarLongName.m ==
+List variables long name of a netcdf object
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/listVarLongName.m Download here]
+
+{{{
+% listVarLongName List variables long name of a netcdf object
+%
+% [LongName_list VarName_list VarID_list] = netcdf.listVarLongName(ncid)
+% 
+% Give back the list of long names of all variables (not dimensions) of 
+% the netcdf object ncid.
+% If no output are requested, simply display the list on screen.
+%
+% Created: 2011-11-28.
+% All rights reserved.
+}}}
+----
+Last update: 2016 April 22, 14:47
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

@@ -1,0 +1,36 @@
+== findVarID.m ==
+Find a VarID
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/+netcdf/findVarID.m Download here]
+
+{{{
+% findVarID Find a VarID
+%
+% VARID = netcdf.findVarID(NCID,VARNAMELIST)
+% 
+% Find VARID of the variable name given in VARNAMELIST in the netcdf pointer NCID.
+%
+% 'VARNAMELIST' is a cell of string, so that it can contains more than version of 
+% the variable name. This is usefull in case you don't exactly know the name
+% of the variable or want to use the same script to retrieve the same variable but
+% named differently.
+%
+% Note that 
+%	netcdf.findVarID(ncid,'time')
+% will return the same id as:
+%	netcdf.inqVarID(ncid,'time')
+%
+% Example:
+%	ncid = netcdf.open('myfile.nc','NC_NOWRITE');
+%	netcdf.findVarID(ncid,'time')
+%	netcdf.findVarID(ncid,{'t','time'})
+%
+% Created: 2011-11-25.
+% All rights reserved.
+}}}
+----
+Last update: 2016 April 22, 14:47
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

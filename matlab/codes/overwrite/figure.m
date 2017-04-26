@@ -46,7 +46,7 @@ if ~ mycall
 	f = builtin('figure',varargin{:});
 	set(f,'ButtonDownFcn',fh_cb);	
 	if nargout == 1
-	       varargout(1) = {f};
+		varargout(1) = {f};
 	end
 	
 else
@@ -57,21 +57,24 @@ else
 		
 	f = builtin('figure',varargin{:});
 	set(f,'ButtonDownFcn',fh_cb);
-	
 	% Special figures:
 	tag = get(f,'Tag');
 	if ~strcmp(tag,'TMWWaitbar') | ~strcmp(tag,'floatAxisX')
 		switch get(0,'DefaultFigureWindowStyle')
 			case 'docked'
 			otherwise
-				set(f,'position',[posi(1)+co*(f-1) posi(2) posi(3:4)]);
+				if isa(f,'matlab.ui.Figure')
+					set(f,'position',[posi(1)+co*(f.Number-1) posi(2) posi(3:4)]);
+				else
+					set(f,'position',[posi(1)+co*(f-1) posi(2) posi(3:4)]);
+				end% if 
 		end
 		set(f,'menubar','none');
 		footnote;
 	end
 
 	if nargout==1
-	       varargout(1) = {f};
+		varargout(1) = {f};
 	end
 
 end %if

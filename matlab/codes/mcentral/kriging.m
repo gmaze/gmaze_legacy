@@ -1,4 +1,6 @@
-%kriging Interpolation with ordinary kriging in two dimensions
+function [zi,s2zi] = kriging(vstruct,x,y,z,xi,yi,chunksize)
+
+% interpolation with ordinary kriging in two dimensions
 %
 % Syntax:
 %
@@ -85,8 +87,6 @@
 %
 % Date: 13. October, 2010
 % Author: Wolfgang Schwanghart (w.schwanghart[at]unibas.ch)
-
-function [zi,s2zi] = kriging(vstruct,x,y,z,xi,yi,chunksize)
 
 % size of input arguments
 sizest = size(xi);

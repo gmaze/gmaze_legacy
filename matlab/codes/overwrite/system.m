@@ -33,21 +33,25 @@
 
 function varargout = system(varargin)
 
-iscsh = true;
-if ~exist('.cshrc','file')
-	fid=fopen('.cshrc','w');fclose(fid);
-	iscsh = false;
-end
+try
+	[status,result] = builtin('system',varargin{:});
+	varargout(1) = {status};
+	varargout(2) = {result};
+	return
+catch
 
-[status,result] = builtin('system',varargin{:});
-
-if ~iscsh
-	delete('.cshrc');
-end
-
-varargout(1) = {status};
-varargout(2) = {result};
-
+	iscsh = true;
+	if ~exist('.cshrc','file')
+		fid   = fopen('.cshrc','w');fclose(fid);
+		iscsh = false;
+	end
+	[status,result] = builtin('system',varargin{:});
+	if ~iscsh
+		delete('.cshrc');
+	end
+	varargout(1) = {status};
+	varargout(2) = {result};
+end%try
 
 end %functionsystem
 

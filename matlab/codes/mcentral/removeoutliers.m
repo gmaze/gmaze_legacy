@@ -1,4 +1,7 @@
 %REMOVEOUTLIERS   Remove outliers from data using the Thompson Tau method.
+% 
+% [dataout ireject] = removeoutliers(datain)
+% 
 %   For vectors, REMOVEOUTLIERS(datain) removes the elements in datain that
 %   are considered outliers as defined by the Thompson Tau method (replace them
 %   by NaNs). This applies to any data vector greater than three elements in length, 

@@ -1,0 +1,25 @@
+== xtype.m ==
+Corresponding value between NC_TYPE and XTYPE
+
+[http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/+netcdf/xtype.m Download here]
+
+{{{
+% xtype Corresponding value between NC_TYPE and XTYPE
+%
+% NC_TYPE = xtype(XTYPE) Return the NC_TYPE corresponding to XTYPE
+% XTYPE = xtype(NC_TYPE) Return the XTYPE corresponding to NC_TYPE
+%
+% MATLAB_TYPE = xtype(XTYPE,'matlab') Return the MATLAB_TYPE corresponding to XTYPE
+% XTYPE = xtype(MATLAB_TYPE) Return the XTYPE corresponding to MATLAB_TYPE
+%
+% XTYPE are the set of predefined netCDF external data types. It can be:
+% NC_BYTE, NC_CHAR, NC_SHORT, NC_INT, NC_FLOAT and NC_DOUBLE
+%
+% Created: 2016-04-14 (G. Maze)
+}}}
+----
+Last update: 2016 April 22, 14:47
+
+Created by Guillaume Maze
+
+More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]

@@ -1,9 +1,9 @@
-% ncbuiltin Is this Matlab using built-in netcdf or not ?
+function builtin = ncbuiltin(varargin)
+% ncbuiltin Determine if this Matlab is using built-in netcdf library or not ?
 %
 % res = ncbuiltin()
 % 
-% Is this Matlab using built-in netcdf or not ?
-% res is true or false.
+% Return TRUE if this Matlab is using the built-in netcdf library, return FALSE otherwise.
 %
 % Created: 2011-06-14.
 % Copyright (c) 2011, Guillaume Maze (Laboratoire de Physique des Oceans).
@@ -32,17 +32,15 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function builtin = ncbuiltin(varargin)
-
-	fi = ['.' num2str(fix(rand(1,30)*10)')' '.nc'];
-	try
-		% Try this syntax only working with the built in Matlab netcdf tool:
-		netcdf.create(fi,'NC_NOCLOBBER');
-		builtin = true;
-	catch
-		builtin = false;
-	end%try
-	delete(fi);
+fi = ['.' num2str(fix(rand(1,30)*10)')' '.nc'];
+try
+	% Try this syntax only working with the built in Matlab netcdf tool:
+	netcdf.create(fi,'NC_NOCLOBBER');
+	builtin = true;
+catch
+	builtin = false;
+end%try
+delete(fi);
 
 
 end %functionncbuiltin

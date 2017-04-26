@@ -1,14 +1,15 @@
 % MY CODES: MCENTRAL
-% Version 1 1 09-Dec-2013
+% Version 1 1 07-May-2014
 % 
 % 		Contents from /Users/gmaze/matlab/codes/mcentral
 % 
-% Last update: 2013 December 09, 15:15
+% Last update: 2014 May 07, 17:43
 % 
 % 	ConsoleProgressBar                       - Console progress bar for long-running operations
 % 	barwitherr                               - Make a bar plot with errors
 % 	bin2mat                                  - - create a 2D matrix from scattered data without interpolation
 % 	clusterData                              - Clusters an MxN array of data into an unspecified number (P) of bins.
+% 	date2utc                                 - Converts matlab date-time format to Coordinated Universal Time (UTC) to
 % 	datevec2doy                              - Takes a date vector and returns the day of year, known incorrectly in the
 % 	dirr                                     - Lists all files in the current directory and sub directories recursively.
 % 	dragdemo                                 - Demo for the draggable.m
@@ -38,6 +39,7 @@
 % 	stretchcolormap                          - STRETCHCOLOR stretch the colormap
 % 	sw_vmodes                                - calculate vertical modes in a flat-bottomed ocean.
 % 	usercolormap                             - Create a color map.
+% 	utc2date                                 - Converts the Coordinated Universal Time (UTC) to matlab date-time format.
 % 	variogramfit                             - Fit a theoretical variogram to an experimental variogram
 % 	winsinc                                  - Applies a windowed sinc filter
 % 	xticklabel_rotate                        - hText = xticklabel_rotate(XTick,rot,XTickLabel,varargin) Rotate XTickLabel

@@ -1,0 +1,32 @@
+<html>
+<head>
+     <title>Help: listatt</title>
+</head>
+<body>
+     <center><table><tbody>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <h4>listAtt</h4>List all Attributes of a variable
+                  <br><small>Last modified: 14-Apr-2016 14:45:03</small>
+
+          </tr>
+          <tr>
+             <td style="border: 0px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd;">
+                  <a href="http://guillaumemaze.googlecode.com/svn/trunk/matlab/routines/+netcdf/listAtt.m">Download here</a>
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #fff; font-size:12px;">
+                  <br>% listAtt List all Attributes of a variable<br>%<br>% [AttName, AttIDs, AttNCtype] = listAtt(ncid,var[id])<br>% <br>% List all Attributes of a variable. If no output required displau list on screen<br>%<br>% Inputs:<br>% 	ncid: netcdf scope of the variable<br>% 	var[id]: Variable name (string) or ID (int). <br>% 		It can also be 'NC_GLOBAL' for global variables<br>%<br>% Outputs:<br>%	AttName: Cell of Attribute's name (string)<br>% 	AttIDs: Attribute's IDs (int)<br>% 	AttXtype: Cell of Attribute's NC_TYPE (string)<br>% <br>% Eg:<br>%	listAtt(ncid,3)<br>%	listAtt(ncid,'TEMP')<br>%	listAtt(ncid,'GLOBAL')<br>% <br>% See Also: listVar<br>%<br>% Created: 2016-04-14 (G. Maze)
+             </td>
+          </tr>
+          <tr>
+             <td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: #ddd; font-size:12px;">
+                  Last update: 2016 April 22, 14:47<br>
+                  Created by Guillaume Maze<br>
+                  More informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>
+             </td>
+          </tr>
+     </tbody></table></center>
+</body>
+</html>

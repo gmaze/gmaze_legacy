@@ -76,7 +76,8 @@ switch method
 		       % Mais on le rejette s'il ne satisfait pas a l'ordre:  
 		       p1=sign(gr(it-N:it-1)); % Avant
 		       p2=sign(gr(it+1:it+N)); % Apres
-		       if find(p1~=1) | find(p2~=-1)
+			%	stophere
+		       if length(find(p1~=1)) | length(find(p2~=-1))
 		             ok=0;
 		       end
 

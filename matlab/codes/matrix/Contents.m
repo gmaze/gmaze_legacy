@@ -1,19 +1,20 @@
 % MY CODES: MATRIX
-% Version 1 1 09-Dec-2013
+% Version 1 1 07-May-2014
 % 
 % 		Contents from /Users/gmaze/matlab/codes/matrix
 % 
-% Last update: 2013 December 09, 15:15
+% Last update: 2014 May 07, 17:43
 % 
 % 	assym                                    - Compute sym. or assym. component of 2D field
 % 	curvearea                                - Compute curve area in a crude way
 % 	datenumserie                             - Create a time serie with datenum
+% 	datenumserie_forbins                     - H1LINE
 % 	diag_error                               - Propagate error estimates for misc operators
 % 	dim                                      - Give the number of dimensions of a field
 % 	dispt                                    - Display a table on prompt
 % 	duplicate                                - Find duplicate values among a 1D table
 % 	findp                                    - Find the p power of 10 of a number
-% 	iseven                                   - True for even array
+% 	iseven                                   - True for even array, False for odd
 % 	isin                                     - Check if a table contains values of another table
 % 	m2cols                                   - Transform a 1 dimensional matrix to a square one with elements on columns
 % 	m2diag                                   - Transform a 1 dimensional matrix to a square one with elements on the diagonal
