@@ -56,7 +56,8 @@ switch typ
 		we  = wherearewe;
 		str = datestr(now,'dd-mmm-yyyy HH:MM');
 		str = sprintf(' code@guillaumemaze.org (%s)\n %s:/%s',str,we,pwd);
-end
+end% switch 
+
 
 
 switch nargout

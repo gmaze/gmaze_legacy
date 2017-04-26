@@ -57,66 +57,70 @@
 function varargout = move_axes(varargin)
 
 %- Load options:
-axishl    = varargin{1};
+axishl_list    = varargin{1};
 move_type = varargin{2};
 
-%- Store in the figure the axis position:
-ph = get(axishl,'parent');
-if ~strcmp(get(ph,'type'),'figure')
-	error('This function only works if the parent of this axis is a figure !')
-end% if 
-switch isappdata(ph,'SubplotInitialPositions')
-	case true
-		SubplotInitialPositions = getappdata(ph,'SubplotInitialPositions');
-	case false	
-		SubplotInitialPositions.axlist = findall(get(ph,'children'),'type','axes');
-		for ix = 1 : length(SubplotInitialPositions.axlist)
-			SubplotInitialPositions.positions(ix,:) = get(SubplotInitialPositions.axlist(ix),'position');
-		end% for ix
-		setappdata(ph,'SubplotInitialPositions',SubplotInitialPositions);
-end% switch Already set up
+for iaxis = 1 : length(axishl_list)
+	axishl = axishl_list(iaxis);
+	
+	%- Store in the figure the axis position:
+	ph = get(axishl,'parent');
+	if ~strcmp(get(ph,'type'),'figure')
+		error('This function only works if the parent of this axis is a figure !')
+	end% if 
+	switch isappdata(ph,'SubplotInitialPositions')
+		case true
+			SubplotInitialPositions = getappdata(ph,'SubplotInitialPositions');
+		case false	
+			SubplotInitialPositions.axlist = findall(get(ph,'children'),'type','axes');
+			for ix = 1 : length(SubplotInitialPositions.axlist)
+				SubplotInitialPositions.positions(ix,:) = get(SubplotInitialPositions.axlist(ix),'position');
+			end% for ix
+			setappdata(ph,'SubplotInitialPositions',SubplotInitialPositions);
+	end% switch Already set up
 
-%- Move or reset the axis position:
-switch move_type
-	case 'hshrink'
-		dx  = varargin{3};
-		pos = get(axishl,'position');
-		set(axishl,'position',[pos(1)-dx/2 pos(2) pos(3)+dx pos(4)]);
+	%- Move or reset the axis position:
+	switch move_type
+		case 'hshrink'
+			dx  = varargin{3};
+			pos = get(axishl,'position');
+			set(axishl,'position',[pos(1)-dx/2 pos(2) pos(3)+dx pos(4)]);
 
-	case 'vshrink'
-		dy  = varargin{3};
-		pos = get(axishl,'position');
-		set(axishl,'position',[pos(1) pos(2)-dy/2 pos(3) pos(4)+dy]);
+		case 'vshrink'
+			dy  = varargin{3};
+			pos = get(axishl,'position');
+			set(axishl,'position',[pos(1) pos(2)-dy/2 pos(3) pos(4)+dy]);
 		
-	case {'horizontalshift'}
-		dx  = varargin{3};
-		pos = get(axishl,'position');
-		set(axishl,'position',[pos(1)+dx pos(2) pos(3) pos(4)]);
-	case {'verticalshift'}
-		dy  = varargin{3};
-		pos = get(axishl,'position');
-		set(axishl,'position',[pos(1) pos(2)+dy pos(3) pos(4)]);
-	case 'expandleft'
-		dx  = varargin{3};
-		pos = get(axishl,'position');
-		set(axishl,'position',[pos(1)-dx pos(2) pos(3)+dx pos(4)]);
-	case 'setwidthleft'
-		wd  = varargin{3};
-		if wd <= 0
-			error('An axis width must be positive');
-		end
-		pos = get(axishl,'position');
-		wd0 = pos(3);
-		set(axishl,'position',[pos(1)+wd0-wd pos(2) wd pos(4)]);
+		case {'horizontalshift'}
+			dx  = varargin{3};
+			pos = get(axishl,'position');
+			set(axishl,'position',[pos(1)+dx pos(2) pos(3) pos(4)]);
+		case {'verticalshift'}
+			dy  = varargin{3};
+			pos = get(axishl,'position');
+			set(axishl,'position',[pos(1) pos(2)+dy pos(3) pos(4)]);
+		case 'expandleft'
+			dx  = varargin{3};
+			pos = get(axishl,'position');
+			set(axishl,'position',[pos(1)-dx pos(2) pos(3)+dx pos(4)]);
+		case 'setwidthleft'
+			wd  = varargin{3};
+			if wd <= 0
+				error('An axis width must be positive');
+			end
+			pos = get(axishl,'position');
+			wd0 = pos(3);
+			set(axishl,'position',[pos(1)+wd0-wd pos(2) wd pos(4)]);
 		
-	case 'reset'
-		ix = find(SubplotInitialPositions.axlist==axishl);
-		if isempty(ix)
-			error('I couldn''t reset this axes position because I can''t find it in the figure''s database')
-		end
-		set(axishl,'position',SubplotInitialPositions.positions(ix,:));
-end%switch
+		case 'reset'
+			ix = find(SubplotInitialPositions.axlist==axishl);
+			if isempty(ix)
+				error('I couldn''t reset this axes position because I can''t find it in the figure''s database')
+			end
+			set(axishl,'position',SubplotInitialPositions.positions(ix,:));
+	end%switch
 
+end% for iaxis
 
 end %functionmove_axes
 

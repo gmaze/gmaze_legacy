@@ -8,6 +8,7 @@
 %
 % Created by Guillaume Maze on 2008-10-28.
 % Copyright (c) 2008 Guillaume Maze. 
+% Revised: 2016-11-04 (G. Maze) Fix bug for Name or service not known
 % http://codes.guillaumemaze.org
 
 %
@@ -28,6 +29,7 @@ clear a
 
 if ~isempty(hom)
 	hom = strrep(hom,'.cshrc: No such file or directory.','');
+	hom = strrep(hom,'hostname: Name or service not known','');
 	hom = strrep(hom,'Loading C-Shell','');
 	newpath = strrep(pathname,'~',strtrim(hom));
 else

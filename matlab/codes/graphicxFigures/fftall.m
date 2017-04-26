@@ -40,4 +40,13 @@ function varargout = fftall(varargin)
 figure;
 figure_tall;
 
+% switch wherearewe
+% 	case {'macbook','nowhere'}
+% 		posi = get(gcf,'position');
+% %		set(gcf,'position',[(gcf-1)*10 (gcf-1)*10 posi(3:4)]);
+% 		sc = get(0,'screensize');
+% 		set(gcf,'position',[sc(3)-posi(3)-100+(gcf-1)*10 (gcf-1)*10 posi(3:4)]);
+% end% switch
+
+
 end %functionfftall

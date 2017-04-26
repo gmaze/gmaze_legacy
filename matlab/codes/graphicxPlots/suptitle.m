@@ -11,7 +11,7 @@
 %
 % Drea Thomas 6/15/95 drea@mathworks.com
 
-function hout=suptitle(str)
+function hout=suptitle(str,varargin)
 
 % Rev. by Guillaume Maze on 2011-02-08: To modify figure's name
 % Is their already a suptitle:
@@ -105,8 +105,9 @@ if (oldtitle),
 	delete(oldtitle);
 end
 ha=axes('pos',[0 1 1 1],'visible','off','Tag','suptitle');
-ht=text(.5,titleypos-1,str);
-set(ht,'horizontalalignment','center','fontsize',fs,'Tag','suptitleText','fontweight','bold');
+ht=text(.5,titleypos-1,str,varargin{:});
+set(ht,'horizontalalignment','center','Tag','suptitleText','fontweight','bold','fontsize',16);
+%set(tt,'fontsize',fs);
 set(gcf,'nextplot',np);
 axes(haold);
 if nargout,

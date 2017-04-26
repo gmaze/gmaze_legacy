@@ -23,6 +23,7 @@
 %		By default: 'http://code.google.com/p/guillaumemaze/wiki'
 %		All wiki pages are under the same directory PATH_TO_DIR/wiki/
 %		Unlike html pages, no subfolders are created.
+% 	link_more (string): The URL link to be display after the "More Informations at:" bottom pages
 %	ndepth (integer): Depth of the recursive scan of folders
 %		0 means only PATH_TO_DIR/*.m files will be incorporated
 %		1 means only PATH_TO_DIR/*.m and PATH_TO_DIR/*/*.m files will be incorporated
@@ -68,6 +69,7 @@
 %	Matlab function file_list()
 %
 % Created: 2008-10-30.
+% Revised: 2016-12-09 (G. Maze) Added option for link_more
 % Rev. by Guillaume Maze on 2009-09-28: Added Contents.m creation, ndepth option
 % Rev. by Guillaume Maze on 2009-09-25: Added complete help, Handle options, Manage subfolders
 % Copyright (c) 2008, Guillaume Maze (Laboratoire de Physique des Oceans).
@@ -114,6 +116,9 @@ link_rel  = 'routines/'; % tuned for the '~/matlab/routines' folder:
 
 % The absolute path to wiki pages:
 link_wiki = 'http://code.google.com/p/guillaumemaze/wiki';
+
+% The default Information page:
+link_more = 'http://www.guillaumemaze.org';
 
 % The prefix to all wiki page files:
 pref_wiki = 'matlab';
@@ -198,7 +203,6 @@ TB = get_TB_struct(pathd,ndepth);
 % [y,ord] = sort(it); clear y 
 ord = 1 : size(TB,2);
 
-
 %[murl murlname rpath indiv_html indiv_wiki wurl] = get_murl(TB(end),link_pref,link_rel,link_wiki,pref_wiki,pathd)
 
 
@@ -271,7 +275,8 @@ if overw_contentsm
 	
 	
 	diag_screen(sprintf(''));
-	diag_screen(sprintf('This Contents.m file was automatically created using: %s',mfilename('fullpath')));
+%	diag_screen(sprintf('This Contents.m file was automatically created using: %s',mfilename('fullpath')));
+	diag_screen(sprintf('This Contents.m file was automatically created using: %s',mfilename));
 	diag_screen(sprintf(''));
 	
 	% Close Contents.m file
@@ -468,7 +473,7 @@ for ifct = 1 : size(TB,2)
 	diag_screen(sprintf('%13s<td style="border: 1px solid rgb(170, 170, 170); padding: 5px; background-color: %s; font-size:12px;">',blk,col(ii).val));
 	diag_screen(sprintf('%18sLast update: %s<br>',blk,datestr(now,'yyyy mmmm dd, HH:MM')));
 	diag_screen(sprintf('%18sCreated by Guillaume Maze<br>',blk));
-	diag_screen(sprintf('%18sMore informations at: <a href="http://codes.guillaumemaze.org/matlab">codes.guillaumemaze.org/matlab</a><br>',blk));
+	diag_screen(sprintf('%18sMore informations at: <a href="%s">%s</a><br>',blk,link_more,strrep(strrep(link_more,'http://',''),'https://','')));
 	diag_screen(sprintf('%13s</td>',blk));		
 	diag_screen(sprintf('%10s</tr>',blk));
 
@@ -545,7 +550,8 @@ for ifct = 1 : size(TB,2)
 	diag_screen(sprintf(''));
 	diag_screen(sprintf('Created by Guillaume Maze'));
 	diag_screen(sprintf(''));
-	diag_screen(sprintf('More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]'));
+%	diag_screen(sprintf('More informations at: [http://codes.guillaumemaze.org/matlab codes.guillaumemaze.org/matlab]'));
+	diag_screen(sprintf('More informations at: [%s %s]',link_more,strrep(strrep(link_more,'http://',''),'https://','')));
 
 	fclose(diag_screen_default.fid);
 	
@@ -584,7 +590,7 @@ for ifil = 1 : size(flist,1)
 	[res fname] = isfunction(flist{ifil,1});
 	if res
 		%-- Ensure that this is a file we want to share publicly:
-		if mtags(flist{ifil,1},'has','public')
+		if ~mtags(flist{ifil,1},'has','private')
 			h1line = get_h1line(flist{ifil,1},fname);
 	%		local_disp(sprintf('%20s - %s (%s)',fname,h1line,flist{ifil,1}));
 		
@@ -608,11 +614,11 @@ for ifil = 1 : size(flist,1)
 				TB(ifct).ilevl = 0;
 			end
 		else
-			local_disp(sprintf('%s won''t be included in TOC files because it does not contain the tag ''public''',flist{ifil,1}));
+			local_disp(sprintf('%s won''t be included in TOC files because it does contain the tag ''private''',flist{ifil,1}));
 		end% if 
 		
 	else
-%		local_disp(sprintf('%s : Not a function !',flist{ifil,1}));
+		%local_disp(sprintf('%s : Not a function !',flist{ifil,1}));
 	end
 
 end%for ifil

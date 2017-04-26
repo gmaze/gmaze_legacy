@@ -6,9 +6,15 @@
 %   Default output file is: 'fig.pdf' in current directory.
 %
 %   ORIENTATION: Set the orientation of the figure.
-%       ORIENTATION=0 : Portrait (default)
-%       ORIENTATION=1 : Landscape
-%       ORIENTATION=2 : Crop PDF to plot (like eps print)
+%       ORIENTATION=0  : A4 Portrait (default)
+%       ORIENTATION=1  : A4 Landscape
+%       ORIENTATION=2  : Crop PDF to plot (like eps print)
+%       ORIENTATION=40 : A4 Portrait (same as ORIENTATION=0)
+%       ORIENTATION=41 : A4 Landscape  (same as ORIENTATION=1)
+%       ORIENTATION=30 : A3 Portrait
+%       ORIENTATION=31 : A3 Landscape
+%       ORIENTATION=20 : A2 Portrait
+%       ORIENTATION=21 : A2 Landscape
 %
 %	FILE: File name as a string. Default is 'fig'. Do not need to
 %		specify the .pdf extension.
@@ -40,7 +46,7 @@
 % You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
 
-function []=exportp(f,varargin)
+function [] = exportp(f,varargin)
 
 if (nargin<1)|(nargin>4)
      help exportp.m
@@ -54,6 +60,7 @@ fich   = 'fig'; % to produce: 'fig.pdf'
 
 % Figure orientation:
 orient = 0; % Portrait
+orient_list = [0 1 2 20 21 30 31 40 41];
 
 % Arguments to print command:
 pcom = '-dpdf';
@@ -66,30 +73,36 @@ ext = 'pdf';
 %- 1 optionnal input:
 % --------------------------------------------
 if (nargin>=2)
-
- arg = varargin{:};
-
- % ----------------------
- if ischar(arg) 
-     fich   = arg;
-     orient = 0;
- else
-     fich = 'fig';
-     if (arg(1)<0)|(arg(1)>2)
-          help exportp.m
-          error('exportp.m : Wrong number or bad parameter(s)')
-      end %if
-      switch arg(1)
-         case 0
-          orient = 0;
-         case 1
-          orient = 1;
-         case 2
-          orient = 2;
-      end %switch
- end %if
- % ----------------------
-
+	arg = varargin{:};
+	% ----------------------
+	if ischar(arg)
+		fich   = arg;
+		orient = 0;
+	else
+		fich = 'fig';
+		if isempty(isin(arg(1),orient_list))
+			help exportp.m
+			error('exportp.m : Wrong number or bad parameter(s)')
+		end %if
+		switch arg(1)
+			case {0,1}			
+				orient = arg(1);
+				PaperType = 'A4';
+			case 2
+				orient = arg(1);
+				PaperType = 'A4';
+			case {40,41}
+				orient = arg(1)-40;
+				PaperType = 'A4';
+			case {30,31}
+				orient = arg(1)-30;
+				PaperType = 'A3';
+			case {20,21}
+				orient = arg(1)-20;
+				PaperType = 'A2';
+		end %switch
+	end %if
+	% ----------------------
 end %if
 
 % --------------------------------------------
@@ -97,33 +110,33 @@ end %if
 % --------------------------------------------
 if (nargin>=3)
 
- arg  = varargin(1); arg=arg{:};
- fich = varargin(2); fich=fich{:};
- if ischar(arg)
-     help exportp.m
-     error('exportp.m : ORIENTATION must be a numeric value')
-     return
- elseif isnumeric(fich)
-     help exportp.m
-     error('exportp.m : FILE must be a char value')   
-     return
- end %if
+	arg  = varargin(1); arg=arg{:};
+	fich = varargin(2); fich=fich{:};
+	if ischar(arg)
+		help exportp.m
+		error('exportp.m : ORIENTATION must be a numeric value')
+	elseif isnumeric(fich)
+		help exportp.m
+		error('exportp.m : FILE must be a char value')   
+	end %if
 
- % ----------------------
- if (arg(1)<0)|(arg(1)>2)
-     help exportp.m
-     error('exportp.m : Wrong number or bad parameter(s)')
-     return
- end %if
- switch arg(1)
-    case 0
-     orient=0;
-    case 1
-     orient=1;	
-    case 2
-     orient=2;
- end %switch
- % ----------------------
+	% ----------------------
+	if isempty(isin(arg(1),orient_list))
+		help exportp.m
+		error('exportp.m : Wrong number or bad parameter(s)')
+	end %if
+	switch arg(1)
+		case {0,1}
+			orient = arg(1);
+			PaperType = 'A4';
+		case 2
+			orient = arg(1);
+			PaperType = 'A4';
+		case {30,31}
+			orient = arg(1)-30;
+			PaperType = 'A3';
+	end %switch
+	% ----------------------
 
 end %if
 
@@ -144,22 +157,55 @@ outfilenopath = fich(max([1 max(strfind(fich,filesep))+1]):end);
 % --------------------------------------------
 %- Manage figure size and orientation:
 posi = get(f,'Position');
-PaperType = 'A4';
 
-switch orient
- case 0 % PORTRAIT
-	set(f,'PaperUnits','centimeters','PaperType',PaperType);
-	set(f,'PaperPositionMode','manual');
-	set(f,'PaperPosition',[0.1 0.1 20.5 29]);
-	set(f,'PaperOrientation','portrait');
- case 1 % LANDSCAPE
-	set(f,'PaperUnits','centimeters','PaperType',PaperType);
-	set(f,'PaperPositionMode','manual');
-	set(f,'PaperPosition',[0.1 0.1 29 20.5]);
-	set(f,'PaperOrientation','landscape');
- case 2
-	set(f,'PaperOrientation','portrait');
-end %case
+switch PaperType
+	case 'A4'
+		switch orient
+		 case 0 % PORTRAIT
+			set(f,'PaperUnits','centimeters','PaperType',PaperType);
+			set(f,'PaperPositionMode','manual');
+			set(f,'PaperPosition',[1 1 205 290]/10);
+			set(f,'PaperOrientation','portrait');
+		 case 1 % LANDSCAPE
+			set(f,'PaperUnits','centimeters','PaperType',PaperType);
+			set(f,'PaperPositionMode','manual');
+			set(f,'PaperPosition',[1 1 290 205]/10);
+			set(f,'PaperOrientation','landscape');
+		 case 2
+			set(f,'PaperOrientation','portrait');
+		end %case
+	case 'A3'
+		switch orient
+		 case 0 % PORTRAIT
+			set(f,'PaperUnits','centimeters','PaperType',PaperType);
+			set(f,'PaperPositionMode','manual');
+			set(f,'PaperPosition',[1 1 287 410]/10);
+			set(f,'PaperOrientation','portrait');
+		 case 1 % LANDSCAPE
+			set(f,'PaperUnits','centimeters','PaperType',PaperType);
+			set(f,'PaperPositionMode','manual');
+			set(f,'PaperPosition',[1 1 410 287]/10);
+			set(f,'PaperOrientation','landscape');
+		 case 2
+			set(f,'PaperOrientation','portrait');
+		end %case
+	case 'A2'
+		switch orient
+		 case 0 % PORTRAIT
+			set(f,'PaperUnits','centimeters','PaperType',PaperType);
+			set(f,'PaperPositionMode','manual');
+			set(f,'PaperPosition',[10 10 420-10 594-10]/10);
+			set(f,'PaperOrientation','portrait');
+		 case 1 % LANDSCAPE
+			set(f,'PaperUnits','centimeters','PaperType',PaperType);
+			set(f,'PaperPositionMode','manual');
+			set(f,'PaperPosition',[10 10 594-10 420-10]/10);
+			set(f,'PaperOrientation','landscape');
+		 case 2
+			set(f,'PaperOrientation','portrait');
+		end %case
+end% switch 
+
 
 % --------------------------------------------
 %- Read the footnote:
@@ -226,8 +272,15 @@ switch orient
 		% Crop properly the pdf by first printing into eps:
 		print(gcf,'-depsc2',sprintf('.%s.eps',outfilenopath));
 		try,psfixdashlines(sprintf('.%s.eps',outfilenopath));end	
-		system(sprintf('ps2pdf -dEPSCrop .%s.eps %s.pdf',outfilenopath,fich));
-		delete(sprintf('.%s.eps',outfilenopath));
+		command = sprintf('ps2pdf -dEPSCrop .%s.eps %s.pdf',outfilenopath,fich);
+		%disp(command);
+		[a b]=system(command);
+		if ~exist(sprintf('%s.pdf',fich),'file')
+			%stophere
+			error('An error occurred during the ps2pdf conversion');
+		else
+			delete(sprintf('.%s.eps',outfilenopath));		
+		end% if 
 end% switch
 
 disp(sprintf('Figure %i saved in %s',f,outfile));

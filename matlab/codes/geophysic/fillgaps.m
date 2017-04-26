@@ -33,7 +33,6 @@
 
 function FIELD = fillgaps(LON,LAT,LSMASK,FIELD)
 
-
 	[x y] = meshgrid(LON,LAT);
 	x(isnan(LSMASK)) = NaN; 
 	y(isnan(LSMASK)) = NaN;

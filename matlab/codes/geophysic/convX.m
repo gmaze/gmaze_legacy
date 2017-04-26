@@ -8,7 +8,8 @@
 % 	idconv:	One of the following:
 % 		1 (default): Convert to longitude East, ie: 0 < lon < 360
 % 		0: Convert to longitude East/West, ie: -180 < lon < 180
-%
+% 		2: Convert to longitude East with sorted axis, ie: 0 < lon < 360
+% 
 % Created: 2013-02-21.
 % Copyright (c) 2013, Guillaume Maze (Ifremer, Laboratoire de Physique des Oceans).
 % All rights reserved.
@@ -52,23 +53,20 @@ end% if
 
 %- Action:
 switch convention
-	% Move to longitude east: ie from 0 to 360
-	case 1 
-		x(x>=-180 & x<0) = 360 + x(x>=-180 & x<0); 		
-		ix = 1 : length(x);
-		
 	% Move to longitude west/east: ie from -180 to 180	
 	case 0 
 		x(x>180 & x<=360) = x(x>180 & x<=360) - 360;
 		ix = 1 : length(x);
 		
 	% Move to longitude east: ie from 0 to 360
-	% and ensure long are sorted (so long can get higher than 360)
+	case 1 
+		x(x>=-180 & x<0) = 360 + x(x>=-180 & x<0); 		
+		ix = 1 : length(x);
+		
+	% Move to longitude east: ie from 0 to 360 with longitude are sorted
 	case 2
 		x(x>=-180 & x<0) = 360 + x(x>=-180 & x<0); 		
 		[x ix] = sort(x);
-
-
 
 end% switch
 

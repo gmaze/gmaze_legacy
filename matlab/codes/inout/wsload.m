@@ -11,6 +11,7 @@
 % Created: 2009-11-05.
 % Rev. by Guillaume Maze on 2013-07-25: Added wild card * loading type and modified help
 % Rev. by G. Maze on 2011-07-28: Change warning to error when trying to load a nonexistent variable.
+% Revised: 2016-04-19 (G. Maze) Fixed a bug in handling wild card * within a cell list of variables
 % Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
@@ -49,17 +50,20 @@ switch nargin
 			error('I can only load variables given by a string !');
 		elseif ischar(vlist)			
 			if strfind(vlist,'*')
-				pat = vlist; clear vlist
-				pat = strrep(pat,'*','\w*');
-				vlist = {};
-				for ii = 1 : length(ws_base)
-					if ~isempty(regexp(ws_base{ii},pat))
-						vlist = cat(1,vlist,ws_base{ii});
-					end% if 
-				end% for ii
+				vlist = handlestar(ws_base,vlist);
 			else
 				vlist = {vlist};
 			end% if			
+		elseif iscell(vlist)
+			vlist_correct = {};
+			for iv = 1 : length(vlist)
+				if strfind(vlist{iv},'*')
+					vlist_correct = cat(1,vlist_correct,handlestar(ws_base,vlist{iv}));
+				else
+					vlist_correct = cat(1,vlist_correct,vlist{iv});
+				end% if 
+			end% for iv
+			vlist = vlist_correct;
 		end% if 
 		for ii = 1 : length(vlist)
 			if ~strcmp(vlist{ii},'ans') 
@@ -85,7 +89,38 @@ end%if which variables to load
 end%function
 
 
-
+function vlist = handlestar(ws_base,vlist)
+	pat = vlist; 
+	% Adapt regexp to the position of the *
+	%disp(pat); 
+	l = length(pat);
+	wild = strfind(pat,'*');
+	if length(wild) > 1
+		pat = strrep(pat,'*','\w'); 		
+	else
+		if wild(1) == 1
+			pat = [strrep(pat,'*','') '\>'];
+		end% if 
+		if wild(end) == l
+			pat = ['\<' strrep(pat,'*','') ];
+		end% if
+		pat = strrep(pat,'*','\w*');
+	end% if 
+		
+%	pat = strrep(pat,'*','\w*'); % disp(pat)
+%	pat = strrep(pat,'*','.*'); %disp(pat)
+%	pat = strrep(pat,'*',''); 
+	vlist = {};
+	for ii = 1 : length(ws_base)
+		reg = regexp(ws_base{ii},pat);
+		if ~isempty(reg)
+			vlist = cat(1,vlist,ws_base{ii});
+		end% if 
+		% if ~isempty(strfind(ws_base{ii},pat))
+		% 	vlist = cat(1,vlist,ws_base{ii});
+		% end% if 
+	end% for ii
+end%end function
 
 
 

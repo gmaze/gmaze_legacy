@@ -12,6 +12,7 @@ function name = getcomputername()
 
 [ret, name] = system('hostname');   
 name = strrep(name,'.cshrc: No such file or directory.','');
+name = strrep(name,'hostname: Name or service not known','');
 
 if isempty('name')
    if ispc

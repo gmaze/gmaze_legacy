@@ -1,9 +1,9 @@
 % MY CODES: INOUT
-% Version 1 1 09-Dec-2013
+% Version 1 1 07-May-2014
 % 
 % 		Contents from /Users/gmaze/matlab/codes/inout
 % 
-% Last update: 2013 December 09, 15:15
+% Last update: 2014 May 07, 17:43
 % 
 % 	abspath                                  - Relative to Absolute path function
 % 	base64encode                             - Perform base64 encoding on a string.
@@ -30,6 +30,7 @@
 % 	ltx_tblo                                 - Print opening LaTeX table lines
 % 	machine_list                             - List all network machine with system command 'nslookup'
 % 	mailsend                                 - Send an email via the system command 'mail'
+% 	mtags                                    - Read/write tags to Matlab function header section
 % 	myqst                                    - Display qstat results
 % 	nlines                                   - Number of lines in a text file
 % 	nojvmwaitbar                             - Progress waitbar for Matlab running without JVM
@@ -43,7 +44,7 @@
 % 	serveraddress                            - Display nslookup output
 % 	stralign                                 - Align/Justify a string within a given sized blank space
 % 	strins                                   - Insert a string into another
-% 	tbcont                                   - Audit a directory and create html/wiki pages and table of content
+% 	tbcont                                   - Audit a directory and create html/wiki pages and a table of content
 % 	tweet                                    - Send tweets !
 % 	url_code                                 - Percent encode/decode of a string
 % 	wsload                                   - Load all (or list of) variables of the base workspace into a function workspace

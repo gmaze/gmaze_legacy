@@ -8,8 +8,8 @@
 %	LAT (double): Latitude (degree)
 %	LON (double): Longitude (degree)
 %	METHOD (optional, integer): Define the method to use:
-%		1: Haversine formula
-%		2: (default) Vincenty inverse formula with WGS-84 ellipsoid using mex file
+%		1: (default) Haversine formula
+%		2: Vincenty inverse formula with WGS-84 ellipsoid using mex file
 %		3: Vincenty inverse formula with WGS-84 ellipsoid using Matlab routine
 %
 % Output:
@@ -28,6 +28,8 @@
 % Copyright (c) 2009, Guillaume Maze (Laboratoire de Physique des Oceans).
 % All rights reserved.
 % http://codes.guillaumemaze.org
+% Revised: 2014-10-10 (G. Maze) Change the default method to Haversine because the vincenty mexfile is broken (64b issue)
+
 
 % 
 % Redistribution and use in source and binary forms, with or without
@@ -55,10 +57,10 @@ function varargout = lldist(varargin)
 
 lat = varargin{1};
 lon = varargin{2};
-method = 2; % Default
+method = 1; % Default
 if nargin == 3
 	method = varargin{3};
-end
+end% if 
 
 
 switch method
@@ -67,7 +69,9 @@ switch method
 			lat = lat*ones(1,length(lon));
 		elseif length(lon) == 1 & length(lat)>1
 			lon = lon*ones(1,length(lat));
-		end
+		elseif length(lat)>1 & length(lon)>1 & length(lat)~=length(lon)
+			error('lat and lon must of similar size');
+		end% if 
 		pi180=pi/180;
 		earth_radius=6378.137e3;
 

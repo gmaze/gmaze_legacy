@@ -15,7 +15,7 @@
 % You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
 
-function figure_tall(num);
+function figure_tall(varargin);
 	
 switch nargin
 	case 0
@@ -25,9 +25,15 @@ switch nargin
 end% switch 
 
 orient(num,'tall');
+
 posi = get(num,'position');
-set(num,'Position',[posi(1:2) 560 700])
-%set(gcf,'Position',[2+10*(num-1) 225-10*(num-1) 560 722])
+
+switch wherearewe
+	case 'macbook'
+		set(num,'Position',[posi(1:2) 500 700]);
+	otherwise
+		set(num,'Position',[posi(1:2) 560 700]);
+end% switch 
 
 if get(num,'color') == [.8 .8 .8]
 	set(num,'Color', [ 1 1 1 ]);

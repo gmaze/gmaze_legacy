@@ -90,11 +90,16 @@ function tags_list = read_all_tags(varargin)
 	
 	switch exist(fname)
 		case 2
-			fname = which(fname); % This will return the file even if fname is already the path to it
+			if isempty(which(fname))
+				% This function is not in the path
+				fname = fname;
+			else
+				fname = which(fname); % This will return the file even if fname is already the path to it
+			end% if 
 		otherwise
 			error(sprintf('Function %s does not exist !',fname));			
 	end% switch 
-
+	
 	% Read lines from input file
 	fid = fopen(fname,'r');	
 	if fid < 0

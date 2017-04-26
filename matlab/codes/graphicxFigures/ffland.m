@@ -40,4 +40,13 @@ function varargout = ffland(varargin)
 figure;
 figure_land;
 
+% switch wherearewe
+% 	case {'macbook','nowhere'}
+% 		posi1 = figure_central;
+% 		posi0 = get(gcf,'position');
+% 		set(gcf,'position',[(gcf-1)*10 (gcf-1)*10 posi(3:4)]);
+% end% switch 
+
+
+
 end %functionffland

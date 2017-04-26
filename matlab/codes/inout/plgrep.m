@@ -25,7 +25,7 @@ function varargout = plgrep(pattern,varargin)
 switch nargin
 	case 1
 		MASTER = 'diag_Timeserie';
-		SUBDIR = abspath('~/work/Postdoc/work/main/');
+		SUBDIR = abspath('~/work/Projects/matlab_framework_gridded');
 	case 2	
 		MASTER = varargin{1};
 		SUBDIR = '.';

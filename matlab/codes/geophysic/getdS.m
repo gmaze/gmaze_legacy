@@ -10,12 +10,16 @@
 %		symetric or not (by default it's not: 0)
 %	METHOD = 1/2 indicates the method to use when computing
 %		distances between points (see routine lldist). By
-%		default it's 2.
+%		default it's 1.
 %
+% See also: getdSb to use quadrangle
+% 
 % Created: 2009-09-14.
 % Rev. by Guillaume Maze on 2009-09-30: Added dx,dy optional output
 % Copyright (c) 2009 Guillaume Maze. 
 % http://codes.guillaumemaze.org
+% Revised: 2014-10-10 (G. Maze) Change default method to 1
+
 
 %
 % This program is free software: you can redistribute it and/or modify it under the 
@@ -49,7 +53,7 @@ end
 if n >= 2
 	method = varargin{2};
 else
-	method = 2;
+	method = 1;
 end
 
 % Move to longitude east from 0 to 360	
@@ -156,6 +160,7 @@ end%function
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [xc,yc,xf,yf,DXF,DYF,zA,DXC,DYC] = mygrid_sphere(dlon,dlat,varargin)
+% This is peace of code is largely inspired by routines from the MITgcm
 
 % Constants
 Aearth=6370e3;

@@ -6,20 +6,22 @@
 % http://www.cpc.noaa.gov/products/precip/CWlink/pna/norm.nao.monthly.b5001.current.ascii
 %
 % Inputs:
-%	DT is the time step of the time serie
-%		By default it is set to 'm' for monthly values
-%		It can be:
-%			'y' for yearly means
-%			'w' for yearly winter values (DJFM average)
+%	DT is the time step of the time serie:
+% 		'm': Monthly mean (default)
+%		'y': Annual mean
+%		'w': Annual winter (DJFM) mean
 %
 % Outputs:
 %	NAO_index: well, the NAO index !
 %	NAO_time: the time axis as returned by datenum
 %
-% Rq: The downloaded file is stored in ~/matlab/routines/data subdirectory
+% Rq: The downloaded file is stored under: ~/matlab/routines/data
 %
+% Reference:
+% 	http://www.cpc.noaa.gov/products/precip/CWlink/pna/nao.shtml
+% 
 % Created: 2009-05-29.
-% Rev. by Guillaume Maze on 2009-09-01: Add winter value option
+% Rev. by Guillaume Maze on 2009-09-01: Added winter value option
 % Copyright (c) 2009 Guillaume Maze. 
 % http://codes.guillaumemaze.org
 
@@ -55,7 +57,7 @@ NAO_t = datenum(NAO(:,1),NAO(:,2),15,0,0,0);
 NAO_T = datestr(datenum(NAO(:,1),NAO(:,2),15,0,0,0),'yyyymm');
 NAO   = NAO(:,3);
 
-% Adjust to what is asked:
+% Adjust to what is requested:
 switch DT
 	case 'm'
 		% Original t resolution
@@ -77,7 +79,7 @@ switch DT
 			NAO_tfin(ii) = datenum(y,1,1,0,0,0);
 		end%for y
 	case 'w'
-		% 
+		% Move to Winter monthly means (DJFM)
 		t  = str2num(datestr(NAO_t,'yyyy'));
 		tm = str2num(datestr(NAO_t,'mm'));
 		for ye = min(t) : max(t)

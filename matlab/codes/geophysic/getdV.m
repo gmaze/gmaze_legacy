@@ -87,7 +87,7 @@ function DV = getdV(Z,Y,X,varargin)
 		x  = [X(1)-diff(X(1:2)) ; X ; X(end)+diff(X(end-1:end))];        x = x(1:end-1)+diff(x)/2;
 		y  = [Y(1)-diff(Y(1:2)) ; Y(1:end) ; Y(end)+diff(Y(end-1:end))]; y = y(1:end-1)+diff(y)/2;		
 		dS = getdS(y,x,issym); % dx*dy centered in X,Y
-
+		
 		[a b ] = meshgrid(dS,DZ);
 		a = reshape(a,[nz ny nx]);
 		b = reshape(b,[nz ny nx]);

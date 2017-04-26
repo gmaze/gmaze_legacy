@@ -1,6 +1,6 @@
 % hline Draw a horizontal line on a plot
 %
-% h = hline([Y,STYLE])
+% h = hline(Y,[STYLE])
 % 
 % Draw a horizontal line on the current plot
 %

@@ -33,62 +33,59 @@ d = dir(SUBDIR);
 ii = 0;
 %- Select Matlab files:
 for id = 1 : length(d)
-  en = length( d(id).name );
-  if en~=1 & (d(id).name(en-1:en) == '.m') &  ~d(id).isdir
-    ii = ii + 1;
-    l(ii).name = d(id).name;
-  end
-end
+	en = length( d(id).name );
+	if en~=1 & (d(id).name(en-1:en) == '.m') &  ~d(id).isdir
+		ii = ii + 1;
+		l(ii).name = d(id).name;
+	end% if 
+end% if 
 
-%- Select Matlab files with MASTER as prefix
+%- Go through Matlab files with MASTER as prefix
 ii = 0;
 for il = 1 : length(l)
-  fil = l(il).name;
-  pref = strcat(MASTER,suff);
-%  iM =  findstr( strcat(SUBDIR,sla,fil) , pref ) ;
-  iM =  strfind( fullfile(SUBDIR,fil) , pref ) ;
+	fil  = l(il).name;
+	pref = strcat(MASTER,suff);
+	iM   =  strfind( fullfile(SUBDIR,fil) , pref ) ;
+	if ~isempty(iM)
 
-  if ~isempty(iM)
-
-    % Recup description of the plot module:
-    fid = fopen(fullfile(SUBDIR,fil),'r');
-    thatsit = 0; desc = ''; req = '';
-	while thatsit ~= 1
-		tline = fgetl(fid);
-		if tline ~= -1
-			if length(tline)>4 
-				switch tline(1:4) 
-					case '%DEF'
-						desc    = tline(5:end);
-					case '%REQ'
-						req     = tline(5:end);
-				end%switch
-				if ~isempty(desc) & ~isempty(req)
-					thatsit = 1;
-				end
+		%-- and possibly read description of the module:
+		fid = fopen(fullfile(SUBDIR,fil),'r');
+		thatsit = 0; desc = ''; req = '';
+		while thatsit ~= 1
+			tline = fgetl(fid);
+			if tline ~= -1
+				if length(tline)>4 
+					switch tline(1:4) 
+						case '%DEF'
+							desc = tline(5:end);
+						case '%REQ'
+							req  = tline(5:end);
+					end%switch
+					if ~isempty(desc) & ~isempty(req)
+						thatsit = 1;
+					end% if 
+				end %if
+			else
+				% desc = 'Not found';
+				thatsit = 1;
 			end %if
-       else
-%          desc = 'Not found';
-          thatsit = 1;
-       end %if
-    end %while
-	fclose(fid);
-	
-	if ~isempty(desc)
-	    ii = ii + 1; 
-	    LIST(ii).name = l(il).name;
-		a = get_index(l(il).name,pref);
-		ord(ii) = a;
-	    LIST(ii).index = a;
-		LIST(ii).description  = strtrim(desc);
-		LIST(ii).requirements = strtrim(req);
-	end
-%    disp(strcat( num2str(LIST(ii).index),': Module extension: ',fil(length(MASTER)+2:end-2)));
-%    disp(strcat('|-----> description :'  , LIST(ii).description ));
-%    disp(char(2))
+		end %while
+		fclose(fid);
 
-  end %if
+		if ~isempty(desc)
+			ii = ii + 1; 
+			LIST(ii).name = l(il).name;
+			a = get_index(l(il).name,pref);
+			ord(ii) = a;
+			LIST(ii).index = a;
+			LIST(ii).description  = strtrim(desc);
+			LIST(ii).requirements = strtrim(req);
+		end% if 
+		%    disp(strcat( num2str(LIST(ii).index),': Module extension: ',fil(length(MASTER)+2:end-2)));
+		%    disp(strcat('|-----> description :'  , LIST(ii).description ));
+		%    disp(char(2))
 
+	end %if
 end %for il
 
 if ~exist('LIST')
@@ -97,33 +94,32 @@ else
 	[ord iord] = sort(ord);
 	for ii = 1 : length(ord)
 		LI(ii) = LIST(iord(ii));
-	end	
+	end% for ii
 	LIST = LI;
 	if nargout == 0
 		for ii = 1 : length(LIST)
-		    disp(sprintf('%3s) Module extension "%s" : %s',...
+		    disp(sprintf('%3s) Module "%s" : %s',...
 				 num2str(LIST(ii).index),...
 				 LIST(ii).name,...
 				 LIST(ii).description));
-		end
-	end
-end
+		end% for ii
+	end% if 
+end% if 
 
 switch nargout
 	case 1
 		varargout(1) = {LIST};
-end
-
+end% switch 
 
 end %function
 
 
-
-function ind = get_index(name,pref);
+%- get_index
+function ind = get_index(name,pref)
+	%stophere
 	try
-		a = strread(strrep(name,'.m',''),'%s','delimiter',pref);
-		a = unique(a);
-		a = a{2};
+		eval(sprintf('a = strread(''%s'',''%s%%s'');',strrep(name,'.m',''),pref))
+		a = a{1};
 	catch
 		a = strrep(strrep(name,'.m',''),pref,'');
 	end%try
@@ -134,7 +130,7 @@ function ind = get_index(name,pref);
 		end
 	end
 	ind = str2num(b(2:end));
-end
+end% get_index
 
 
 

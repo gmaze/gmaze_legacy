@@ -40,7 +40,7 @@ else
 	else
 		str = footstamp(2,fil_caller); % If we called footnote from a script
 	end
-end	
+end% if 	
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if strcmp(str,'del')	
@@ -77,7 +77,7 @@ switch method
 	else
 		prea = false;
 	end
-	haold = gca;
+	haold = gca;%get(gcf,'CurrentAxes');
 	
 	figunits = get(gcf,'units');
 	% Fudge factor to adjust y spacing between subplots
@@ -114,7 +114,11 @@ switch method
 	%set(haold,'visible','off');
 %	mytoolbar;
 
-	axes(haold);	
+	% if prea
+	 	axes(haold);
+	% else
+	% 	set(gca,'nextplot','new');
+	% end% if 
 	% if ~prea
 	% 	set(haold,'visible','off');
 	% end

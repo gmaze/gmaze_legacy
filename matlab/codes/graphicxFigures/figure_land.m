@@ -15,22 +15,27 @@
 % You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
 
-function figure_land(num);
-	
-if nargin == 0;
-	num = gcf;
-else
-%	builtin('figure',num); num = gcf;
-	num = figure;
-end
+function figure_land(varargin);
+		
+switch nargin
+	case 0
+		num = gcf;
+	case 1
+		num = varargin{1};
+end% switch
 
-orient landscape
+orient(num,'landscape');
+
 posi = get(num,'position');
-set(num,'Position',[posi(1:2) 800 620])
+set(num,'Position',[posi(1:2) 720 450])
 
-
-%set(gcf,'Position',[2+10*(num-1) 225-10*(num-1) 800 620])
-
+% switch wherearewe
+% 	case {'macbook','nowhere'}
+% 		set(num,'Position',[posi(1:2) 720 450]);
+% 	otherwise
+% 		set(num,'Position',[posi(1:2) 800 620]);
+% end% switch 
+	
 if get(num,'color') == [.8 .8 .8]
 	set(num,'Color', [ 1 1 1 ]);
 end

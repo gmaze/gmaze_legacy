@@ -1,9 +1,9 @@
 % MY CODES: GRAPHICXPLOTS
-% Version 1 1 09-Dec-2013
+% Version 1 1 07-May-2014
 % 
 % 		Contents from /Users/gmaze/matlab/codes/graphicxPlots
 % 
-% Last update: 2013 December 09, 15:15
+% Last update: 2014 May 07, 17:43
 % 
 % 	addarrows                                - Add arrows along a contour handle
 % 	ahline                                   - Draw a horizontal line on a plot and print value on the y-axis

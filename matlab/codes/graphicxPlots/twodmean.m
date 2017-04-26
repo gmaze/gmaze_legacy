@@ -42,7 +42,7 @@ end
 if nargin>=6
   caxis(varargin{3});
 end
-axis tight;
+axis tight
 set(gca,'xlim',sort([cx(1) cx(end)]));
 set(gca,'ylim',sort([cy(1) cy(end)]));
 %set(gca,'xticklabel',[]);

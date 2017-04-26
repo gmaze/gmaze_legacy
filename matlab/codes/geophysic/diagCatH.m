@@ -2,12 +2,14 @@
 %
 % Ch = diagCatH(C,depth,h)
 %
-% Get field C(depth,lat,lon) on surface h(lat,lon)
-%
+% Get field C(depth,lat,lon) on surface h(lat,lon) using a linear depth level interpolation.
+% 
 % depth < 0 is the vertical axis
-% h     < 0 is the surface
+% h     < 0 is the surface to compute C on.
 %
-% Note: respect upper/lower case in the function name
+% Rq:
+% - Respect upper/lower case in the function name
+% - If h is uniform is space, you can simply specify its single value
 %
 % Created by Guillaume Maze on 2006/08
 % Copyright (c) 2006-2009 Guillaume Maze. 
@@ -29,21 +31,44 @@
 
 function varargout = diagCatH(C,Z,h)
 
-% 0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREPROC
-[nz,ny,nx] = size(C);
-Ch = zeros(ny,nx);
+method = 1; % Legacy code with lat/lon loop and local linear interp1
 
-% 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMPUTING
-warning off
- for ix = 1 : nx
-   for iy = 1 : ny
-		if ~isnan(C(1,iy,ix))
-		     Ch(iy,ix) = interp1( Z, squeeze(C(:,iy,ix)) , h(iy,ix) , 'linear');
-		end
-   end
- end
-warning on
- 
+switch method
+	case 1 %- Legacy
+		% 0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREPROC
+		[nz,ny,nx] = size(C);
+		Ch = zeros(ny,nx);
+		
+		% 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMPUTING
+		switch length(unique(h(~isnan(h)))) == 1
+			case false %-- Depth vary in space:	
+				warning off
+				 for ix = 1 : nx
+				   for iy = 1 : ny
+						if ~isnan(C(1,iy,ix))
+						     Ch(iy,ix) = interp1( Z(:), squeeze(C(:,iy,ix)) , h(iy,ix) , 'linear');
+						end
+				   end
+				 end
+				warning on
+			case true %-- Surface depth is constant:
+				h  = unique(h(~isnan(h)));				
+				iz = find(Z>=h,1,'last');
+				if iz ~= length(Z)
+					iz = find(Z>=h,1,'last')+[0 1];
+					Dv = diff(C(iz,:,:));
+					Dz = diff(Z(iz));
+					dz = abs(h)-abs(Z(iz(1)));
+					v0 = C(iz(1),:,:);
+					Ch = squeeze(Dv./Dz.*dz + v0);
+				else
+					Ch = squeeze(C(iz(1),:,:));
+				end% if 
+		end% switch 
+		
+end% switch 
+
+
 % 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OUTPUTS
 switch nargout
  case 1

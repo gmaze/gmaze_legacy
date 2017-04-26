@@ -7,6 +7,10 @@
 % This "a la" MATRIX(c) camera effect makes the object
 % to spin around it vertical axis.
 %
+% Default setting:
+%  dAZ = 5;
+%  nrevol =1;
+% 
 % Help: If the 3D object shows different aspect ratio
 %       during the movement, try to zoom out of it
 %       with camzoom
@@ -21,8 +25,6 @@
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 % You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
-
-  
 
 function [] = thematrix(varargin)
 
