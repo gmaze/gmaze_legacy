@@ -1,9 +1,18 @@
-# Jupyter Notebook Python, Spark, netCDF4, Xarray, Dask
+# Jupyter Notebook Python, Spark
 
-Starting from the [pyspark docker stack from Jupyter folks](https://github.com/jupyter/docker-stacks/tree/master/pyspark-notebook), try to add our required Python packages
+This was forked from: 
+	(https://github.com/jupyter/docker-stacks/tree/master/pyspark-notebook)
 
 ## Build the image
-	docker build -t jupyter:pyspark-notebook .
+	docker build -t jupyter/pyspark-notebook .
+
+## or download the image:
+	docker pull jupyter/pyspark-notebook
+	
+You can get it directly from the [docker hub](https://hub.docker.com/r/jupyter/pyspark-notebook/)
+
+## and rename it:
+	docker tag jupyter/pyspark-notebook obidam:base
 
 ## Run it
 
@@ -81,7 +90,7 @@ You can sidestep the `start-notebook.sh` script and run your own commands in the
 
 ## Docker Options
 
-You may customize the execution of the Docker container and the command it is running with the following optional arguments.
+You may customise the execution of the Docker container and the command it is running with the following optional arguments.
 
 * `-e GEN_CERT=yes` - Generates a self-signed SSL certificate and configures Jupyter Notebook to use it to accept encrypted HTTPS connections.
 * `-e NB_UID=1000` - Specify the uid of the `jovyan` user. Useful to mount host volumes with specific file ownership. For this option to take effect, you must run the container with `--user root`. (The `start-notebook.sh` script will `su jovyan` after adjusting the user id.)
