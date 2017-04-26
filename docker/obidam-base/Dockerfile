@@ -1,11 +1,15 @@
-# Copyright (c) Jupyter Development Team.
+# Copyright (c) OBIDAM
 # Distributed under the terms of the Modified BSD License.
+
+# Thoe goal of this dockerfile is to create an image with all the basics
+# to run a notebook with python 2.7 and pyspark
 
 # Debian Jessie debootstrap from 2017-02-27
 # https://github.com/docker-library/official-images/commit/aa5973d0c918c70c035ec0746b8acaec3a4d7777
 FROM debian@sha256:52af198afd8c264f1035206ca66a5c48e602afb32dc912ebf9e9478134601ec4
 
-MAINTAINER Jupyter Project <jupyter@googlegroups.com>
+LABEL version="0.1"
+LABEL description="Docker image for Ocean's Big Data Mining applications"
 
 USER root
 
@@ -56,22 +60,20 @@ RUN mkdir /home/$NB_USER/work && \
     mkdir /home/$NB_USER/.jupyter && \
     echo "cacert=/etc/ssl/certs/ca-certificates.crt" > /home/$NB_USER/.curlrc
 
-# Install conda as jovyan
+# Install conda / python 2.7 as jovyan
 RUN cd /tmp && \
     mkdir -p $CONDA_DIR && \
-    wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.2.12-Linux-x86_64.sh && \
-    echo "c59b3dd3cad550ac7596e0d599b91e75d88826db132e4146030ef471bb434e9a *Miniconda3-4.2.12-Linux-x86_64.sh" | sha256sum -c - && \
-    /bin/bash Miniconda3-4.2.12-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
-    rm Miniconda3-4.2.12-Linux-x86_64.sh && \
+    wget --quiet https://repo.continuum.io/miniconda/Miniconda2-4.2.12-Linux-x86_64.sh && \
+    echo "db2648aad11f3ad59416007d54ef1657bf3ce6a635e8b7a0f253d40cb5cd753d *Miniconda2-4.2.12-Linux-x86_64.sh" | sha256sum -c - && \
+    /bin/bash Miniconda2-4.2.12-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
+    rm Miniconda2-4.2.12-Linux-x86_64.sh && \
     $CONDA_DIR/bin/conda config --system --add channels conda-forge && \
     $CONDA_DIR/bin/conda config --system --set auto_update_conda false && \
     conda clean -tipsy
 
 # Install Jupyter Notebook and Hub
 RUN conda install --quiet --yes \
-    'notebook=5.0.*' \
-    'jupyterhub=0.7.*' \
-    'jupyterlab=0.18.*' \
+    'notebook=4.*' \
     && conda clean -tipsy
 
 USER root
@@ -80,8 +82,8 @@ EXPOSE 8888
 WORKDIR /home/$NB_USER/work
 
 # Configure container startup
-# ENTRYPOINT ["tini", "--"]
-# CMD ["start-notebook.sh"]
+ENTRYPOINT ["tini", "--"]
+CMD ["start-notebook.sh"]
 
 # Add local files as late as possible to avoid cache busting
 COPY start.sh /usr/local/bin/
@@ -125,7 +127,6 @@ USER $NB_USER
 
 ############################# 
 # scipy-notebook
-
 USER root
 
 # libav-tools for matplotlib anim
@@ -135,39 +136,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 USER $NB_USER
-
-# Install Python 3 packages
-# Remove pyqt and qt pulled in for matplotlib since we're only ever going to
-# use notebook-friendly backends in these images
-RUN conda install --quiet --yes \
-    'nomkl' \
-    'ipywidgets=6.0*' \
-    'pandas=0.19*' \
-    'numexpr=2.6*' \
-    'matplotlib=2.0*' \
-    'scipy=0.19*' \
-    'seaborn=0.7*' \
-    'scikit-learn=0.18*' \
-    'scikit-image=0.12*' \
-    'sympy=1.0*' \
-    'cython=0.25*' \
-    'patsy=0.4*' \
-    'statsmodels=0.8*' \
-    'cloudpickle=0.2*' \
-    'dill=0.2*' \
-    'numba=0.31*' \
-    'bokeh=0.12*' \
-    'sqlalchemy=1.1*' \
-    'hdf5=1.8.17' \
-    'h5py=2.6*' \
-    'vincent=0.4.*' \
-    'beautifulsoup4=4.5.*' \
-    'xlrd'  && \
-    conda remove --quiet --yes --force qt pyqt && \
-    conda clean -tipsy
-
-# Activate ipywidgets extension in the environment that runs the notebook server
-RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix
 
 # Install Python 2 packages
 # Remove pyqt and qt pulled in for matplotlib since we're only ever going to
@@ -200,6 +168,10 @@ RUN conda create --quiet --yes -p $CONDA_DIR/envs/python2 python=2.7 \
     'xlrd' && \
     conda remove -n python2 --quiet --yes --force qt pyqt && \
     conda clean -tipsy
+
+# Activate ipywidgets extension in the environment that runs the notebook server
+#RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix
+
 # Add shortcuts to distinguish pip for python2 and python3 envs
 RUN ln -s $CONDA_DIR/envs/python2/bin/pip $CONDA_DIR/bin/pip2 && \
     ln -s $CONDA_DIR/bin/pip $CONDA_DIR/bin/pip3
@@ -223,6 +195,25 @@ RUN pip install kernda --no-cache && \
     kernda -o -y /usr/local/share/jupyter/kernels/python2/kernel.json && \
     pip uninstall kernda -y
 
+# Switch back to jovyan to avoid accidental container runs as root
+USER $NB_USER
+
+############################# 
+# Add netcdf4 and all necessary packages for OBIDAM:
+USER root
+
+RUN conda install \
+    'netcdf4=1.2.4' \
+	'basemap=1.0.8*' \
+	'ecmwf_grib=1.19.0' \
+	'pydap=3.2.0' \
+	'xarray=0.9.1' \
+	'dask=0.14.1' \
+	'tensorflow=0.12.1' \
+	&& \
+    conda clean -tipsy
+
+# Switch back to jovyan to avoid accidental container runs as root
 USER $NB_USER
 
 ############################# 
@@ -263,4 +254,5 @@ ENV PYTHONPATH $SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.4-src.zip
 ENV MESOS_NATIVE_LIBRARY /usr/local/lib/libmesos.so
 ENV SPARK_OPTS --driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M --driver-java-options=-Dlog4j.logLevel=info
 
+# Switch back to jovyan to avoid accidental container runs as root
 USER $NB_USER
