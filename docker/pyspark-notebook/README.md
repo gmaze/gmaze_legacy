@@ -1,6 +1,6 @@
-# Jupyter Notebook Python, Spark, NetCDF4, Xarray, Dask
+# Jupyter Notebook Python, Spark, netCDF4, Xarray, Dask
 
-Starting from the docker stack from Jupyter folks, try to add our required python packages
+Starting from the [pyspark docker stack from Jupyter folks](https://github.com/jupyter/docker-stacks/tree/master/pyspark-notebook), try to add our required Python packages
 
 ## Build the image
 	docker build -t jupyter:pyspark-notebook .
@@ -16,8 +16,11 @@ docker run -it --rm -p 8888:8888 jupyter/pyspark-notebook
 ```
 
 Take note of the authentication token included in the notebook startup log messages. Include it in the URL you visit to access the Notebook server or enter it in the Notebook login form.
+
 Share local folder:
-	docker run -it -v ~/data:/data --rm -p 8888:8888 jupyter/pyspark-notebook
+```
+docker run -it -v ~/data:/data --rm -p 8888:8888 jupyter/pyspark-notebook
+```
 	
 
 ## What it Gives You
@@ -29,10 +32,9 @@ Share local folder:
 * Mesos client 0.25 binary that can communicate with a Mesos master
 * Unprivileged user `jovyan` (uid=1000, configurable, see options) in group `users` (gid=100) with ownership over `/home/jovyan` and `/opt/conda`
 * [tini](https://github.com/krallin/tini) as the container entrypoint and [start-notebook.sh](../base-notebook/start-notebook.sh) as the default command
-* A [start-singleuser.sh](../base-notebook/start-singleuser.sh) script useful for running a single-user instance of the Notebook server, as required by JupyterHub
-* A [start.sh](../base-notebook/start.sh) script useful for running alternative commands in the container (e.g. `ipython`, `jupyter kernelgateway`, `jupyter lab`)
+* A [start-singleuser.sh](https://github.com/jupyter/docker-stacks/tree/master/base-notebook/start-singleuser.sh) script useful for running a single-user instance of the Notebook server, as required by JupyterHub
+* A [start.sh](https://github.com/jupyter/docker-stacks/tree/master/base-notebook/start.sh) script useful for running alternative commands in the container (e.g. `ipython`, `jupyter kernelgateway`, `jupyter lab`)
 * Options for a self-signed HTTPS certificate and passwordless `sudo`
-	
 
 ## Using Spark Local Mode
 
