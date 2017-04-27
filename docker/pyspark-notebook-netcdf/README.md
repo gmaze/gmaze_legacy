@@ -6,8 +6,6 @@ Add Ocean's Big Data Mining (OBIDAM) python packages to the [pyspark docker stac
 	docker build -t obidam:test .
 
 ## Run it
-	
 	docker run -it --rm -p 8888:8888 obidam:test
-
-	docker run -it --rm obidam:test start.sh conda list
-	docker run -it --rm obidam:test start.sh cat /etc/*release
+	docker run -it --rm obidam:test start.sh "conda list"
+	docker run -it --rm obidam:test start.sh "cat /etc/*release

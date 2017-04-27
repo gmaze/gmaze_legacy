@@ -1,7 +1,7 @@
 # Copyright (c) OBIDAM
 # Distributed under the terms of the Modified BSD License.
 
-FROM obidam:base
+FROM jupyter/pyspark-notebook
 
 MAINTAINER OBIDAM Project <guillaume.maze@ifremer.fr>
 
