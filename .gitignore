@@ -2,3 +2,5 @@
 *.mat
 
 *.m~
+
+docker/obidam-base/\.ipynb_checkpoints/
