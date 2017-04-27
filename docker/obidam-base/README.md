@@ -1,6 +1,6 @@
 # OBIDAM Docker base image
 
-This is a base image build on top of (pyspark Jupyter notebook dockerfile)[https://github.com/jupyter/docker-stacks/tree/master/pyspark-notebook] where:
+This is a base image build on top of [pyspark Jupyter notebook dockerfile](https://github.com/jupyter/docker-stacks/tree/master/pyspark-notebook) where:
 * the Python 3* environment is removed and work only with Python 2.7
 * Python packages useful for OBIDAM applications are added:
 	* netcdf4=1.2.4
