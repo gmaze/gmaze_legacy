@@ -1,3 +1,4 @@
+![Python Version](https://img.shields.io/badge/python-2.7-blue.svg)
 ![Code status](https://img.shields.io/badge/status-work%20in%20progress-red.svg)
 
 # OBIDAM Docker image from base with samples
@@ -7,7 +8,7 @@ This is an image build on top of [the OBIDAM base image](../obidam-base) where w
 ## What it Gives You
 
 * Jupyter Notebook 4.4
-* Conda Python 2.7 environment
+* Conda Python 2.7 environment (Python 2.7.12 :: Continuum Analytics, Inc.)
 * pyspark, pandas, matplotlib, scipy, seaborn, scikit-learn pre-installed
 * netcdf4, basemap, xarray, dask and tensorflow are pre-installed
 * Spark 2.1.0 with Hadoop 2.7 for use in local mode or to connect to a cluster of Spark workers
@@ -21,5 +22,7 @@ This is an image build on top of [the OBIDAM base image](../obidam-base) where w
 ## Run it:
 	docker run -it --rm -p 8888:8888 obidam/sample
 
-## Check on conda package list:
+## More info from the image environment:
 	docker run -it --rm obidam/sample start.sh "conda list"
+	docker run -it --rm obidam/sample start.sh "cat /etc/*release"
+	docker run -it --rm obidam/sample start.sh "python --version"

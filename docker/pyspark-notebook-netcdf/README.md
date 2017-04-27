@@ -1,3 +1,6 @@
+![Python Version](https://img.shields.io/badge/python-2.7-blue.svg)
+![Code status](https://img.shields.io/badge/status-work%20in%20progress-red.svg)
+
 # Jupyter Notebook Python, Spark, netCDF4
 
 Add Ocean's Big Data Mining (OBIDAM) python packages to the [pyspark docker stack from Jupyter folks](https://github.com/jupyter/docker-stacks/tree/master/pyspark-notebook)

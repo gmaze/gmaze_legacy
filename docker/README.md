@@ -1,6 +1,6 @@
 ![Code status](https://img.shields.io/badge/Status-work%20in%20progress-red.svg)
 
-# Test for docker
+# Tests with docker images
 
 Try to create Docker files for [Ocean's Big Data Mining (OBIDAM) applications](https://github.com/obidam)
 
