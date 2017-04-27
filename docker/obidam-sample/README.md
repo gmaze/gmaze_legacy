@@ -1,6 +1,8 @@
+![Code status](https://img.shields.io/badge/status-work%20in%20progress-red.svg)
+
 # OBIDAM Docker image from base with samples
 
-This is an image build on top of [the OBIDAM base image](../obidam/base) where we aim to add sample scripts and data.
+This is an image build on top of [the OBIDAM base image](../obidam-base) where we aim to add sample scripts and data.
 
 ## What it Gives You
 
