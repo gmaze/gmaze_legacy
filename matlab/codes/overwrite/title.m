@@ -17,7 +17,8 @@
 
 function hh = title(varargin)
 
-error(nargchk(1,inf,nargin,'struct'));
+%error(nargchk(1,inf,nargin,'struct'));
+narginchk(1,inf);
 
 [ax,args,nargs] = axescheck(varargin{:});
 if isempty(ax)

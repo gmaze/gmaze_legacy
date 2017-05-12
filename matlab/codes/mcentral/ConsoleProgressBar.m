@@ -112,7 +112,8 @@ classdef ConsoleProgressBar < handle
             %   obj = ConsoleProgressBar()
             %
             
-            error(nargchk(0, 0, nargin));
+%            error(nargchk(0, 0, nargin));% Throw warming in Matlab2016
+						narginchk(0,0);
         end
         
         %------------------------------------------------------------------
@@ -127,8 +128,9 @@ classdef ConsoleProgressBar < handle
             %   start(obj)
             %
             
-            error(nargchk(1, 1, nargin));
-            
+%            error(nargchk(1, 1, nargin));% Throw warming in Matlab2016
+            narginchk(1,1);
+			
             obj.stop();
             
             obj.isStarted = true;
@@ -148,8 +150,9 @@ classdef ConsoleProgressBar < handle
             %   stop(obj)
             %
             
-            error(nargchk(1, 1, nargin));
-            
+			%            error(nargchk(1, 1, nargin));% Throw warming in Matlab2016
+			            narginchk(1,1);
+			            
             obj.progressString = '';
             obj.prevProgressStringLength = 0;
             
@@ -169,8 +172,9 @@ classdef ConsoleProgressBar < handle
             %   reset(obj)
             %
             
-            error(nargchk(1, 1, nargin));
-            
+			%            error(nargchk(1, 1, nargin));% Throw warming in Matlab2016
+			            narginchk(1,1);
+			            
             obj.setValue(obj.minimum);
             obj.resetTime();
         end
@@ -190,7 +194,8 @@ classdef ConsoleProgressBar < handle
             %   len -- length in characters
             %
             
-            error(nargchk(2, 2, nargin));
+%            error(nargchk(2, 2, nargin));% Throw warming in Matlab2016
+            narginchk(2,2);
             
             validateattributes(len, {'numeric'}, ...
                 {'scalar', '>=', 10, '<=', 500}, ...
@@ -215,7 +220,8 @@ classdef ConsoleProgressBar < handle
             %   margin -- margin in characters
             %
             
-            error(nargchk(2, 2, nargin));
+			%            error(nargchk(2, 2, nargin));% Throw warming in Matlab2016
+			            narginchk(2,2);
             
             validateattributes(margin, {'numeric'}, ...
                 {'scalar', '>=', 0, '<=', 100}, ...
@@ -240,7 +246,8 @@ classdef ConsoleProgressBar < handle
             %   margin -- margin in rows
             %
             
-            error(nargchk(2, 2, nargin));
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);
             
             validateattributes(margin, {'numeric'}, ...
                 {'scalar', '>=', 0, '<=', 10}, ...
@@ -264,8 +271,9 @@ classdef ConsoleProgressBar < handle
             %   val -- progres value in range [min max]
             %
             
-            error(nargchk(2, 2, nargin));
-            
+%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+			narginchk(2, 2);
+			
             validateattributes(val, {'numeric'}, ...
                 {'scalar', '>=', obj.minimum, '<=', obj.maximum}, ...
                 mfilename('fullpath'), 'Progress Value');
@@ -290,8 +298,9 @@ classdef ConsoleProgressBar < handle
             %   minVal -- minimum value of progress range [min max]
             %
             
-            error(nargchk(2, 2, nargin));
-            
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);
+						            
             validateattributes(minVal, {'numeric'}, ...
                 {'scalar', '<', obj.maximum}, ...
                 mfilename('fullpath'), 'Minimum Value');
@@ -320,8 +329,9 @@ classdef ConsoleProgressBar < handle
             %   maxVal -- maximum value of progress range [min max]
             %
             
-            error(nargchk(2, 2, nargin));
-            
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);
+						            
             validateattributes(maxVal, {'numeric'}, ...
                 {'scalar', '>', obj.minimum}, ...
                 mfilename('fullpath'), 'Maximum Value');
@@ -350,7 +360,8 @@ classdef ConsoleProgressBar < handle
             %   text -- text string
             %
             
-            error(nargchk(2, 2, nargin));
+%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+            narginchk(2, 2); 
             
             validateattributes(userText, {'char'}, {'row'}, ...
                 mfilename('fullpath'), 'Text');
@@ -377,7 +388,8 @@ classdef ConsoleProgressBar < handle
             %   flag -- true - visible, false - invisible
             %
             
-            error(nargchk(2, 2, nargin));
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);						
             
             validateattributes(flag, {'numeric', 'logical'}, ...
                 {'scalar', '>=', 0, '<=', 1}, ...
@@ -404,7 +416,8 @@ classdef ConsoleProgressBar < handle
             %   pos -- text position: 'left' or 'right'
             %
             
-            error(nargchk(2, 2, nargin));
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);
             
             pos = validatestring(lower(pos), {'left', 'right'}, ...
                 mfilename('fullpath'), 'Text Position');
@@ -428,7 +441,8 @@ classdef ConsoleProgressBar < handle
             %   flag -- true - text visible, false - text invisible
             %
             
-            error(nargchk(2, 2, nargin));
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);
             
             validateattributes(flag, {'numeric', 'logical'}, ...
                 {'scalar', '>=', 0, '<=', 1}, ...
@@ -453,7 +467,8 @@ classdef ConsoleProgressBar < handle
             %   pos -- text position: 'left' or 'right'
             %
             
-            error(nargchk(2, 2, nargin));
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);
             
             pos = validatestring(lower(pos), {'left', 'right'}, ...
                 mfilename('fullpath'), 'Percent Text Position');
@@ -477,7 +492,8 @@ classdef ConsoleProgressBar < handle
             %   flag -- true - text visible, false - text invisible
             %
             
-            error(nargchk(2, 2, nargin));
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);
             
             validateattributes(flag, {'numeric', 'logical'}, ...
                 {'scalar', '>=', 0, '<=', 1}, ...
@@ -502,7 +518,8 @@ classdef ConsoleProgressBar < handle
             %   pos -- text position: 'left' or 'right'
             %
             
-            error(nargchk(2, 2, nargin));
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);
             
             pos = validatestring(lower(pos), {'left', 'right'}, ...
                 mfilename('fullpath'), 'Elapsed Time Text Position');
@@ -526,7 +543,8 @@ classdef ConsoleProgressBar < handle
             %   flag -- true - text visible, false - text invisible
             %
             
-            error(nargchk(2, 2, nargin));
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);
             
             validateattributes(flag, {'numeric', 'logical'}, ...
                 {'scalar', '>=', 0, '<=', 1}, ...
@@ -551,7 +569,8 @@ classdef ConsoleProgressBar < handle
             %   pos -- text position: 'left' or 'right'
             %
             
-            error(nargchk(2, 2, nargin));
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);
             
             pos = validatestring(lower(pos), {'left', 'right'}, ...
                 mfilename('fullpath'), 'Remained Time Position');
@@ -581,7 +600,8 @@ classdef ConsoleProgressBar < handle
             %   str = obj.getElapsedTimeStr('HH:MM:SS.FFF')
             %
             
-            error(nargchk(2, 2, nargin));
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);
             
             elapsedTimeNum = datenum([0 0 0 0 0 obj.elapsedSeconds]);
             str = datestr(elapsedTimeNum, format);
@@ -605,7 +625,8 @@ classdef ConsoleProgressBar < handle
             %   str = obj.getRemainedTimeStr('HH:MM:SS.FFF')
             %
             
-            error(nargchk(2, 2, nargin));
+			%            error(nargchk(2, 2, nargin)); % Throw warming in Matlab2016
+						narginchk(2, 2);
             
             if ~isinf(obj.remainedSeconds)
                 remainedTimeNum = datenum([0 0 0 0 0 obj.remainedSeconds]);
