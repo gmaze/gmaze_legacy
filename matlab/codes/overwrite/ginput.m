@@ -102,7 +102,7 @@ else
         set (ptButtons,'Enable','off');
    end
 
-   set(fig,'pointer','fullcrosshair');
+   set(fig,'pointer','crosshair');
    fig_units = get(fig,'units');
    char = 0;
 

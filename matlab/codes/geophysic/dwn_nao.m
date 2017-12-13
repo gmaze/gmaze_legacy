@@ -9,7 +9,7 @@
 %	DT is the time step of the time serie:
 % 		'm': Monthly mean (default)
 %		'y': Annual mean
-%		'w': Annual winter (DJFM) mean
+%		'w': Annual winter (DFM) mean
 %
 % Outputs:
 %	NAO_index: well, the NAO index !
@@ -45,13 +45,13 @@ end
 url = 'http://www.cpc.noaa.gov/products/precip/CWlink/pna/norm.nao.monthly.b5001.current.ascii';
 nao_path = '~/matlab/codes/data/';
 nao_file = sprintf('NAO_%s.txt',datestr(now,'yyyymm'));
-if ~exist(sprintf('%s%s',nao_path,nao_file),'file')
-	system(sprintf('wget -q -O %s%s ''%s''',nao_path,nao_file,url));
-	load(sprintf('%s%s',nao_path,nao_file));
+if ~exist(fullfile(nao_path,nao_file),'file')
+	websave(fullfile(nao_path,nao_file),url)
+	load(fullfile(nao_path,nao_file));
 	eval(sprintf('NAO = %s;',strrep(nao_file,'.txt','')));
-	save(sprintf('%s%s',nao_path,strrep(nao_file,'.txt','.mat')),'NAO');
+	save(fullfile(nao_path,strrep(nao_file,'.txt','.mat')),'NAO');
 end
-load(sprintf('%s%s',nao_path,strrep(nao_file,'.txt','.mat')));
+load(fullfile(nao_path,strrep(nao_file,'.txt','.mat')));
 
 NAO_t = datenum(NAO(:,1),NAO(:,2),15,0,0,0);
 NAO_T = datestr(datenum(NAO(:,1),NAO(:,2),15,0,0,0),'yyyymm');
@@ -64,7 +64,7 @@ switch DT
 		NAO_i 	 = NAO';
 		NAO_tfin = NAO_t';
 	case 'y'
-		% Move to yearly means
+		% Move to annual mean:
 		y0 = str2num(datestr(NAO_t(1),'yyyy'));
 		ye = str2num(datestr(NAO_t(end),'yyyy'));
 		ii = 0;
@@ -79,11 +79,12 @@ switch DT
 			NAO_tfin(ii) = datenum(y,1,1,0,0,0);
 		end%for y
 	case 'w'
-		% Move to Winter monthly means (DJFM)
+		% Move to Winter monthly means (JFM)
 		t  = str2num(datestr(NAO_t,'yyyy'));
 		tm = str2num(datestr(NAO_t,'mm'));
 		for ye = min(t) : max(t)
-			ii = find(  (t==ye & (tm==12)) | (t==ye+1 & (tm==1 | tm==2 | tm==3)) );
+%			ii = find(  (t==ye & (tm==12)) | (t==ye+1 & (tm==1 | tm==2 | tm==3)) );
+			ii = find(  (t==ye & (tm==1 | tm==2 | tm==3)) );
 			if ~isempty(ii)
 				nao_index(ye) = nanmean(NAO(ii));
 			else

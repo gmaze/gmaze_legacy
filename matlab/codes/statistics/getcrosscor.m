@@ -1,12 +1,15 @@
 % GETCROSSCOR Compute a lagged cross-correlation 
 %
-% [CR LAGS CONFIDENCE95 PROB] = GETCROSSCOR(X1,X2,T)
+% [CR LAGS CONFIDENCE95 P] = GETCROSSCOR(X1,X2,T)
 % 
 % Compute the cross-correlation between X1 and X2
-% with lags from -T to T
+% with lags from -T to T. Note that T is in timestep.
 %
-%     CR(find(PROB>0.05)) = ones(1,length(find(PROB>0.05))).*NaN;
-%
+% What is confident ? Use the p-value
+% 	CRconf = CR;
+%	CRconf(find(P>0.05)) = ones(1,length(find(P>0.05))).*NaN;
+%	plot(LAGS,CR,LAGS,CRconf,LAGS,diff(CONFIDENCE95,[],2)/2,LAGS,-diff(CONFIDENCE95,[],2)/2);
+% 
 % Copyright (c) 2004 Guillaume Maze. 
 % http://codes.guillaumemaze.org
 

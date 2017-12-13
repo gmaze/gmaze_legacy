@@ -102,7 +102,7 @@ switch method
 	
 	np = get(gcf,'nextplot');
 	set(gcf,'nextplot','add');
-	if oldtitle
+	if ~isa(oldtitle,'double')
 		delete(oldtitle);
 	end
 	ha = axes('pos',[0 0 1 0.01],'visible','off','Tag','footnote');

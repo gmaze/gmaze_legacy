@@ -149,6 +149,7 @@ else
 	keepfootnote = 1;
 end
 
+
 % --------------------------------------------
 %- Define Output pdf file name:
 outfile = strcat(fich,'.',ext);
@@ -265,6 +266,10 @@ end% if
 
 % --------------------------------------------
 %- Print out file:
+% disp(PaperType)
+% disp(pcom) 
+% disp(orient) 
+
 switch orient
 	case {0,1}
 		print(f,pcom,outfile);
@@ -283,7 +288,11 @@ switch orient
 		end% if 
 end% switch
 
-disp(sprintf('Figure %i saved in %s',f,outfile));
+try
+	disp(sprintf('Figure %i saved in %s',f,outfile));
+catch
+	disp(sprintf('Figure %i saved in %s',f.Number,outfile));	
+end %try
 disp(sprintf('!open %s',outfile));
 
 % --------------------------------------------

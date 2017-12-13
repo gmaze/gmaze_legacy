@@ -67,8 +67,10 @@ switch method
 	case 1 %  Haversine formula, accurate to 0.3%
 		if length(lat) == 1 & length(lon)>1
 			lat = lat*ones(1,length(lon));
+			cas = 1;
 		elseif length(lon) == 1 & length(lat)>1
 			lon = lon*ones(1,length(lat));
+			cas = 2;
 		elseif length(lat)>1 & length(lon)>1 & length(lat)~=length(lon)
 			error('lat and lon must of similar size');
 		end% if 
@@ -85,7 +87,12 @@ switch method
 		a = (sin(dlat/2)).^2 + cos(lat1) .* cos(lat2) .* (sin(dlon/2)).^2;
 		c = 2 * atan2( sqrt(a), sqrt(1-a) );
 		dist = earth_radius * c;
-		
+
+		if cas == 1
+			dist = dist(:,1);
+		elseif cas == 2
+			dist = dist(1,:);
+		end% if 
 		dist = dist(:)';
 		
 	case 2 % Vincenty formula, accurate to 0.5mm ! using mex file

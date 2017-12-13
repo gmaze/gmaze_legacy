@@ -24,7 +24,6 @@ else
 	styl = {'linestyle';'--'};
 end
 
-
 switch get(h(1),'type')
 	case 'hggroup'
 		hch = get(h,'children');
@@ -68,6 +67,8 @@ switch isonhold
 	case 1
 		hold on
 end
+
+stophere
 
 if nargout==1 & method == 2
 	varargout(1) = {d};

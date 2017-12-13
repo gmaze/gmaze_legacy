@@ -3,18 +3,17 @@
 % field_out = smoother1Ddiff(field_in,dist_in1);
 %
 % Apply a diffusive smoother based on Weaver and Courtier, 2001.
+% By default, field_in is assumed to be NOT circular. To make it circular, add 1 as thrird argument:
+% field_out = smoother1Ddiff(field_in,dist_in1,1);
 %
 % field_in:	field to be smoothed (masked with NaN)
 % dist_in1:	scale in first direction
 % field_out: smoothed field
 %
-% The domain is assumed cyclic.
-% If it is not, you want to mask edge points with NaNs.
-%
 % Created by Guillaume Maze on 2009-11-24.
 % Developed with Gael Forget
 % Copyright (c) 2008 Guillaume Maze. 
-% http://codes.guillaumemaze.org
+% Revised: 2017-05-17 (G. Maze) Adding circularity argument
 
 % 
 % Redistribution and use in source and binary forms, with or without
@@ -38,9 +37,15 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 
-function [field_out smooth2D_nbt smooth2D_kh1] = smoother1Ddiff(field_in,dist_in1)
+function [field_out smooth2D_nbt smooth2D_kh1] = smoother1Ddiff(field_in,dist_in1,varargin)
 
-% Same as 2D version but much faster if performed on a single dimension
+%- 
+circ = 0;
+if nargin == 2 + 1
+	circ = varargin{1};
+end% if 
+
+% Same code as 2D version but much faster if performed on a single dimension
 
 % domaine_global_def;
 nt = size(field_in,1);
@@ -57,6 +62,13 @@ smooth2D_kh1 = dist_in1.*dist_in1/smooth2D_T/2;
 
 % time-stepping loop:
 field_out = field_in; 
+switch circ
+	case true
+		% 
+	case false
+		field_out([1 end]) = NaN;
+end% switch 
+
 
 for icur = 1 : smooth2D_nbt
 %	if mod(icur,10) == 0, disp(sprintf('Smoother Iteration: %3.0f/%3.0f',icur,smooth2D_nbt));end

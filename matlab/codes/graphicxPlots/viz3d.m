@@ -1,11 +1,12 @@
 function varargout = viz3d(x,y,z,data,slice)
-% viz3d H1LINE
+% viz3d 3D field exploration plot
 %
 % 	viz3d(x,y,z,data,slice)
 % with
 % 	data(x,y,z)
+%	slice = [0 0 10] is the slice to plot as reference
 %
-% OUTPUTS:
+% 
 %
 % EG:
 %
@@ -89,7 +90,7 @@ function varargout = profiletool(varargin)
 
 if nargin == 1
 	if ischar(varargin{1})
-		par = NaN;
+		par = [];
 	else
 		% We have a parent to attach the button:
 		par = varargin{1};
@@ -103,9 +104,10 @@ else
 	par = uitoolbar(gcf,'Tag','profiletool');		
 end
 
-if ~isnan(par)
+if ~isempty(par)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-CData  = load(fullfile(copoda_readconfig('copoda_data_folder'),'icon_profile2.mat'));
+droot = '~/work/Community/COPODA/forgerepos/svn/trunk/copoda/data';
+CData = load(fullfile(droot,'icon_profile2.mat'));
 CData.A = abs(CData.A-.2);
 
 pth = uipushtool('Parent',par,'CData',CData.A,'Enable','on',...
@@ -126,7 +128,7 @@ function varargout = continuousprofiletool(varargin)
 
 if nargin == 1
 	if ischar(varargin{1})
-		par = NaN;
+		par = [];
 	else
 		% We have a parent to attach the button:
 		par = varargin{1};
@@ -140,13 +142,14 @@ else
 	par = uitoolbar(gcf,'Tag','cprofiletool');		
 end
 
-if ~isnan(par)
+if ~isempty(par)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-CData  = load(fullfile(copoda_readconfig('copoda_data_folder'),'icon_profile2.mat'));
+droot = '~/work/Community/COPODA/forgerepos/svn/trunk/copoda/data';
+CData  = load(fullfile(droot,'icon_profile2.mat'));
 CData.A = abs(CData.A-.1);
 
 pth = uipushtool('Parent',par,'CData',CData.A,'Enable','on',...
-          'TooltipString','C-Profile','Separator','off',...
+          'TooltipString','Continuous Profiling','Separator','off',...
           'HandleVisibility','on','ClickedCallback',{@cprofileit});
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

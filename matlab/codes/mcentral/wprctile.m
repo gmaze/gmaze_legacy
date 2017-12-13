@@ -83,7 +83,8 @@ function y = wprctile(X,p,varargin)
 
 %% Input arguments check
 
-error(nargchk(2,4,nargin))
+%error(nargchk(2,4,nargin))
+narginchk(2,4);
 if ~isvector(p) || numel(p) == 0
     error('wprctile:BadPercents', ...
           'P must be a scalar or a non-empty vector.');

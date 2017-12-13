@@ -47,7 +47,8 @@
 function YG = bin1mat(x,y,XI,varargin)
 
 %check inputs
-error(nargchk(3,inf,nargin,'struct'));
+%error(nargchk(3,inf,nargin,'struct'));
+narginchk(3,inf)
 
 %make sure the vectors are column vectors
 x = x(:);
@@ -55,7 +56,7 @@ y = y(:);
 
 if all(any(diff(cellfun(@length,{x,y}))));
     error('Inputs x and y must be the same size');
-end
+end% if 
 
 %process optional input
 fun=@mean;
@@ -64,12 +65,12 @@ if ~isempty(varargin)
     fun=varargin{1};
     if ~isa(fun,'function_handle');
         fun=str2func(fun);
-    end
+    end% if 
     
     %test the function for non-scalar output
     test = feval(fun,rand(5,1),varargin{2:end});
-    
-end
+   
+end% if 
 
 %grid nodes
 xi=XI(1,:);
@@ -79,7 +80,7 @@ xi=XI(1,:);
 xmin=min(xi);
 xmax=max(xi);
 
-gind =(x>=xmin & x<=xmax);
+gind = (x>=xmin & x<=xmax);
 
 %find the indices for each x and y in the grid
 [junk,xind] = histc(x(gind),xi);
