@@ -39,6 +39,6 @@ set(h,'color',tmpcolor,'color',color);
 
 a = dbstack('-completenames');
 fil_caller = a(end).file;
-if strfind(fil_caller,getenv('HOME'))
+if strfind(fil_caller, getenv('HOME')) & isempty(strfind(fil_caller,'git'))
 	footnote;
 end

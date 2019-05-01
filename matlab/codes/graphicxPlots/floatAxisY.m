@@ -54,8 +54,8 @@ function [hl1,ax2,ax3] = floatAxisY(varargin)
 %    assumed all data had the same x-limits. Oops! Thanks to Jan Even Nilsen
 %    (even@gfi.uib.no) for pointing this out.
 
-DX = 0.1; % horizontal shift (0 to 1)
-
+DX = 0.08; % horizontal shift (0 to 1)
+% subplottag = 'floatAxisY';
  
 % strip the arguments passed in
 if (nargin < 2)
@@ -109,14 +109,15 @@ end
 allAxes = setdiff(allAxes,findobj(gcf,'tag','footnote'));
 allAxes = setdiff(allAxes,findobj(gcf,'tag','suptitle'));
 ax1Pos  = get(allAxes(1),'position');
+% disp(length(allAxes))
 
 % rescale and reposition all axes to handle additional axes
 for ii = 2:length(allAxes)
-   if (rem(ii,2)==0) 
+   if (rem(ii,2)==0)
       % even ones in array of axes handles represent axes on which lines are plotted
       set(allAxes(ii),'Position',[ax1Pos(1)+DX ax1Pos(2) ax1Pos(3)-DX ax1Pos(4)])
    else
-      % odd ones in array of axes handles represent axes on which floating x-axss exist
+      % odd ones in array of axes handles represent axes on which floating y-axes exist
       axPos = get(allAxes(ii),'Position');
       set(allAxes(ii),'Position',[axPos(1)+DX axPos(2) axPos(3) axPos(4)])
    end

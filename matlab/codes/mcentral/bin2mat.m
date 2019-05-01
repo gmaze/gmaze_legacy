@@ -60,7 +60,8 @@
 function [ZG blc_ind] = bin2mat(x,y,z,XI,YI,varargin)
 
 %check inputs
-error(nargchk(5,inf,nargin,'struct'));
+% error(nargchk(5,inf,nargin,'struct'));
+narginchk(5,inf)
 
 %make sure the vectors are column vectors
 x = x(:);
