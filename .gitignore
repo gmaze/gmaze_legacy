@@ -4,3 +4,5 @@
 *.m~
 
 docker/obidam-base/\.ipynb_checkpoints/
+
+python/\.ipynb_checkpoints/
