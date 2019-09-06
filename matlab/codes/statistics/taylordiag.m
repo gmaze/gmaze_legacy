@@ -467,10 +467,10 @@ end
 		pp(ii)=plot(rho(ii)*cos(theta(ii)),rho(ii)*sin(theta(ii)));
 		set(pp(ii),'marker','.','markersize',20);
 		set(pp(ii),'color','r');
-		if length(STDs)<=26
+		if ii<=26
 			tt(ii)=text(rho(ii)*cos(theta(ii)),rho(ii)*sin(theta(ii)),ALPHABET(ii),'color','r');
-		elseif length(STDs)<=26*2
-			tt(ii)=text(rho(ii)*cos(theta(ii)),rho(ii)*sin(theta(ii)),lower(ALPHABET(ii)),'color','r');
+		elseif ii<=26*2
+			tt(ii)=text(rho(ii)*cos(theta(ii)),rho(ii)*sin(theta(ii)),lower(ALPHABET(ii - 26)),'color','r');
 		else
 			error('sorry I don''t how to handle more than 52 points labels !');
 		end
